@@ -1,4 +1,5 @@
 .env
 *.token.json
+yahoo/token.json
 .yahoo_token_cache*
 node_modules/
