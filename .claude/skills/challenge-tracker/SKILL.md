@@ -14,13 +14,12 @@ in `reference/challenges.md`.
 2. Look up that week's exact rule in `reference/challenges.md` — quote it back to the user
    so they can confirm you're evaluating the right thing.
 3. **Try live data first, if it's available:**
-   - Check whether `yahoo/token.json` exists and `yahoo/run-challenge.js` exists in the
-     project. If both exist, run `node yahoo/run-challenge.js <week>` from the project root
-     and use its output.
-   - If either is missing, or the script errors (expired token, Yahoo API access not yet
-     approved, script not built yet), fall through to the manual path below — don't treat
-     this as a failure, it's the expected current state until OAuth + Yahoo API approval are
-     both done.
+   - Check whether `yahoo/run-challenge.js` exists in the project. If it exists, run
+     `node yahoo/run-challenge.js <week>` from the project root and use its output.
+   - If it's missing or the script errors (missing/expired Playwright session, Yahoo API
+     access not yet approved, script not built yet), fall through to the manual path below —
+     don't treat this as a failure, it's the expected current state until OAuth + Yahoo API
+     approval are both done.
 4. **Manual path (used until live data is wired up and working):**
    - Tell the user live data isn't available yet and ask them to paste or screenshot the
      full league scoreboard/boxscores for that week from the Yahoo app — specifically

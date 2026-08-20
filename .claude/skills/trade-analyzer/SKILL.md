@@ -12,9 +12,8 @@ Evaluates a specific trade: players the user gives up vs. players they receive.
 1. Ask the user (if not already stated) exactly which players are on each side of the
    trade, and which team they're trading with.
 2. **Try live data first, if it's available:**
-   - Check whether `yahoo/token.json` and `yahoo/get-matchup.js` (or the equivalent roster
-     fetch) exist and work. If so, use them to see the user's full current roster for
-     context.
+   - Check whether `yahoo/get-matchup.js` (or the equivalent roster fetch) exists and works.
+     If so, use it to see the user's full current roster for context.
    - If unavailable, fall through to the manual path — expected until OAuth + Yahoo API
      approval are done.
 3. **Manual path (used until live data works):**

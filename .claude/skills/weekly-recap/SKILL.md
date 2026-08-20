@@ -12,9 +12,9 @@ opponent "personas," just banter grounded in the real data for that week.
 
 1. Determine the week (default: most recently completed week).
 2. **Try live data first, if it's available:**
-   - Check whether `yahoo/token.json` and the relevant fetch scripts (`yahoo/get-matchup.js`
-     for rosters, and a scoreboard-fetching script for final scores, once one exists) exist
-     and work. If so, use them.
+   - Check whether the relevant fetch scripts exist and work (`yahoo/get-matchup.js`
+     for rosters, and a scoreboard-fetching script for final scores, once one exists). If so,
+     use them.
    - If unavailable, fall through to the manual path — expected until OAuth + Yahoo API
      approval are done.
 3. **Manual path (used until live data works):**

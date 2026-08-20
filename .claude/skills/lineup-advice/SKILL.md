@@ -11,11 +11,11 @@ Gives start/sit recommendations for the user's team for a given week.
 
 1. Determine which week the user means (default: current NFL week).
 2. **Try live data first, if it's available:**
-   - Check whether `yahoo/token.json` and `yahoo/get-matchup.js` exist. If both exist, run
+   - Check whether `yahoo/get-matchup.js` exists. If it exists, run
      `node yahoo/get-matchup.js <week>` from the project root to get the user's roster,
      opponent name, and opponent's roster as JSON.
-   - If either is missing, or it errors, fall through to the manual path — this is expected
-     until OAuth + Yahoo API approval are done and Task 14's script is built.
+   - If it's missing or it errors, fall through to the manual path — this is expected
+     until OAuth + Yahoo API approval are done and the script is built.
 3. **Manual path (used until live data works):**
    - Ask the user to paste or screenshot their current roster for that week (starters and
      bench, with positions) from the Yahoo app. If known, also ask for their opponent's

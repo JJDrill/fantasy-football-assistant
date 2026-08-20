@@ -81,6 +81,10 @@ automation instead:
    and `weekly-recap` will now use `node yahoo/get-*.js` / `node yahoo/run-challenge.js`
    automatically instead of asking you to paste screenshots.
 
+**Note:** This setup is specific to the "Kicker? I Hardly Know Her" league (hardcoded league
+ID and URL in `yahoo/pages/base-page.js`). To use this for a different league, you'd need to
+update the league constants in that file.
+
 If a script ever fails with `NOT_LOGGED_IN`, just run `node yahoo/login.js` again.
 
 ## Project structure
