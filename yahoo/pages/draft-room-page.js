@@ -195,18 +195,34 @@ async function getOurRoster(page) {
 // of blindly clicking whatever button is in the dialog, so the deadline guard in
 // run-draft.js can catch it and fall back to Yahoo's autopick rather than accidentally
 // leaving the draft.
+// Generational suffixes that can trail a surname (e.g. "T. Etienne Jr.", "J. Walker III").
+// Stripped before taking the "surname" token below — without this, a name like
+// "T. Etienne Jr." would take "Jr." as the comparison token, which trivially matches ANY
+// other Jr.-suffixed player's dialog (e.g. "Michael Pittman Jr."), silently defeating the
+// mismatch check for a meaningful fraction of the real player pool. Mirrors the
+// suffix-awareness free-agents-page.js already needs elsewhere in this codebase, though the
+// concrete approach differs (that file strips glued injury tags; this strips a
+// whitespace-separated generational suffix).
+const NAME_SUFFIXES = new Set(['Jr.', 'Sr.', 'II', 'III', 'IV']);
+
 // Exported for unit testing — pure string logic split out of draftPlayer's Playwright
-// interaction. Compares by trailing name token (surname) rather than requiring the dialog
-// to contain the exact playerName string: the available-players table renders names in
-// abbreviated form ("J. Jefferson"), but the detail dialog that opens on click shows the
-// player's full first name ("Justin" / "Jefferson" as separate elements, not "J."). An
-// exact-substring check against the abbreviated form therefore NEVER matches — live-
-// verified (2026-08-20, mock draft room) this made the mismatch check a permanent false
-// positive that fired on every single real pick. Comparing surnames instead is reliable
-// across both name formats and DEF rows (whose "name" is just the team name, e.g. "Rams").
+// interaction. Compares by surname rather than requiring the dialog to contain the exact
+// playerName string: the available-players table renders names in abbreviated form
+// ("J. Jefferson"), but the detail dialog that opens on click shows the player's full first
+// name ("Justin" / "Jefferson" as separate elements, not "J."). An exact-substring check
+// against the abbreviated form therefore NEVER matches — live-verified (2026-08-20, mock
+// draft room) this made the mismatch check a permanent false positive that fired on every
+// single real pick. Comparing surnames instead is reliable across both name formats and DEF
+// rows (whose "name" is just the team name, e.g. "Rams") — but the surname must be taken
+// after stripping any trailing generational suffix (see NAME_SUFFIXES above), or a
+// suffixed player's "surname" degrades to the shared suffix itself.
 function dialogMatchesPlayer(dialogText, playerName) {
-  const lastToken = playerName.trim().split(/\s+/).pop();
-  return Boolean(lastToken) && dialogText.includes(lastToken);
+  const tokens = playerName.trim().split(/\s+/);
+  while (tokens.length > 1 && NAME_SUFFIXES.has(tokens[tokens.length - 1])) {
+    tokens.pop();
+  }
+  const surname = tokens.pop();
+  return Boolean(surname) && dialogText.includes(surname);
 }
 
 async function draftPlayer(page, playerName) {

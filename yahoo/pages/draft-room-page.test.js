@@ -76,3 +76,16 @@ test('dialogMatchesPlayer rejects a dialog for a different player', () => {
   const dialogText = 'JoshAllenQuarterback • Buffalo Bills • Bye 7';
   assert.strictEqual(dialogMatchesPlayer(dialogText, 'J. Jefferson'), false);
 });
+
+test('dialogMatchesPlayer does not cross-match two different Jr.-suffixed players', () => {
+  // Regression test: taking the raw last whitespace token ("Jr.") as the surname would
+  // make this trivially true for ANY Jr.-suffixed player's dialog, not just the correct
+  // one — defeating the safety check for a meaningful fraction of the real player pool.
+  const dialogText = 'MichaelPittmanJr.Wide Receiver • Indianapolis Colts • Bye 11';
+  assert.strictEqual(dialogMatchesPlayer(dialogText, 'T. Etienne Jr.'), false);
+});
+
+test('dialogMatchesPlayer correctly matches a Jr.-suffixed player against their own dialog', () => {
+  const dialogText = 'TravisEtienneJr.Running Back • Jacksonville Jaguars • Bye 8';
+  assert.strictEqual(dialogMatchesPlayer(dialogText, 'T. Etienne Jr.'), true);
+});
