@@ -1,0 +1,614 @@
+<title>Draft Night Sheet</title>
+
+<style>
+  :root {
+    --ground: #f5f6f3;
+    --surface: #ffffff;
+    --surface-2: #eef0ec;
+    --ink: #141a1f;
+    --ink-dim: #5b6a72;
+    --accent: #c97a12;
+    --accent-ink: #ffffff;
+    --line: #dde3e6;
+
+    --qb: #b4562f;
+    --rb: #2f7d5c;
+    --wr: #2f6fa8;
+    --te: #8b4fa0;
+    --kd: #6b7780;
+
+    --font-display: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --font-body: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #10151b;
+      --surface: #1a222b;
+      --surface-2: #212b35;
+      --ink: #eef1ef;
+      --ink-dim: #94a3ab;
+      --accent: #ffb020;
+      --accent-ink: #14181c;
+      --line: #2a3540;
+
+      --qb: #e2825c;
+      --rb: #58c495;
+      --wr: #74acdf;
+      --te: #d99ee8;
+      --kd: #94a3ab;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #10151b;
+    --surface: #1a222b;
+    --surface-2: #212b35;
+    --ink: #eef1ef;
+    --ink-dim: #94a3ab;
+    --accent: #ffb020;
+    --accent-ink: #14181c;
+    --line: #2a3540;
+
+    --qb: #e2825c;
+    --rb: #58c495;
+    --wr: #74acdf;
+    --te: #d99ee8;
+    --kd: #94a3ab;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+  }
+
+  a { color: var(--accent); }
+
+  /* ---------- Masthead / vitals ---------- */
+
+  .masthead {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    text-wrap: balance;
+  }
+
+  .subhead {
+    margin: 0;
+    color: var(--ink-dim);
+    font-size: 1.05rem;
+    max-width: 62ch;
+  }
+
+  .vitals {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .vital {
+    background: var(--surface);
+    padding: 0.85rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .vital .label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  .vital .value {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .vital .value.accent { color: var(--accent); }
+
+  /* ---------- Section shell ---------- */
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin: 0;
+  }
+
+  .section-title h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-size: 1.15rem;
+  }
+
+  .section-title .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .lede {
+    margin: 0;
+    color: var(--ink-dim);
+    max-width: 68ch;
+  }
+
+  /* ---------- Callout ---------- */
+
+  .callout {
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .callout .callout-title {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .callout p { margin: 0; color: var(--ink); }
+  .callout p + p { margin-top: 0.4rem; }
+
+  /* ---------- Scoring quirks list ---------- */
+
+  .quirks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .quirk {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .quirk .quirk-stat {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .quirk p { margin: 0; font-size: 0.92rem; color: var(--ink-dim); }
+  .quirk p strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- Position cards ---------- */
+
+  .positions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0.9rem;
+  }
+
+  .pos-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .pos-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .pos-chip {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    color: var(--accent-ink);
+  }
+
+  .pos-chip.qb { background: var(--qb); }
+  .pos-chip.rb { background: var(--rb); }
+  .pos-chip.wr { background: var(--wr); }
+  .pos-chip.te { background: var(--te); }
+  .pos-chip.kd { background: var(--kd); }
+
+  .pos-window {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.78rem;
+    color: var(--ink-dim);
+  }
+
+  .pos-card p { margin: 0; font-size: 0.92rem; color: var(--ink-dim); }
+  .pos-card p strong { color: var(--ink); font-weight: 600; }
+
+  .tiers {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .tier {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    gap: 0.6rem;
+    align-items: start;
+    font-size: 0.88rem;
+  }
+
+  .tier .tier-name {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .tier .tier-desc { color: var(--ink-dim); }
+
+  /* ---------- Round plan table ---------- */
+
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 640px;
+    background: var(--surface);
+  }
+
+  th, td {
+    text-align: left;
+    padding: 0.65rem 0.9rem;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.9rem;
+  }
+
+  thead th {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    background: var(--surface-2);
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+
+  td.rounds {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+  /* ---------- Checklist ---------- */
+
+  .checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .check-item {
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.75rem 0.9rem;
+  }
+
+  .check-item .n {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .check-item p { margin: 0; font-size: 0.92rem; }
+  .check-item p strong { color: var(--ink); }
+
+  footer {
+    color: var(--ink-dim);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--line);
+    padding-top: 1.25rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .page { animation: rise 0.4s ease-out; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+</style>
+
+<div class="page">
+
+  <div class="masthead">
+    <div class="eyebrow">Kicker? I Hardly Know Her &middot; 2026 Season</div>
+    <h1>Draft Night Sheet</h1>
+    <p class="subhead">
+      Strategy tuned to this league's exact scoring and roster rules — not generic rankings.
+      Keep Yahoo's live draft room open in another window; use this for the calls the rankings
+      list won't make for you.
+    </p>
+    <div class="vitals">
+      <div class="vital"><span class="label">Draft time</span><span class="value accent">Sun Aug 23, 5:00 PM ET</span></div>
+      <div class="vital"><span class="label">Format</span><span class="value">Snake &middot; 10 teams</span></div>
+      <div class="vital"><span class="label">Clock</span><span class="value">60 sec / pick</span></div>
+      <div class="vital"><span class="label">Scoring</span><span class="value">Half&#8211;PPR</span></div>
+      <div class="vital"><span class="label">Rounds</span><span class="value">17 (incl. 2 IR)</span></div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">Heads up</div>
+    <p><strong>This league's roster has no superflex and no IDP slot</strong> — just
+      QB / WR / WR / RB / RB / TE / FLEX / K / DEF, plus 6 bench and 2 IR. But three of the
+      weekly $10 challenges (Weeks 4, 9, 15) reference a "superflex QB" and Week 6 is built
+      entirely around a "starting IDP." Those challenges can't literally apply to how this
+      league is actually rostered — worth flagging to your commissioner. Doesn't change
+      anything about how you should draft.</p>
+  </div>
+
+  <section>
+    <div class="section-title">
+      <h2>How the scoring changes your draft</h2>
+      <div class="rule"></div>
+    </div>
+    <p class="lede">Four settings in this league push draft value around more than a "standard" cheat sheet accounts for.</p>
+    <div class="quirks">
+      <div class="quirk">
+        <div class="quirk-stat">RUSH &amp; REC — 1 PT / 10 YDS (EQUAL)</div>
+        <p>Receiving yards score at the <strong>same rate</strong> as rushing yards here. A back
+          who catches passes isn't just picking up cheap PPR points — his receiving yards
+          are worth exactly as much as his rushing yards. Dual-threat RBs are a tier above
+          pure between-the-tackles runners.</p>
+      </div>
+      <div class="quirk">
+        <div class="quirk-stat">PASSING — 1 PT / 25 YDS, 4 PT TD, &minus;1 INT</div>
+        <p>Quarterback scoring is modest, and with <strong>only one QB slot and no superflex</strong>,
+          there's no premium for hoarding passers. Do not reach for QB — the position is
+          replaceable in a 10-team, 1-QB league.</p>
+      </div>
+      <div class="quirk">
+        <div class="quirk-stat">KICKER — DISTANCE WEIGHTED (50+ = 5 PT)</div>
+        <p>Field goals scale up with distance instead of paying flat. Target a kicker on a
+          <strong>high-volume, long-range-capable</strong> offense over a purely "accurate
+          chip-shot" kicker.</p>
+      </div>
+      <div class="quirk">
+        <div class="quirk-stat">DEFENSE — SHUTOUT = 10, 21&ndash;27 = 0, 35+ = &minus;4</div>
+        <p>The points-allowed bands swing hard. A defense's <strong>Week 1 matchup</strong>
+          matters more than its name-brand reputation — stream aggressively rather than
+          drafting a "top" defense too early.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">
+      <h2>Position priority</h2>
+      <div class="rule"></div>
+    </div>
+    <p class="lede">
+      With 2 RB + 2 WR + 1 FLEX (RB/WR/TE) starting every week, this roster wants RB/WR depth
+      more than anything else — lean RB-WR early, let QB and TE come to you.
+    </p>
+    <div class="positions">
+
+      <div class="pos-card">
+        <div class="pos-head">
+          <span class="pos-chip rb">RB</span>
+          <span class="pos-window">Rounds 1&ndash;6, again 9&ndash;12</span>
+        </div>
+        <p>Your <strong>highest-priority position</strong>. Two starting slots plus flex
+          eligibility means 3 useful RBs minimum, and the position breaks (injury, committee
+          backfields) more than any other. Take the best one on the board early; keep taking
+          them into the middle rounds for depth and bye-week cover.</p>
+        <div class="tiers">
+          <div class="tier"><span class="tier-name">Tier 1</span><span class="tier-desc">Bell-cow, 18+ touches/game, involved in the passing game &mdash; the safest early picks in this format.</span></div>
+          <div class="tier"><span class="tier-name">Tier 2</span><span class="tier-desc">Clear lead back but timeshare risk, or elite receiving back in a committee.</span></div>
+          <div class="tier"><span class="tier-name">Tier 3+</span><span class="tier-desc">Handcuffs and change-of-pace backs with standalone flex value &mdash; load up rounds 9&ndash;12.</span></div>
+        </div>
+      </div>
+
+      <div class="pos-card">
+        <div class="pos-head">
+          <span class="pos-chip wr">WR</span>
+          <span class="pos-window">Rounds 1&ndash;7</span>
+        </div>
+        <p>Deep position, mix it in with RB from round 1 rather than punting it early. Half-PPR
+          means target volume matters, but touchdown equity and yards still carry real weight
+          &mdash; don't overvalue a high-target, low-yardage possession receiver just for
+          catches.</p>
+        <div class="tiers">
+          <div class="tier"><span class="tier-name">Tier 1</span><span class="tier-desc">Clear #1 option on his own offense with 130+ target pace.</span></div>
+          <div class="tier"><span class="tier-name">Tier 2</span><span class="tier-desc">Strong WR2s, or high-upside young receivers entering a bigger role.</span></div>
+          <div class="tier"><span class="tier-name">Tier 3+</span><span class="tier-desc">Boom/bust flex options, target-earners on run-heavy offenses.</span></div>
+        </div>
+      </div>
+
+      <div class="pos-card">
+        <div class="pos-head">
+          <span class="pos-chip te">TE</span>
+          <span class="pos-window">Elite tier only in 4&ndash;6, otherwise 8&ndash;11</span>
+        </div>
+        <p>Only one TE slot (it also fills the FLEX if you're stacked at RB/WR). The gap between
+          the true elite tier and the replaceable middle tier is enormous at this position &mdash;
+          either pay for a top option early, or ignore it entirely until round 8+.</p>
+        <div class="tiers">
+          <div class="tier"><span class="tier-name">Tier 1</span><span class="tier-desc">Weekly top-3 finisher, functions like a WR1 &mdash; rare, worth an early pick if he's there.</span></div>
+          <div class="tier"><span class="tier-name">Everyone else</span><span class="tier-desc">Largely interchangeable streaming options &mdash; wait, don't reach.</span></div>
+        </div>
+      </div>
+
+      <div class="pos-card">
+        <div class="pos-head">
+          <span class="pos-chip qb">QB</span>
+          <span class="pos-window">Rounds 7&ndash;10</span>
+        </div>
+        <p>One starting slot, no superflex, half-PPR knocks down passing yardage value &mdash;
+          this is the position to be most patient at. A QB drafted round 8 scores nearly as
+          well as one drafted round 3 in a league shaped like this.</p>
+        <div class="tiers">
+          <div class="tier"><span class="tier-name">Rushing QBs</span><span class="tier-desc">Priority tier &mdash; rushing yards/TDs score at the same rich rate as RB/WR production.</span></div>
+          <div class="tier"><span class="tier-name">Pure passers</span><span class="tier-desc">Fine as a value pick late, not worth reaching for given 25 yds/pt.</span></div>
+        </div>
+      </div>
+
+      <div class="pos-card">
+        <div class="pos-head">
+          <span class="pos-chip kd">K / DEF</span>
+          <span class="pos-window">Final 2 rounds</span>
+        </div>
+        <p>Don't draft either before round 16. Take one kicker with strong leg range for the
+          distance-weighted scoring, and one defense with the best <strong>Week 1</strong>
+          matchup on the board &mdash; both positions are freely available on waivers all
+          season if this week's picks flame out.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">
+      <h2>Round-by-round plan</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Rounds</th><th>Priority</th><th>Why</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="rounds">1&ndash;3</td>
+            <td>Best RB or WR available</td>
+            <td>Lock in bell-cow RBs and true WR1s &mdash; the safest, highest-ceiling value in this format.</td>
+          </tr>
+          <tr>
+            <td class="rounds">4&ndash;6</td>
+            <td>RB/WR, or an elite TE if one falls</td>
+            <td>Get to 2 startable RB + 2 startable WR before touching QB or a non-elite TE.</td>
+          </tr>
+          <tr>
+            <td class="rounds">7&ndash;9</td>
+            <td>QB window opens; TE if not addressed</td>
+            <td>One-QB league means this is full value for a QB1, not a reach.</td>
+          </tr>
+          <tr>
+            <td class="rounds">9&ndash;12</td>
+            <td>RB/WR depth, handcuffs</td>
+            <td>Build bye-week and injury cover for your RB2/RB3 tier.</td>
+          </tr>
+          <tr>
+            <td class="rounds">13&ndash;15</td>
+            <td>Upside bench, remaining handcuffs</td>
+            <td>Lottery tickets and your 2 IR-stash candidates.</td>
+          </tr>
+          <tr>
+            <td class="rounds">16&ndash;17</td>
+            <td>K, then DEF</td>
+            <td>Last picks, matchup-driven, easily replaced on waivers in-season.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">
+      <h2>Draft day checklist</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="checklist">
+      <div class="check-item"><span class="n">01</span><p>Log in to Yahoo <strong>10&ndash;15 minutes early</strong> &mdash; 60 seconds per pick doesn't leave room to fix a login problem mid-draft.</p></div>
+      <div class="check-item"><span class="n">02</span><p>Pre-build a <strong>queue</strong> in Yahoo's draft room for your first 2&ndash;3 rounds so an auto-pick never fires on you.</p></div>
+      <div class="check-item"><span class="n">03</span><p>Have this sheet and Yahoo's live rankings open <strong>side by side</strong> &mdash; use the rankings for who's best available, this sheet for when to take him.</p></div>
+      <div class="check-item"><span class="n">04</span><p>Don't draft a kicker or defense before round 16, no matter how the room is drafting.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    Built from this league's actual Yahoo settings (Scoring &amp; Settings export) &mdash;
+    not generic rankings. Tiers are strategic guidance, not live ADP; cross-check specific
+    player news right up to draft time.
+  </footer>
+
+</div>

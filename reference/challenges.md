@@ -24,3 +24,19 @@ count unless a challenge says otherwise.
 
 Administration: scoring source is final Yahoo scoring after stat corrections. Contact the
 commissioner for questions or scoring errors.
+
+## Open question: superflex / IDP references don't match this league's roster
+
+This league's actual roster (per `reference/League_Settings.pdf`) is
+`QB, WR, WR, RB, RB, TE, W/R/T, K, DEF, BN×6, IR×2` — **no superflex/OP slot and no IDP
+slot**. But Weeks 4, 9, and 15 reference a "starter or superflex" QB, and Week 6 is built
+entirely around a "starting IDP." As written, Week 6 has no eligible players and the
+superflex clause in Weeks 4/9/15 can never apply.
+
+Most likely explanation: the challenge pack looks like a template reused across leagues
+with different roster settings, not customized for this one. Flagged to the commissioner
+(2026-08-18); update this note once there's a ruling.
+
+**Until resolved:** `challenge-tracker` should treat these as: Weeks 4/9/15 evaluate the
+starting QB only (superflex clause is a no-op since the slot doesn't exist); Week 6 has no
+valid entrants and should be reported as unresolved rather than guessing a winner.
