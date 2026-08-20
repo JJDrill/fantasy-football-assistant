@@ -1,4 +1,5 @@
 const { assertLoggedIn } = require('./base-page');
+const { parsePlayerNameCell } = require('./free-agents-page');
 
 // Live-verified (2026-08-20, mock drafts): the browser tab title reliably reflects turn
 // state — "YOUR TURN, DRAFT NOW | ..." when it's our pick, "N picks until your turn | ..."
@@ -31,4 +32,73 @@ async function enterDraft(page, draftUrl) {
   });
 }
 
-module.exports = { classifyTurnState, getTurnState, enterDraft };
+// The draft room's player-name cell suffix is conceptually "POS • Team • Bye N" (e.g.
+// "RB • Det • Bye 6"), unlike the free-agents page's "Team - POS" suffix that
+// free-agents-page.js's TEAM_POS_RE matches. Live-verified (2026-08-20, mock draft room):
+// the "•" separators are CSS-rendered, not real characters — `textContent` on the actual
+// DOM produces the whole suffix glued together with no separators at all, e.g.
+// "J. GibbsRBDetBye 6" or, with an injury tag glued onto the name,
+// "P. NacuaQWRLARBye 11". Stripping any literal "•" (with its surrounding whitespace)
+// first normalizes both forms — the test's spaced-bullet mock and the real glued DOM text
+// — down to the same glued shape, so one regex handles both. The position/team are
+// pulled out here (anchored on a known position code, since there's no delimiter to rely
+// on) and only the leading name portion is handed to parsePlayerNameCell, reusing its
+// glued-injury-tag-stripping logic rather than re-implementing name cleanup.
+const POSITION_CODES = ['QB', 'RB', 'WR', 'TE', 'DEF', 'DST', 'K'];
+const POS_TEAM_BYE_RE = new RegExp(`(${POSITION_CODES.join('|')})([A-Za-z]{2,4})Bye\\s*(\\d+)`);
+
+function parseAvailablePlayerRow(raw) {
+  const compact = raw.nameCellText.trim().replace(/\s*•\s*/g, '').replace(/\s+/g, ' ');
+  const posTeamMatch = compact.match(POS_TEAM_BYE_RE);
+  const position = posTeamMatch ? posTeamMatch[1] : null;
+  const nflTeam = posTeamMatch ? posTeamMatch[2] : null;
+  const namePart = posTeamMatch ? compact.slice(0, posTeamMatch.index).trim() : compact;
+  const { name } = parsePlayerNameCell(namePart);
+
+  return {
+    name,
+    position,
+    nflTeam,
+    projPts: Number(raw.projPts),
+  };
+}
+
+// Live-verified (2026-08-20, mock draft room): the available-players table has a
+// "Player" column header and a "Proj Pts" column header among many stat columns. Locate
+// the table by the presence of both headers (more specific than either alone, since
+// "Player" could theoretically match other tables) and find each column's index
+// dynamically from the header row rather than hardcoding cell positions — this table has
+// ~20 columns and hardcoded indices would be especially fragile here.
+async function getAvailablePlayers(page, { limit = 40 } = {}) {
+  const table = page.locator('table').filter({ has: page.getByRole('columnheader', { name: 'Proj Pts' }) }).first();
+  const headers = await table.locator('thead th, thead >> role=columnheader').allTextContents();
+  const playerColIndex = headers.findIndex((h) => h.trim() === 'Player');
+  const projPtsColIndex = headers.findIndex((h) => h.trim() === 'Proj Pts');
+
+  const rows = table.locator('tbody tr');
+  const count = Math.min(await rows.count(), limit);
+  const players = [];
+
+  for (let i = 0; i < count; i++) {
+    const row = rows.nth(i);
+    const cells = row.locator('td');
+    const cellCount = await cells.count();
+    if (cellCount <= Math.max(playerColIndex, projPtsColIndex)) continue;
+
+    const nameCellText = (await cells.nth(playerColIndex).textContent()).trim();
+    if (!nameCellText) continue;
+    const projPtsText = (await cells.nth(projPtsColIndex).textContent()).trim();
+
+    players.push(parseAvailablePlayerRow({ nameCellText, projPts: projPtsText }));
+  }
+
+  return players;
+}
+
+module.exports = {
+  classifyTurnState,
+  getTurnState,
+  enterDraft,
+  parseAvailablePlayerRow,
+  getAvailablePlayers,
+};
