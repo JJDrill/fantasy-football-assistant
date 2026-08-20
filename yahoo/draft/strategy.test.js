@@ -102,6 +102,26 @@ test('final two rounds: takes best K or DEF if those slots are still open', () =
   assert.strictEqual(result.name, 'BestKicker');
 });
 
+test('mid-draft with several starting slots still open: still picks pure BPA, not restricted to open needs', () => {
+  const roster = [
+    { slot: 'QB', playerName: 'Filled' },
+    { slot: 'WR', playerName: null },
+    { slot: 'WR', playerName: null },
+    { slot: 'RB', playerName: null },
+    { slot: 'RB', playerName: null },
+    { slot: 'TE', playerName: null },
+    { slot: 'W/R/T', playerName: null },
+    { slot: 'K', playerName: null },
+    { slot: 'DEF', playerName: null },
+  ];
+  const available = [
+    { name: 'BackupQB', position: 'QB', projPts: 250 }, // QB already filled, not a starting "need"
+    { name: 'DecentRB', position: 'RB', projPts: 200 },
+  ];
+  const result = pickPlayer(available, roster, { currentRound: 3 });
+  assert.strictEqual(result.name, 'BackupQB'); // still pure BPA this early — 6 starting slots still open, above threshold
+});
+
 test('throws if available list is empty', () => {
   assert.throws(() => pickPlayer([], emptyRoster(), { currentRound: 1 }), /no available players/i);
 });
