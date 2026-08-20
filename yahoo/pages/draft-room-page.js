@@ -47,18 +47,48 @@ async function enterDraft(page, draftUrl) {
 const POSITION_CODES = ['QB', 'RB', 'WR', 'TE', 'DEF', 'DST', 'K'];
 const POS_TEAM_BYE_RE = new RegExp(`(${POSITION_CODES.join('|')})([A-Za-z]{2,4})Bye\\s*(\\d+)`);
 
+// Live-verified (2026-08-20, mock draft room, DEF position filter): team defenses have no
+// separate team-abbreviation token — the player "name" IS the team name, glued straight
+// onto "DEFBye N", e.g. "TexansDEFBye 8", "RamsDEFBye 11". POS_TEAM_BYE_RE requires a
+// 2-4 letter team-abbreviation token between the position code and "Bye", so it never
+// matches these rows. Falling back to this DEF-specific pattern (anything up to a literal
+// "DEFBye") when the primary regex misses and "DEF" is present in the string handles it.
+const DEF_BYE_RE = /^(.+?)DEFBye\s*(\d+)/;
+
 function parseAvailablePlayerRow(raw) {
   const compact = raw.nameCellText.trim().replace(/\s*•\s*/g, '').replace(/\s+/g, ' ');
   const posTeamMatch = compact.match(POS_TEAM_BYE_RE);
-  const position = posTeamMatch ? posTeamMatch[1] : null;
-  const nflTeam = posTeamMatch ? posTeamMatch[2] : null;
-  const namePart = posTeamMatch ? compact.slice(0, posTeamMatch.index).trim() : compact;
-  const { name } = parsePlayerNameCell(namePart);
 
+  if (posTeamMatch) {
+    const namePart = compact.slice(0, posTeamMatch.index).trim();
+    const { name } = parsePlayerNameCell(namePart);
+    return {
+      name,
+      position: posTeamMatch[1],
+      nflTeam: posTeamMatch[2],
+      projPts: Number(raw.projPts),
+    };
+  }
+
+  const defMatch = compact.includes('DEF') && compact.match(DEF_BYE_RE);
+  if (defMatch) {
+    return {
+      name: defMatch[1].trim(),
+      position: 'DEF',
+      nflTeam: null,
+      projPts: Number(raw.projPts),
+    };
+  }
+
+  // Row text didn't match any known shape — surface that clearly (rather than silently
+  // returning a null position indistinguishable from a successful parse) so downstream
+  // pick-strategy code can deliberately filter these out instead of accidentally treating
+  // garbage as a real candidate.
+  console.warn('parseAvailablePlayerRow: unrecognized cell format:', JSON.stringify(raw.nameCellText));
   return {
-    name,
-    position,
-    nflTeam,
+    name: compact,
+    position: 'UNKNOWN',
+    nflTeam: null,
     projPts: Number(raw.projPts),
   };
 }

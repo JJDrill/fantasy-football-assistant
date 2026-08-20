@@ -33,3 +33,11 @@ test('parseAvailablePlayerRow extracts name/position/team/bye and reuses the sta
     projPts: 297.7,
   });
 });
+
+test('parseAvailablePlayerRow handles a team defense row (no separate team-abbreviation token)', () => {
+  const raw = { nameCellText: 'TexansDEFBye 8', projPts: '118.66' };
+  const result = parseAvailablePlayerRow(raw);
+  assert.strictEqual(result.name, 'Texans');
+  assert.strictEqual(result.position, 'DEF');
+  assert.strictEqual(result.projPts, 118.66);
+});
