@@ -52,3 +52,8 @@ test('parseRosterPanelSlot handles an open slot', () => {
   const raw = { slotLabel: 'TE', playerName: null };
   assert.deepStrictEqual(parseRosterPanelSlot(raw), { slot: 'TE', playerName: null });
 });
+
+test('parseRosterPanelSlot normalizes the flex slot label WRT to W/R/T', () => {
+  const raw = { slotLabel: 'WRT', playerName: null };
+  assert.deepStrictEqual(parseRosterPanelSlot(raw), { slot: 'W/R/T', playerName: null });
+});

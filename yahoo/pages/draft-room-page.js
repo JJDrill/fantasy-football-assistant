@@ -125,8 +125,15 @@ async function getAvailablePlayers(page, { limit = 40 } = {}) {
   return players;
 }
 
+// The flex slot's badge renders as three separate spans ("W","R","T") that concatenate to
+// the raw text "WRT" (see getOurRoster below) — normalize that to "W/R/T" here so this
+// matches the literal slot-name strings Task 5's strategy engine (docs/superpowers/plans/
+// 2026-08-20-draft-driver.md) hardcodes throughout STARTING_SLOTS and its roster-matching
+// logic. Without this, every `=== 'W/R/T'` check there would silently treat the flex slot
+// as permanently open.
 function parseRosterPanelSlot(raw) {
-  return { slot: raw.slotLabel, playerName: raw.playerName || null };
+  const slot = raw.slotLabel === 'WRT' ? 'W/R/T' : raw.slotLabel;
+  return { slot, playerName: raw.playerName || null };
 }
 
 // Live-verified (2026-08-20, mock draft room) against the real DOM (the original
