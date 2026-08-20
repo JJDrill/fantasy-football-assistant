@@ -196,7 +196,12 @@ async function getOurRoster(page) {
 // run-draft.js can catch it and fall back to Yahoo's autopick rather than accidentally
 // leaving the draft.
 async function draftPlayer(page, playerName) {
-  const nameCell = page.locator(`text="${playerName}"`).first();
+  // Scope the name search to the same available-players table getAvailablePlayers locates
+  // (by the presence of a "Proj Pts" columnheader), rather than searching the whole page —
+  // a bare-name `text=` match anywhere on the page could otherwise land on a "last pick"
+  // ticker, a draft queue entry, or another team's roster panel instead of the intended row.
+  const table = page.locator('table').filter({ has: page.getByRole('columnheader', { name: 'Proj Pts' }) }).first();
+  const nameCell = table.locator(`text="${playerName}"`).first();
   await nameCell.click();
 
   const dialog = page.getByRole('dialog');
@@ -209,8 +214,18 @@ async function draftPlayer(page, playerName) {
     );
   }
 
+  // Belt-and-suspenders check: even with the click scoped to the right table above, confirm
+  // the dialog that actually opened is for the right player before submitting the pick — a
+  // mismatch here means something clicked the wrong row and we must not silently draft it.
+  const dialogText = await dialog.textContent();
+  if (!dialogText.includes(playerName)) {
+    throw new Error(
+      `DIALOG_MISMATCH: expected a Draft confirmation for "${playerName}" but the dialog doesn't mention that name`
+    );
+  }
+
   const draftButton = dialog.getByRole('button', { name: 'Draft' });
-  await draftButton.click();
+  await draftButton.click({ timeout: 5000 });
 }
 
 module.exports = {
