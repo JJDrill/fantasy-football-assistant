@@ -10,10 +10,13 @@ async function main() {
   }
 
   const context = await launchContext();
-  const page = await context.newPage();
-  const pairings = await getPairings(page, week);
-  console.log(JSON.stringify({ week: Number(week), pairings }, null, 2));
-  await context.close();
+  try {
+    const page = await context.newPage();
+    const pairings = await getPairings(page, week);
+    console.log(JSON.stringify({ week: Number(week), pairings }, null, 2));
+  } finally {
+    await context.close();
+  }
 }
 
 main().catch((err) => {

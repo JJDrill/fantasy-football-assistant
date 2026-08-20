@@ -5,10 +5,13 @@ const { getRoster } = require('./pages/roster-page');
 async function main() {
   const teamId = process.argv[2] || '2';
   const context = await launchContext();
-  const page = await context.newPage();
-  const roster = await getRoster(page, teamId);
-  console.log(JSON.stringify(roster, null, 2));
-  await context.close();
+  try {
+    const page = await context.newPage();
+    const roster = await getRoster(page, teamId);
+    console.log(JSON.stringify(roster, null, 2));
+  } finally {
+    await context.close();
+  }
 }
 
 main().catch((err) => {
