@@ -183,6 +183,36 @@ async function getOurRoster(page) {
   return raw.map(parseRosterPanelSlot);
 }
 
+// Live-verified (2026-08-20, mock draft rooms): clicking a player's name cell in the
+// available-players table opens a modal dialog with player detail and a "Draft" button
+// at the bottom. This is the reliable path — a per-row one-click "Draft" button also
+// exists in some views but was less reliable to target during testing (the row-level
+// button sometimes triggered the same confirmation dialog anyway).
+//
+// KNOWN RISK (see spec's "Known gap"): a Yahoo Fantasy Plus upsell dialog was observed
+// once, unpredictably, with an "Exit Preview" button instead of "Draft" — clicking
+// through it exits the whole draft. This function detects that case and throws instead
+// of blindly clicking whatever button is in the dialog, so the deadline guard in
+// run-draft.js can catch it and fall back to Yahoo's autopick rather than accidentally
+// leaving the draft.
+async function draftPlayer(page, playerName) {
+  const nameCell = page.locator(`text="${playerName}"`).first();
+  await nameCell.click();
+
+  const dialog = page.getByRole('dialog');
+  await dialog.waitFor({ state: 'visible', timeout: 5000 });
+
+  const exitPreview = dialog.getByRole('button', { name: 'Exit Preview' });
+  if (await exitPreview.count()) {
+    throw new Error(
+      `UNEXPECTED_UPSELL_DIALOG: expected a Draft confirmation for "${playerName}" but got an Exit Preview dialog instead`
+    );
+  }
+
+  const draftButton = dialog.getByRole('button', { name: 'Draft' });
+  await draftButton.click();
+}
+
 module.exports = {
   classifyTurnState,
   getTurnState,
@@ -191,4 +221,5 @@ module.exports = {
   getAvailablePlayers,
   parseRosterPanelSlot,
   getOurRoster,
+  draftPlayer,
 };
