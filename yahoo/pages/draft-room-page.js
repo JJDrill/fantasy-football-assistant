@@ -6,7 +6,7 @@ const { assertLoggedIn } = require('./base-page');
 // Using page.title() avoids depending on any particular DOM structure for this signal.
 function classifyTurnState(title) {
   if (title.includes('YOUR TURN')) return 'ours';
-  if (/picks until your turn/i.test(title)) return 'waiting';
+  if (/\d+\s+picks?\s+until\s+your\s+turn/i.test(title)) return 'waiting';
   if (title.includes('Draft Complete') || title === 'Draft Complete') return 'complete';
   return 'unknown';
 }
@@ -26,7 +26,9 @@ async function enterDraft(page, draftUrl) {
   await page.goto(draftUrl);
   await assertLoggedIn(page);
   // The draft client shows "Connecting to draft server" before the room is interactive.
-  await page.getByText('Connecting to draft server').waitFor({ state: 'hidden', timeout: 30000 }).catch(() => {});
+  await page.getByText('Connecting to draft server').waitFor({ state: 'hidden', timeout: 30000 }).catch((err) => {
+    console.warn('enterDraft: "Connecting to draft server" did not disappear within timeout:', err.message);
+  });
 }
 
 module.exports = { classifyTurnState, getTurnState, enterDraft };
