@@ -68,6 +68,21 @@ of a roster, matchup, or scoreboard from the Yahoo app).
    ```
    Copy the `league_key` for "Kicker? I Hardly Know Her" into `.env` as `YAHOO_LEAGUE_KEY`.
 
+## Setup (browser scraping — works now, no API approval needed)
+
+While Yahoo's API access is pending, the skills can get live data via Playwright browser
+automation instead:
+
+1. `npm install` (installs `playwright` too)
+2. `npx playwright install chromium` (one-time, downloads the browser binary)
+3. `node yahoo/login.js` — opens a browser window, log into Yahoo once. Your session is
+   saved in `yahoo/.playwright-profile/` (gitignored) and reused by every script below.
+4. That's it — `challenge-tracker`, `lineup-advice`, `trade-analyzer`, `waiver-targets`,
+   and `weekly-recap` will now use `node yahoo/get-*.js` / `node yahoo/run-challenge.js`
+   automatically instead of asking you to paste screenshots.
+
+If a script ever fails with `NOT_LOGGED_IN`, just run `node yahoo/login.js` again.
+
 ## Project structure
 
 ```
