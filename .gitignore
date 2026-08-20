@@ -5,3 +5,4 @@ yahoo/token.json
 node_modules/
 .playwright-profile/
 .playwright-mcp/
+yahoo/draft-log.jsonl

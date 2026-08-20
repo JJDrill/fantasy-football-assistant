@@ -195,6 +195,20 @@ async function getOurRoster(page) {
 // of blindly clicking whatever button is in the dialog, so the deadline guard in
 // run-draft.js can catch it and fall back to Yahoo's autopick rather than accidentally
 // leaving the draft.
+// Exported for unit testing — pure string logic split out of draftPlayer's Playwright
+// interaction. Compares by trailing name token (surname) rather than requiring the dialog
+// to contain the exact playerName string: the available-players table renders names in
+// abbreviated form ("J. Jefferson"), but the detail dialog that opens on click shows the
+// player's full first name ("Justin" / "Jefferson" as separate elements, not "J."). An
+// exact-substring check against the abbreviated form therefore NEVER matches — live-
+// verified (2026-08-20, mock draft room) this made the mismatch check a permanent false
+// positive that fired on every single real pick. Comparing surnames instead is reliable
+// across both name formats and DEF rows (whose "name" is just the team name, e.g. "Rams").
+function dialogMatchesPlayer(dialogText, playerName) {
+  const lastToken = playerName.trim().split(/\s+/).pop();
+  return Boolean(lastToken) && dialogText.includes(lastToken);
+}
+
 async function draftPlayer(page, playerName) {
   // Scope the name search to the same available-players table getAvailablePlayers locates
   // (by the presence of a "Proj Pts" columnheader), rather than searching the whole page —
@@ -207,25 +221,36 @@ async function draftPlayer(page, playerName) {
   const dialog = page.getByRole('dialog');
   await dialog.waitFor({ state: 'visible', timeout: 5000 });
 
-  const exitPreview = dialog.getByRole('button', { name: 'Exit Preview' });
-  if (await exitPreview.count()) {
-    throw new Error(
-      `UNEXPECTED_UPSELL_DIALOG: expected a Draft confirmation for "${playerName}" but got an Exit Preview dialog instead`
-    );
-  }
+  try {
+    const exitPreview = dialog.getByRole('button', { name: 'Exit Preview' });
+    if (await exitPreview.count()) {
+      throw new Error(
+        `UNEXPECTED_UPSELL_DIALOG: expected a Draft confirmation for "${playerName}" but got an Exit Preview dialog instead`
+      );
+    }
 
-  // Belt-and-suspenders check: even with the click scoped to the right table above, confirm
-  // the dialog that actually opened is for the right player before submitting the pick — a
-  // mismatch here means something clicked the wrong row and we must not silently draft it.
-  const dialogText = await dialog.textContent();
-  if (!dialogText.includes(playerName)) {
-    throw new Error(
-      `DIALOG_MISMATCH: expected a Draft confirmation for "${playerName}" but the dialog doesn't mention that name`
-    );
-  }
+    // Belt-and-suspenders check: even with the click scoped to the right table above,
+    // confirm the dialog that actually opened is for the right player before submitting
+    // the pick — a mismatch here means something clicked the wrong row and we must not
+    // silently draft it.
+    const dialogText = await dialog.textContent();
+    if (!dialogMatchesPlayer(dialogText, playerName)) {
+      throw new Error(
+        `DIALOG_MISMATCH: expected a Draft confirmation for "${playerName}" but the dialog doesn't mention that name`
+      );
+    }
 
-  const draftButton = dialog.getByRole('button', { name: 'Draft' });
-  await draftButton.click({ timeout: 5000 });
+    const draftButton = dialog.getByRole('button', { name: 'Draft' });
+    await draftButton.click({ timeout: 5000 });
+  } catch (err) {
+    // Live-verified (2026-08-20, mock draft room): leaving the detail dialog open after a
+    // thrown error blocks every subsequent click attempt for the rest of the draft (a
+    // stale dialog from one failed pick intercepted the next round's click for a full 30s
+    // until Playwright gave up). Close it before propagating so run-draft.js's deadline
+    // guard can retry cleanly on the next turn instead of cascading into repeated timeouts.
+    await page.keyboard.press('Escape').catch(() => {});
+    throw err;
+  }
 }
 
 module.exports = {
@@ -236,5 +261,6 @@ module.exports = {
   getAvailablePlayers,
   parseRosterPanelSlot,
   getOurRoster,
+  dialogMatchesPlayer,
   draftPlayer,
 };
