@@ -2,6 +2,7 @@ const { test } = require('node:test');
 const assert = require('node:assert');
 const { classifyTurnState } = require('./draft-room-page');
 const { parseAvailablePlayerRow } = require('./draft-room-page');
+const { parseRosterPanelSlot } = require('./draft-room-page');
 
 test('classifyTurnState recognizes our turn', () => {
   assert.strictEqual(classifyTurnState('YOUR TURN, DRAFT NOW | Live NFL Draft | Yahoo Fantasy Sports'), 'ours');
@@ -40,4 +41,14 @@ test('parseAvailablePlayerRow handles a team defense row (no separate team-abbre
   assert.strictEqual(result.name, 'Texans');
   assert.strictEqual(result.position, 'DEF');
   assert.strictEqual(result.projPts, 118.66);
+});
+
+test('parseRosterPanelSlot extracts a filled slot', () => {
+  const raw = { slotLabel: 'QB', playerName: 'L. Jackson' };
+  assert.deepStrictEqual(parseRosterPanelSlot(raw), { slot: 'QB', playerName: 'L. Jackson' });
+});
+
+test('parseRosterPanelSlot handles an open slot', () => {
+  const raw = { slotLabel: 'TE', playerName: null };
+  assert.deepStrictEqual(parseRosterPanelSlot(raw), { slot: 'TE', playerName: null });
 });

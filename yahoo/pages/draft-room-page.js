@@ -125,10 +125,63 @@ async function getAvailablePlayers(page, { limit = 40 } = {}) {
   return players;
 }
 
+function parseRosterPanelSlot(raw) {
+  return { slot: raw.slotLabel, playerName: raw.playerName || null };
+}
+
+// Live-verified (2026-08-20, mock draft room) against the real DOM (the original
+// accessible-text-only guess below was wrong and has been replaced): a "YOUR TEAM (N/15)"
+// panel is a <span> containing that text, immediately followed by a sibling <div> holding
+// a <ul> of one <li> per roster slot. Each <li> has a small "slot badge" <div> whose class
+// list includes the literal, human-readable utility class "W(32px)" (these are atomic CSS
+// utility classes, not build-hashed CSS-module classes — e.g. React devtools showed
+// hashed classnames like "_ys_qoenog" alongside these; the hashed ones are NOT relied on
+// here since they're far more likely to change between deploys). The badge's text content
+// is the slot label (e.g. "QB", "K", "BN"; the flex spot renders as three separate spans
+// "W","R","T" that concatenate to "WRT"). A filled slot additionally contains a
+// `div.ys-player[data-id]` with an `<img title="Player Name">` — the title attribute is
+// used directly rather than parsing visible text, since it's a single reliable attribute
+// unaffected by the surrounding layout. An open slot has no `.ys-player` element at all.
+//
+// Live-verified further (2026-08-20): the draft room re-renders this panel roughly once
+// per second (the pick countdown timer), which raced Playwright's auto-retrying locator
+// chain — `locator().locator()...textContent()` intermittently timed out because the
+// element it found got detached and replaced mid-poll. Reading the whole panel in a single
+// `page.evaluate` call sidesteps that: browser JS is single-threaded, so nothing can
+// re-render the DOM in the middle of one evaluate() call the way it can between two
+// separate Playwright round-trips.
+async function getOurRoster(page) {
+  const raw = await page.evaluate(() => {
+    const header = Array.from(document.querySelectorAll('span')).find((el) =>
+      /^YOUR TEAM \(\d+\/\d+\)$/.test(el.textContent.trim())
+    );
+    const panel = header ? header.nextElementSibling : null;
+    // The outer roster <ul> is `panel`'s own first child. Each filled slot's player block
+    // has its OWN nested <ul> (of 3 <li>s, for position/team/bye) — using
+    // `querySelectorAll('ul > li')` here would match those too, since it searches all
+    // descendants, not just the top-level list. Scoping to the outer <ul>'s direct
+    // children avoids double-counting those nested items as extra (bogus) roster slots.
+    const topUl = panel ? panel.querySelector('ul') : null;
+    if (!topUl) return [];
+
+    return Array.from(topUl.children).map((li) => {
+      const badge = li.querySelector('div[class*="W(32px)"]');
+      const slotLabel = badge ? badge.textContent.trim() : '';
+      const img = li.querySelector('.ys-player img');
+      const playerName = img ? img.getAttribute('title') : null;
+      return { slotLabel, playerName };
+    });
+  });
+
+  return raw.map(parseRosterPanelSlot);
+}
+
 module.exports = {
   classifyTurnState,
   getTurnState,
   enterDraft,
   parseAvailablePlayerRow,
   getAvailablePlayers,
+  parseRosterPanelSlot,
+  getOurRoster,
 };
