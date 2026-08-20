@@ -6,10 +6,6 @@ function teamUrl(teamId) {
   return `${FANTASY_BASE}/f1/${LEAGUE_ID}/${teamId}`;
 }
 
-function matchupUrl(week) {
-  return `${FANTASY_BASE}/f1/${LEAGUE_ID}/matchup?matchup_week=${week}`;
-}
-
 function playersUrl() {
   return `${FANTASY_BASE}/f1/${LEAGUE_ID}/players`;
 }
@@ -27,7 +23,6 @@ module.exports = {
   LEAGUE_URL,
   FANTASY_BASE,
   teamUrl,
-  matchupUrl,
   playersUrl,
   assertLoggedIn,
 };

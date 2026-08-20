@@ -13,10 +13,9 @@ opponent "personas," just banter grounded in the real data for that week.
 1. Determine the week (default: most recently completed week).
 2. **Try live data first, if it's available:**
    - Check whether the relevant fetch scripts exist and work (`yahoo/get-matchup.js`
-     for rosters, and a scoreboard-fetching script for final scores, once one exists). If so,
-     use them.
-   - If unavailable, fall through to the manual path — expected until OAuth + Yahoo API
-     approval are done.
+     for rosters, `yahoo/get-scoreboard.js` for final scores). If so, use them.
+   - If unavailable, fall through to the manual path — expected until either the
+     Playwright login (`node yahoo/login.js`) or OAuth + Yahoo API approval are done.
 3. **Manual path (used until live data works):**
    - Ask the user to paste or screenshot their matchup box score for that week (both
      teams' starters and points, and the final score) from the Yahoo app.
