@@ -18,3 +18,43 @@ test('parsePlayerNameCell handles defenses, which have no separate team/position
   assert.strictEqual(result.name, 'San Francisco 49ers');
   assert.strictEqual(result.position, 'DEF');
 });
+
+test('parsePlayerNameCell handles the real live cell shape: name glued directly to the marker text, with a single-letter injury tag', () => {
+  // No literal name duplication here (unlike the accessibility-tree-shaped fixture above)
+  // — this is what Yahoo's actual DOM textContent produces: the name link sits immediately
+  // against "Video Forecast"/"Player Note" with no whitespace, and an injury designation
+  // letter (Q here) is glued directly onto the name too.
+  const raw = 'Puka NacuaQVideo ForecastNew Player Note LAR - WR Thu 6:35 pm vs Sea';
+  const result = parsePlayerNameCell(raw);
+  assert.deepStrictEqual(result, {
+    name: 'Puka Nacua',
+    nflTeam: 'LAR',
+    position: 'WR',
+  });
+});
+
+test('parsePlayerNameCell strips a multi-letter injury designation (IR) glued onto the name', () => {
+  const raw = "A.J. BrownIRVideo ForecastPlayer Note Phi - WR Sun 1:00 pm vs NYG";
+  const result = parsePlayerNameCell(raw);
+  assert.deepStrictEqual(result, {
+    name: 'A.J. Brown',
+    nflTeam: 'Phi',
+    position: 'WR',
+  });
+});
+
+test('parsePlayerNameCell does not truncate a real surname that contains "Note" (e.g. Noteboom)', () => {
+  const raw = 'Joseph NoteboomVideo ForecastPlayer Note LAR - OL Sun 1:25 pm @ Sea';
+  const result = parsePlayerNameCell(raw);
+  assert.strictEqual(result.name, 'Joseph Noteboom');
+});
+
+test('parsePlayerNameCell handles a player with no video link, just "...Player Note" glued directly on', () => {
+  const raw = 'Kyren WilliamsPlayer Note LAR - RB Thu 6:35 pm vs SF';
+  const result = parsePlayerNameCell(raw);
+  assert.deepStrictEqual(result, {
+    name: 'Kyren Williams',
+    nflTeam: 'LAR',
+    position: 'RB',
+  });
+});

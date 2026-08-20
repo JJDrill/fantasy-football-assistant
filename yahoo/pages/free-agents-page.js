@@ -7,15 +7,35 @@ const TEAM_POS_RE = /([A-Z][a-zA-Z]{1,3}) - ([A-Z]{1,3})\b/;
 // or, with an injury designation, "Puka NacuaQVideo ForecastNew Player Note LAR - WR...").
 // Cutting the name off at the earliest of these markers (rather than trying to split on
 // case transitions, which mangles real names like "McCaffrey") reliably isolates it.
+//
+// These must be full, specific phrases rather than single generic words: a bare 'Note'
+// (or 'Player') would substring-match inside a real surname, e.g. NFL player Joseph
+// Noteboom's cell contains "...NoteboomVideo Forecast..." — indexOf('Note') would find a
+// false match at the start of "Noteboom" and truncate the name down to just "Joseph".
 const NAME_CELL_MARKERS = [
-  'Video', 'Forecast', 'Player', 'Note', 'Open player notes for',
+  'Video Forecast', // the usual first marker glued after the name, when a video exists
+  'Player Note', // some players have no video, just "...Player Note" glued directly on
+  'Open player notes for',
   'No new player', // defenses have no video forecast link, just a "No new player Notes" note
 ];
 
-// A single uppercase injury-designation letter (Q/O/D/IR/etc.) glued directly onto the
-// name with no separating space, e.g. "NacuaQ" -> "Nacua".
+// A single- or multi-letter injury/status designation (Q/O/D/C/P, or IR/PUP/NFI/SUSP)
+// glued directly onto the name with no separating space, e.g. "NacuaQ" -> "Nacua" or
+// "SmithIR" -> "Smith". Longest tags are checked first so "IR" isn't mistaken for a
+// single trailing letter. Only strips when the character right before the tag is
+// lowercase (i.e. genuinely glued, not a real capitalized word boundary like "III").
+const INJURY_TAGS = ['SUSP', 'PUP', 'NFI', 'IR', 'Q', 'O', 'D', 'C', 'P'];
+
 function stripGluedInjuryTag(name) {
-  return /[a-z][A-Z]$/.test(name) ? name.slice(0, -1).trimEnd() : name;
+  for (const tag of INJURY_TAGS) {
+    if (name.length > tag.length && name.endsWith(tag)) {
+      const charBeforeTag = name[name.length - tag.length - 1];
+      if (/[a-z]/.test(charBeforeTag)) {
+        return name.slice(0, name.length - tag.length).trimEnd();
+      }
+    }
+  }
+  return name;
 }
 
 function parsePlayerNameCell(raw) {
