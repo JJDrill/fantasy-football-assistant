@@ -26,12 +26,21 @@ const NAME_CELL_MARKERS = [
 // lowercase (i.e. genuinely glued, not a real capitalized word boundary like "III").
 const INJURY_TAGS = ['SUSP', 'PUP', 'NFI', 'IR', 'Q', 'O', 'D', 'C', 'P'];
 
+// A generational suffix (Jr./Sr./II/III/IV) directly preceding the tag is ALSO a valid
+// glued boundary, not just a lowercase letter -- live-verified (2026-08-21, mock draft):
+// "L. Burden III" + injury tag "Q" glues to "L. Burden IIIQ", and the lowercase-only guard
+// (added to avoid misreading "III" itself as a glued tag) refused to strip it, since the
+// character right before "Q" is the uppercase "I" from "III". Without this, the parsed
+// name never matches the real DOM text, and every pick attempt on such a player fails.
+const SUFFIX_BOUNDARY_RE = /(?:II|III|IV|Jr\.|Sr\.)$/;
+
 function stripGluedInjuryTag(name) {
   for (const tag of INJURY_TAGS) {
     if (name.length > tag.length && name.endsWith(tag)) {
-      const charBeforeTag = name[name.length - tag.length - 1];
-      if (/[a-z]/.test(charBeforeTag)) {
-        return name.slice(0, name.length - tag.length).trimEnd();
+      const remainder = name.slice(0, name.length - tag.length);
+      const charBeforeTag = remainder[remainder.length - 1];
+      if (/[a-z]/.test(charBeforeTag) || SUFFIX_BOUNDARY_RE.test(remainder)) {
+        return remainder.trimEnd();
       }
     }
   }

@@ -43,6 +43,16 @@ test('parsePlayerNameCell strips a multi-letter injury designation (IR) glued on
   });
 });
 
+test('parsePlayerNameCell strips a glued injury tag that directly follows a generational suffix', () => {
+  const raw = 'L. Burden IIIQVideo ForecastPlayer Note Chi - WR Sun 1:00 pm vs GB';
+  const result = parsePlayerNameCell(raw);
+  assert.deepStrictEqual(result, {
+    name: 'L. Burden III',
+    nflTeam: 'Chi',
+    position: 'WR',
+  });
+});
+
 test('parsePlayerNameCell does not truncate a real surname that contains "Note" (e.g. Noteboom)', () => {
   const raw = 'Joseph NoteboomVideo ForecastPlayer Note LAR - OL Sun 1:25 pm @ Sea';
   const result = parsePlayerNameCell(raw);
