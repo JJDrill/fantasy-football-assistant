@@ -286,6 +286,21 @@ async function draftPlayer(page, playerName) {
   }
 }
 
+// Live-verified (2026-08-21, mock draft): Yahoo can show a dialog/toast at ANY time, not
+// just mid-pick — e.g. "You have been logged off because you logged in from another draft
+// client" appeared once, unprompted, outside of any pick attempt. Previously the only
+// trace of an unexpected dialog was buried inside a pick_error's raw Playwright timeout
+// text, and only if it happened to be blocking a click at that exact moment — nothing
+// caught one that appeared and sat there between turns, when no one (human or script) was
+// looking at that moment. Polling for this independently of the pick flow gives an
+// explicit, human-readable log line instead of relying on a lucky collision with a pick
+// attempt.
+async function getVisibleDialogText(page) {
+  const dialog = page.locator('dialog[open]').first();
+  if ((await dialog.count()) === 0) return null;
+  return (await dialog.textContent()).trim();
+}
+
 module.exports = {
   classifyTurnState,
   getTurnState,
@@ -296,4 +311,5 @@ module.exports = {
   getOurRoster,
   dialogMatchesPlayer,
   draftPlayer,
+  getVisibleDialogText,
 };

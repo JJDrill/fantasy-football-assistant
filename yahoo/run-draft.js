@@ -8,6 +8,7 @@ const {
   getAvailablePlayers,
   getOurRoster,
   draftPlayer,
+  getVisibleDialogText,
 } = require('./pages/draft-room-page');
 const { draftUrl } = require('./pages/base-page');
 const { pickPlayer } = require('./draft/strategy');
@@ -88,10 +89,21 @@ async function main() {
     log({ event: 'entered_draft' });
 
     let lastState = null;
+    let lastDialogText = null;
     const ourPicks = [];
 
     // eslint-disable-next-line no-constant-condition
     while (true) {
+      // Checked every poll interval, independent of turn state: catches an unexpected
+      // dialog/toast (e.g. "logged off because you logged in from another draft client")
+      // that appears between turns, when nothing else would otherwise notice it. Only logs
+      // on change so a persistent dialog doesn't spam the log every 2.5s.
+      const dialogText = await getVisibleDialogText(page).catch(() => null);
+      if (dialogText !== lastDialogText) {
+        if (dialogText) log({ event: 'unexpected_dialog', text: dialogText });
+        lastDialogText = dialogText;
+      }
+
       const state = await getTurnState(page);
       if (state !== lastState) {
         log({ event: 'state_change', state });
