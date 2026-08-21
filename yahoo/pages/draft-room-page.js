@@ -226,6 +226,20 @@ function dialogMatchesPlayer(dialogText, playerName) {
 }
 
 async function draftPlayer(page, playerName) {
+  // Live-verified (2026-08-21, mock draft room): Yahoo shows an automatic "DRAFTED BY
+  // <manager> — <player>" notification card (a <dialog>, with its own close/X button)
+  // whenever ANY team picks — not just us. If one of these is still open when it becomes
+  // our turn (it doesn't always auto-dismiss quickly), it intercepts our click on the
+  // intended player exactly like a stale dialog from our own failed pick would, and the
+  // resulting timeout burned the whole deadline window in testing. Proactively clear any
+  // already-open dialog before starting this pick, rather than only reacting to one after
+  // a click has already failed because of it.
+  const staleDialog = page.getByRole('dialog');
+  if (await staleDialog.count()) {
+    await page.keyboard.press('Escape').catch(() => {});
+    await staleDialog.waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {});
+  }
+
   // Scope the name search to the same available-players table getAvailablePlayers locates
   // (by the presence of a "Proj Pts" columnheader), rather than searching the whole page —
   // a bare-name `text=` match anywhere on the page could otherwise land on a "last pick"
