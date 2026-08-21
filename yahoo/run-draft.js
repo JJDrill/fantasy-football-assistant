@@ -64,19 +64,33 @@ async function takeOurTurn(page) {
   await draftPlayer(page, choice.name);
 
   // Live-verified (2026-08-21, mock drafts): draftPlayer() clicking "Draft" without
-  // throwing does NOT guarantee the pick actually registered server-side -- twice during
-  // testing, a click succeeded (dialog closed cleanly, no error) but the player never
-  // showed up in the final roster (verification_MISMATCH), once at the literal last pick
-  // of the draft and once mid-draft at round 14, so it isn't only a last-pick boundary
-  // race. Re-read our roster right away and confirm the player is actually there before
-  // trusting the pick -- this turns a silent, only-caught-at-the-very-end discrepancy into
-  // an immediate, retryable pick_error like any other failure mode this loop already
-  // handles (deadline guard / Yahoo autopick fallback).
-  const updatedRoster = await getOurRoster(page);
-  const landed = updatedRoster.some((slot) => slot.playerName === choice.name);
-  if (!landed) {
+  // throwing does NOT guarantee the pick actually registered server-side. Caught THREE
+  // times now, twice on the exact same player ("C. Hubbard", both times at round 14, in
+  // two entirely separate mock drafts) -- too coincidental to be random. Best working
+  // theory: a genuine server-side draft race, where another team's bot/autopick claims
+  // the same contested player at nearly the same moment, Yahoo's client briefly shows an
+  // optimistic "success" before the server resolves the conflict against us, and our
+  // first immediate re-check (added after the first two occurrences) still read that
+  // optimistic, not-yet-corrected state -- explaining why even an immediate re-check
+  // still saw the player as "landed" once, only for them to be gone by the time the
+  // whole draft finished. A single settle delay then a SECOND confirming check closes
+  // this: if the pick was genuinely lost to a race, the correction should show up within
+  // a couple of seconds, well before the draft moves on.
+  async function checkLanded() {
+    const updatedRoster = await getOurRoster(page);
+    return updatedRoster.some((slot) => slot.playerName === choice.name);
+  }
+
+  if (!(await checkLanded())) {
     throw new Error(
       `PICK_NOT_REGISTERED: clicked Draft for "${choice.name}" but they do not appear in our roster afterward`
+    );
+  }
+  await page.waitForTimeout(2500);
+  if (!(await checkLanded())) {
+    throw new Error(
+      `PICK_NOT_REGISTERED: "${choice.name}" appeared in our roster right after the click but was gone ` +
+        `~2.5s later -- likely lost a server-side race for a contested player to another team's pick`
     );
   }
 
