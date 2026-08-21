@@ -57,7 +57,19 @@ async function withDeadline(promise, ms, onTimeout) {
 // of our own roster slots already filled is ground truth the page itself provides and
 // naturally self-corrects across a restart (or after a turn Yahoo auto-picked for us while
 // this driver was stalled) — derive the round from that instead of a local counter.
+// User request (2026-08-21): slow the whole picking process down to look like a real
+// person using the app, not a bot firing the instant it's our turn. Beyond the optics,
+// this likely also reduces how often we walk into the C. Hubbard-style server-side race
+// below: reading the available-players list the instant the turn flips risks reading a
+// client-side snapshot that hasn't caught up yet from whatever other teams' picks just
+// happened. Giving it a few seconds to settle before we even look at the board means our
+// decision is made on more current data, even though it can't eliminate a genuine
+// simultaneous claim by another team (that's what the post-pick settle-delay check below
+// is for).
+const THINK_DELAY_MS = 4000;
+
 async function takeOurTurn(page) {
+  await page.waitForTimeout(THINK_DELAY_MS);
   const [roster, available] = await Promise.all([getOurRoster(page), getAvailablePlayers(page)]);
   const currentRound = roster.filter((s) => s.playerName).length + 1;
   const choice = pickPlayer(available, roster, { currentRound, totalRounds: TOTAL_ROUNDS });
