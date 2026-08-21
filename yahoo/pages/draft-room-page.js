@@ -256,6 +256,12 @@ async function draftPlayer(page, playerName) {
       );
     }
 
+    // Deliberate pause after the mismatch check passes, before submitting: gives a human
+    // watching the headed browser (this runs headed on purpose, see run-draft.js) a real
+    // couple of seconds to see the confirmation card and react/intervene if something looks
+    // wrong, rather than the pick firing the instant the check clears.
+    await page.waitForTimeout(2000);
+
     const draftButton = dialog.getByRole('button', { name: 'Draft' });
     await draftButton.click({ timeout: 5000 });
     // Live-verified (2026-08-20, mock draft room): after a successful Draft click the
