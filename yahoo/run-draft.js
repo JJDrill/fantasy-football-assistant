@@ -58,6 +58,11 @@ async function main() {
   const context = await launchContext();
   try {
     const page = await context.newPage();
+    // draftUrl() is UNVERIFIED against the real league (see its comment in base-page.js) —
+    // it hasn't been possible to confirm until the real draft room opens. Before running
+    // this for real on draft day, open that URL manually first to confirm it lands in the
+    // live draft room rather than a dead page; if not, get the real entry URL the same way
+    // the mock ones were found (open it manually, copy page.url()) and swap it in here.
     await enterDraft(page, draftUrl());
     log({ event: 'entered_draft' });
 
@@ -77,6 +82,15 @@ async function main() {
       }
 
       if (state === 'ours') {
+        // Note: if the deadline fires first, `attempt` keeps running in the background —
+        // withDeadline() doesn't cancel it (Playwright has no way to abort an in-flight
+        // click). Its own .catch() below still logs a pick_error whenever it eventually
+        // settles, and a late success still logs 'picked' from inside takeOurTurn, so
+        // nothing is silently swallowed — but a very late completion could submit a click
+        // against a page state the main loop has already moved past (e.g. Yahoo autopicked
+        // and it's now a different turn). Accepted risk: this has never been observed live
+        // (picks have consistently finished well under the deadline), and Playwright offers
+        // no clean way to cancel an in-flight action short of closing the page.
         const attempt = takeOurTurn(page).catch((err) => {
           log({ event: 'pick_error', error: err.message });
         });

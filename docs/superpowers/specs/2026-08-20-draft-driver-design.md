@@ -55,13 +55,27 @@ yahoo/pages/draft-room-page.js   Draft-room page object:
 
 yahoo/draft/strategy.js          Pure function: pickPlayer(availablePlayers, ourRoster,
                                   { totalRounds, currentRound }) -> chosen player.
-                                  BPA while any of the 7 non-K/DEF starting slots
-                                  (QB, RB, RB, WR, WR, TE, W-R-T) are open; once all 7
-                                  are filled, switch to need-based (best-ranked player at
-                                  a position we still need — open bench slots count as
-                                  "need any position", subject to roster max-per-position
-                                  implied by available slots); K and DEF are excluded from
-                                  consideration entirely until the final 2 rounds.
+                                  Updated per Task 7's live-testing findings (see below) —
+                                  this no longer matches the "switch once all 7 are full"
+                                  wording from earlier in this doc:
+                                  - BPA (highest raw Proj Pts, any position) while MORE
+                                    THAN 2 of the 7 non-K/DEF starting slots (QB, RB, RB,
+                                    WR, WR, TE, W-R-T) are still open. Below that threshold
+                                    (2 or fewer open), switches to need-based: best-ranked
+                                    player at a position we still need, falling back to
+                                    pure BPA if nothing in the pool matches an open need.
+                                  - QB is a hard exception: once our starting QB slot is
+                                    filled, QB is excluded from consideration for the rest
+                                    of the draft, regardless of raw value. Yahoo's Proj Pts
+                                    isn't scarcity-adjusted, so pure BPA/need logic alone
+                                    kept re-drafting QB — live-verified this was a real,
+                                    repeated problem before the fix (see Task 7 below).
+                                  - K and DEF are excluded from consideration entirely
+                                    until the final 2 rounds, at which point they're folded
+                                    into the same need-matching logic as every other
+                                    position (an earlier version of this fold-in had a bug
+                                    where it didn't check which of K/DEF specifically was
+                                    still open — see Task 7 below).
 
 yahoo/run-draft.js               CLI orchestrator:
                                   - launchContext(), enter the draft
