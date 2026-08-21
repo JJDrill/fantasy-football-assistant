@@ -62,6 +62,24 @@ async function takeOurTurn(page) {
   const currentRound = roster.filter((s) => s.playerName).length + 1;
   const choice = pickPlayer(available, roster, { currentRound, totalRounds: TOTAL_ROUNDS });
   await draftPlayer(page, choice.name);
+
+  // Live-verified (2026-08-21, mock drafts): draftPlayer() clicking "Draft" without
+  // throwing does NOT guarantee the pick actually registered server-side -- twice during
+  // testing, a click succeeded (dialog closed cleanly, no error) but the player never
+  // showed up in the final roster (verification_MISMATCH), once at the literal last pick
+  // of the draft and once mid-draft at round 14, so it isn't only a last-pick boundary
+  // race. Re-read our roster right away and confirm the player is actually there before
+  // trusting the pick -- this turns a silent, only-caught-at-the-very-end discrepancy into
+  // an immediate, retryable pick_error like any other failure mode this loop already
+  // handles (deadline guard / Yahoo autopick fallback).
+  const updatedRoster = await getOurRoster(page);
+  const landed = updatedRoster.some((slot) => slot.playerName === choice.name);
+  if (!landed) {
+    throw new Error(
+      `PICK_NOT_REGISTERED: clicked Draft for "${choice.name}" but they do not appear in our roster afterward`
+    );
+  }
+
   log({ event: 'picked', round: currentRound, player: choice.name, position: choice.position });
   return choice;
 }
