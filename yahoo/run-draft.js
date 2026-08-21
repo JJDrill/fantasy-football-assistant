@@ -18,6 +18,16 @@ const PICK_DEADLINE_MS = 52000; // Yahoo's clock is 60s; leave margin for networ
 const TOTAL_ROUNDS = 15;
 const LOG_PATH = path.join(__dirname, 'draft-log.jsonl');
 
+// A dialog matching one of these isn't a routine "someone picked" notification — it means
+// the session itself is gone (kicked by a second client, logged out, etc.). Continuing to
+// poll/click after this is pointless: there's no seat left to act on. Distinct from the
+// routine unexpected_dialog case, which just gets dismissed and moved past.
+const SESSION_LOST_PATTERNS = [/logged off/i, /another draft client/i, /session (has )?expired/i];
+
+function isSessionLostDialog(text) {
+  return SESSION_LOST_PATTERNS.some((re) => re.test(text));
+}
+
 function log(entry) {
   const line = JSON.stringify({ ts: new Date().toISOString(), ...entry });
   console.log(line);
@@ -95,12 +105,27 @@ async function main() {
     // eslint-disable-next-line no-constant-condition
     while (true) {
       // Checked every poll interval, independent of turn state: catches an unexpected
-      // dialog/toast (e.g. "logged off because you logged in from another draft client")
-      // that appears between turns, when nothing else would otherwise notice it. Only logs
-      // on change so a persistent dialog doesn't spam the log every 2.5s.
+      // dialog/toast (e.g. a "someone else just picked" notification card, or a genuine
+      // session-lost message) that appears between turns, when nothing else would
+      // otherwise notice it. Only logs on change so a persistent dialog doesn't spam the
+      // log every 2.5s.
       const dialogText = await getVisibleDialogText(page).catch(() => null);
       if (dialogText !== lastDialogText) {
-        if (dialogText) log({ event: 'unexpected_dialog', text: dialogText });
+        if (dialogText) {
+          if (isSessionLostDialog(dialogText)) {
+            // Not a routine notification to dismiss and move past -- the session itself is
+            // gone. Nothing left to click on for this seat; stop rather than spin forever
+            // polling a dead connection.
+            log({ event: 'session_lost', text: dialogText });
+            throw new Error(`SESSION_LOST: ${dialogText}`);
+          }
+          log({ event: 'unexpected_dialog', text: dialogText });
+          // Proactively clear it now rather than waiting for the next pick attempt's own
+          // dismiss step -- keeps the room clear throughout the draft, not just right
+          // before we need to click, per the user's request to watch for popups
+          // "through the draft process," not only at pick time.
+          await page.keyboard.press('Escape').catch(() => {});
+        }
         lastDialogText = dialogText;
       }
 
@@ -178,7 +203,7 @@ async function main() {
   }
 }
 
-module.exports = { verifyFinalRoster };
+module.exports = { verifyFinalRoster, isSessionLostDialog };
 
 if (require.main === module) {
   main().catch((err) => {
