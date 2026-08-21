@@ -258,6 +258,17 @@ async function draftPlayer(page, playerName) {
 
     const draftButton = dialog.getByRole('button', { name: 'Draft' });
     await draftButton.click({ timeout: 5000 });
+    // Live-verified (2026-08-20, mock draft room): after a successful Draft click the
+    // dialog can take a couple seconds to actually close. Without waiting for it, the next
+    // poll loop iteration — which can fire quickly, e.g. if run-draft.js's turn-state
+    // re-check still (transiently) reads 'ours' right after this same pick — starts a new
+    // draftPlayer() click that lands on this still-open (or mid-close) dialog, which
+    // intercepts the pointer event and burns the full click timeout before failing. Waiting
+    // here for the dialog to actually disappear closes that race at its source rather than
+    // relying only on callers to debounce.
+    await dialog.waitFor({ state: 'hidden', timeout: 10000 }).catch((err) => {
+      console.warn('draftPlayer: confirmation dialog did not close within timeout:', err.message);
+    });
   } catch (err) {
     // Live-verified (2026-08-20, mock draft room): leaving the detail dialog open after a
     // thrown error blocks every subsequent click attempt for the rest of the draft (a
