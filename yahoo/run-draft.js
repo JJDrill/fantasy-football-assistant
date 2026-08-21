@@ -55,7 +55,9 @@ async function takeOurTurn(page) {
 }
 
 async function main() {
-  const context = await launchContext();
+  // Headed, not headless: the user wants to watch this run live (both for testing and
+  // for the real draft Sunday) to monitor for bugs in real time rather than fly blind.
+  const context = await launchContext({ headless: false });
   try {
     const page = await context.newPage();
     // draftUrl() is UNVERIFIED against the real league (see its comment in base-page.js) —
