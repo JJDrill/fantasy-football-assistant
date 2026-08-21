@@ -62,7 +62,10 @@ async function joinMockDraftSafely(page, { teamSize = '8 Team' } = {}) {
   ]);
   const draftPage = popup || page;
 
-  await draftPage.waitForURL(/draftclient\/f1\//, { timeout: 120000 });
+  // Live-verified (2026-08-21): 120000ms wasn't quite enough once — the join succeeded
+  // and the lobby's waiting-room countdown had just finished right as the timeout hit.
+  // Bumped with margin, not just the user's literal "at least 10 seconds" ask.
+  await draftPage.waitForURL(/draftclient\/f1\//, { timeout: 150000 });
   return draftPage.url();
 }
 
