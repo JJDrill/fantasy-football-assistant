@@ -68,11 +68,22 @@ async function withDeadline(promise, ms, onTimeout) {
 // is for).
 const THINK_DELAY_MS = 4000;
 
+// User request (2026-08-22): print the intended pick loudly, in the terminal, BEFORE
+// attempting the click -- so if the UI automation fails partway through a pick (a
+// selector breaks, Yahoo changes the draft room again, etc.), a human watching the
+// console still knows exactly who to draft manually before the pick clock runs out,
+// rather than having to guess from a stack trace.
+function announcePick(choice) {
+  const banner = '*'.repeat(43);
+  console.log(`\n${banner}\nPlayer Name: ${choice.name}\nPosition:    ${choice.position}\n${banner}\n`);
+}
+
 async function takeOurTurn(page) {
   await page.waitForTimeout(THINK_DELAY_MS);
   const [roster, available] = await Promise.all([getOurRoster(page), getAvailablePlayers(page)]);
   const currentRound = roster.filter((s) => s.playerName).length + 1;
   const choice = pickPlayer(available, roster, { currentRound, totalRounds: TOTAL_ROUNDS });
+  announcePick(choice);
   await draftPlayer(page, choice.name);
 
   // Live-verified (2026-08-21, mock drafts): draftPlayer() clicking "Draft" without
