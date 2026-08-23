@@ -21,9 +21,14 @@ function classifyLobbyState(launchDraftAppLinkCount) {
   return 'multiple';
 }
 
+// Live-verified (2026-08-22): "Launch Draft App" now renders as a <button>, not a <link>
+// as originally assumed — matching both roles here is more robust to that kind of
+// incidental markup change than pinning to one.
 async function findExistingActiveDraft(page) {
   await page.goto(MOCK_LOBBY_URL);
-  const launchLinks = page.getByRole('link', { name: 'Launch Draft App' });
+  const launchLinks = page
+    .getByRole('button', { name: 'Launch Draft App' })
+    .or(page.getByRole('link', { name: 'Launch Draft App' }));
   const count = await launchLinks.count();
 
   const state = classifyLobbyState(count);
@@ -37,7 +42,48 @@ async function findExistingActiveDraft(page) {
   if (state === 'none') return null;
 
   const href = await launchLinks.first().getAttribute('href');
-  return new URL(href, MOCK_LOBBY_URL).toString();
+  if (href) return new URL(href, MOCK_LOBBY_URL).toString();
+
+  // Live-verified (2026-08-22): unlike the old "Launch Draft App" link, the button variant
+  // doesn't always expose a plain href to read directly — click it (it opens a popup tab
+  // for an in-progress draft) and use the resulting page's URL instead.
+  const [popup] = await Promise.all([
+    page.waitForEvent('popup').catch(() => null),
+    launchLinks.first().click(),
+  ]);
+  const target = popup || page;
+  await target.waitForURL(/draftclient\/f1\//, { timeout: 15000 });
+  const url = target.url();
+  // Bug found live (2026-08-22): leaving this popup open and then separately navigating
+  // the caller's own `page` to the same URL (as enterDraft() does with the URL this
+  // returns) put TWO tabs on the same draft seat at once — Yahoo's server treats that as a
+  // second client logging in and evicts one with "logged in from another draft client".
+  // Only ever one tab should end up driving a given seat.
+  if (popup) await popup.close();
+  return url;
+}
+
+// Live-verified (2026-08-22): a seat reserved in a room that hasn't started yet shows an
+// "Enter Draft Waiting Room" button instead of "Launch Draft App" — findExistingActiveDraft
+// alone misses this case entirely (no "Launch Draft App" present yet), which is exactly
+// what let a throwaway debugging session accidentally leave a pending seat undetected by a
+// later run. Checking for this separately closes that gap: a crashed/restarted run should
+// resume the SAME pending seat rather than trying to join a second one (which Yahoo/this
+// account's one-draft-at-a-time assumption doesn't support) or leaving the first seat to
+// silently autopick unattended.
+async function findExistingPendingSeat(page) {
+  await page.goto(MOCK_LOBBY_URL);
+  const enterButtons = page.getByRole('button', { name: 'Enter Draft Waiting Room' });
+  const count = await enterButtons.count();
+  if (count === 0) return null;
+  if (count > 1) {
+    throw new Error(
+      `MULTIPLE_PENDING_MOCK_DRAFT_SEATS: found ${count} "Enter Draft Waiting Room" buttons — ` +
+        'this account already holds more than one pending seat. Resolve this manually before joining another.'
+    );
+  }
+  await enterButtons.first().click();
+  return page;
 }
 
 // Joins a fresh mock draft ONLY if we don't already hold a seat in one — reuses an
@@ -45,28 +91,50 @@ async function findExistingActiveDraft(page) {
 // URL (with ?auth=...) to pass to enterDraft(). Throws MULTIPLE_ACTIVE_MOCK_DRAFTS if
 // findExistingActiveDraft finds we're already in more than one.
 //
-// NOT independently live-verified since being written (built from patterns already
-// observed working in earlier manual/subagent testing sessions, e.g. the "8 Team" button
-// sometimes opening a popup tab and sometimes navigating the same page) — verify this
-// against a real lobby before trusting it for the next round of testing, the same way
-// every other piece of this project's Playwright code was verified live before being
-// trusted.
-async function joinMockDraftSafely(page, { teamSize = '8 Team' } = {}) {
+// Live-verified (2026-08-22): the team-size button click, the intermediate waiting-room
+// page, and the eventual auto-navigation to draftclient/f1/... once its countdown ends
+// all confirmed working against a real lobby. findExistingActiveDraft's "Launch Draft App"
+// detection was also confirmed live (both while a joined draft is still pending in its
+// waiting room — where it shows "Enter Draft Waiting Room" instead, not yet handled by
+// this function — and once it's actually in progress).
+async function joinMockDraftSafely(page, { teamSize = '10 Team' } = {}) {
   const existing = await findExistingActiveDraft(page);
   if (existing) return existing;
 
-  await page.goto(MOCK_LOBBY_URL);
-  const [popup] = await Promise.all([
-    page.waitForEvent('popup').catch(() => null),
-    page.getByRole('button', { name: teamSize }).click(),
-  ]);
-  const draftPage = popup || page;
+  // Live-verified (2026-08-22): Yahoo now routes a fresh join through an intermediate
+  // "waiting room" page (mock_waiting) showing a "Starts In MM:SS" countdown, rather than
+  // navigating straight to draftclient/f1/... — a resumed pending seat (found via
+  // findExistingPendingSeat) and a brand-new join both land here and both auto-navigate to
+  // draftclient once the countdown hits zero, so both paths converge on the same wait
+  // below. Observed countdowns/lobby start times range from under a minute up to ~12
+  // minutes depending which room has an open seat, so wait generously rather than assuming
+  // a fixed short join time.
+  const pending = await findExistingPendingSeat(page);
+  let draftPage;
+  if (pending) {
+    draftPage = pending;
+  } else {
+    await page.goto(MOCK_LOBBY_URL);
+    const [popup] = await Promise.all([
+      page.waitForEvent('popup').catch(() => null),
+      page.getByRole('button', { name: teamSize, exact: true }).click(),
+    ]);
+    draftPage = popup || page;
+  }
 
-  // Live-verified (2026-08-21): 120000ms wasn't quite enough once — the join succeeded
-  // and the lobby's waiting-room countdown had just finished right as the timeout hit.
-  // Bumped with margin, not just the user's literal "at least 10 seconds" ask.
-  await draftPage.waitForURL(/draftclient\/f1\//, { timeout: 150000 });
-  return draftPage.url();
+  await draftPage.waitForURL(/draftclient\/f1\//, { timeout: 600000 });
+  const url = draftPage.url();
+  // Same "two tabs on one seat" bug as findExistingActiveDraft's popup path above — close
+  // it here too rather than leaving it open alongside the caller's own `page`, which
+  // enterDraft() will separately navigate to this same URL.
+  if (draftPage !== page) await draftPage.close();
+  return url;
 }
 
-module.exports = { classifyLobbyState, findExistingActiveDraft, joinMockDraftSafely, MOCK_LOBBY_URL };
+module.exports = {
+  classifyLobbyState,
+  findExistingActiveDraft,
+  findExistingPendingSeat,
+  joinMockDraftSafely,
+  MOCK_LOBBY_URL,
+};
