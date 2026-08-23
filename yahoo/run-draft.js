@@ -8,7 +8,10 @@ const {
   getAvailablePlayers,
   getOurRoster,
   draftPlayer,
+  dismissDialog,
   getVisibleDialogText,
+  isAutopickModeDialog,
+  attemptTurnOffAutodraft,
 } = require('./pages/draft-room-page');
 const { draftUrl } = require('./pages/base-page');
 const { pickPlayer } = require('./draft/strategy');
@@ -175,11 +178,30 @@ async function main() {
             throw new Error(`SESSION_LOST: ${dialogText}`);
           }
           log({ event: 'unexpected_dialog', text: dialogText });
+          // Live-verified (2026-08-23, mock draft room): a slow/failed pick can trip
+          // Yahoo's own inactivity detection, putting our team into a STICKY autopick
+          // mode for the rest of the draft -- not just the one missed turn. Caught this
+          // costing 4 of 15 picks in one run (2 with zero log trace at all, since the
+          // turn-state title never says "ours" again while Yahoo autopicks for us).
+          // Attempt best-effort recovery: click the sidebar Autodraft toggle Yahoo's own
+          // dialog text points at ("You can turn off autopick mode to resume live
+          // drafting"). NOT independently confirmed to fully restore control end-to-end
+          // (would require watching several subsequent real turns) -- if `picked` events
+          // stop appearing after this fires, this attempt didn't work and it's back to a
+          // manual-intervention situation.
+          if (isAutopickModeDialog(dialogText)) {
+            log({ event: 'autopick_mode_detected', text: dialogText });
+            const attempted = await attemptTurnOffAutodraft(page).catch(() => false);
+            log({ event: 'autopick_mode_recovery_attempted', clicked: attempted });
+          }
           // Proactively clear it now rather than waiting for the next pick attempt's own
           // dismiss step -- keeps the room clear throughout the draft, not just right
           // before we need to click, per the user's request to watch for popups
-          // "through the draft process," not only at pick time.
-          await page.keyboard.press('Escape').catch(() => {});
+          // "through the draft process," not only at pick time. Uses dismissDialog (not
+          // just Escape) since a live run found a dialog whose Escape-dismissal silently
+          // failed, leaving a blocking overlay that broke every subsequent pick for the
+          // rest of the draft -- see dismissDialog's comment in draft-room-page.js.
+          await dismissDialog(page, page.locator('dialog[open]').first());
         }
         lastDialogText = dialogText;
       }

@@ -206,6 +206,29 @@ async function getOurRoster(page) {
 // new UI, but still detected defensively before attempting a pick — if one is open and
 // offers "Exit Preview" instead of being a routine dismissible notification, this throws
 // rather than blindly clicking through something that could exit the whole draft.
+// Live-verified (2026-08-23, mock draft room): a live run lost 13 of 15 picks after a
+// single "The pick you are trying to make is not the current pick. You may have picked
+// too late." toast appeared — every click attempt for the rest of the draft then failed
+// with a locator timeout waiting for a Draft button that WAS present in a genuinely
+// fresh, correctly-chosen row each time (turn-state correctly cycled 'ours'/'waiting'
+// throughout, ruling out the separate sticky-autopick-mode gap above). Best working
+// theory: unlike the routine "DRAFTED BY <manager>" cards (which this same code already
+// handled correctly for months), THIS toast either doesn't respond to Escape or Escape
+// closes something else, leaving a full-screen modal backdrop sitting on top of the
+// available-players table and intercepting every subsequent click. Pressing Escape alone
+// was the only dismissal attempted before; this also tries clicking any close button
+// inside the dialog as a second attempt, since Yahoo's other dialogs (e.g. the
+// autopick-mode one) render an explicit round "X" close button — Escape and a close
+// button failing for entirely different reasons is far less likely than either alone.
+async function dismissDialog(page, dialog) {
+  await page.keyboard.press('Escape').catch(() => {});
+  if (await dialog.isHidden().catch(() => true)) return;
+  await dialog.waitFor({ state: 'hidden', timeout: 3000 }).catch(() => {});
+  if (await dialog.isHidden().catch(() => true)) return;
+  await dialog.getByRole('button').first().click({ timeout: 3000 }).catch(() => {});
+  await dialog.waitFor({ state: 'hidden', timeout: 3000 }).catch(() => {});
+}
+
 async function draftPlayer(page, playerName) {
   // Live-verified (2026-08-21, mock draft room, still true post-redesign): Yahoo shows an
   // automatic "DRAFTED BY <manager> — <player>" notification card (a <dialog>, with its
@@ -221,8 +244,7 @@ async function draftPlayer(page, playerName) {
         `UNEXPECTED_UPSELL_DIALOG: found an Exit-Preview dialog before attempting to draft "${playerName}": ${staleText}`
       );
     }
-    await page.keyboard.press('Escape').catch(() => {});
-    await staleDialog.first().waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {});
+    await dismissDialog(page, staleDialog.first());
   }
 
   // Scope to the same available-players table getAvailablePlayers locates (by the
@@ -263,6 +285,35 @@ async function getVisibleDialogText(page) {
   return (await dialog.textContent()).trim();
 }
 
+// Live-verified (2026-08-23, mock draft room): a slow/failed pick can trip Yahoo's own
+// inactivity detection, which puts the WHOLE REST OF THE DRAFT into a sticky "autopick
+// mode" for our team, not just the one missed turn -- a single run-mock-draft.js test lost
+// 4 of 15 picks (including K and DEF) to this, two of them with no log trace at all (the
+// poll loop's turn-state title just never says "ours" again while Yahoo is autopicking for
+// us). The exact dialog text observed: "You have been put into autopick mode due to
+// inactivity. You can turn off autopick mode to resume live drafting."
+function isAutopickModeDialog(text) {
+  return /autopick mode/i.test(text);
+}
+
+// Live-verified (2026-08-23): the control the dialog refers to is a purple "Autodraft"
+// button in the left Queue/Picks sidebar panel (distinct from a same-named icon-only
+// button up in the header -- disambiguated here by scoping to the sidebar container,
+// identified by its neighboring "Autodraft will pick from queue" text). Clicking it once
+// was confirmed to be clickable and not throw, but NOT independently confirmed to fully
+// restore live-drafting control end-to-end (would require sitting through several more
+// real turns to verify) -- this is a best-effort recovery attempt, not a proven fix. Worth
+// re-checking against live draft-log.jsonl output: if `ourPicks` keeps growing normally on
+// subsequent turns after this fires, it worked; if turns keep disappearing silently, it
+// didn't, and this remains a manual-intervention situation as before.
+async function attemptTurnOffAutodraft(page) {
+  const sidebar = page.locator('div', { hasText: 'Autodraft will pick from queue' }).first();
+  const toggle = sidebar.getByRole('button', { name: 'Autodraft', exact: true });
+  if ((await toggle.count()) === 0) return false;
+  await toggle.click().catch(() => {});
+  return true;
+}
+
 module.exports = {
   classifyTurnState,
   getTurnState,
@@ -272,5 +323,8 @@ module.exports = {
   parseRosterPanelSlot,
   getOurRoster,
   draftPlayer,
+  dismissDialog,
   getVisibleDialogText,
+  isAutopickModeDialog,
+  attemptTurnOffAutodraft,
 };

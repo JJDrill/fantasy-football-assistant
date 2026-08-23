@@ -3,6 +3,7 @@ const assert = require('node:assert');
 const { classifyTurnState } = require('./draft-room-page');
 const { parseAvailablePlayerRow } = require('./draft-room-page');
 const { parseRosterPanelSlot } = require('./draft-room-page');
+const { isAutopickModeDialog } = require('./draft-room-page');
 
 test('classifyTurnState recognizes our turn', () => {
   assert.strictEqual(classifyTurnState('YOUR TURN, DRAFT NOW | Live NFL Draft | Yahoo Fantasy Sports'), 'ours');
@@ -56,4 +57,17 @@ test('parseRosterPanelSlot handles an open slot', () => {
 test('parseRosterPanelSlot normalizes the flex slot label WRT to W/R/T', () => {
   const raw = { slotLabel: 'WRT', playerName: null };
   assert.deepStrictEqual(parseRosterPanelSlot(raw), { slot: 'W/R/T', playerName: null });
+});
+
+test('isAutopickModeDialog recognizes the exact live-observed autopick-mode message', () => {
+  assert.strictEqual(
+    isAutopickModeDialog(
+      'You have been put into autopick mode due to inactivity. You can turn off autopick mode to resume live drafting.'
+    ),
+    true
+  );
+});
+
+test('isAutopickModeDialog does not flag a routine pick notification', () => {
+  assert.strictEqual(isAutopickModeDialog('DRAFTED BY David — Chase Brown, RB, Cin'), false);
 });
