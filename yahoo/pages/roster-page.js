@@ -17,14 +17,36 @@ function parseRosterRow(raw) {
 // exactly one element containing exactly "J's Pancakes" with no extra dropdown text.
 const TEAM_NAME_SELECTOR = '.title-wrapper span.F-reset.Nowrap';
 
-// Live-verified (pre-draft): the team page currently renders a *roster-requirements*
-// summary table (headers QB/RB/WR/TE/W-R-T/K/DEF/BN/IR, one row of position counts) but
-// no actual per-player roster table — there's nothing with a "Points" column yet because
-// no one has drafted. The plan's guessed selector below could not be confirmed against
-// real roster markup and MUST be re-verified after the Aug 23 draft (see Step 5 in the
-// task). Left as-is for now: when no matching table exists, `rows.count()` is 0 and this
-// function safely returns an empty roster rather than throwing.
-const ROSTER_TABLE_SELECTOR = 'table:has(th:has-text("Points")) tbody tr';
+// Live-verified (2026-08-25, post-draft, real roster with 15 drafted players): the
+// pre-draft guess above was wrong on every count. Once players are rostered, the team
+// page renders THREE separate tables side by side, one per position group — offense
+// (`#statTable0`), kickers (`#statTable1`), DEF/ST (`#statTable2`) — not one table with a
+// "Points" header (the real header text is "Fan Pts", and it never appears as a plain
+// <th> string match because the header cell nests a <div>). `table[id^="statTable"]`
+// matches all three regardless of id suffix.
+const ROSTER_TABLE_SELECTOR = 'table[id^="statTable"] tbody tr';
+
+// Live-verified (2026-08-25): slot is a `data-pos` attribute on a span inside `td.pos`
+// (e.g. `data-pos="QB"`), not the cell's raw text — the very next `td` is a hidden
+// `<select>` of eligible slots (its textContent concatenates every `<option>`, e.g.
+// "QBBN", which is what the old cell-index approach was actually reading). Player name
+// lives in `td.player a.name`; empty BN/IR slots have no such link (name is "(Empty)"
+// in the cell's own text, but easier to detect via the link's absence). Points live in
+// `td.pts` and are blank for empty slots.
+async function readRosterRow(row) {
+  const slotAttr = row.locator('td.pos span[data-pos]');
+  const slot = (await slotAttr.count())
+    ? await slotAttr.getAttribute('data-pos')
+    : (await row.locator('td.pos').textContent()).trim();
+
+  const nameLink = row.locator('td.player a.name');
+  const playerName = (await nameLink.count()) ? (await nameLink.first().textContent()).trim() : '';
+
+  const pointsCell = row.locator('td.pts');
+  const points = (await pointsCell.count()) ? (await pointsCell.textContent()).trim() : '';
+
+  return parseRosterRow({ slot, playerName, points });
+}
 
 async function getRoster(page, teamId, { week } = {}) {
   const url = week ? `${teamUrl(teamId)}?week=${week}` : teamUrl(teamId);
@@ -39,15 +61,7 @@ async function getRoster(page, teamId, { week } = {}) {
   const roster = [];
 
   for (let i = 0; i < count; i++) {
-    const row = rows.nth(i);
-    const cells = row.locator('td');
-    const cellCount = await cells.count();
-    if (cellCount < 2) continue;
-
-    const slot = (await cells.nth(0).textContent()).trim();
-    const playerName = (await cells.nth(1).textContent()).trim();
-    const points = (await cells.nth(cellCount - 1).textContent()).trim();
-    roster.push(parseRosterRow({ slot, playerName, points }));
+    roster.push(await readRosterRow(rows.nth(i)));
   }
 
   return { teamId, teamName, roster };
