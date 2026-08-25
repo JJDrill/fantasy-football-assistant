@@ -99,7 +99,17 @@ function parseAvailablePlayerRow(raw) {
 // "Player" could theoretically match other tables) and find each column's index
 // dynamically from the header row rather than hardcoding cell positions — this table has
 // ~20 columns and hardcoded indices would be especially fragile here.
-async function getAvailablePlayers(page, { limit = 40 } = {}) {
+//
+// Live-verified (2026-08-22, mock draft room): a limit of 40 left K completely unfilled
+// in an otherwise-clean full-15-round run — kickers (and often defenses) rank far below
+// the top 40 overall players by raw value, so once strategy.js's need-matching correctly
+// tries to force a still-open K in the final rounds, it was searching a candidate pool
+// that had already silently excluded every kicker on the board, found no match, and fell
+// through to its pure-BPA fallback instead. The table isn't virtualized (every row really
+// is in the DOM — confirmed live), so raising this just scrapes more already-present rows
+// rather than triggering any extra rendering; bumped well past what's needed even late in
+// a draft when the remaining pool has shrunk.
+async function getAvailablePlayers(page, { limit = 200 } = {}) {
   const table = page.locator('table').filter({ has: page.getByRole('columnheader', { name: 'Proj Pts' }) }).first();
   const headers = await table.locator('thead th, thead >> role=columnheader').allTextContents();
   const playerColIndex = headers.findIndex((h) => h.trim() === 'Player');
@@ -183,121 +193,81 @@ async function getOurRoster(page) {
   return raw.map(parseRosterPanelSlot);
 }
 
-// Live-verified (2026-08-20, mock draft rooms): clicking a player's name cell in the
-// available-players table opens a modal dialog with player detail and a "Draft" button
-// at the bottom. This is the reliable path — a per-row one-click "Draft" button also
-// exists in some views but was less reliable to target during testing (the row-level
-// button sometimes triggered the same confirmation dialog anyway).
+// Live-verified (2026-08-22, mock draft room): Yahoo redesigned the draft room since it
+// was last tested here (2026-08-20/21) — the previous "click name → confirmation dialog →
+// click Draft inside it" flow no longer exists. Each row in the available-players table
+// now has its own one-click "Draft" button (in the same column the header calls "Queue"
+// the rest of the time) that drafts the player immediately, with no confirmation dialog
+// at all. Confirmed live: clicking it advances the turn state and the player immediately
+// appears in the roster panel.
 //
-// KNOWN RISK (see spec's "Known gap"): a Yahoo Fantasy Plus upsell dialog was observed
-// once, unpredictably, with an "Exit Preview" button instead of "Draft" — clicking
-// through it exits the whole draft. This function detects that case and throws instead
-// of blindly clicking whatever button is in the dialog, so the deadline guard in
-// run-draft.js can catch it and fall back to Yahoo's autopick rather than accidentally
-// leaving the draft.
-// Generational suffixes that can trail a surname (e.g. "T. Etienne Jr.", "J. Walker III").
-// Stripped before taking the "surname" token below — without this, a name like
-// "T. Etienne Jr." would take "Jr." as the comparison token, which trivially matches ANY
-// other Jr.-suffixed player's dialog (e.g. "Michael Pittman Jr."), silently defeating the
-// mismatch check for a meaningful fraction of the real player pool. Mirrors the
-// suffix-awareness free-agents-page.js already needs elsewhere in this codebase, though the
-// concrete approach differs (that file strips glued injury tags; this strips a
-// whitespace-separated generational suffix).
-const NAME_SUFFIXES = new Set(['Jr.', 'Sr.', 'II', 'III', 'IV']);
-
-// Exported for unit testing — pure string logic split out of draftPlayer's Playwright
-// interaction. Compares by surname rather than requiring the dialog to contain the exact
-// playerName string: the available-players table renders names in abbreviated form
-// ("J. Jefferson"), but the detail dialog that opens on click shows the player's full first
-// name ("Justin" / "Jefferson" as separate elements, not "J."). An exact-substring check
-// against the abbreviated form therefore NEVER matches — live-verified (2026-08-20, mock
-// draft room) this made the mismatch check a permanent false positive that fired on every
-// single real pick. Comparing surnames instead is reliable across both name formats and DEF
-// rows (whose "name" is just the team name, e.g. "Rams") — but the surname must be taken
-// after stripping any trailing generational suffix (see NAME_SUFFIXES above), or a
-// suffixed player's "surname" degrades to the shared suffix itself.
-function dialogMatchesPlayer(dialogText, playerName) {
-  const tokens = playerName.trim().split(/\s+/);
-  while (tokens.length > 1 && NAME_SUFFIXES.has(tokens[tokens.length - 1])) {
-    tokens.pop();
-  }
-  const surname = tokens.pop();
-  return Boolean(surname) && dialogText.includes(surname);
+// KNOWN RISK (unchanged from before): a Yahoo Fantasy Plus upsell dialog was observed once
+// (pre-redesign), unpredictably, with an "Exit Preview" button. Not reproduced against the
+// new UI, but still detected defensively before attempting a pick — if one is open and
+// offers "Exit Preview" instead of being a routine dismissible notification, this throws
+// rather than blindly clicking through something that could exit the whole draft.
+// Live-verified (2026-08-23, mock draft room): a live run lost 13 of 15 picks after a
+// single "The pick you are trying to make is not the current pick. You may have picked
+// too late." toast appeared — every click attempt for the rest of the draft then failed
+// with a locator timeout waiting for a Draft button that WAS present in a genuinely
+// fresh, correctly-chosen row each time (turn-state correctly cycled 'ours'/'waiting'
+// throughout, ruling out the separate sticky-autopick-mode gap above). Best working
+// theory: unlike the routine "DRAFTED BY <manager>" cards (which this same code already
+// handled correctly for months), THIS toast either doesn't respond to Escape or Escape
+// closes something else, leaving a full-screen modal backdrop sitting on top of the
+// available-players table and intercepting every subsequent click. Pressing Escape alone
+// was the only dismissal attempted before; this also tries clicking any close button
+// inside the dialog as a second attempt, since Yahoo's other dialogs (e.g. the
+// autopick-mode one) render an explicit round "X" close button — Escape and a close
+// button failing for entirely different reasons is far less likely than either alone.
+async function dismissDialog(page, dialog) {
+  await page.keyboard.press('Escape').catch(() => {});
+  if (await dialog.isHidden().catch(() => true)) return;
+  await dialog.waitFor({ state: 'hidden', timeout: 3000 }).catch(() => {});
+  if (await dialog.isHidden().catch(() => true)) return;
+  await dialog.getByRole('button').first().click({ timeout: 3000 }).catch(() => {});
+  await dialog.waitFor({ state: 'hidden', timeout: 3000 }).catch(() => {});
 }
 
 async function draftPlayer(page, playerName) {
-  // Live-verified (2026-08-21, mock draft room): Yahoo shows an automatic "DRAFTED BY
-  // <manager> — <player>" notification card (a <dialog>, with its own close/X button)
-  // whenever ANY team picks — not just us. If one of these is still open when it becomes
-  // our turn (it doesn't always auto-dismiss quickly), it intercepts our click on the
-  // intended player exactly like a stale dialog from our own failed pick would, and the
-  // resulting timeout burned the whole deadline window in testing. Proactively clear any
-  // already-open dialog before starting this pick, rather than only reacting to one after
-  // a click has already failed because of it.
+  // Live-verified (2026-08-21, mock draft room, still true post-redesign): Yahoo shows an
+  // automatic "DRAFTED BY <manager> — <player>" notification card (a <dialog>, with its
+  // own close/X button) whenever ANY team picks — not just us. If one of these is still
+  // open when it becomes our turn, it can intercept the click on the intended row's Draft
+  // button exactly like a stale dialog from our own failed pick would. Proactively clear
+  // any already-open dialog before starting this pick.
   const staleDialog = page.getByRole('dialog');
   if (await staleDialog.count()) {
-    await page.keyboard.press('Escape').catch(() => {});
-    await staleDialog.waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {});
+    const staleText = await staleDialog.first().textContent().catch(() => '');
+    if (await staleDialog.first().getByRole('button', { name: 'Exit Preview' }).count()) {
+      throw new Error(
+        `UNEXPECTED_UPSELL_DIALOG: found an Exit-Preview dialog before attempting to draft "${playerName}": ${staleText}`
+      );
+    }
+    await dismissDialog(page, staleDialog.first());
   }
 
-  // Scope the name search to the same available-players table getAvailablePlayers locates
-  // (by the presence of a "Proj Pts" columnheader), rather than searching the whole page —
-  // a bare-name `text=` match anywhere on the page could otherwise land on a "last pick"
-  // ticker, a draft queue entry, or another team's roster panel instead of the intended row.
+  // Scope to the same available-players table getAvailablePlayers locates (by the
+  // presence of a "Proj Pts" columnheader), then find the row containing the exact player
+  // name and click its Draft button — rather than a bare page-wide name match, which could
+  // otherwise land on a "last pick" ticker, a queue entry, or another team's roster panel.
   const table = page.locator('table').filter({ has: page.getByRole('columnheader', { name: 'Proj Pts' }) }).first();
-  const nameCell = table.locator(`text="${playerName}"`).first();
-  await nameCell.click();
+  const row = table.locator('tbody tr').filter({ has: page.getByText(playerName, { exact: true }) }).first();
+  await row.getByRole('button', { name: 'Draft', exact: true }).click({ timeout: 5000 });
 
-  const dialog = page.getByRole('dialog');
-  await dialog.waitFor({ state: 'visible', timeout: 5000 });
-
-  try {
-    const exitPreview = dialog.getByRole('button', { name: 'Exit Preview' });
-    if (await exitPreview.count()) {
-      throw new Error(
-        `UNEXPECTED_UPSELL_DIALOG: expected a Draft confirmation for "${playerName}" but got an Exit Preview dialog instead`
-      );
-    }
-
-    // Belt-and-suspenders check: even with the click scoped to the right table above,
-    // confirm the dialog that actually opened is for the right player before submitting
-    // the pick — a mismatch here means something clicked the wrong row and we must not
-    // silently draft it.
-    const dialogText = await dialog.textContent();
-    if (!dialogMatchesPlayer(dialogText, playerName)) {
-      throw new Error(
-        `DIALOG_MISMATCH: expected a Draft confirmation for "${playerName}" but the dialog doesn't mention that name`
-      );
-    }
-
-    // Deliberate pause after the mismatch check passes, before submitting: gives a human
-    // watching the headed browser (this runs headed on purpose, see run-draft.js) a real
-    // couple of seconds to see the confirmation card and react/intervene if something looks
-    // wrong, rather than the pick firing the instant the check clears.
-    await page.waitForTimeout(2000);
-
-    const draftButton = dialog.getByRole('button', { name: 'Draft' });
-    await draftButton.click({ timeout: 5000 });
-    // Live-verified (2026-08-20, mock draft room): after a successful Draft click the
-    // dialog can take a couple seconds to actually close. Without waiting for it, the next
-    // poll loop iteration — which can fire quickly, e.g. if run-draft.js's turn-state
-    // re-check still (transiently) reads 'ours' right after this same pick — starts a new
-    // draftPlayer() click that lands on this still-open (or mid-close) dialog, which
-    // intercepts the pointer event and burns the full click timeout before failing. Waiting
-    // here for the dialog to actually disappear closes that race at its source rather than
-    // relying only on callers to debounce.
-    await dialog.waitFor({ state: 'hidden', timeout: 10000 }).catch((err) => {
-      console.warn('draftPlayer: confirmation dialog did not close within timeout:', err.message);
-    });
-  } catch (err) {
-    // Live-verified (2026-08-20, mock draft room): leaving the detail dialog open after a
-    // thrown error blocks every subsequent click attempt for the rest of the draft (a
-    // stale dialog from one failed pick intercepted the next round's click for a full 30s
-    // until Playwright gave up). Close it before propagating so run-draft.js's deadline
-    // guard can retry cleanly on the next turn instead of cascading into repeated timeouts.
-    await page.keyboard.press('Escape').catch(() => {});
-    throw err;
-  }
+  // Live-verified (2026-08-22, mock draft room): the old dialog-based flow gave callers an
+  // implicit settle window for free (draftPlayer() didn't return until the confirmation
+  // dialog had actually closed). This one-click flow has no dialog and returns the instant
+  // the click event fires — which raced run-draft.js's post-pick roster re-check badly:
+  // TWO consecutive picks in live testing came back PICK_NOT_REGISTERED on the very first
+  // (zero-delay) check, for two different players, even though nothing was actually wrong
+  // — the roster panel simply hadn't re-rendered client-side yet at the moment checked.
+  // Waiting here for the drafted player's row to actually leave the available-players
+  // table (a real signal the client has processed the pick, not a blind sleep) closes that
+  // gap at its source rather than requiring every caller to know to pad its own check.
+  await row.waitFor({ state: 'detached', timeout: 5000 }).catch((err) => {
+    console.warn(`draftPlayer: row for "${playerName}" did not leave the available-players table in time:`, err.message);
+  });
 }
 
 // Live-verified (2026-08-21, mock draft): Yahoo can show a dialog/toast at ANY time, not
@@ -315,6 +285,35 @@ async function getVisibleDialogText(page) {
   return (await dialog.textContent()).trim();
 }
 
+// Live-verified (2026-08-23, mock draft room): a slow/failed pick can trip Yahoo's own
+// inactivity detection, which puts the WHOLE REST OF THE DRAFT into a sticky "autopick
+// mode" for our team, not just the one missed turn -- a single run-mock-draft.js test lost
+// 4 of 15 picks (including K and DEF) to this, two of them with no log trace at all (the
+// poll loop's turn-state title just never says "ours" again while Yahoo is autopicking for
+// us). The exact dialog text observed: "You have been put into autopick mode due to
+// inactivity. You can turn off autopick mode to resume live drafting."
+function isAutopickModeDialog(text) {
+  return /autopick mode/i.test(text);
+}
+
+// Live-verified (2026-08-23): the control the dialog refers to is a purple "Autodraft"
+// button in the left Queue/Picks sidebar panel (distinct from a same-named icon-only
+// button up in the header -- disambiguated here by scoping to the sidebar container,
+// identified by its neighboring "Autodraft will pick from queue" text). Clicking it once
+// was confirmed to be clickable and not throw, but NOT independently confirmed to fully
+// restore live-drafting control end-to-end (would require sitting through several more
+// real turns to verify) -- this is a best-effort recovery attempt, not a proven fix. Worth
+// re-checking against live draft-log.jsonl output: if `ourPicks` keeps growing normally on
+// subsequent turns after this fires, it worked; if turns keep disappearing silently, it
+// didn't, and this remains a manual-intervention situation as before.
+async function attemptTurnOffAutodraft(page) {
+  const sidebar = page.locator('div', { hasText: 'Autodraft will pick from queue' }).first();
+  const toggle = sidebar.getByRole('button', { name: 'Autodraft', exact: true });
+  if ((await toggle.count()) === 0) return false;
+  await toggle.click().catch(() => {});
+  return true;
+}
+
 module.exports = {
   classifyTurnState,
   getTurnState,
@@ -323,7 +322,9 @@ module.exports = {
   getAvailablePlayers,
   parseRosterPanelSlot,
   getOurRoster,
-  dialogMatchesPlayer,
   draftPlayer,
+  dismissDialog,
   getVisibleDialogText,
+  isAutopickModeDialog,
+  attemptTurnOffAutodraft,
 };

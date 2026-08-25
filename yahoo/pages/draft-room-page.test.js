@@ -3,7 +3,7 @@ const assert = require('node:assert');
 const { classifyTurnState } = require('./draft-room-page');
 const { parseAvailablePlayerRow } = require('./draft-room-page');
 const { parseRosterPanelSlot } = require('./draft-room-page');
-const { dialogMatchesPlayer } = require('./draft-room-page');
+const { isAutopickModeDialog } = require('./draft-room-page');
 
 test('classifyTurnState recognizes our turn', () => {
   assert.strictEqual(classifyTurnState('YOUR TURN, DRAFT NOW | Live NFL Draft | Yahoo Fantasy Sports'), 'ours');
@@ -59,33 +59,15 @@ test('parseRosterPanelSlot normalizes the flex slot label WRT to W/R/T', () => {
   assert.deepStrictEqual(parseRosterPanelSlot(raw), { slot: 'W/R/T', playerName: null });
 });
 
-test('dialogMatchesPlayer matches on surname despite the dialog using the full first name', () => {
-  // Live-verified (2026-08-20, mock draft room): the detail dialog for "J. Jefferson"
-  // rendered "Justin" and "Jefferson" as separate elements, never the abbreviated "J."
-  // form used in the available-players table.
-  const dialogText = 'JustinJeffersonWide Receiver • Minnesota Vikings • Bye 6221.05Proj Pts';
-  assert.strictEqual(dialogMatchesPlayer(dialogText, 'J. Jefferson'), true);
+test('isAutopickModeDialog recognizes the exact live-observed autopick-mode message', () => {
+  assert.strictEqual(
+    isAutopickModeDialog(
+      'You have been put into autopick mode due to inactivity. You can turn off autopick mode to resume live drafting.'
+    ),
+    true
+  );
 });
 
-test('dialogMatchesPlayer matches a DEF row whose "name" is just the team name', () => {
-  const dialogText = 'Texans Defense/Special Teams118.66Proj Pts';
-  assert.strictEqual(dialogMatchesPlayer(dialogText, 'Texans'), true);
-});
-
-test('dialogMatchesPlayer rejects a dialog for a different player', () => {
-  const dialogText = 'JoshAllenQuarterback • Buffalo Bills • Bye 7';
-  assert.strictEqual(dialogMatchesPlayer(dialogText, 'J. Jefferson'), false);
-});
-
-test('dialogMatchesPlayer does not cross-match two different Jr.-suffixed players', () => {
-  // Regression test: taking the raw last whitespace token ("Jr.") as the surname would
-  // make this trivially true for ANY Jr.-suffixed player's dialog, not just the correct
-  // one — defeating the safety check for a meaningful fraction of the real player pool.
-  const dialogText = 'MichaelPittmanJr.Wide Receiver • Indianapolis Colts • Bye 11';
-  assert.strictEqual(dialogMatchesPlayer(dialogText, 'T. Etienne Jr.'), false);
-});
-
-test('dialogMatchesPlayer correctly matches a Jr.-suffixed player against their own dialog', () => {
-  const dialogText = 'TravisEtienneJr.Running Back • Jacksonville Jaguars • Bye 8';
-  assert.strictEqual(dialogMatchesPlayer(dialogText, 'T. Etienne Jr.'), true);
+test('isAutopickModeDialog does not flag a routine pick notification', () => {
+  assert.strictEqual(isAutopickModeDialog('DRAFTED BY David — Chase Brown, RB, Cin'), false);
 });

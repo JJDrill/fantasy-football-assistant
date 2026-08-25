@@ -8,9 +8,12 @@ const {
   getAvailablePlayers,
   getOurRoster,
   draftPlayer,
+  dismissDialog,
   getVisibleDialogText,
+  isAutopickModeDialog,
+  attemptTurnOffAutodraft,
 } = require('./pages/draft-room-page');
-const { draftUrl } = require('./pages/base-page');
+const { findLiveDraftUrl } = require('./pages/base-page');
 const { pickPlayer } = require('./draft/strategy');
 
 const POLL_INTERVAL_MS = 2500;
@@ -57,26 +60,82 @@ async function withDeadline(promise, ms, onTimeout) {
 // of our own roster slots already filled is ground truth the page itself provides and
 // naturally self-corrects across a restart (or after a turn Yahoo auto-picked for us while
 // this driver was stalled) — derive the round from that instead of a local counter.
+// User request (2026-08-21): slow the whole picking process down to look like a real
+// person using the app, not a bot firing the instant it's our turn. Beyond the optics,
+// this likely also reduces how often we walk into the C. Hubbard-style server-side race
+// below: reading the available-players list the instant the turn flips risks reading a
+// client-side snapshot that hasn't caught up yet from whatever other teams' picks just
+// happened. Giving it a few seconds to settle before we even look at the board means our
+// decision is made on more current data, even though it can't eliminate a genuine
+// simultaneous claim by another team (that's what the post-pick settle-delay check below
+// is for).
+//
+// User request (2026-08-23): shortened from 4000ms and paired with a separate delay AFTER
+// announcePick() below -- the original single pre-read delay meant the pick banner (the
+// human's manual-fallback signal) printed only moments before the automated click, leaving
+// no real window to intervene. Splitting the pause gives a shorter settle-before-reading
+// wait here, and a dedicated post-announce window below sized for a human to actually act.
+const THINK_DELAY_MS = 1000;
+
+// User request (2026-08-23): the gap between the pick banner printing and the actual
+// click firing was too short to be a real manual-intervention window -- this delay runs
+// AFTER announcePick() (so the intended pick is already visible) and BEFORE draftPlayer()
+// touches the browser, giving a human watching the console a real couple of seconds to
+// react before the automation commits to the click.
+const POST_ANNOUNCE_DELAY_MS = 2000;
+
+// User request (2026-08-22): print the intended pick loudly, in the terminal, BEFORE
+// attempting the click -- so if the UI automation fails partway through a pick (a
+// selector breaks, Yahoo changes the draft room again, etc.), a human watching the
+// console still knows exactly who to draft manually before the pick clock runs out,
+// rather than having to guess from a stack trace.
+function announcePick(choice) {
+  const banner = '*'.repeat(43);
+  console.log(`\n${banner}\nPlayer Name: ${choice.name}\nPosition:    ${choice.position}\n${banner}\n`);
+}
+
 async function takeOurTurn(page) {
+  await page.waitForTimeout(THINK_DELAY_MS);
+  // User request (2026-08-23): visible log markers for each phase of a pick, so a human
+  // watching the console can see the driver is actively working through a turn (not
+  // stalled) even before the pick banner has anything to show yet.
+  log({ event: 'list_review_started' });
   const [roster, available] = await Promise.all([getOurRoster(page), getAvailablePlayers(page)]);
+  log({ event: 'analysis_started' });
   const currentRound = roster.filter((s) => s.playerName).length + 1;
   const choice = pickPlayer(available, roster, { currentRound, totalRounds: TOTAL_ROUNDS });
+  announcePick(choice);
+  await page.waitForTimeout(POST_ANNOUNCE_DELAY_MS);
   await draftPlayer(page, choice.name);
 
   // Live-verified (2026-08-21, mock drafts): draftPlayer() clicking "Draft" without
-  // throwing does NOT guarantee the pick actually registered server-side -- twice during
-  // testing, a click succeeded (dialog closed cleanly, no error) but the player never
-  // showed up in the final roster (verification_MISMATCH), once at the literal last pick
-  // of the draft and once mid-draft at round 14, so it isn't only a last-pick boundary
-  // race. Re-read our roster right away and confirm the player is actually there before
-  // trusting the pick -- this turns a silent, only-caught-at-the-very-end discrepancy into
-  // an immediate, retryable pick_error like any other failure mode this loop already
-  // handles (deadline guard / Yahoo autopick fallback).
-  const updatedRoster = await getOurRoster(page);
-  const landed = updatedRoster.some((slot) => slot.playerName === choice.name);
-  if (!landed) {
+  // throwing does NOT guarantee the pick actually registered server-side. Caught THREE
+  // times now, twice on the exact same player ("C. Hubbard", both times at round 14, in
+  // two entirely separate mock drafts) -- too coincidental to be random. Best working
+  // theory: a genuine server-side draft race, where another team's bot/autopick claims
+  // the same contested player at nearly the same moment, Yahoo's client briefly shows an
+  // optimistic "success" before the server resolves the conflict against us, and our
+  // first immediate re-check (added after the first two occurrences) still read that
+  // optimistic, not-yet-corrected state -- explaining why even an immediate re-check
+  // still saw the player as "landed" once, only for them to be gone by the time the
+  // whole draft finished. A single settle delay then a SECOND confirming check closes
+  // this: if the pick was genuinely lost to a race, the correction should show up within
+  // a couple of seconds, well before the draft moves on.
+  async function checkLanded() {
+    const updatedRoster = await getOurRoster(page);
+    return updatedRoster.some((slot) => slot.playerName === choice.name);
+  }
+
+  if (!(await checkLanded())) {
     throw new Error(
       `PICK_NOT_REGISTERED: clicked Draft for "${choice.name}" but they do not appear in our roster afterward`
+    );
+  }
+  await page.waitForTimeout(2500);
+  if (!(await checkLanded())) {
+    throw new Error(
+      `PICK_NOT_REGISTERED: "${choice.name}" appeared in our roster right after the click but was gone ` +
+        `~2.5s later -- likely lost a server-side race for a contested player to another team's pick`
     );
   }
 
@@ -108,12 +167,14 @@ async function main() {
   const context = await launchContext({ headless: false });
   try {
     const page = await context.newPage();
-    // draftUrl() is UNVERIFIED against the real league (see its comment in base-page.js) —
-    // it hasn't been possible to confirm until the real draft room opens. Before running
-    // this for real on draft day, open that URL manually first to confirm it lands in the
-    // live draft room rather than a dead page; if not, get the real entry URL the same way
-    // the mock ones were found (open it manually, copy page.url()) and swap it in here.
-    await enterDraft(page, draftUrl());
+    // Live-verified (2026-08-23, real draft room opened ~30 min before start): draftUrl()
+    // alone lands on a pre-draft "Draft Central Overview" page, not the interactive draft
+    // room -- findLiveDraftUrl() clicks through the "Launch Draft Application" button that
+    // appears once the draft opens (same two-step shape as the mock-draft lobby) to reach
+    // the actual draftclient URL.
+    const liveDraftUrl = await findLiveDraftUrl(page);
+    log({ event: 'found_live_draft_url', url: liveDraftUrl });
+    await enterDraft(page, liveDraftUrl);
     log({ event: 'entered_draft' });
 
     let lastState = null;
@@ -138,11 +199,30 @@ async function main() {
             throw new Error(`SESSION_LOST: ${dialogText}`);
           }
           log({ event: 'unexpected_dialog', text: dialogText });
+          // Live-verified (2026-08-23, mock draft room): a slow/failed pick can trip
+          // Yahoo's own inactivity detection, putting our team into a STICKY autopick
+          // mode for the rest of the draft -- not just the one missed turn. Caught this
+          // costing 4 of 15 picks in one run (2 with zero log trace at all, since the
+          // turn-state title never says "ours" again while Yahoo autopicks for us).
+          // Attempt best-effort recovery: click the sidebar Autodraft toggle Yahoo's own
+          // dialog text points at ("You can turn off autopick mode to resume live
+          // drafting"). NOT independently confirmed to fully restore control end-to-end
+          // (would require watching several subsequent real turns) -- if `picked` events
+          // stop appearing after this fires, this attempt didn't work and it's back to a
+          // manual-intervention situation.
+          if (isAutopickModeDialog(dialogText)) {
+            log({ event: 'autopick_mode_detected', text: dialogText });
+            const attempted = await attemptTurnOffAutodraft(page).catch(() => false);
+            log({ event: 'autopick_mode_recovery_attempted', clicked: attempted });
+          }
           // Proactively clear it now rather than waiting for the next pick attempt's own
           // dismiss step -- keeps the room clear throughout the draft, not just right
           // before we need to click, per the user's request to watch for popups
-          // "through the draft process," not only at pick time.
-          await page.keyboard.press('Escape').catch(() => {});
+          // "through the draft process," not only at pick time. Uses dismissDialog (not
+          // just Escape) since a live run found a dialog whose Escape-dismissal silently
+          // failed, leaving a blocking overlay that broke every subsequent pick for the
+          // rest of the draft -- see dismissDialog's comment in draft-room-page.js.
+          await dismissDialog(page, page.locator('dialog[open]').first());
         }
         lastDialogText = dialogText;
       }
