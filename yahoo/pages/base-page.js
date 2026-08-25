@@ -10,16 +10,38 @@ function playersUrl() {
   return `${FANTASY_BASE}/f1/${LEAGUE_ID}/players`;
 }
 
-// Points at the league's own "Draft" nav link (confirmed present in the site nav during
-// earlier testing) as the real draft's entry point. UNVERIFIED as an actual entry point
-// for the real draft room, since the real draft hasn't opened yet — the mock-draft flow
-// instead requires a `?auth=` token from the mock lobby's "Launch Draft App" link, and the
-// real draft (tied to the user's own logged-in session) may not need that token at all.
-// Verify this URL once the real draft room opens; if it doesn't work, get the real draft's
-// entry URL the same way the mock ones were found (open it manually once, copy the URL you
-// land on).
+// Points at the league's own "Draft" nav link. Live-verified (2026-08-23, real draft room
+// opened ~30 min before start): this lands on a "Draft Central Overview" page, NOT the
+// interactive draft room itself — same two-step shape as the mock-draft lobby. A "Live
+// Draft In Progress!" panel with a "Launch Draft Application" button appears once the
+// draft opens; clicking it (in a popup, same as mock drafts) is what actually reaches
+// draftclient/f1/<leagueId>/<teamId>?auth=<token>. Use findLiveDraftUrl() below to get the
+// real entry point rather than passing this directly to enterDraft().
 function draftUrl() {
   return `${FANTASY_BASE}/f1/${LEAGUE_ID}/draft`;
+}
+
+// Live-verified (2026-08-23): navigates to the Draft Central Overview page and clicks
+// "Launch Draft Application" to reach the actual interactive draft room, returning the
+// resulting draftclient URL. Mirrors yahoo/testing/mock-draft.js's join pattern, including
+// its popup-closing fix (2026-08-22): leaving a popup open after capturing its URL, then
+// separately navigating the caller's own page to the same URL, put two live connections on
+// one seat and got the account evicted with "logged in from another draft client" — only
+// ever one tab should end up driving the draft.
+async function findLiveDraftUrl(page) {
+  await page.goto(draftUrl());
+  const launchBtn = page
+    .getByRole('button', { name: 'Launch Draft Application' })
+    .or(page.getByRole('link', { name: 'Launch Draft Application' }));
+  const [popup] = await Promise.all([
+    page.waitForEvent('popup').catch(() => null),
+    launchBtn.first().click(),
+  ]);
+  const target = popup || page;
+  await target.waitForURL(/draftclient\/f1\//, { timeout: 30000 });
+  const url = target.url();
+  if (popup) await popup.close();
+  return url;
 }
 
 async function assertLoggedIn(page) {
@@ -37,5 +59,6 @@ module.exports = {
   teamUrl,
   playersUrl,
   draftUrl,
+  findLiveDraftUrl,
   assertLoggedIn,
 };

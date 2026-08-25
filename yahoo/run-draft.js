@@ -13,7 +13,7 @@ const {
   isAutopickModeDialog,
   attemptTurnOffAutodraft,
 } = require('./pages/draft-room-page');
-const { draftUrl } = require('./pages/base-page');
+const { findLiveDraftUrl } = require('./pages/base-page');
 const { pickPlayer } = require('./draft/strategy');
 
 const POLL_INTERVAL_MS = 2500;
@@ -69,7 +69,20 @@ async function withDeadline(promise, ms, onTimeout) {
 // decision is made on more current data, even though it can't eliminate a genuine
 // simultaneous claim by another team (that's what the post-pick settle-delay check below
 // is for).
-const THINK_DELAY_MS = 4000;
+//
+// User request (2026-08-23): shortened from 4000ms and paired with a separate delay AFTER
+// announcePick() below -- the original single pre-read delay meant the pick banner (the
+// human's manual-fallback signal) printed only moments before the automated click, leaving
+// no real window to intervene. Splitting the pause gives a shorter settle-before-reading
+// wait here, and a dedicated post-announce window below sized for a human to actually act.
+const THINK_DELAY_MS = 1000;
+
+// User request (2026-08-23): the gap between the pick banner printing and the actual
+// click firing was too short to be a real manual-intervention window -- this delay runs
+// AFTER announcePick() (so the intended pick is already visible) and BEFORE draftPlayer()
+// touches the browser, giving a human watching the console a real couple of seconds to
+// react before the automation commits to the click.
+const POST_ANNOUNCE_DELAY_MS = 2000;
 
 // User request (2026-08-22): print the intended pick loudly, in the terminal, BEFORE
 // attempting the click -- so if the UI automation fails partway through a pick (a
@@ -83,10 +96,16 @@ function announcePick(choice) {
 
 async function takeOurTurn(page) {
   await page.waitForTimeout(THINK_DELAY_MS);
+  // User request (2026-08-23): visible log markers for each phase of a pick, so a human
+  // watching the console can see the driver is actively working through a turn (not
+  // stalled) even before the pick banner has anything to show yet.
+  log({ event: 'list_review_started' });
   const [roster, available] = await Promise.all([getOurRoster(page), getAvailablePlayers(page)]);
+  log({ event: 'analysis_started' });
   const currentRound = roster.filter((s) => s.playerName).length + 1;
   const choice = pickPlayer(available, roster, { currentRound, totalRounds: TOTAL_ROUNDS });
   announcePick(choice);
+  await page.waitForTimeout(POST_ANNOUNCE_DELAY_MS);
   await draftPlayer(page, choice.name);
 
   // Live-verified (2026-08-21, mock drafts): draftPlayer() clicking "Draft" without
@@ -148,12 +167,14 @@ async function main() {
   const context = await launchContext({ headless: false });
   try {
     const page = await context.newPage();
-    // draftUrl() is UNVERIFIED against the real league (see its comment in base-page.js) —
-    // it hasn't been possible to confirm until the real draft room opens. Before running
-    // this for real on draft day, open that URL manually first to confirm it lands in the
-    // live draft room rather than a dead page; if not, get the real entry URL the same way
-    // the mock ones were found (open it manually, copy page.url()) and swap it in here.
-    await enterDraft(page, draftUrl());
+    // Live-verified (2026-08-23, real draft room opened ~30 min before start): draftUrl()
+    // alone lands on a pre-draft "Draft Central Overview" page, not the interactive draft
+    // room -- findLiveDraftUrl() clicks through the "Launch Draft Application" button that
+    // appears once the draft opens (same two-step shape as the mock-draft lobby) to reach
+    // the actual draftclient URL.
+    const liveDraftUrl = await findLiveDraftUrl(page);
+    log({ event: 'found_live_draft_url', url: liveDraftUrl });
+    await enterDraft(page, liveDraftUrl);
     log({ event: 'entered_draft' });
 
     let lastState = null;
