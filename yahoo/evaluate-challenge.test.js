@@ -48,10 +48,10 @@ test('week 2: lowest-scoring starter among winning teams wins', () => {
   assert.equal(winner.name, 'A Starter');
 });
 
-test('week 6: sacks tied, tiebreak resolves by highest team weekly score, not iteration order', () => {
+test('week 6: DEF sacks tied, tiebreak resolves by highest team weekly score, not iteration order', () => {
   const config = {
     pool: 'starters',
-    positions: ['DL', 'LB', 'DB', 'DE', 'DT', 'CB', 'S'],
+    positions: ['DEF'],
     stat: 'sack',
     pick: 'max',
     tiebreak: 'teamTotal',
@@ -60,32 +60,32 @@ test('week 6: sacks tied, tiebreak resolves by highest team weekly score, not it
     {
       team_name: 'A',
       teamTotal: 88,
-      players: [{ name: 'IDP A (first, lower team score)', selected_position: 'LB', position: 'LB', sack: 2 }],
+      players: [{ name: 'Eagles (first, lower team score)', selected_position: 'DEF', position: 'DEF', sack: 5 }],
     },
     {
       team_name: 'B',
       teamTotal: 121,
-      players: [{ name: 'IDP B (second, higher team score)', selected_position: 'DB', position: 'DB', sack: 2 }],
+      players: [{ name: 'Vikings (second, higher team score)', selected_position: 'DEF', position: 'DEF', sack: 5 }],
     },
   ];
   const winner = evaluatePlayerStatChallenge(config, teams);
-  // Both players tie at 2 sacks. IDP A is encountered first by reduce/iteration
-  // order, but IDP B's team scored higher that week, so IDP B must win.
-  assert.equal(winner.name, 'IDP B (second, higher team score)');
+  // Both defenses tie at 5 sacks. Eagles is encountered first by reduce/iteration
+  // order, but Vikings' team scored higher that week, so Vikings must win.
+  assert.equal(winner.name, 'Vikings (second, higher team score)');
   assert.equal(winner.team_name, 'B');
 });
 
-test('week 6: no tie on sacks, tiebreak is irrelevant, pure max wins', () => {
+test('week 6: no tie on DEF sacks, tiebreak is irrelevant, pure max wins', () => {
   const config = {
     pool: 'starters',
-    positions: ['DL', 'LB', 'DB', 'DE', 'DT', 'CB', 'S'],
+    positions: ['DEF'],
     stat: 'sack',
     pick: 'max',
     tiebreak: 'teamTotal',
   };
   const teams = [
-    { team_name: 'A', teamTotal: 200, players: [{ name: 'Low Sacks High Score', selected_position: 'LB', position: 'LB', sack: 1 }] },
-    { team_name: 'B', teamTotal: 50, players: [{ name: 'High Sacks Low Score', selected_position: 'DB', position: 'DB', sack: 3 }] },
+    { team_name: 'A', teamTotal: 200, players: [{ name: 'Low Sacks High Score', selected_position: 'DEF', position: 'DEF', sack: 1 }] },
+    { team_name: 'B', teamTotal: 50, players: [{ name: 'High Sacks Low Score', selected_position: 'DEF', position: 'DEF', sack: 3 }] },
   ];
   const winner = evaluatePlayerStatChallenge(config, teams);
   assert.equal(winner.name, 'High Sacks Low Score');

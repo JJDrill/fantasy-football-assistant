@@ -1,16 +1,15 @@
 // yahoo/evaluate-challenge.js
-const { IDP_POSITIONS } = require('./challenge-config');
 
 function playerMatchesPositions(player, positions, includeSuperflex) {
   if (positions === 'any') return true;
-  const list = positions === 'IDP' ? IDP_POSITIONS : positions;
   const startedInSuperflexSlot = ['OP', 'SUPERFLEX', 'W/R/T/Q'].includes(player.selected_position);
 
-  if (list.includes(player.position)) {
+  if (positions.includes(player.position)) {
     if (player.position === 'QB' && startedInSuperflexSlot) {
       // A QB started in a superflex/OP slot only counts when the challenge
-      // explicitly allows it (e.g. weeks 4, 9, 15). Week 12 sets
-      // includeSuperflex: false specifically to exclude this case.
+      // explicitly allows it. No current challenge sets includeSuperflex: true
+      // (this league's roster has no superflex/OP slot), but the check stays
+      // in case that ever changes.
       return Boolean(includeSuperflex);
     }
     return true;
