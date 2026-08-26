@@ -52,7 +52,8 @@ already has in mind, use `trade-analyzer` instead.
 
 6. **Check league constraints.**
    Check `reference/2026_League_Rules.pdf` for the trade cap (15/season) and deadline
-   (November 21, 2026) — mention these if the season is getting close to either.
+   (November 21, 2026) — mention these if the season is getting close to either. Also
+   note that 3 league veto votes can cancel a trade, same as `trade-analyzer` surfaces.
 
 7. **Point to trade-analyzer for a full verdict.**
    Tell the user they can run `trade-analyzer` on any of these candidates for a fully
