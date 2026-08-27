@@ -17,15 +17,15 @@ function extractChallengeStats(statsObject, position) {
   if (!statsObject) return {};
   const stats = {};
   if (position === 'QB') {
-    stats.int = statsObject.pass_int || 0;
-    stats.inc = statsObject.pass_inc || 0;
-    stats.lng = statsObject.pass_lng || 0;
+    stats.int = statsObject.pass_int ?? 0;
+    stats.inc = statsObject.pass_inc ?? 0;
+    stats.lng = statsObject.pass_lng ?? 0;
   }
   if (position === 'DEF') {
-    stats.sack = statsObject.sack || 0;
+    stats.sack = statsObject.sack ?? 0;
   }
   if (position === 'WR' || position === 'RB' || position === 'TE') {
-    stats['rec yds'] = statsObject.rec_yd || 0;
+    stats['rec yds'] = statsObject.rec_yd ?? 0;
   }
   return stats;
 }
