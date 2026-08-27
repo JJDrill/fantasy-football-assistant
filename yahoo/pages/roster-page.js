@@ -1,9 +1,32 @@
 const { teamUrl, assertLoggedIn } = require('./base-page');
 
+// The player-name cell renders team + true position as plain text, e.g. "Buf - QB",
+// separate from the slot the player is currently started in (data-pos on td.pos).
+function parsePosition(teamAndPosition) {
+  if (!teamAndPosition || !teamAndPosition.includes(' - ')) return null;
+  return teamAndPosition.split(' - ').pop().trim();
+}
+
+function parseTeamAbbreviation(teamAndPosition) {
+  if (!teamAndPosition || !teamAndPosition.includes(' - ')) return null;
+  return teamAndPosition.split(' - ')[0].trim();
+}
+
+// Yahoo's per-row schedule text, e.g. "Sun 10:00 am @ Hou" or "Sun 1:00 pm vs NE" —
+// day/time is not useful to us, only the trailing opponent code.
+function parseOpponent(scheduleText) {
+  if (!scheduleText) return null;
+  const match = scheduleText.match(/(?:@|vs)\s*([A-Za-z]+)\s*$/i);
+  return match ? match[1] : null;
+}
+
 function parseRosterRow(raw) {
   return {
-    slot: raw.slot,
+    selected_position: raw.slot,
     playerName: raw.playerName || null,
+    position: raw.position || null,
+    teamAbbreviation: raw.teamAbbreviation || null,
+    opponent: raw.opponent || null,
     points: raw.points === '' ? null : Number(raw.points),
   };
 }
@@ -42,10 +65,25 @@ async function readRosterRow(row) {
   const nameLink = row.locator('td.player a.name');
   const playerName = (await nameLink.count()) ? (await nameLink.first().textContent()).trim() : '';
 
+  const teamAndPositionSpan = row.locator('td.player span.Fz-xxs');
+  const teamAndPositionText = (await teamAndPositionSpan.count())
+    ? (await teamAndPositionSpan.first().textContent()).trim()
+    : '';
+
+  const scheduleLink = row.locator('td.player .ysf-game-status a');
+  const scheduleText = (await scheduleLink.count()) ? (await scheduleLink.first().textContent()).trim() : '';
+
   const pointsCell = row.locator('td.pts');
   const points = (await pointsCell.count()) ? (await pointsCell.textContent()).trim() : '';
 
-  return parseRosterRow({ slot, playerName, points });
+  return parseRosterRow({
+    slot,
+    playerName,
+    points,
+    position: parsePosition(teamAndPositionText),
+    teamAbbreviation: parseTeamAbbreviation(teamAndPositionText),
+    opponent: parseOpponent(scheduleText),
+  });
 }
 
 async function getRoster(page, teamId, { week } = {}) {
@@ -67,4 +105,4 @@ async function getRoster(page, teamId, { week } = {}) {
   return { teamId, teamName, roster };
 }
 
-module.exports = { parseRosterRow, getRoster };
+module.exports = { parseRosterRow, parsePosition, parseTeamAbbreviation, parseOpponent, getRoster };
