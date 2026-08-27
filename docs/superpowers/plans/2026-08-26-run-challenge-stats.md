@@ -878,3 +878,13 @@ player. A full fix would need to merge by a stable per-row identity (e.g. player
 instead of array index, which was explicitly out of this task's scope. Worth revisiting
 once Task 1's live verification happens and real per-week data can be used to confirm
 row ordering is actually stable between the two views.
+
+`player-gamelog.js`'s `pickGamelogRow` has a similar accepted risk: it picks a player's
+row for a given week by positional index against ESPN's reverse-chronological gamelog,
+adjusted for one tracked `byeWeek`, rather than by matching calendar date or opponent (the
+design spec originally called for date/opponent matching, but that was never
+implemented — see the spec's `player-gamelog.js` section and the code comment above
+`pickGamelogRow`). Any gap in ESPN's row list not covered by `byeWeek` (a postponed game,
+a mid-season trade, a second bye) would silently shift every later week's lookup by one
+with no error. Wiring in the already-captured `opponent` field as a sanity check would
+catch this but was left out of this final-review pass as a larger change than warranted.

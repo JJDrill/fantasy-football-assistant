@@ -140,20 +140,24 @@ never has a `sack` key, etc. — matching how `buildPool` already just reads
 ### `player-gamelog.js` (new)
 
 ```js
-async function getIncAndLng(playerName, { gameDate, opponent }) { ... }
+async function getIncAndLng(playerName, { week, byeWeek }) { ... }
 ```
 
 - Looks up the ESPN player ID via the search endpoint (plain `fetch`/`axios`, no
   Playwright needed — this is a public JSON API, not a page needing a logged-in session).
 - Fetches `espn.com/nfl/player/gamelog/_/id/<id>/...` with Playwright (needs a rendered
-  page — the table is client-rendered) and finds the row matching `gameDate` (and
-  `opponent` as a tiebreaker/sanity check).
+  page — the table is client-rendered) and, as actually implemented, picks the row for
+  `week` by positional index arithmetic against ESPN's reverse-chronological row list,
+  adjusted for exactly one tracked `byeWeek` — **not** by matching `gameDate` or verifying
+  against `opponent` as originally planned here; that date/opponent matching was never
+  implemented. This means any gap in ESPN's row list not accounted for by `byeWeek` (a
+  postponed game, a mid-season trade, etc.) would silently shift every later week's lookup
+  by one with no error. `opponent` is still captured per-row but unused.
 - Returns `{ inc: att - cmp, lng }`, or `null` if no matching row is found (bye week,
   name-resolution miss, etc.) — `evaluate-challenge.js`'s existing `NaN`-skip behavior in
   `buildPool` handles a missing stat gracefully, so this just needs to not throw.
-- `gameDate`/`opponent` come from the schedule text already present in the Yahoo roster
-  row (e.g. `Sun 10:00 am @ Hou`) — no new Yahoo fetch needed to get them, just parse text
-  we're already reading.
+- `week`/`byeWeek` come from the challenge week being evaluated and the roster row's `bye`
+  field, respectively — no calendar-date parsing is involved.
 
 This module is called **only** when the current week's challenge config needs `inc` or
 `lng` (i.e. only for weeks 9 and 15, and only for the QBs relevant to that config's pool —

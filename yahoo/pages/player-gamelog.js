@@ -43,6 +43,18 @@ async function findEspnPlayerId(playerName, teamAbbreviation) {
 // `rows` must already be filtered to real games (no "Total" row) and in ESPN's native
 // most-recent-first order. Returns null for the bye week itself rather than silently
 // returning the adjacent week's game.
+//
+// Picks the row for `week` using positional index arithmetic against ESPN's
+// reverse-chronological row list, adjusted for exactly one tracked bye week — it does
+// NOT match by calendar date or verify against `opponent` (despite earlier design notes
+// suggesting date/opponent matching; that was never implemented). If ESPN's row list has
+// any gap not accounted for by `byeWeek` (a postponed/rescheduled game, a mid-season
+// trade, a second bye somehow, etc.), every subsequent week's lookup silently shifts by
+// one and returns a plausible-but-wrong stat line — there is no detection for this.
+// `opponent` is captured per-row by fetchGamelogRows but not currently used here; wiring
+// it in as a sanity check (compare against the Yahoo-side opponent already available on
+// the roster row) would catch drift, but was left out of this pass — see the
+// implementation plan's "Known follow-up" notes.
 function pickGamelogRow(rows, { week, byeWeek }) {
   if (byeWeek && week === byeWeek) return null;
   const chronological = [...rows].reverse();
