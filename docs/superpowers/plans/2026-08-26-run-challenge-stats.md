@@ -858,3 +858,15 @@ and `isWinner`/`teamTotal` against the actual Yahoo standings/matchup pages in a
   whatever the spike found instead (e.g. a per-matchup box-score page), keeping the same
   `extractCategoryStats(headers, cells)` function signature so `getRoster`'s wiring in
   Task 3 Step 5 doesn't need to change.
+
+## Known follow-up (accepted, not blocking)
+
+Task 3's `mergeRosterStats` (added in a review-driven fix on top of Step 5, commit
+`433a1e6`) guards against the two roster/stats page fetches returning different row
+*counts*, throwing `ROSTER_STATS_MISMATCH` instead of silently truncating. It does
+**not** guard against the two fetches returning the *same* row count in a *different
+order* — if that ever happens, stats would still be silently merged onto the wrong
+player. A full fix would need to merge by a stable per-row identity (e.g. player name)
+instead of array index, which was explicitly out of this task's scope. Worth revisiting
+once Task 1's live verification happens and real per-week data can be used to confirm
+row ordering is actually stable between the two views.
