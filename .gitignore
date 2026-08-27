@@ -4,6 +4,7 @@ yahoo/token.json
 .yahoo_token_cache*
 node_modules/
 .playwright-profile/
+yahoo/.cache/
 .playwright-mcp/
 yahoo/draft-log.jsonl
 .temp/

@@ -1,7 +1,7 @@
 // yahoo/sleeper-stats.test.js
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { extractChallengeStats } = require('./sleeper-stats');
+const { extractChallengeStats, isCacheFresh, buildYahooIdIndex } = require('./sleeper-stats');
 
 test('extractChallengeStats maps a QB stat line (live-captured 2026-08-26, Dak Prescott Week 1 2025)', () => {
   // Real response from https://api.sleeper.com/stats/nfl/2025/1?season_type=regular&position=QB
@@ -40,4 +40,29 @@ test('extractChallengeStats returns an empty object for a position with no track
 test('extractChallengeStats returns an empty object when statsObject is missing', () => {
   assert.deepEqual(extractChallengeStats(null, 'QB'), {});
   assert.deepEqual(extractChallengeStats(undefined, 'DEF'), {});
+});
+
+test('isCacheFresh is false when there is no cache', () => {
+  assert.equal(isCacheFresh(null, 1000, () => 5000), false);
+});
+
+test('isCacheFresh is false when the cache is older than maxAgeMs', () => {
+  assert.equal(isCacheFresh({ fetchedAt: 1000 }, 500, () => 2000), false);
+});
+
+test('isCacheFresh is true when the cache is within maxAgeMs', () => {
+  assert.equal(isCacheFresh({ fetchedAt: 1000 }, 5000, () => 2000), true);
+});
+
+test('buildYahooIdIndex keys by yahoo_id (stringified) and skips players with none', () => {
+  // Shape matches a real https://api.sleeper.app/v1/players/nfl entry (live-captured
+  // 2026-08-26), trimmed to the fields this function actually reads.
+  const playersById = {
+    '6462': { player_id: '6462', position: 'TE', team: null, yahoo_id: 32262 },
+    '11255': { player_id: '11255', position: 'OL', team: null, yahoo_id: null },
+  };
+  const index = buildYahooIdIndex(playersById);
+  assert.deepEqual(index.get('32262'), { sleeperId: '6462', position: 'TE', team: null });
+  assert.equal(index.has('null'), false);
+  assert.equal(index.size, 1);
 });
