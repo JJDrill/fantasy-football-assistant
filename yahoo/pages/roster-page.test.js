@@ -45,6 +45,7 @@ test('parseRosterRow extracts position, selected_position, team, opponent, name,
     position: 'QB',
     teamAbbreviation: 'Buf',
     opponent: 'Hou',
+    yahooPlayerId: '30977',
   };
   assert.deepStrictEqual(parseRosterRow(raw), {
     selected_position: 'QB',
@@ -52,19 +53,46 @@ test('parseRosterRow extracts position, selected_position, team, opponent, name,
     position: 'QB',
     teamAbbreviation: 'Buf',
     opponent: 'Hou',
+    yahooPlayerId: '30977',
     points: 24.5,
   });
 });
 
 test('parseRosterRow handles an empty bench slot', () => {
-  const raw = { slot: 'BN', playerName: '', points: '', position: null, teamAbbreviation: null, opponent: null };
+  const raw = {
+    slot: 'BN', playerName: '', points: '',
+    position: null, teamAbbreviation: null, opponent: null, yahooPlayerId: null,
+  };
   assert.deepStrictEqual(parseRosterRow(raw), {
     selected_position: 'BN',
     playerName: null,
     position: null,
     teamAbbreviation: null,
     opponent: null,
+    yahooPlayerId: null,
     points: null,
+  });
+});
+
+test('parseRosterRow carries yahooPlayerId through when present', () => {
+  const raw = {
+    slot: 'QB', playerName: 'Josh Allen', points: '24.50',
+    position: 'QB', teamAbbreviation: 'Buf', opponent: 'Hou', yahooPlayerId: '30977',
+  };
+  assert.deepStrictEqual(parseRosterRow(raw), {
+    selected_position: 'QB', playerName: 'Josh Allen', position: 'QB',
+    teamAbbreviation: 'Buf', opponent: 'Hou', yahooPlayerId: '30977', points: 24.5,
+  });
+});
+
+test('parseRosterRow defaults yahooPlayerId to null for an empty slot', () => {
+  const raw = {
+    slot: 'BN', playerName: '', points: '',
+    position: null, teamAbbreviation: null, opponent: null, yahooPlayerId: null,
+  };
+  assert.deepStrictEqual(parseRosterRow(raw), {
+    selected_position: 'BN', playerName: null, position: null,
+    teamAbbreviation: null, opponent: null, yahooPlayerId: null, points: null,
   });
 });
 

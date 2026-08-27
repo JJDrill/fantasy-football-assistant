@@ -31,6 +31,7 @@ function parseRosterRow(raw) {
     position: raw.position || null,
     teamAbbreviation: raw.teamAbbreviation || null,
     opponent: raw.opponent || null,
+    yahooPlayerId: raw.yahooPlayerId || null,
     points: raw.points === '' ? null : Number(raw.points),
   };
 }
@@ -67,7 +68,9 @@ async function readRosterRow(row) {
     : (await row.locator('td.pos').textContent()).trim();
 
   const nameLink = row.locator('td.player a.name');
-  const playerName = (await nameLink.count()) ? (await nameLink.first().textContent()).trim() : '';
+  const hasNameLink = (await nameLink.count()) > 0;
+  const playerName = hasNameLink ? (await nameLink.first().textContent()).trim() : '';
+  const yahooPlayerId = hasNameLink ? await nameLink.first().getAttribute('data-ys-playerid') : null;
 
   const teamAndPositionSpan = row.locator('td.player span.Fz-xxs');
   const teamAndPositionText = (await teamAndPositionSpan.count())
@@ -84,6 +87,7 @@ async function readRosterRow(row) {
     slot,
     playerName,
     points,
+    yahooPlayerId,
     position: parsePosition(teamAndPositionText),
     teamAbbreviation: parseTeamAbbreviation(teamAndPositionText),
     opponent: parseOpponent(scheduleText),
