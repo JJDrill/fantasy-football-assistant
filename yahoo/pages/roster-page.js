@@ -2,6 +2,10 @@ const { teamUrl, assertLoggedIn } = require('./base-page');
 
 // The player-name cell renders team + true position as plain text, e.g. "Buf - QB",
 // separate from the slot the player is currently started in (data-pos on td.pos).
+// Live-verified (2026-08-26, https://football.fantasysports.yahoo.com/f1/109715/2?week=1):
+// DEF rows use this exact same delimited "Team - POS" format (e.g. "Min - DEF") on this
+// page. Do not confuse this with draft-room-page.js's draft room, where DEF names are
+// glued together with no delimiter — that's a different page and does not apply here.
 function parsePosition(teamAndPosition) {
   if (!teamAndPosition || !teamAndPosition.includes(' - ')) return null;
   return teamAndPosition.split(' - ').pop().trim();
