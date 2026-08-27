@@ -19,6 +19,14 @@ public JSON search endpoint), `node:test` + `node:assert/strict`.
 
 **Spec:** `docs/superpowers/specs/2026-08-26-run-challenge-stats-design.md`
 
+**Status (2026-08-26):** Tasks 1-6 implemented and reviewed (spec compliance + code
+quality) on branch `run-challenge-stats`. Full suite: 83/83 passing. Task 7's Step 1
+(full suite) is done; Steps 2-3 (manual smoke test, spike confirmation) require a real
+Yahoo session and real Week 1+ game data — not possible until the season is underway.
+Known residual risk carried forward, not fixed: `getRoster`'s stats-merge guards against
+a row-*count* mismatch between its two page fetches but not a same-count row-*order*
+mismatch (see the "Known follow-up" note after Task 6 below).
+
 ---
 
 ### Task 1: Check in the per-week stat-source verification spike (to run once Week 1 finishes)
