@@ -94,78 +94,6 @@ async function readRosterRow(row) {
   });
 }
 
-function parseStatNumber(text) {
-  const trimmed = (text || '').trim();
-  if (trimmed === '' || trimmed === '-') return 0;
-  return Number(trimmed.replace(/,/g, ''));
-}
-
-// Looks up columns by header text rather than a fixed index, since this table's column
-// layout differs across the three position-group tables (offense/kickers/DEF) and past
-// experience in this file (see ROSTER_TABLE_SELECTOR's comment) shows fixed-index
-// guessing silently reads the wrong cell. The DEF table also has an "Int" column
-// (defensive interceptions) picked up by this same lookup — harmless, since no challenge
-// config ever reads `int` from a DEF-position player.
-function extractCategoryStats(headers, cells) {
-  const stats = {};
-  const byeIdx = headers.indexOf('Bye');
-  if (byeIdx !== -1) stats.bye = parseStatNumber(cells[byeIdx]);
-  const intIdx = headers.indexOf('Int');
-  if (intIdx !== -1) stats.int = parseStatNumber(cells[intIdx]);
-  const recIdx = headers.indexOf('Rec');
-  if (recIdx !== -1 && headers[recIdx + 1] === 'Yds') {
-    stats['rec yds'] = parseStatNumber(cells[recIdx + 1]);
-  }
-  const sackIdx = headers.indexOf('Sack');
-  if (sackIdx !== -1) stats.sack = parseStatNumber(cells[sackIdx]);
-  return stats;
-}
-
-const STAT_TABLE_IDS = ['statTable0', 'statTable1', 'statTable2'];
-
-// `roster` and `statsArray` come from two independent page loads (points view vs.
-// stat1=S view). Merging by index is only safe when both fetches produced the same
-// number of rows in the same order — see ROSTER_TABLE_SELECTOR's comment above for a
-// past incident of exactly this kind of silent misalignment. Refuse to merge (rather
-// than silently truncating to the shorter array) if the counts disagree.
-function mergeRosterStats(roster, statsArray) {
-  if (statsArray.length !== roster.length) {
-    throw new Error(
-      `ROSTER_STATS_MISMATCH: points view returned ${roster.length} roster rows but ` +
-      `stats view (?stat1=S) returned ${statsArray.length} rows — refusing to merge by ` +
-      `index since row order/count may not correspond`
-    );
-  }
-  for (let i = 0; i < roster.length; i++) {
-    Object.assign(roster[i], statsArray[i]);
-  }
-  return roster;
-}
-
-// PENDING VERIFICATION (see yahoo/smoke-test-week-stats.js and
-// docs/superpowers/specs/2026-08-26-run-challenge-stats-design.md): stat1=S showed
-// season-aggregate numbers, not per-week, when checked pre-season. Do not trust this
-// function's output for real challenge scoring until that spike confirms the source.
-async function getRosterStats(page, teamId, week) {
-  const url = `${teamUrl(teamId)}?week=${week}&stat1=S`;
-  await page.goto(url);
-  await assertLoggedIn(page);
-
-  const allStats = [];
-  for (const id of STAT_TABLE_IDS) {
-    const table = page.locator(`table#${id}`);
-    if ((await table.count()) === 0) continue;
-    const headers = (await table.locator('thead tr').nth(1).locator('th').allTextContents()).map((h) => h.trim());
-    const rows = table.locator('tbody tr');
-    const rowCount = await rows.count();
-    for (let i = 0; i < rowCount; i++) {
-      const cells = (await rows.nth(i).locator('td').allTextContents()).map((c) => c.trim());
-      allStats.push(extractCategoryStats(headers, cells));
-    }
-  }
-  return allStats;
-}
-
 async function getRoster(page, teamId, { week } = {}) {
   const url = week ? `${teamUrl(teamId)}?week=${week}` : teamUrl(teamId);
   await page.goto(url);
@@ -182,12 +110,6 @@ async function getRoster(page, teamId, { week } = {}) {
     roster.push(await readRosterRow(rows.nth(i)));
   }
 
-  // Category stats only matter for a specific week's challenge evaluation.
-  if (week) {
-    const statsArray = await getRosterStats(page, teamId, week);
-    mergeRosterStats(roster, statsArray);
-  }
-
   return { teamId, teamName, roster };
 }
 
@@ -196,8 +118,5 @@ module.exports = {
   parsePosition,
   parseTeamAbbreviation,
   parseOpponent,
-  parseStatNumber,
-  extractCategoryStats,
-  mergeRosterStats,
   getRoster,
 };
