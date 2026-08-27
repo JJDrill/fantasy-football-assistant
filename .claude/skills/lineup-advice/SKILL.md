@@ -22,12 +22,18 @@ Gives start/sit recommendations for the user's team for a given week.
      roster — useful for context but not required.
    - Also ask if there's anything specific worrying them (a bye week, an injury designation,
      a tough matchup) so you can focus there.
-4. Using whatever roster data you have (live or pasted), reason about which bench players
-   might outperform current starters this week. You don't have live stat projections from
-   any script here — use your own general knowledge of the players involved (matchups,
-   recent form, injury news) and say clearly when you're speculating vs. reporting fetched
-   data.
-5. Flag anything roster-rule-relevant from `reference/2026_League_Rules.pdf` if applicable
+4. Get injury/availability status for each starter and each bench player being
+   considered as a replacement, per the shared cache protocol in
+   `reference/injury-cache-convention.md` — reuse a fresh cached entry if one exists
+   for that player this week, otherwise `WebSearch` and record it there so other
+   skills (and later calls this week) don't re-search it. Cite sources for anything
+   surfaced.
+5. Using whatever roster data you have (live or pasted) plus the search results, reason
+   about which bench players might outperform current starters this week. You don't
+   have live stat projections from any script here — combine the news you found with
+   your own general knowledge of the players involved (matchups, recent form) and say
+   clearly when you're speculating vs. reporting fetched data.
+6. Flag anything roster-rule-relevant from `reference/2026_League_Rules.pdf` if applicable
    (e.g. IR eligibility rules, no median matchup so only your own score matters).
-6. Present recommendations as a short list: position, current starter, suggested
+7. Present recommendations as a short list: position, current starter, suggested
    replacement (if any), and one-line reasoning per swap.

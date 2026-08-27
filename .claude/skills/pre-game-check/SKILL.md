@@ -43,9 +43,12 @@ either individually, use those skills directly instead.
    - Invoke the `lineup-advice` skill for start/sit recommendations against the
      roster.
    - Cross-check for inactive/out/bye starters: if live roster data included status
-     flags, check them directly; otherwise rely on the user's Step 3 answer plus your
-     own general injury-news knowledge, and flag anything uncertain rather than
-     asserting confidently.
+     flags, check them directly. Regardless of whether flags were present, get each
+     starter's injury/availability status per the shared cache protocol in
+     `reference/injury-cache-convention.md` — reuse a fresh cached entry if one
+     exists, otherwise `WebSearch` and record it there. Combine that with the user's
+     Step 3 answer, and flag anything uncertain rather than asserting confidently.
+     Cite sources for anything surfaced.
    - If the user flagged a trade in Step 3 that isn't reflected in the roster data
      you have, note this explicitly rather than trying to resolve it automatically —
      it requires a fresh roster fetch after the trade posts, which is out of scope for
