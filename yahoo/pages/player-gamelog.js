@@ -87,7 +87,8 @@ async function getIncAndLng(page, { playerName, teamAbbreviation, week, byeWeek 
     const row = pickGamelogRow(rows, { week, byeWeek });
     if (!row) return null;
     return { inc: row.att - row.cmp, lng: row.passLng };
-  } catch {
+  } catch (err) {
+    console.error(`getIncAndLng failed for "${playerName}" (week ${week}): ${err.message}`);
     return null;
   }
 }
