@@ -69,8 +69,18 @@ async function main() {
     // Sequential (not Promise.all) — getRoster() navigates the shared `page` object,
     // and concurrent navigations on one Page race each other. See get-matchup.js's
     // two-tab fix for the same issue.
+    //
+    // Each team's fetch is isolated: getRoster() can throw ROSTER_STATS_MISMATCH (see
+    // roster-page.js) or hit a transient page error, and one bad team shouldn't crash the
+    // whole run and produce zero output for the other nine. On failure, push a placeholder
+    // so `rosters` stays index-aligned with `standings` for the zip below.
     for (const team of standings) {
-      rosters.push(await getRoster(page, team.teamId, { week }));
+      try {
+        rosters.push(await getRoster(page, team.teamId, { week }));
+      } catch (err) {
+        console.error(`Failed to fetch roster for team ${team.teamId} (${team.teamName}): ${err.message}`);
+        rosters.push({ teamId: team.teamId, teamName: team.teamName, roster: [], fetchError: err.message });
+      }
     }
 
     const espnPage = await context.newPage();
@@ -89,6 +99,7 @@ async function main() {
         isWinner,
         teamTotal,
         players: rosters[i].roster.map(toChallengePlayer),
+        fetchError: rosters[i].fetchError || null,
       };
     });
 
