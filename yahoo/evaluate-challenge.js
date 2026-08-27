@@ -122,4 +122,4 @@ function evaluateTeamScoreChallenge(config, matchups) {
   throw new Error(`Unknown pick strategy: ${config.pick}`);
 }
 
-module.exports = { evaluatePlayerStatChallenge, evaluateTeamScoreChallenge, buildPool };
+module.exports = { evaluatePlayerStatChallenge, evaluateTeamScoreChallenge, buildPool, isStarter };

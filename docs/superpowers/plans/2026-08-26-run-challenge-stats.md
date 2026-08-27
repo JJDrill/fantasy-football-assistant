@@ -19,6 +19,14 @@ public JSON search endpoint), `node:test` + `node:assert/strict`.
 
 **Spec:** `docs/superpowers/specs/2026-08-26-run-challenge-stats-design.md`
 
+**Status (2026-08-26):** Tasks 1-6 implemented and reviewed (spec compliance + code
+quality) on branch `run-challenge-stats`. Full suite: 83/83 passing. Task 7's Step 1
+(full suite) is done; Steps 2-3 (manual smoke test, spike confirmation) require a real
+Yahoo session and real Week 1+ game data — not possible until the season is underway.
+Known residual risk carried forward, not fixed: `getRoster`'s stats-merge guards against
+a row-*count* mismatch between its two page fetches but not a same-count row-*order*
+mismatch (see the "Known follow-up" note after Task 6 below).
+
 ---
 
 ### Task 1: Check in the per-week stat-source verification spike (to run once Week 1 finishes)
@@ -858,3 +866,25 @@ and `isWinner`/`teamTotal` against the actual Yahoo standings/matchup pages in a
   whatever the spike found instead (e.g. a per-matchup box-score page), keeping the same
   `extractCategoryStats(headers, cells)` function signature so `getRoster`'s wiring in
   Task 3 Step 5 doesn't need to change.
+
+## Known follow-up (accepted, not blocking)
+
+Task 3's `mergeRosterStats` (added in a review-driven fix on top of Step 5, commit
+`433a1e6`) guards against the two roster/stats page fetches returning different row
+*counts*, throwing `ROSTER_STATS_MISMATCH` instead of silently truncating. It does
+**not** guard against the two fetches returning the *same* row count in a *different
+order* — if that ever happens, stats would still be silently merged onto the wrong
+player. A full fix would need to merge by a stable per-row identity (e.g. player name)
+instead of array index, which was explicitly out of this task's scope. Worth revisiting
+once Task 1's live verification happens and real per-week data can be used to confirm
+row ordering is actually stable between the two views.
+
+`player-gamelog.js`'s `pickGamelogRow` has a similar accepted risk: it picks a player's
+row for a given week by positional index against ESPN's reverse-chronological gamelog,
+adjusted for one tracked `byeWeek`, rather than by matching calendar date or opponent (the
+design spec originally called for date/opponent matching, but that was never
+implemented — see the spec's `player-gamelog.js` section and the code comment above
+`pickGamelogRow`). Any gap in ESPN's row list not covered by `byeWeek` (a postponed game,
+a mid-season trade, a second bye) would silently shift every later week's lookup by one
+with no error. Wiring in the already-captured `opponent` field as a sanity check would
+catch this but was left out of this final-review pass as a larger change than warranted.
