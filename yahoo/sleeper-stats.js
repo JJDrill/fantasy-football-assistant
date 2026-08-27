@@ -74,7 +74,12 @@ async function getPlayersMap({ cachePath = CACHE_PATH, maxAgeMs = DEFAULT_MAX_AG
   }
 
   if (!isCacheFresh(cache, maxAgeMs)) {
-    const res = await axios.get('https://api.sleeper.app/v1/players/nfl');
+    let res;
+    try {
+      res = await axios.get('https://api.sleeper.app/v1/players/nfl');
+    } catch (err) {
+      throw new Error(`SLEEPER_FETCH_FAILED: could not fetch Sleeper's player list — ${err.message}`);
+    }
     cache = { fetchedAt: Date.now(), players: res.data };
     fs.mkdirSync(path.dirname(cachePath), { recursive: true });
     fs.writeFileSync(cachePath, JSON.stringify(cache));
@@ -87,9 +92,14 @@ async function getPlayersMap({ cachePath = CACHE_PATH, maxAgeMs = DEFAULT_MAX_AG
 // reference/challenges.md: "scoring source is final Yahoo scoring after stat
 // corrections"), so this should be fresh on every call.
 async function getWeekStats(season, week) {
-  const res = await axios.get(`https://api.sleeper.com/stats/nfl/${season}/${week}`, {
-    params: { season_type: 'regular' },
-  });
+  let res;
+  try {
+    res = await axios.get(`https://api.sleeper.com/stats/nfl/${season}/${week}`, {
+      params: { season_type: 'regular' },
+    });
+  } catch (err) {
+    throw new Error(`SLEEPER_FETCH_FAILED: could not fetch Sleeper stats for season ${season} week ${week} — ${err.message}`);
+  }
   const statsByPlayerId = new Map();
   for (const row of res.data) {
     statsByPlayerId.set(row.player_id, row.stats || {});
