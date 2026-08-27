@@ -23,14 +23,36 @@ should be revisited once/if API access comes through.
 ## Investigation findings (live-verified 2026-08-26)
 
 - `roster-page.js`'s existing table (`table[id^="statTable"]`) only has a `Fan Pts` column
-  — no stat breakdown. But the exact same URL with `?week=N&stat1=S` appended renders a
-  **Stats view** of the same three tables (offense/kickers/DEF) with real category columns:
-  - Offense: Passing Yds/TD/**Int**, Rushing Att/Yds/TD, Receiving Tgt/Rec/**Yds**/TD, Ret
-    TD, Misc TD/2PT, Fum Lost
-  - Kickers: FG made by distance bucket, PAT made
-  - DEF: Pts vs., **Sack**, Safe, Int, Fum Rec, TD, Blk Kick TD
-  - This covers `points` (existing), `int` (week 4), `sack` (week 6), `rec yds` (week 7)
-    directly.
+  — no stat breakdown. The same URL with `?week=N&stat1=S` appended renders a **Stats
+  view** of the same three tables (offense/kickers/DEF) with category columns (Passing
+  Yds/TD/Int, Rushing Att/Yds/TD, Receiving Tgt/Rec/Yds/TD, DEF Sack/Safe/Int/etc.) that
+  *look* like exactly what's needed for `int`/`sack`/`rec yds`.
+- **However, this view's numbers do not appear to respect the `?week=N` parameter.**
+  Checked against Josh Allen (offense table) and a DEF team on 2026-08-26 — with the
+  current NFL season not yet underway (first game 2026-09-13) — `stat1=S` showed 3,668
+  passing yards and a DEF total of 49 sacks, both clearly full-season totals carried over
+  from a prior season, not zeros or small per-game numbers. **This means `stat1=S` is
+  most likely a season-aggregate view regardless of the week param, not a per-week
+  box score, and cannot be trusted as the `int`/`sack`/`rec yds` source as originally
+  assumed.** A `stat1=SPS` ("Split Stats") variant was also checked and produced
+  internally inconsistent numbers (large passing-stat values alongside a `0.00` Fan Pts
+  total for the same row) — consistent with Yahoo defaulting an unplayed week to some
+  other split (e.g. "vs. this week's opponent, all-time") rather than an actual game box
+  score.
+- **Root cause of the uncertainty:** it is currently impossible to observe what a
+  genuinely-completed week's per-week stat view looks like, because no games have been
+  played yet this season. Every "week 1" number available right now is either zero or a
+  leftover aggregate from a prior season. This can only be resolved by re-checking after
+  a real week concludes.
+- **Best current guess for the real per-week source:** Yahoo's matchup box-score/compare
+  page (reachable per-matchup, distinct from the roster page's Stats tab) is the
+  conventional place fantasy sites render a completed week's category-by-category stat
+  line for both rosters head-to-head. `matchup-page.js` currently only reads the
+  league-home "Week N Matchups" score-summary widget, not a per-matchup detail box score
+  — so this would be new territory for that page object, not a small tweak to
+  `roster-page.js`. **Task 1 of the implementation plan is a live-verification spike to
+  confirm this (or find the real source) once Week 1 has actually finished**, before any
+  category-stat-scraping code is written against a guessed selector.
 - The player-name cell in every roster row includes team + true position as plain text,
   e.g. `Buf - QB` (span with class `Fz-xxs`), separate from the `slot`/`selected_position`
   a player is currently started in. This gives us `position` for free.
@@ -68,18 +90,34 @@ yahoo/
                             everything above.
 ```
 
-### `roster-page.js` changes
+### Category-stat source: pending verification
+
+The exact page/selector for `int`/`sack`/`rec yds` is **not locked in** — see the
+Investigation findings above. The implementation plan's first task is a live spike
+(run once Week 1 has real completed games) that checks, in order: (a) whether
+`stat1=S`/`stat1=SPS` actually change once real per-week data exists (maybe the
+season-total behavior we saw was itself an artifact of the off-season and resolves
+itself once games are played), then (b) a per-matchup box-score page as a fallback.
+Whichever one is confirmed live becomes the real Task 2 (the `roster-page.js` or
+`matchup-page.js` change) — the module boundary (a new/changed page-object function
+returning `{ [statName]: numericValue }` per player, merged onto the roster entry
+`evaluate-challenge.js` expects) stays the same regardless of which URL it turns out
+to be, so the rest of this design (points 2-4 below, `run-challenge.js` wiring,
+`player-gamelog.js`) is unaffected by which one it is.
+
+### `roster-page.js` changes (once the source above is confirmed)
 
 `getRoster(page, teamId, { week })` becomes two navigations on the same page (sequential,
 same constraint as today — no concurrent navigation on one `Page`):
 
 1. Existing fetch of `teamUrl(teamId)?week=N` → slot, name, points (unchanged parsing).
-2. New fetch of `teamUrl(teamId)?week=N&stat1=S` → for each of the three position tables,
-   read the two-row `<thead>` (group label + column label) to build a per-table column
-   name list (e.g. `['int']` at the "Passing"+"Int" intersection for the offense table,
-   `['sack']` for "Turnovers"... "Sack" on the DEF table), then read each body row's cells
-   into `{ [statName]: numericValue }`, keyed by player row identity (row order is stable
-   within a single page load, so pair up by index within each of the three tables).
+2. New fetch of the confirmed per-week stats source → for each of the three position
+   tables, read the two-row `<thead>` (group label + column label) to build a per-table
+   column name list (e.g. `['int']` at the "Passing"+"Int" intersection for the offense
+   table, `['sack']` for "Turnovers"... "Sack" on the DEF table), then read each body
+   row's cells into `{ [statName]: numericValue }`, keyed by player row identity (row
+   order is stable within a single page load, so pair up by index within each of the
+   three tables).
 
 Row identity is matched by position **within each of the three tables** (same table,
 same row order, both fetched from the same team/week) — not by name string-matching,
@@ -195,6 +233,10 @@ New steps after the existing roster loop:
 
 ## Known follow-ups (not blocking this work)
 
+- The `int`/`sack`/`rec yds` source is unverified until Week 1 finishes (see "Category-stat
+  source: pending verification" above) — this blocks only that one piece; `position`
+  extraction, matchup wiring (`isWinner`/`teamTotal`/`matchups`), and `player-gamelog.js`
+  don't depend on it and can be built and tested independently.
 - Weeks 9 and 15 depend on ESPN as a second data source, matched by game date — this is
   more fragile than the single-source Yahoo scrape used for every other week. Worth an
   extra verification pass once week 9 actually arrives (per-week challenge is ~2 months
