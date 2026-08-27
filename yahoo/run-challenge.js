@@ -3,9 +3,12 @@ const { launchContext } = require('./browser');
 const { getStandings } = require('./pages/standings-page');
 const { getRoster } = require('./pages/roster-page');
 const { getPairings } = require('./pages/matchup-page');
-const { getIncAndLng } = require('./pages/player-gamelog');
-const { isStarter } = require('./evaluate-challenge');
-const { CHALLENGES } = require('./challenge-config');
+const { getPlayersMap, getWeekStats, extractChallengeStats } = require('./sleeper-stats');
+
+// This league's current NFL season. Hardcoded, matching this codebase's existing
+// convention of hardcoding league-specific constants (see LEAGUE_ID in
+// yahoo/pages/base-page.js) — see reference/League_Settings.pdf.
+const SEASON = 2026;
 
 function attachMatchupResult(team, pairings) {
   const pairing = pairings.find((p) => p.teamAId === team.teamId || p.teamBId === team.teamId);
@@ -25,28 +28,24 @@ function buildMatchups(pairings) {
   }));
 }
 
-// Only weeks 9 and 15 need inc/lng (see reference/challenges.md), and only for starting
-// QBs — an ESPN round-trip per rostered player per week would be wasted work otherwise.
-async function enrichIncLng(espnPage, roster, week) {
-  const config = CHALLENGES[week];
-  if (!config || (config.stat !== 'inc' && config.stat !== 'lng')) return;
-
-  for (const player of roster) {
-    if (player.position !== 'QB' || !player.playerName) continue;
-    if (config.pool === 'starters' && !isStarter(player)) continue;
-
-    const result = await getIncAndLng(espnPage, {
-      playerName: player.playerName,
-      teamAbbreviation: player.teamAbbreviation,
-      week,
-      byeWeek: player.bye,
-    });
-    if (result) Object.assign(player, result);
+// Every roster entry (starters and bench alike) gets enriched — unlike the prior
+// ESPN-based approach, this is a Map lookup already fetched once per run, not a
+// per-player network round-trip, so there's no cost reason to restrict this to specific
+// weeks/positions/pool anymore. Mutates `player` in place and returns it.
+function enrichWithSleeperStats(player, { playersMap, weekStats }) {
+  let statsRow;
+  if (player.position === 'DEF') {
+    statsRow = player.teamAbbreviation && weekStats.get(player.teamAbbreviation.toUpperCase());
+  } else if (player.yahooPlayerId) {
+    const mapped = playersMap.get(player.yahooPlayerId);
+    statsRow = mapped && weekStats.get(mapped.sleeperId);
   }
+  if (statsRow) Object.assign(player, extractChallengeStats(statsRow, player.position));
+  return player;
 }
 
 function toChallengePlayer(rosterEntry) {
-  const { playerName, selected_position, teamAbbreviation, opponent, bye, ...rest } = rosterEntry;
+  const { playerName, selected_position, teamAbbreviation, opponent, yahooPlayerId, ...rest } = rosterEntry;
   return { name: playerName, selected_position, ...rest };
 }
 
@@ -70,10 +69,9 @@ async function main() {
     // and concurrent navigations on one Page race each other. See get-matchup.js's
     // two-tab fix for the same issue.
     //
-    // Each team's fetch is isolated: getRoster() can throw ROSTER_STATS_MISMATCH (see
-    // roster-page.js) or hit a transient page error, and one bad team shouldn't crash the
-    // whole run and produce zero output for the other nine. On failure, push a placeholder
-    // so `rosters` stays index-aligned with `standings` for the zip below.
+    // Each team's fetch is isolated: one bad team shouldn't crash the whole run and
+    // produce zero output for the other nine. On failure, push a placeholder so
+    // `rosters` stays index-aligned with `standings` for the zip below.
     for (const team of standings) {
       try {
         rosters.push(await getRoster(page, team.teamId, { week }));
@@ -83,13 +81,18 @@ async function main() {
       }
     }
 
-    const espnPage = await context.newPage();
-    try {
-      for (const roster of rosters) {
-        await enrichIncLng(espnPage, roster.roster, weekNum);
+    // Sleeper is now the only source for int/sack/rec-yds/inc/lng, for every week — unlike
+    // the removed ESPN module, a fetch failure here should surface loudly rather than
+    // degrade silently, since silent nulls here would make every player's category stats
+    // look plausibly-but-wrongly absent for the whole week, not just one player. See
+    // docs/superpowers/specs/2026-08-26-sleeper-stats-replacement-design.md's "Error
+    // handling" section.
+    const playersMap = await getPlayersMap();
+    const weekStats = await getWeekStats(SEASON, weekNum);
+    for (const roster of rosters) {
+      for (const player of roster.roster) {
+        enrichWithSleeperStats(player, { playersMap, weekStats });
       }
-    } finally {
-      await espnPage.close();
     }
 
     const teams = standings.map((team, i) => {
@@ -111,7 +114,7 @@ async function main() {
   }
 }
 
-module.exports = { attachMatchupResult, buildMatchups, toChallengePlayer };
+module.exports = { attachMatchupResult, buildMatchups, toChallengePlayer, enrichWithSleeperStats };
 
 if (require.main === module) {
   main().catch((err) => {

@@ -1,6 +1,6 @@
 const { test } = require('node:test');
 const assert = require('node:assert');
-const { attachMatchupResult, buildMatchups, toChallengePlayer } = require('./run-challenge');
+const { attachMatchupResult, buildMatchups, toChallengePlayer, enrichWithSleeperStats } = require('./run-challenge');
 
 test('attachMatchupResult: teamA winner returns isWinner true and its own score as teamTotal', () => {
   const team = { teamId: 'A1' };
@@ -41,14 +41,14 @@ test('buildMatchups maps pairings into a teams array shape', () => {
   ]);
 });
 
-test('toChallengePlayer renames playerName to name and drops teamAbbreviation/opponent/bye', () => {
+test('toChallengePlayer renames playerName to name and drops teamAbbreviation/opponent/yahooPlayerId', () => {
   const rosterEntry = {
     playerName: 'J. Allen',
     selected_position: 'QB',
     position: 'QB',
     teamAbbreviation: 'BUF',
     opponent: 'MIA',
-    bye: 12,
+    yahooPlayerId: '30977',
     points: 25.4,
     int: 1,
   };
@@ -69,7 +69,6 @@ test('toChallengePlayer handles an empty bench slot without throwing', () => {
     position: null,
     teamAbbreviation: null,
     opponent: null,
-    bye: null,
     points: null,
   };
   const result = toChallengePlayer(rosterEntry);
@@ -79,4 +78,43 @@ test('toChallengePlayer handles an empty bench slot without throwing', () => {
     position: null,
     points: null,
   });
+});
+
+test('enrichWithSleeperStats merges QB stats via yahooPlayerId -> playersMap -> weekStats', () => {
+  const player = { position: 'QB', yahooPlayerId: '30977', playerName: 'Josh Allen' };
+  const playersMap = new Map([['30977', { sleeperId: '6789', position: 'QB', team: 'BUF' }]]);
+  const weekStats = new Map([['6789', { pass_int: 2, pass_inc: 10, pass_lng: 40 }]]);
+
+  enrichWithSleeperStats(player, { playersMap, weekStats });
+
+  assert.deepStrictEqual(player, {
+    position: 'QB', yahooPlayerId: '30977', playerName: 'Josh Allen',
+    int: 2, inc: 10, lng: 40,
+  });
+});
+
+test('enrichWithSleeperStats merges DEF stats via uppercased teamAbbreviation', () => {
+  const player = { position: 'DEF', teamAbbreviation: 'Buf', playerName: 'Bills' };
+  const playersMap = new Map();
+  const weekStats = new Map([['BUF', { sack: 3 }]]);
+
+  enrichWithSleeperStats(player, { playersMap, weekStats });
+
+  assert.deepStrictEqual(player, { position: 'DEF', teamAbbreviation: 'Buf', playerName: 'Bills', sack: 3 });
+});
+
+test('enrichWithSleeperStats leaves the player unchanged when there is no match', () => {
+  const player = { position: 'QB', yahooPlayerId: '99999', playerName: 'Nobody' };
+  const playersMap = new Map();
+  const weekStats = new Map();
+
+  enrichWithSleeperStats(player, { playersMap, weekStats });
+
+  assert.deepStrictEqual(player, { position: 'QB', yahooPlayerId: '99999', playerName: 'Nobody' });
+});
+
+test('enrichWithSleeperStats leaves an empty roster slot unchanged (no yahooPlayerId, no teamAbbreviation)', () => {
+  const player = { position: null, playerName: null, selected_position: 'BN' };
+  enrichWithSleeperStats(player, { playersMap: new Map(), weekStats: new Map() });
+  assert.deepStrictEqual(player, { position: null, playerName: null, selected_position: 'BN' });
 });
