@@ -18,6 +18,16 @@ deleted outright.
 **Tech Stack:** Node.js (CommonJS), axios (already a dependency), `node:test` +
 `node:assert`/`node:assert/strict`, `node:fs`/`node:path` for disk caching.
 
+**Status (2026-08-27):** Tasks 1-7 implemented and reviewed (spec compliance + code
+quality) on branch `sleeper-stats-replacement`. Full suite: 88/88 passing. Task 8's Step 1
+(full suite) is done; Steps 2-3 (manual smoke test against a live Yahoo session with real
+week data, confirming the cache file gets created) require real game data and a logged-in
+session not available in this environment — must be run once real data exists. Two
+minor, non-blocking test-coverage gaps were noted in review but not fixed (see Task 5's
+`enrichWithSleeperStats`: no test for a DEF player with a non-matching `teamAbbreviation`,
+or for DEF with no `teamAbbreviation` at all — both paths are logically identical to
+already-tested cases, low risk).
+
 **Spec:** `docs/superpowers/specs/2026-08-26-sleeper-stats-replacement-design.md`
 
 **Prerequisite:** This plan is written against the codebase state produced by PR #5
