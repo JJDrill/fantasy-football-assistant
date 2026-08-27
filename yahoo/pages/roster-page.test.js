@@ -7,6 +7,7 @@ const {
   parseOpponent,
   parseStatNumber,
   extractCategoryStats,
+  mergeRosterStats,
 } = require('./roster-page');
 
 test('parsePosition extracts the position from "Team - POS" text', () => {
@@ -81,4 +82,17 @@ test('extractCategoryStats reads only Bye when a table has none of the other tra
   const headers = ['Pos', 'Edit', 'Kickers', 'Bye', 'Fan Pts', '% Start', '% Ros', '0‑19', '20‑29', '30‑39', '40‑49', '50+', 'Made', ''];
   const cells = ['K', 'KBN', 'Eddy Pineiro', '8', '140.00', '60%', '64%', '0', '5', '7', '10', '6', '34', ''];
   assert.deepStrictEqual(extractCategoryStats(headers, cells), { bye: 8 });
+});
+
+test('mergeRosterStats merges matching-length arrays by index', () => {
+  const roster = [{ playerName: 'A' }, { playerName: 'B' }];
+  const statsArray = [{ int: 1 }, { sack: 2 }];
+  const result = mergeRosterStats(roster, statsArray);
+  assert.deepStrictEqual(result, [{ playerName: 'A', int: 1 }, { playerName: 'B', sack: 2 }]);
+});
+
+test('mergeRosterStats throws on a row-count mismatch instead of silently merging a partial result', () => {
+  const roster = [{ playerName: 'A' }, { playerName: 'B' }, { playerName: 'C' }];
+  const statsArray = [{ int: 1 }, { sack: 2 }];
+  assert.throws(() => mergeRosterStats(roster, statsArray), /ROSTER_STATS_MISMATCH/);
 });

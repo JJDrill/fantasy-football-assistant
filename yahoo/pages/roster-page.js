@@ -115,6 +115,25 @@ function extractCategoryStats(headers, cells) {
 
 const STAT_TABLE_IDS = ['statTable0', 'statTable1', 'statTable2'];
 
+// `roster` and `statsArray` come from two independent page loads (points view vs.
+// stat1=S view). Merging by index is only safe when both fetches produced the same
+// number of rows in the same order — see ROSTER_TABLE_SELECTOR's comment above for a
+// past incident of exactly this kind of silent misalignment. Refuse to merge (rather
+// than silently truncating to the shorter array) if the counts disagree.
+function mergeRosterStats(roster, statsArray) {
+  if (statsArray.length !== roster.length) {
+    throw new Error(
+      `ROSTER_STATS_MISMATCH: points view returned ${roster.length} roster rows but ` +
+      `stats view (?stat1=S) returned ${statsArray.length} rows — refusing to merge by ` +
+      `index since row order/count may not correspond`
+    );
+  }
+  for (let i = 0; i < roster.length; i++) {
+    Object.assign(roster[i], statsArray[i]);
+  }
+  return roster;
+}
+
 // PENDING VERIFICATION (see yahoo/smoke-test-week-stats.js and
 // docs/superpowers/specs/2026-08-26-run-challenge-stats-design.md): stat1=S showed
 // season-aggregate numbers, not per-week, when checked pre-season. Do not trust this
@@ -158,9 +177,7 @@ async function getRoster(page, teamId, { week } = {}) {
   // Category stats only matter for a specific week's challenge evaluation.
   if (week) {
     const statsArray = await getRosterStats(page, teamId, week);
-    for (let i = 0; i < roster.length && i < statsArray.length; i++) {
-      Object.assign(roster[i], statsArray[i]);
-    }
+    mergeRosterStats(roster, statsArray);
   }
 
   return { teamId, teamName, roster };
@@ -173,5 +190,6 @@ module.exports = {
   parseOpponent,
   parseStatNumber,
   extractCategoryStats,
+  mergeRosterStats,
   getRoster,
 };
