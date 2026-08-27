@@ -7,8 +7,8 @@ search done by one is reused by the other.
 
 ## Where it lives
 
-`seasons/season-2026/week-<NN>.md` (the same per-week notes file lineup decisions already
-live in) — add or update a section:
+`seasons/2026/Kicker I Hardly Know Her/week-<NN>.md` (the same per-week notes file
+lineup decisions already live in) — add or update a section:
 
 ```
 ## Injury/Availability Report (cached)
