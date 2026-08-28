@@ -37,3 +37,12 @@ Stopping over the false alarm cost more (an autopicked, redundant backup QB) tha
 ## Roster decisions carried into the season
 
 - **Keeping Mahomes for now.** Dead bench weight in a single-QB league, but not worth burning a waiver move on yet — revisit if Allen gets hurt or a clearly better bench piece becomes available.
+
+## Note for next draft
+
+Josh Jacobs (Rd 7) was drafted without checking for off-field red flags — he's since been in
+the news for possible legal issues. Next draft, add a check for significant off-field issues
+(ongoing legal trouble, suspension risk, health concerns beyond normal injury status) before
+picking a player, not just stats/team fit. Still undecided whether this is a manual pre-draft
+check or something the draft-driver screens for automatically — worth a real design
+conversation when draft-driver work resumes next preseason.
