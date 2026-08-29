@@ -26,15 +26,15 @@ Gives start/sit recommendations for the user's team for a given week.
    bench), plus any off-field legal/status red flags (arrests, citations, suspensions,
    DUIs, etc. — the kind of thing that can sideline a player independent of health; see
    the Josh Jacobs note in `seasons/2026/Kicker I Hardly Know Her/week-00-draft.md` for
-   why this check exists). First check `reference/legal-watch-list.md` for an existing
+   why this check exists). First check `seasons/2026/Kicker I Hardly Know Her/reference/legal-watch-list.md` for an existing
    open entry on the player — if one exists, treat it as still active and search fresh
    anyway to see if it's progressed (update the row rather than duplicating it; append a
    new row for anything newly discovered, per that file's protocol). Then, per the
-   shared cache protocol in `reference/injury-cache-convention.md`, reuse a fresh cached
+   shared cache protocol in `methodology/injury-cache-convention.md`, reuse a fresh cached
    entry if one exists for that player this week, otherwise `WebSearch` both (injury
    status, and something like "<player name> arrest OR charged OR suspended OR DUI") and
    record them there so other skills (and later calls this week) don't re-search it.
-   Cite sources for anything surfaced, tiered per `reference/trusted-sources.md` — a
+   Cite sources for anything surfaced, tiered per `methodology/trusted-sources.md` — a
    Tier 2-only claim (social media, fan blogs/aggregators) gets reported labeled
    **Unverified** rather than stated as fact, per that file's protocol. A legal/off-field
    flag is informational only — surface it clearly in the final list (step 9), but don't
@@ -49,7 +49,7 @@ Gives start/sit recommendations for the user's team for a given week.
    - Rank 1–10 (stingiest defense) → Unfavorable
    - Rank 11–21 → Neutral
    - Rank 22–32 (most generous defense) → Favorable
-   Source rank claims per `reference/trusted-sources.md`'s tiering; if only a Tier 2 site
+   Source rank claims per `methodology/trusted-sources.md`'s tiering; if only a Tier 2 site
    gives a specific rank, say so and note it as lower-confidence rather than stating it
    flatly (as already done for a few Week 1 grades).
 6. For every player in an **outdoor-stadium game** (skip domes and closed-roof
@@ -73,7 +73,7 @@ Gives start/sit recommendations for the user's team for a given week.
    from any script here — combine the news you found with your own general knowledge of
    the players involved (recent form) and say clearly when you're speculating vs.
    reporting fetched data.
-8. Flag anything roster-rule-relevant from `reference/2026_League_Rules.pdf` if applicable
+8. Flag anything roster-rule-relevant from `seasons/2026/Kicker I Hardly Know Her/reference/2026_League_Rules.pdf` if applicable
    (e.g. IR eligibility rules, no median matchup so only your own score matters).
 9. Present recommendations as a short list per player: position, current starter,
    suggested replacement (if any), matchup grade (Favorable/Neutral/Unfavorable) with a

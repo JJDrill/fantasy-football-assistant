@@ -51,7 +51,7 @@ already has in mind, use `trade-analyzer` instead.
    user can lean on when pitching the trade, even if they don't use the full write-up.
 
 6. **Check league constraints.**
-   Check `reference/2026_League_Rules.pdf` for the trade cap (15/season) and deadline
+   Check `seasons/2026/Kicker I Hardly Know Her/reference/2026_League_Rules.pdf` for the trade cap (15/season) and deadline
    (November 21, 2026) — mention these if the season is getting close to either. Also
    note that 3 league veto votes can cancel a trade, same as `trade-analyzer` surfaces.
 

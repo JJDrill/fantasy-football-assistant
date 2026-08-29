@@ -37,7 +37,8 @@ like a suspension, arrest, or roster status.
 1. Try one more targeted search using a Tier 1 outlet's name in the query (e.g. "espn
    <player> suspension") to see if it's been corroborated.
 2. If still uncorroborated, report it labeled **Unverified** (see the George Pickens row
-   in `reference/legal-watch-list.md` for the pattern) rather than stating it as fact.
+   in `seasons/2026/Kicker I Hardly Know Her/reference/legal-watch-list.md` for the pattern)
+   rather than stating it as fact.
    Recommend the user manually double-check (e.g. the actual Yahoo roster page's status
    badge) before acting on it.
 3. Once a Tier 1 source corroborates it, drop the "Unverified" label and cite the Tier 1
@@ -48,5 +49,6 @@ like a suspension, arrest, or roster status.
 - `lineup-advice` Step 4 (injury/legal search) and Step 5 (matchup-grade sourcing)
 - `post-game-check`'s legal watch-list refresh
 - Any other skill's `WebSearch` call that feeds a factual claim into a cached file
-  (`reference/injury-cache-convention.md`, `reference/legal-watch-list.md`, a week's
-  notes file)
+  (`methodology/injury-cache-convention.md`,
+  `seasons/2026/Kicker I Hardly Know Her/reference/legal-watch-list.md`, a week's notes
+  file)

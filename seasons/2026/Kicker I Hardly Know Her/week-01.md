@@ -27,8 +27,8 @@ starter to warrant a swap.
 
 ## Injury/Availability Report (freshly re-searched 2026-08-28, ~8:50 PM)
 
-Per `reference/injury-cache-convention.md`. Source tiering per
-`reference/trusted-sources.md`.
+Per `methodology/injury-cache-convention.md`. Source tiering per
+`methodology/trusted-sources.md`.
 
 | Player | Status | Note | Checked | Source |
 |---|---|---|---|---|
@@ -36,7 +36,7 @@ Per `reference/injury-cache-convention.md`. Source tiering per
 | Josh Jacobs | Questionable + legal watch, **updated outlook** | Back at practice after groin injury. **Now formally charged** with two misdemeanors (battery, criminal damage to property) — no domestic-abuse modifier on the formal charge, first court date Nov. 17. Multiple Tier 1 outlets (Yahoo Sports, RotoBaller, CBS Sports) now report Jacobs **looks likely to avoid a Week 1 suspension**, since the NFL typically waits for the legal process to conclude and this case may not resolve until after the season — a more favorable read than the "expect a suspension" framing found earlier today. Packers are still preparing a contingency plan regardless. | 2026-08-28 | [Yahoo Sports](https://sports.yahoo.com/articles/packers-news-green-bay-faces-214002072.html), [RotoBaller](https://www.rotoballer.com/player-news/packers-preparing-for-potential-josh-jacobs-suspension/1916778), [NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-08-26/packers-preparing-for-jacobs-suspension) |
 | David Montgomery | Healthy | Rested (didn't play) in Texans' preseason finale vs. Raiders — a good sign, not a concern; still expected to start and get most Week 1 carries vs. Buffalo | 2026-08-28 | [FOX Sports](https://www.foxsports.com/nfl/david-montgomery-player) |
 | Amon-Ra St. Brown | Healthy | No 2026 flags found; last injury news is from Dec 2025 | 2026-08-28 | [NBC Sports](https://www.nbcsports.com/nfl/amon-ra-st-brown/7075/news) |
-| George Pickens | Healthy, **plus two separate off-field items** | (1) **Confirmed, Tier 1 (ESPN)**: missed curfew during a Vegas trip with CeeDee Lamb, resulting in both missing the first series of a Monday game — a real but minor conduct issue, not season-altering. (2) **Still Unverified**: the broader "indefinite PED suspension" claim remains sourced only to uncorroborated Instagram/Facebook posts; a direct ESPN search today surfaced the curfew story but did not corroborate a PED suspension. Keep it labeled Unverified per `reference/trusted-sources.md` until a Tier 1 source confirms it. | 2026-08-28 | [ESPN — curfew story, confirmed](https://www.espn.com/nfl/story/_/id/47040252/missed-vegas-curfew-prompted-cowboys-discipline-lamb-says), [Facebook/Instagram — PED claim, still unconfirmed](https://www.facebook.com/61554170551636/posts/cowboys-wr-george-pickens-has-been-suspended-indefinitely-for-ped-use-per-source/122225540354139018/) |
+| George Pickens | Healthy, **plus two separate off-field items** | (1) **Confirmed, Tier 1 (ESPN)**: missed curfew during a Vegas trip with CeeDee Lamb, resulting in both missing the first series of a Monday game — a real but minor conduct issue, not season-altering. (2) **Still Unverified**: the broader "indefinite PED suspension" claim remains sourced only to uncorroborated Instagram/Facebook posts; a direct ESPN search today surfaced the curfew story but did not corroborate a PED suspension. Keep it labeled Unverified per `methodology/trusted-sources.md` until a Tier 1 source confirms it. | 2026-08-28 | [ESPN — curfew story, confirmed](https://www.espn.com/nfl/story/_/id/47040252/missed-vegas-curfew-prompted-cowboys-discipline-lamb-says), [Facebook/Instagram — PED claim, still unconfirmed](https://www.facebook.com/61554170551636/posts/cowboys-wr-george-pickens-has-been-suspended-indefinitely-for-ped-use-per-source/122225540354139018/) |
 | Kyle Pitts Sr. | Questionable | Undisclosed injury (reportedly foot) per HC Raheem Morris, dating to early June OTAs; also signed a 3-yr/$54M extension in June. No legal flags | 2026-08-28 | [Falcons.com](https://www.atlantafalcons.com/news/kyle-pitts-injury-falcons-extremely-cautious-approach) |
 | Tetairoa McMillan | Questionable — **inconsistent reports, flag for manual check** | Today's search surfaced a spring **foot** soreness issue (missed OTAs/minicamp); the earlier same-day search found **ankle** soreness; an older cached entry said **hamstring**. Three different body parts across three searches strongly suggests search-engine noise mixing multiple minor camp tweaks or stale articles rather than one clear injury — treat his status as genuinely uncertain and check the actual Yahoo injury badge right before lock rather than trusting any one of these. | 2026-08-28 | [Panthers.com](https://www.panthers.com/news/tetairoa-mcmillan-added-to-injury-report-questionable-for-seahawks-game) |
 | Eddy Pineiro | Healthy | Confirmed fully healthy and entrenched — signed a 4-year, $17M extension with the 49ers in March 2026; no current injury or legal flags | 2026-08-28 | [ESPN](https://www.espn.com/nfl/story/_/id/48136485/san-francisco-49ers-kicker-eddy-pineiro-agree-extension) |
@@ -79,7 +79,7 @@ a few hours, and most of these games are still too far out for a published forec
 ## What changed vs. the backup (fresh search vs. same-day cache)
 
 The underlying facts mostly held up, but the fresh pass surfaced real, useful deltas —
-this is why the freshness rule in `reference/injury-cache-convention.md` re-searches
+this is why the freshness rule in `methodology/injury-cache-convention.md` re-searches
 rather than trusting a cache indefinitely, even same-day:
 
 1. **Josh Jacobs — materially different outlook.** The backup said "expect a

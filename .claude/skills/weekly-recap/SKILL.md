@@ -21,6 +21,6 @@ opponent "personas," just banter grounded in the real data for that week.
      teams' starters and points, and the final score) from the Yahoo app.
 4. Write a short (3-6 sentence) recap in a fun, lightly trash-talking tone, referencing
    specific real players/scores from the data provided — not generic filler.
-5. If it's a challenge week, check `reference/challenges.md` and mention whether the user's
+5. If it's a challenge week, check `seasons/2026/Kicker I Hardly Know Her/reference/challenges.md` and mention whether the user's
    team looks to be in contention for that week's $10 challenge based on what's known.
 6. Keep it good-natured — this is a friend league, not actual beef.

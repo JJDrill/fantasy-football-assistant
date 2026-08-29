@@ -22,7 +22,7 @@ Suggests free agents worth adding, given the user's roster needs.
    - Ask the user to paste or screenshot their current roster and, separately, the waiver
      wire / available-players list for the position(s) they're interested in from the Yahoo
      app.
-4. Cross-reference `reference/2026_League_Rules.pdf` for the season acquisition cap (60
+4. Cross-reference `seasons/2026/Kicker I Hardly Know Her/reference/2026_League_Rules.pdf` for the season acquisition cap (60
    total) — remind the user this cap exists, and ask/note how many they've used if that's
    known.
 5. Recommend 2-3 specific pickups with one-line reasoning each (role, opportunity, matchup),

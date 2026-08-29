@@ -1,7 +1,7 @@
 # Off-Field / Legal Watch List
 
 Persistent across weeks — unlike the per-week injury cache in
-`reference/injury-cache-convention.md`, entries here stay until resolved (cleared,
+`methodology/injury-cache-convention.md`, entries here stay until resolved (cleared,
 season ends with no action, or confirmed no longer relevant). Any skill that finds a
 new off-field/legal red flag on a roster player (yours or an opponent's, if relevant to
 a trade/waiver decision) should append it here rather than letting it live only in that
@@ -18,7 +18,7 @@ week's notes file.
    new off-field/legal flag surfaced during that week's recap (even for a rumor that
    couldn't be confirmed — mark it `Unverified` rather than skipping it, so it isn't
    re-discovered from scratch next time). Source tiering for what counts as confirmed
-   vs. `Unverified` follows `reference/trusted-sources.md` — the George Pickens row below
+   vs. `Unverified` follows `methodology/trusted-sources.md` — the George Pickens row below
    is exactly the case that convention exists for (Tier 2-only social media claims).
 3. **Resolving an entry**: mark `Status` as `Resolved` and add a one-line outcome note
    rather than deleting the row — keeps a record of what happened for season-end review

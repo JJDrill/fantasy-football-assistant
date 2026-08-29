@@ -89,7 +89,7 @@ async function getPlayersMap({ cachePath = CACHE_PATH, maxAgeMs = DEFAULT_MAX_AG
 }
 
 // Not cached — stat corrections can land after initial publication (see
-// reference/challenges.md: "scoring source is final Yahoo scoring after stat
+// seasons/2026/Kicker I Hardly Know Her/reference/challenges.md: "scoring source is final Yahoo scoring after stat
 // corrections"), so this should be fresh on every call.
 async function getWeekStats(season, week) {
   let res;

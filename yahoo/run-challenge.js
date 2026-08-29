@@ -7,7 +7,7 @@ const { getPlayersMap, getWeekStats, extractChallengeStats } = require('./sleepe
 
 // This league's current NFL season. Hardcoded, matching this codebase's existing
 // convention of hardcoding league-specific constants (see LEAGUE_ID in
-// yahoo/pages/base-page.js) — see reference/League_Settings.pdf.
+// yahoo/pages/base-page.js) — see seasons/2026/Kicker I Hardly Know Her/reference/League_Settings.pdf.
 const SEASON = 2026;
 
 function attachMatchupResult(team, pairings) {

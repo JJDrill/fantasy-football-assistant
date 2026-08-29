@@ -25,7 +25,7 @@ either individually, use those skills directly instead.
    - If live roster data is unavailable: ask the user to paste or screenshot their
      current roster (starters and bench, with positions).
    - If live challenge data is unavailable: ask for whatever this week's specific
-     challenge rule requires per `reference/challenges.md` (e.g. Week 3 needs every
+     challenge rule requires per `seasons/2026/Kicker I Hardly Know Her/reference/challenges.md` (e.g. Week 3 needs every
      team's starting kicker's points).
    - Always ask (no live source exists for trade approval/veto status today): "Any
      trades proposed, approved, or vetoed recently that might not be reflected yet in
@@ -45,7 +45,7 @@ either individually, use those skills directly instead.
    - Cross-check for inactive/out/bye starters: if live roster data included status
      flags, check them directly. Regardless of whether flags were present, get each
      starter's injury/availability status per the shared cache protocol in
-     `reference/injury-cache-convention.md` — reuse a fresh cached entry if one
+     `methodology/injury-cache-convention.md` — reuse a fresh cached entry if one
      exists, otherwise `WebSearch` and record it there. Combine that with the user's
      Step 3 answer, and flag anything uncertain rather than asserting confidently.
      Cite sources for anything surfaced.

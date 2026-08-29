@@ -1,6 +1,6 @@
 # 2026 Weekly Challenges
 
-Source: `reference/2026_League_Rules.pdf` and `reference/FFL_2026_Weekly_Challenges_Mobile.pdf`.
+Source: `2026_League_Rules.pdf` and `FFL_2026_Weekly_Challenges_Mobile.pdf` (this directory).
 $10 prize per week, 15 weeks (Weeks 1-15). Only players in the stated lineup position
 count unless a challenge says otherwise.
 
@@ -29,7 +29,7 @@ commissioner for questions or scoring errors.
 
 Earlier versions of this pack referenced a "starter or superflex" QB in Weeks 4, 9, and 15,
 and built Week 6 entirely around a "starting IDP" — but this league's actual roster (per
-`reference/League_Settings.pdf`) is `QB, WR, WR, RB, RB, TE, W/R/T, K, DEF, BN×6, IR×2`,
+`League_Settings.pdf`, this directory) is `QB, WR, WR, RB, RB, TE, W/R/T, K, DEF, BN×6, IR×2`,
 with **no superflex/OP slot and no IDP slot**. Week 6 as originally written had no eligible
 players, and the superflex clause in Weeks 4/9/15 could never apply.
 

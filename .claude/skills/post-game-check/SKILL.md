@@ -30,7 +30,7 @@ directly instead.
    - If live trade-finder data is unavailable: ask for every other team's roster in one
      message (text or screenshots).
    - If live challenge data is unavailable: ask for whatever this week's specific
-     challenge rule requires per `reference/challenges.md`.
+     challenge rule requires per `seasons/2026/Kicker I Hardly Know Her/reference/challenges.md`.
    - If live waiver data is unavailable: ask for the waiver wire / available-players
      list, and which position(s) they're interested in (or "all").
    - Always ask: "Anything specific you want me to flag — a position need, a challenge
@@ -53,15 +53,15 @@ directly instead.
      week. A grade is a **hit** if a Favorable player scored above the positional
      average or an Unfavorable player scored below it; otherwise it's a **miss**
      (Neutral grades aren't scored either way). Append one row per graded starter to
-     `reference/matchup-grade-accuracy.md` (create it if it doesn't exist yet, with
+     `seasons/2026/Kicker I Hardly Know Her/reference/matchup-grade-accuracy.md` (create it if it doesn't exist yet, with
      columns Week | Player | Position | Grade | Vegas Signal | Actual Pts | Position Avg
      | Hit/Miss), so a hit rate accumulates across the season. Mention the resulting
      week's hit rate and the running season hit rate in the summary.
    - **Legal watch-list refresh**: check every open entry in
-     `reference/legal-watch-list.md` for a status update (`WebSearch` the player's name
+     `seasons/2026/Kicker I Hardly Know Her/reference/legal-watch-list.md` for a status update (`WebSearch` the player's name
      plus their concern, e.g. "Josh Jacobs suspension decision"), update the row, and
      mark it `Resolved` with a one-line outcome if it's been settled. Only clear an
-     `Unverified` status once a Tier 1 source (per `reference/trusted-sources.md`)
+     `Unverified` status once a Tier 1 source (per `methodology/trusted-sources.md`)
      corroborates it — a second Tier 2 hit doesn't count. Also append any new off-field/
      legal flag surfaced anywhere else in this pass (recap, trade-finder, waiver-targets)
      — including an unconfirmed rumor, marked `Unverified` per the same source tiering —

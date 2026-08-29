@@ -20,7 +20,7 @@ in `.claude/skills/<name>/SKILL.md`.
 
 | Skill | What it does |
 |---|---|
-| `challenge-tracker` | Tells you who's winning (or won) a given week's $10 side-challenge, per the rules in `reference/challenges.md`. |
+| `challenge-tracker` | Tells you who's winning (or won) a given week's $10 side-challenge, per the rules in `seasons/2026/Kicker I Hardly Know Her/reference/challenges.md`. |
 | `lineup-advice` | Start/sit recommendations for your roster for a given week. |
 | `waiver-targets` | Suggests free-agent pickups based on your roster needs. |
 | `trade-analyzer` | Evaluates a specific trade offer (your side vs. theirs). |
@@ -92,7 +92,10 @@ If a script ever fails with `NOT_LOGGED_IN`, just run `node yahoo/login.js` agai
 ```
 yahoo/                  Yahoo OAuth + API client (auth.js, client.js) and the weekly
                          challenge evaluator engine (challenge-config.js, evaluate-challenge.js)
-reference/               League rules, weekly challenge definitions, and API notes
+methodology/             Cross-season methodology (source tiering, injury-cache protocol)
+seasons/2026/Kicker I Hardly Know Her/reference/
+                         League rules, weekly challenge definitions, and other
+                         2026/this-league-specific reference data
 .claude/skills/           The five skills listed above
 docs/superpowers/         Design spec and implementation plan for this project
 ```
@@ -100,5 +103,7 @@ docs/superpowers/         Design spec and implementation plan for this project
 ## Notes
 
 - Secrets (`.env`, `yahoo/token.json`) are gitignored and never committed.
-- The league's full rules are in `reference/2026_League_Rules.pdf`; the 15 weekly
-  challenges are summarized in `reference/challenges.md`.
+- The league's full rules are in
+  `seasons/2026/Kicker I Hardly Know Her/reference/2026_League_Rules.pdf`; the 15 weekly
+  challenges are summarized in
+  `seasons/2026/Kicker I Hardly Know Her/reference/challenges.md`.
