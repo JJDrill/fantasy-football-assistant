@@ -76,12 +76,30 @@ precise ranks, and re-derive once real 2026 weekly data exists.
 | Carnell Tate (bench) | WR | NYJ | Favorable (low confidence) | Jets showed up as one of the softer RB matchups in 2025 searches; no direct WR figure found, treat as a lean |
 | Patrick Mahomes (bench) | QB | Den | Unfavorable | Broncos were the No. 1-ranked fantasy defense in 2025 |
 
+## Weather & Vegas Signals (Week 1, per `lineup-advice` Step 6)
+
+Outdoor-stadium games only — domes/closed-roof games (Buf@Hou/NRG, GB@Min/US Bank
+Stadium, Det@NO/Superdome, SF@LAR/SoFi's fixed roof) are skipped entirely. Wind/precip
+logged as raw numbers now so a later pass can analyze whether weather should fold into
+the matchup grade itself.
+
+| Game | Affected player(s) | Weather | Vegas (spread / total) | Implied totals | Signal vs. matchup grade |
+|---|---|---|---|---|---|
+| Cowboys @ Giants (MetLife, Sun night) | George Pickens (Dal) | WNW 4mph, gusts 7mph, 40% rain chance — mild, below the 15mph flag threshold | Cowboys -2.5, O/U 48.5 | Cowboys 25.5 / Giants 23.0 | Neutral-to-positive; implied total doesn't scream either way — agrees with the low-confidence Neutral grade |
+| Falcons @ Steelers (Acrisure) | Kyle Pitts Sr. (Atl) | Not yet published (too far out) | Steelers -3, O/U 42.5 | Steelers 22.75 / Falcons 19.75 | Falcons' low implied total (19.75) leans toward the Unfavorable read, disagreeing with the "Neutral (low confidence)" grade — worth leaning Unfavorable |
+| Panthers @ Bears | Tetairoa McMillan (Car), Luther Burden III (Chi, bench) | Not available for this regular-season game (only unrelated playoff data surfaced) | O/U 47.5 (moved up from 45.5 open), spread not found | Not split out, but a total this high signals a shootout | Signals agree — supports both Favorable grades |
+| Titans @ Jets (Nissan Stadium, Nashville — Titans are home) | Carnell Tate (Ten, bench) | Not yet published | Titans favored (~57% win prob per Kalshi), total reported as "lowest on the board" but exact number not found | Low-scoring game implied | Leans against the Favorable (low-confidence) grade — treat as a downgrade to Neutral |
+| Chiefs @ Broncos (Arrowhead — Chiefs are home) | Patrick Mahomes (bench) | Too far out, not published | Chiefs -2.5, O/U 42.5 | Chiefs 22.5 / Broncos 20.0 | Both teams' implied totals are modest — agrees with the Unfavorable grade (tough, low-scoring game) |
+
 ## Notes
 
 - Opponent has the edge at RB2 (Bijan Robinson) and QB depth (Williams/Stafford), but
   our WR corps and Allen offset that. Not expected to change our starters either way.
 - Roster `points` field is still last-season totals, not Week 1 projections — fine for
   a rough pass, not for close calls.
+- Trade still not reflected as of this re-check (same day): Reed↔Stevenson shows
+  approved in `trades.md` but the live roster pulled again today still has Reed on the
+  bench and no Stevenson.
 - **Trade not yet reflected**: the Jayden Reed ↔ Rhamondre Stevenson trade (see
   `trades.md`) was reported approved, but the live roster pulled 2026-08-28 still shows
   Reed on the bench and no Stevenson. Re-pull the roster closer to kickoff to confirm it's
