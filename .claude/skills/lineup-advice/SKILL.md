@@ -26,13 +26,16 @@ Gives start/sit recommendations for the user's team for a given week.
    bench), plus any off-field legal/status red flags (arrests, citations, suspensions,
    DUIs, etc. — the kind of thing that can sideline a player independent of health; see
    the Josh Jacobs note in `seasons/2026/Kicker I Hardly Know Her/week-00-draft.md` for
-   why this check exists), per the shared cache protocol in
-   `reference/injury-cache-convention.md` — reuse a fresh cached entry if one exists for
-   that player this week, otherwise `WebSearch` both (injury status, and something like
-   "<player name> arrest OR charged OR suspended OR DUI") and record them there so other
-   skills (and later calls this week) don't re-search it. Cite sources for anything
-   surfaced. A legal/off-field flag is informational only — surface it clearly in the
-   final list (step 8), but don't auto-bench the player for it.
+   why this check exists). First check `reference/legal-watch-list.md` for an existing
+   open entry on the player — if one exists, treat it as still active and search fresh
+   anyway to see if it's progressed (update the row rather than duplicating it; append a
+   new row for anything newly discovered, per that file's protocol). Then, per the
+   shared cache protocol in `reference/injury-cache-convention.md`, reuse a fresh cached
+   entry if one exists for that player this week, otherwise `WebSearch` both (injury
+   status, and something like "<player name> arrest OR charged OR suspended OR DUI") and
+   record them there so other skills (and later calls this week) don't re-search it.
+   Cite sources for anything surfaced. A legal/off-field flag is informational only —
+   surface it clearly in the final list (step 8), but don't auto-bench the player for it.
 5. Get a matchup grade for every player on the full roster: look up their real-life NFL
    opponent for the week and that opponent's defensive rank against the player's
    position (e.g. rushing yards allowed to RBs, for a RB). `WebSearch` per team+position
@@ -43,14 +46,30 @@ Gives start/sit recommendations for the user's team for a given week.
    - Rank 1–10 (stingiest defense) → Unfavorable
    - Rank 11–21 → Neutral
    - Rank 22–32 (most generous defense) → Favorable
-6. Using whatever roster data you have (live or pasted) plus the injury/legal search
-   results and matchup grades, reason about which bench players might outperform
-   current starters this week. You don't have live stat projections from any script
-   here — combine the news you found with your own general knowledge of the players
-   involved (recent form) and say clearly when you're speculating vs. reporting fetched
-   data.
-7. Flag anything roster-rule-relevant from `reference/2026_League_Rules.pdf` if applicable
+6. For every player in an **outdoor-stadium game** (skip domes and closed-roof
+   retractable stadiums entirely), gather two more signals:
+   - **Weather**: `WebSearch` the game's forecast (e.g. "<city> weather <game date>").
+     Record the actual wind speed and precipitation chance in the week's notes file —
+     log the raw numbers, not just a flag, so a future pass can analyze whether weather
+     should eventually fold into the matchup grade itself instead of standing alone.
+     Only note it as relevant for QB/WR/TE/K (passing-and-kicking-sensitive positions);
+     skip it for RB/DEF. Treat wind >15mph or a high precipitation chance as worth
+     flagging in the final list; anything milder is just logged, not surfaced.
+   - **Vegas signal**: `WebSearch` the game's spread and over/under, and derive each
+     team's implied point total. Log it as a second, independent signal next to the
+     matchup grade — note whether it agrees or disagrees with the defense-rank grade
+     (e.g. "signals agree" when a Favorable grade also has a top-10 implied total, or
+     "signals disagree" when they point opposite directions), since agreement raises
+     confidence and disagreement is worth calling out explicitly rather than picking one.
+7. Using whatever roster data you have (live or pasted) plus the injury/legal search
+   results, matchup grades, and weather/Vegas signals, reason about which bench players
+   might outperform current starters this week. You don't have live stat projections
+   from any script here — combine the news you found with your own general knowledge of
+   the players involved (recent form) and say clearly when you're speculating vs.
+   reporting fetched data.
+8. Flag anything roster-rule-relevant from `reference/2026_League_Rules.pdf` if applicable
    (e.g. IR eligibility rules, no median matchup so only your own score matters).
-8. Present recommendations as a short list per player: position, current starter,
+9. Present recommendations as a short list per player: position, current starter,
    suggested replacement (if any), matchup grade (Favorable/Neutral/Unfavorable) with a
-   one-line reason, any off-field legal/status flag, and one-line start/sit reasoning.
+   one-line reason, the Vegas signal (agree/disagree) where applicable, any weather flag,
+   any off-field legal/status flag, and one-line start/sit reasoning.

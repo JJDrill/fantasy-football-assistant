@@ -47,10 +47,29 @@ directly instead.
    - Invoke the `trade-finder` skill.
    - Invoke the `challenge-tracker` skill.
    - Invoke the `waiver-targets` skill.
+   - **Matchup-grade accuracy check**: for every one of your starters that got a
+     matchup grade in that week's `lineup-advice` pass (see the week's notes file),
+     compare their actual fantasy points to the league-wide positional average for that
+     week. A grade is a **hit** if a Favorable player scored above the positional
+     average or an Unfavorable player scored below it; otherwise it's a **miss**
+     (Neutral grades aren't scored either way). Append one row per graded starter to
+     `reference/matchup-grade-accuracy.md` (create it if it doesn't exist yet, with
+     columns Week | Player | Position | Grade | Vegas Signal | Actual Pts | Position Avg
+     | Hit/Miss), so a hit rate accumulates across the season. Mention the resulting
+     week's hit rate and the running season hit rate in the summary.
+   - **Legal watch-list refresh**: check every open entry in
+     `reference/legal-watch-list.md` for a status update (`WebSearch` the player's name
+     plus their concern, e.g. "Josh Jacobs suspension decision"), update the row, and
+     mark it `Resolved` with a one-line outcome if it's been settled. Also append any
+     new off-field/legal flag surfaced anywhere else in this pass (recap, trade-finder,
+     waiver-targets) — including an unconfirmed rumor, marked `Unverified` — so it isn't
+     rediscovered from scratch later.
 
 5. **Present one consolidated summary**, not four separate walls of text:
    - Recap: 2-3 sentence version of the full recap
    - Trades: top candidate, if any, or "nothing worth pursuing this week"
    - Challenge: current standing/result
    - Waivers: top 2-3 pickups
+   - Matchup-grade accuracy: this week's hit rate and the running season hit rate
+   - Legal watch list: anything newly resolved, still open, or newly added
    - Note that full detail from any individual step is available on request
