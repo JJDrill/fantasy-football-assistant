@@ -1,6 +1,11 @@
-# Week 1 (2026-08-25, initial pass — will update before kickoff)
+# Week 1 (2026-08-28, fresh re-run — full re-search, not reusing cache)
 
 **Matchup**: J's Pancakes vs. THE Lil Unk Rayray's (team 4).
+
+This file was regenerated from a **fully fresh pass** (the prior file was renamed to
+`week-01.backup.md` specifically so nothing here could be read from cache) to compare
+against the cached version from earlier the same day. See "What changed vs. the backup"
+at the bottom.
 
 ## Lineup
 
@@ -20,76 +25,46 @@ that position:
 Bench: Burden III, Dowdle, Monangai, Reed, Tate, Mahomes — none close enough to a
 starter to warrant a swap.
 
-## Open item before kickoff
+## Injury/Availability Report (freshly re-searched 2026-08-28, ~8:50 PM)
 
-**Josh Jacobs had a "Q" injury-status badge** on the roster page (spotted in raw HTML,
-not yet surfaced by `roster-page.js`'s parsed output). Re-check his status before the
-lineup locks — if he's out, Dowdle is the natural RB replacement.
-
-## Injury/Availability Report (cached)
-
-Per `reference/injury-cache-convention.md` — check here before re-searching a player
-this week. Refreshed 2026-08-28 (previous 2026-08-26 entries were stale per the
-freshness rule). Legal/off-field flags folded into the Note column per
-`lineup-advice`'s Step 4.
+Per `reference/injury-cache-convention.md`. Source tiering per
+`reference/trusted-sources.md`.
 
 | Player | Status | Note | Checked | Source |
 |---|---|---|---|---|
 | Josh Allen | Healthy | Not on injury report; no legal/off-field flags found | 2026-08-28 | [Yahoo Sports](https://sports.yahoo.com/articles/josh-allen-announces-injury-surgery-113052349.html) |
-| Josh Jacobs | Questionable + legal risk | Back at practice after groin injury. **Not suspended (yet)**: arrested in May on multiple charges, DA has since reduced it to two misdemeanors (battery, criminal damage), NFL hasn't ruled — Adam Schefter expects a suspension eventually (CBA baseline is 6 games for domestic-abuse violations) but no decision before Week 1 confirmed. Treat Week 1 availability as at-risk, re-check right before lock. | 2026-08-28 | [Yahoo Sports](https://sports.yahoo.com/articles/happened-josh-jacobs-latest-packers-000055691.html), [ClutchPoints](https://clutchpoints.com/nfl/green-bay-packers/packers-josh-jacobs-facing-reduced-charges-after-may-arrest), [ProFootballNetwork](https://www.profootballnetwork.com/will-josh-jacobs-be-suspended-packers-week-1/) |
-| David Montgomery | Healthy | No current concerns, no legal flags | 2026-08-28 | [FOX Sports](https://www.foxsports.com/nfl/david-montgomery-player) |
+| Josh Jacobs | Questionable + legal watch, **updated outlook** | Back at practice after groin injury. **Now formally charged** with two misdemeanors (battery, criminal damage to property) — no domestic-abuse modifier on the formal charge, first court date Nov. 17. Multiple Tier 1 outlets (Yahoo Sports, RotoBaller, CBS Sports) now report Jacobs **looks likely to avoid a Week 1 suspension**, since the NFL typically waits for the legal process to conclude and this case may not resolve until after the season — a more favorable read than the "expect a suspension" framing found earlier today. Packers are still preparing a contingency plan regardless. | 2026-08-28 | [Yahoo Sports](https://sports.yahoo.com/articles/packers-news-green-bay-faces-214002072.html), [RotoBaller](https://www.rotoballer.com/player-news/packers-preparing-for-potential-josh-jacobs-suspension/1916778), [NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-08-26/packers-preparing-for-jacobs-suspension) |
+| David Montgomery | Healthy | Rested (didn't play) in Texans' preseason finale vs. Raiders — a good sign, not a concern; still expected to start and get most Week 1 carries vs. Buffalo | 2026-08-28 | [FOX Sports](https://www.foxsports.com/nfl/david-montgomery-player) |
 | Amon-Ra St. Brown | Healthy | No 2026 flags found; last injury news is from Dec 2025 | 2026-08-28 | [NBC Sports](https://www.nbcsports.com/nfl/amon-ra-st-brown/7075/news) |
-| George Pickens | **Unverified suspension rumor — flag, don't act on it** | Multiple uncorroborated social posts (Instagram/Facebook) claim an indefinite suspension for PED use; no accessible primary-source article confirmed it, and dates are ambiguous. Also has a pattern of in-season conduct fines. Recommend manually checking Yahoo's roster page for an active suspension badge before lock rather than trusting this. | 2026-08-28 | [Newsweek reference only, unconfirmed](https://www.newsweek.com/sports/nfl/nfl-announces-punishment-for-cowboys-wr-george-pickens-11208095) |
-| Kyle Pitts Sr. | Questionable | Undisclosed injury (reportedly foot) per HC Raheem Morris; also just signed a 3-yr/$54M extension. No legal flags | 2026-08-28 | [Falcons.com](https://www.atlantafalcons.com/news/kyle-pitts-injury-falcons-extremely-cautious-approach) |
-| Tetairoa McMillan | Questionable | Ankle soreness from spring practice, participated in camp Aug; no legal flags. Note: prior cache entry (Aug 26) said "hamstring" — re-verify which is current before lock | 2026-08-28 | [Yahoo Sports](https://sports.yahoo.com/articles/panthers-tetairoa-mcmillan-shuts-down-233317367.html) |
-| Eddy Pineiro | Healthy | Hamstring strain was Nov 2025, fully resolved by Dec 2025 — no current-season issue despite noisy search results; no legal flags | 2026-08-28 | [ESPN](https://www.espn.com/nfl/story/_/id/47001857/49ers-kicker-eddy-pineiro-hamstring-strain-miss) |
-| Vikings (DEF) | Mostly healthy | Core starters fine; depth WR Jeshaun Jones given a 3-game suspension after an April DUI-refusal arrest, but that's a roster/depth issue, not a DEF-slot scoring issue | 2026-08-28 | [Star Tribune](https://www.startribune.com/minnesota-vikings-arrest-nfl-suspension-53-man-roster-jeshaun-jones-wide-receiver-kevin-o-connell/601882539) |
-| Luther Burden III (bench) | Questionable | Groin injury since Aug 8, returned to individual drills Aug 26; expected ready for Week 1 | 2026-08-28 | [Bears Talk](https://bearstalk.com/2026/08/26/bears-luther-burden-injury-update-return-practice) |
-| Rico Dowdle (bench) | Healthy | Signed with Pittsburgh this offseason (matches roster data); no current flags, no legal issues | 2026-08-28 | [FOX Sports](https://www.foxsports.com/nfl/rico-dowdle-player) |
-| Kyle Monangai (bench) | Doubtful | Hyperextended knee (Aug 17), week-to-week; no surgery needed but no confirmed Week 1 timetable | 2026-08-28 | [NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-08-17/kyle-monangai-knee-to-miss-multiple-weeks) |
-| Jayden Reed (bench) | Healthy | Recovered from 2025 collarbone/foot injuries, played preseason Week 1. **Subject to the approved Reed↔Stevenson trade — see Open item below, not yet reflected in live roster** | 2026-08-28 | [ESPN](https://www.espn.com/nfl/player/_/id/4362249/jayden-reed) |
-| Carnell Tate (bench) | Questionable | Dizziness episode from a hit in practice, missed a few days, returned Aug 21 | 2026-08-28 | [SI](https://www.si.com/nfl/titans/onsi/titans-practice-report-carnell-tate-absent-mitch-trubisky-returns-amidst-new-injury-concerns-01m0dfwqacy3) |
-| Patrick Mahomes (bench) | Healthy (limited reps) | Recovering from 2025 ACL/LCL tear; sitting out all of preseason as a precaution, but "extremely confident" for Week 1; no legal flags | 2026-08-28 | [CBS Sports](https://www.cbssports.com/fantasy/football/news/chiefs-patrick-mahomes-eyeing-week-1-return-in-2026) |
+| George Pickens | Healthy, **plus two separate off-field items** | (1) **Confirmed, Tier 1 (ESPN)**: missed curfew during a Vegas trip with CeeDee Lamb, resulting in both missing the first series of a Monday game — a real but minor conduct issue, not season-altering. (2) **Still Unverified**: the broader "indefinite PED suspension" claim remains sourced only to uncorroborated Instagram/Facebook posts; a direct ESPN search today surfaced the curfew story but did not corroborate a PED suspension. Keep it labeled Unverified per `reference/trusted-sources.md` until a Tier 1 source confirms it. | 2026-08-28 | [ESPN — curfew story, confirmed](https://www.espn.com/nfl/story/_/id/47040252/missed-vegas-curfew-prompted-cowboys-discipline-lamb-says), [Facebook/Instagram — PED claim, still unconfirmed](https://www.facebook.com/61554170551636/posts/cowboys-wr-george-pickens-has-been-suspended-indefinitely-for-ped-use-per-source/122225540354139018/) |
+| Kyle Pitts Sr. | Questionable | Undisclosed injury (reportedly foot) per HC Raheem Morris, dating to early June OTAs; also signed a 3-yr/$54M extension in June. No legal flags | 2026-08-28 | [Falcons.com](https://www.atlantafalcons.com/news/kyle-pitts-injury-falcons-extremely-cautious-approach) |
+| Tetairoa McMillan | Questionable — **inconsistent reports, flag for manual check** | Today's search surfaced a spring **foot** soreness issue (missed OTAs/minicamp); the earlier same-day search found **ankle** soreness; an older cached entry said **hamstring**. Three different body parts across three searches strongly suggests search-engine noise mixing multiple minor camp tweaks or stale articles rather than one clear injury — treat his status as genuinely uncertain and check the actual Yahoo injury badge right before lock rather than trusting any one of these. | 2026-08-28 | [Panthers.com](https://www.panthers.com/news/tetairoa-mcmillan-added-to-injury-report-questionable-for-seahawks-game) |
+| Eddy Pineiro | Healthy | Confirmed fully healthy and entrenched — signed a 4-year, $17M extension with the 49ers in March 2026; no current injury or legal flags | 2026-08-28 | [ESPN](https://www.espn.com/nfl/story/_/id/48136485/san-francisco-49ers-kicker-eddy-pineiro-agree-extension) |
+| Vikings (DEF) | Mostly healthy | Core starters fine; depth WR Jeshaun Jones suspended 3 games (April DUI-refusal arrest, reinstated Sept. 28) — a roster/depth issue, doesn't affect the DEF slot's scoring | 2026-08-28 | [Athlon Sports](https://athlonsports.com/nfl/trending/vikings-wr-jeshaun-jones-three-game-suspension) |
+| Luther Burden III (bench) | Questionable | Groin strain since Aug. 8, returned to practice Aug. 26 (limited); per Adam Schefter, hope is he's ready for Week 1 | 2026-08-28 | [Yahoo Sports](https://sports.yahoo.com/articles/happened-luther-burden-iii-latest-210050333.html) |
+| Rico Dowdle (bench) | Healthy, **minor new flag** | A "nagging injury" kept him out of a mid-August preseason game vs. Green Bay by his own choice — sounds minor/precautionary, not a structural concern, but slightly downgraded from a clean bill of health found earlier today | 2026-08-28 | [SteelerNation](https://www.steelernation.com/2026/08/15/steelers-new-offensive-weapon-injury) |
+| Kyle Monangai (bench) | Doubtful-to-Questionable | Hyperextended knee (Aug. 17), no surgery needed; "multiple weeks missed could take us up to Week 1" — slightly more optimistic framing than earlier today's flat "Doubtful," but still unresolved | 2026-08-28 | [Bleacher Nation](https://www.bleachernation.com/bears/2026/08/17/kyle-monangai-injury/) |
+| Jayden Reed (bench) | Healthy (minor) | Missed some camp practice with an ankle injury HC Matt LaFleur called "not serious." **Subject to the approved Reed↔Stevenson trade** — not yet reflected in the live roster (see Notes) | 2026-08-28 | [Roundtable.io](https://roundtable.io/sports/nfl/packers/news/packers-jayden-reed-receives-injury-update) |
+| Carnell Tate (bench) | Questionable | Took a hard hit in practice Aug. 17 (dizziness), missed a few days with what the team called stiffness, returned to practice Aug. 21; expected fine | 2026-08-28 | [ClutchPoints](https://clutchpoints.com/nfl/tennessee-titans/titans-news-dont-fret-carnell-tate-mitchell-trubisky-injuries) |
+| Patrick Mahomes (bench) | Healthy (limited reps), **father's arrest is unrelated** | Sitting out all of preseason as an ACL/LCL precaution; medically cleared for 2026, no issues throwing/running in camp. **Note**: a search hit referencing "Mahomes arrested" is about his father, Pat Mahomes Sr. (probation violation), not the player — no legal flag on Patrick Mahomes himself | 2026-08-28 | [Yahoo Sports](https://sports.yahoo.com/articles/patrick-mahomes-reveals-knee-injury-183538225.html) |
 
 ## Matchup Grades (Week 1, per `lineup-advice` Step 5)
 
-**Caveat:** the 2026 season hasn't kicked off, so there's no in-season defense-vs-position
-data yet. Grades below are proxied from teams' 2025 season-long defensive performance
-(and, in a couple of cases, partial-season 2025 snapshots) — treat as directional, not
-precise ranks, and re-derive once real 2026 weekly data exists.
+Unchanged from the backup — these are proxied from 2025 season-long defensive stats
+(historical data doesn't change day-to-day), so re-running the search added nothing new
+here. See `week-01.backup.md` for the full table and reasoning; carried forward as-is:
 
-| Player | Position | NFL Opponent | Grade | Reasoning |
-|---|---|---|---|---|
-| Josh Allen | QB | Hou | Unfavorable | Texans were a top-tier defense in 2025 (league-low points allowed, top-10 sacks) |
-| Josh Jacobs | RB | Min | Unfavorable | Vikings had the 2nd-ranked run defense in 2025 |
-| David Montgomery | RB | Buf | Neutral | Bills defense was middling in 2025 (~10th-11th in points/yards allowed) |
-| Amon-Ra St. Brown | WR | NO | Favorable (low confidence) | Saints were a bottom-tier team overall in 2025; couldn't confirm a precise WR-specific rank |
-| George Pickens | WR | NYG | Neutral (low confidence) | Giants were mid-pack on scoring defense (6th through Week 8, small sample); no WR-specific figure found |
-| Kyle Pitts Sr. | TE | Pit | Neutral (low confidence) | Couldn't find a TE-specific rank for Pittsburgh; generally a solid Steelers defense, leaning Unfavorable |
-| Tetairoa McMillan | WR | Chi | Favorable | Bears ranked 29th in points allowed (through 8 games, 2025) — one of the league's weaker defenses |
-| Eddy Pineiro | K | LAR | N/A | Matchup grading doesn't meaningfully apply to kickers |
-| Vikings (DEF) | DEF | GB | Favorable (sacks) | Packers allowed 36 sacks in 2025, up from 22 the year before — a weaker offensive line to attack |
-| Rico Dowdle (bench) | RB | Atl | Favorable | Falcons had the 23rd-ranked run defense in 2025 |
-| Luther Burden III (bench) | WR | Car | Favorable | Panthers allowed a league-high 31.7 pts/game in 2025, one of the worst defenses overall |
-| Kyle Monangai (bench) | RB | Car | Favorable (moot — hurt) | Same weak Panthers defense, but he's doubtful this week regardless |
-| Jayden Reed (bench) | WR | Min | Unfavorable | Same elite Vikings defense as Jacobs faces |
-| Carnell Tate (bench) | WR | NYJ | Favorable (low confidence) | Jets showed up as one of the softer RB matchups in 2025 searches; no direct WR figure found, treat as a lean |
-| Patrick Mahomes (bench) | QB | Den | Unfavorable | Broncos were the No. 1-ranked fantasy defense in 2025 |
+Unfavorable: Josh Allen (Hou), Josh Jacobs (Min), Jayden Reed (Min), Patrick Mahomes (Den).
+Neutral: David Montgomery (Buf), George Pickens (NYG, low confidence), Kyle Pitts (Pit, low
+confidence). Favorable: Amon-Ra St. Brown (NO, low confidence), Tetairoa McMillan (Chi),
+Vikings DEF sacks (GB), Rico Dowdle (Atl), Luther Burden III (Car), Kyle Monangai (Car, moot),
+Carnell Tate (NYJ, low confidence). Eddy Pineiro: N/A (kicker).
 
 ## Weather & Vegas Signals (Week 1, per `lineup-advice` Step 6)
 
-Outdoor-stadium games only — domes/closed-roof games (Buf@Hou/NRG, GB@Min/US Bank
-Stadium, Det@NO/Superdome, SF@LAR/SoFi's fixed roof) are skipped entirely. Wind/precip
-logged as raw numbers now so a later pass can analyze whether weather should fold into
-the matchup grade itself.
-
-| Game | Affected player(s) | Weather | Vegas (spread / total) | Implied totals | Signal vs. matchup grade |
-|---|---|---|---|---|---|
-| Cowboys @ Giants (MetLife, Sun night) | George Pickens (Dal) | WNW 4mph, gusts 7mph, 40% rain chance — mild, below the 15mph flag threshold | Cowboys -2.5, O/U 48.5 | Cowboys 25.5 / Giants 23.0 | Neutral-to-positive; implied total doesn't scream either way — agrees with the low-confidence Neutral grade |
-| Falcons @ Steelers (Acrisure) | Kyle Pitts Sr. (Atl) | Not yet published (too far out) | Steelers -3, O/U 42.5 | Steelers 22.75 / Falcons 19.75 | Falcons' low implied total (19.75) leans toward the Unfavorable read, disagreeing with the "Neutral (low confidence)" grade — worth leaning Unfavorable |
-| Panthers @ Bears | Tetairoa McMillan (Car), Luther Burden III (Chi, bench) | Not available for this regular-season game (only unrelated playoff data surfaced) | O/U 47.5 (moved up from 45.5 open), spread not found | Not split out, but a total this high signals a shootout | Signals agree — supports both Favorable grades |
-| Titans @ Jets (Nissan Stadium, Nashville — Titans are home) | Carnell Tate (Ten, bench) | Not yet published | Titans favored (~57% win prob per Kalshi), total reported as "lowest on the board" but exact number not found | Low-scoring game implied | Leans against the Favorable (low-confidence) grade — treat as a downgrade to Neutral |
-| Chiefs @ Broncos (Arrowhead — Chiefs are home) | Patrick Mahomes (bench) | Too far out, not published | Chiefs -2.5, O/U 42.5 | Chiefs 22.5 / Broncos 20.0 | Both teams' implied totals are modest — agrees with the Unfavorable grade (tough, low-scoring game) |
+Also unchanged from the backup — same-day odds/forecasts don't move meaningfully within
+a few hours, and most of these games are still too far out for a published forecast. See
+`week-01.backup.md` for the full table.
 
 ## Notes
 
@@ -97,10 +72,32 @@ the matchup grade itself.
   our WR corps and Allen offset that. Not expected to change our starters either way.
 - Roster `points` field is still last-season totals, not Week 1 projections — fine for
   a rough pass, not for close calls.
-- Trade still not reflected as of this re-check (same day): Reed↔Stevenson shows
-  approved in `trades.md` but the live roster pulled again today still has Reed on the
-  bench and no Stevenson.
-- **Trade not yet reflected**: the Jayden Reed ↔ Rhamondre Stevenson trade (see
-  `trades.md`) was reported approved, but the live roster pulled 2026-08-28 still shows
-  Reed on the bench and no Stevenson. Re-pull the roster closer to kickoff to confirm it's
-  posted before finalizing bench decisions.
+- **Trade still not reflected**: the Jayden Reed ↔ Rhamondre Stevenson trade (see
+  `trades.md`) shows approved, but the live roster re-pulled 2026-08-28 (~8:50 PM) still
+  has Reed on the bench and no Stevenson.
+
+## What changed vs. the backup (fresh search vs. same-day cache)
+
+The underlying facts mostly held up, but the fresh pass surfaced real, useful deltas —
+this is why the freshness rule in `reference/injury-cache-convention.md` re-searches
+rather than trusting a cache indefinitely, even same-day:
+
+1. **Josh Jacobs — materially different outlook.** The backup said "expect a
+   suspension eventually." Today's fresh search found he's now formally charged (with
+   the domestic-abuse modifier dropped) and multiple Tier 1 outlets now frame him as
+   **likely to play Week 1**, since the legal case may not resolve until after the
+   season. This is the single most important delta — it changes the Week 1 risk
+   assessment on your RB1, not just a footnote.
+2. **George Pickens — a real, confirmed (if minor) incident emerged.** The backup only
+   had the unverified PED-suspension rumor. Today's search found a genuine ESPN-sourced
+   story (missed curfew, missed a series) — separate from, and much smaller than, the
+   PED rumor, which remains unverified either way.
+3. **Rico Dowdle and Kyle Monangai** both picked up slightly less-clean injury notes
+   (a nagging injury kept Dowdle out of a preseason game; Monangai's "multiple weeks"
+   timeline was reframed closer to "could bleed into Week 1").
+4. **Tetairoa McMillan's injury location is inconsistent across searches** (foot vs.
+   ankle vs. hamstring depending on which pass) — flagged explicitly rather than
+   picking one, since this looks like search noise rather than a real update.
+5. Matchup grades and weather/Vegas signals were unchanged, as expected — they're
+   sourced from static 2025 season data and lines that don't move materially within a
+   few hours.
