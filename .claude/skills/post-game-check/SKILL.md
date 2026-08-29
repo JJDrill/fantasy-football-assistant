@@ -60,10 +60,12 @@ directly instead.
    - **Legal watch-list refresh**: check every open entry in
      `reference/legal-watch-list.md` for a status update (`WebSearch` the player's name
      plus their concern, e.g. "Josh Jacobs suspension decision"), update the row, and
-     mark it `Resolved` with a one-line outcome if it's been settled. Also append any
-     new off-field/legal flag surfaced anywhere else in this pass (recap, trade-finder,
-     waiver-targets) — including an unconfirmed rumor, marked `Unverified` — so it isn't
-     rediscovered from scratch later.
+     mark it `Resolved` with a one-line outcome if it's been settled. Only clear an
+     `Unverified` status once a Tier 1 source (per `reference/trusted-sources.md`)
+     corroborates it — a second Tier 2 hit doesn't count. Also append any new off-field/
+     legal flag surfaced anywhere else in this pass (recap, trade-finder, waiver-targets)
+     — including an unconfirmed rumor, marked `Unverified` per the same source tiering —
+     so it isn't rediscovered from scratch later.
 
 5. **Present one consolidated summary**, not four separate walls of text:
    - Recap: 2-3 sentence version of the full recap

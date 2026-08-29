@@ -34,8 +34,11 @@ Gives start/sit recommendations for the user's team for a given week.
    entry if one exists for that player this week, otherwise `WebSearch` both (injury
    status, and something like "<player name> arrest OR charged OR suspended OR DUI") and
    record them there so other skills (and later calls this week) don't re-search it.
-   Cite sources for anything surfaced. A legal/off-field flag is informational only —
-   surface it clearly in the final list (step 8), but don't auto-bench the player for it.
+   Cite sources for anything surfaced, tiered per `reference/trusted-sources.md` — a
+   Tier 2-only claim (social media, fan blogs/aggregators) gets reported labeled
+   **Unverified** rather than stated as fact, per that file's protocol. A legal/off-field
+   flag is informational only — surface it clearly in the final list (step 9), but don't
+   auto-bench the player for it.
 5. Get a matchup grade for every player on the full roster: look up their real-life NFL
    opponent for the week and that opponent's defensive rank against the player's
    position (e.g. rushing yards allowed to RBs, for a RB). `WebSearch` per team+position
@@ -46,6 +49,9 @@ Gives start/sit recommendations for the user's team for a given week.
    - Rank 1–10 (stingiest defense) → Unfavorable
    - Rank 11–21 → Neutral
    - Rank 22–32 (most generous defense) → Favorable
+   Source rank claims per `reference/trusted-sources.md`'s tiering; if only a Tier 2 site
+   gives a specific rank, say so and note it as lower-confidence rather than stating it
+   flatly (as already done for a few Week 1 grades).
 6. For every player in an **outdoor-stadium game** (skip domes and closed-roof
    retractable stadiums entirely), gather two more signals:
    - **Weather**: `WebSearch` the game's forecast (e.g. "<city> weather <game date>").

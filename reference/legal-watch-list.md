@@ -17,7 +17,9 @@ week's notes file.
 2. **`post-game-check`**: check every open entry for a status update, and append any
    new off-field/legal flag surfaced during that week's recap (even for a rumor that
    couldn't be confirmed — mark it `Unverified` rather than skipping it, so it isn't
-   re-discovered from scratch next time).
+   re-discovered from scratch next time). Source tiering for what counts as confirmed
+   vs. `Unverified` follows `reference/trusted-sources.md` — the George Pickens row below
+   is exactly the case that convention exists for (Tier 2-only social media claims).
 3. **Resolving an entry**: mark `Status` as `Resolved` and add a one-line outcome note
    rather than deleting the row — keeps a record of what happened for season-end review
    (e.g. the kind of thing that belongs in a future draft-lessons note, like the Josh
