@@ -39,3 +39,13 @@ expected structure — matchup, lineup, notes).
 
 This means the first skill to touch a given player in a given week pays the search cost;
 anything after that in the same week reads the cache until it goes stale.
+
+## No backup files
+
+Always edit `week-<NN>.md` in place — never copy it aside (e.g. `week-01.backup.md`)
+before a re-search, even temporarily for comparison. Git history already gives you a
+diff of what changed; a hand-made backup risks going stale and orphaning references in
+the real file once it's deleted (this happened in Week 1 — a "See week-01.backup.md for
+the full table" note outlived the backup itself). If a re-search finds real deltas worth
+calling out, summarize them inline in the week's file instead (see the Week 1 "What
+changed" section for the pattern) — do not keep a second file around for the diff.

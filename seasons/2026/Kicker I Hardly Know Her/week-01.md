@@ -58,9 +58,9 @@ none in this pre-game check).
 
 ## Matchup Grades (Week 1, per `lineup-advice` Step 5)
 
-Unchanged from the backup — these are proxied from 2025 season-long defensive stats
-(historical data doesn't change day-to-day), so re-running the search added nothing new
-here. See `week-01.backup.md` for the full table and reasoning; carried forward as-is:
+Unchanged from the 2026-08-28 check — these are proxied from 2025 season-long defensive
+stats (historical data doesn't change day-to-day), so re-running the search added
+nothing new here:
 
 Unfavorable: Josh Allen (Hou), Josh Jacobs (Min), Jayden Reed (Min), Patrick Mahomes (Den).
 Neutral: David Montgomery (Buf), George Pickens (NYG, low confidence), Kyle Pitts (Pit, low
@@ -70,9 +70,18 @@ Carnell Tate (NYJ, low confidence). Eddy Pineiro: N/A (kicker).
 
 ## Weather & Vegas Signals (Week 1, per `lineup-advice` Step 6)
 
-Also unchanged from the backup — same-day odds/forecasts don't move meaningfully within
-a few hours, and most of these games are still too far out for a published forecast. See
-`week-01.backup.md` for the full table.
+Unchanged from the 2026-08-28 check — same-day odds/forecasts don't move meaningfully
+within a few hours, and most of these games are still too far out for a published
+forecast. Outdoor-stadium games only — domes/closed-roof games (Buf@Hou/NRG, GB@Min/US
+Bank Stadium, Det@NO/Superdome, SF@LAR/SoFi's fixed roof) are skipped entirely.
+
+| Game | Affected player(s) | Weather | Vegas (spread / total) | Implied totals | Signal vs. matchup grade |
+|---|---|---|---|---|---|
+| Cowboys @ Giants (MetLife, Sun night) | George Pickens (Dal) | WNW 4mph, gusts 7mph, 40% rain chance — mild, below the 15mph flag threshold | Cowboys -2.5, O/U 48.5 | Cowboys 25.5 / Giants 23.0 | Neutral-to-positive; implied total doesn't scream either way — agrees with the low-confidence Neutral grade |
+| Falcons @ Steelers (Acrisure) | Kyle Pitts Sr. (Atl) | Not yet published (too far out) | Steelers -3, O/U 42.5 | Steelers 22.75 / Falcons 19.75 | Falcons' low implied total (19.75) leans toward the Unfavorable read, disagreeing with the "Neutral (low confidence)" grade — worth leaning Unfavorable |
+| Panthers @ Bears | Tetairoa McMillan (Car), Luther Burden III (Chi, bench) | Not available for this regular-season game (only unrelated playoff data surfaced) | O/U 47.5 (moved up from 45.5 open), spread not found | Not split out, but a total this high signals a shootout | Signals agree — supports both Favorable grades |
+| Titans @ Jets (Nissan Stadium, Nashville — Titans are home) | Carnell Tate (Ten, bench) | Not yet published | Titans favored (~57% win prob per Kalshi), total reported as "lowest on the board" but exact number not found | Low-scoring game implied | Leans against the Favorable (low-confidence) grade — treat as a downgrade to Neutral |
+| Chiefs @ Broncos (Arrowhead — Chiefs are home) | Patrick Mahomes (bench) | Too far out, not published | Chiefs -2.5, O/U 42.5 | Chiefs 22.5 / Broncos 20.0 | Both teams' implied totals are modest — agrees with the Unfavorable grade (tough, low-scoring game) |
 
 ## Notes
 
