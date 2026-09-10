@@ -30,6 +30,14 @@ either individually, use those skills directly instead.
    - Always ask (no live source exists for trade approval/veto status today): "Any
      trades proposed, approved, or vetoed recently that might not be reflected yet in
      your roster?"
+   - Always ask: "Any Yahoo app alerts (mass add/drop notifications, injury alerts,
+     etc.) you've gotten recently that you want looked into?" (no API access to these
+     exists today — this only works when the user pastes/describes one). Evaluate any
+     alert the user reports: a mass-drop number alone is usually just normal
+     streaming churn (common for K/DEF, which get streamed weekly) rather than a
+     signal, so check it against that player's actual injury/legal status and matchup
+     grade before deciding whether it's worth worrying about, and say so explicitly
+     either way rather than letting the raw number imply concern on its own.
    - Always ask: "Anything specific worrying you this week — an injury, a tough
      matchup — you want me to focus on?"
 
