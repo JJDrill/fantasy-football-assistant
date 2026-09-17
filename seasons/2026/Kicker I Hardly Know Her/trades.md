@@ -39,7 +39,9 @@ risk of decline or league veto), and whether it clears the 3-veto threshold if a
 
 ## 3. Carnell Tate ↔ Isaiah Likely (vs. Queen of the Damned) — counter-proposed 2026-09-17
 
-**Status:** Vetted (2026-09-17) — leaning accept, awaiting final go-ahead.
+**Status:** Accepted (2026-09-17). Not yet cleared — 3 league veto votes cancel a trade;
+processes Sunday 9/20 for Week 2 (or Week 3 if either player already started in Week 2
+before it clears).
 
 **Give:** Carnell Tate (WR)
 **Receive:** Isaiah Likely (TE)
@@ -70,6 +72,4 @@ volume — but the role change behind it looks genuine, not name-value inflation
 lopsided steal, but a sound upgrade at a thin position (zero bench TE depth) for a
 replaceable WR4/5.
 
-**Watch for:** whether it clears the 3-veto threshold once accepted. Processes Sunday
-9/20 for Week 2 (or Week 3 if either player already started in Week 2 before it clears),
-per Yahoo's own note on the trade screen.
+**Watch for:** whether it clears the 3-veto threshold before processing.
