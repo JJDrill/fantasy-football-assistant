@@ -118,3 +118,118 @@ rather than trusting a cache indefinitely, even same-day:
 5. Matchup grades and weather/Vegas signals were unchanged, as expected — they're
    sourced from static 2025 season data and lines that don't move materially within a
    few hours.
+
+---
+
+# Week 1 Post-Game (2026-09-14 post-game check)
+
+**Final: J's Pancakes 121.16 — THE Lil Unk Rayrays 135.86. Loss (0-1).**
+
+All live data fetched successfully this pass (`get-matchup.js 1`, `get-scoreboard.js 1`,
+`get-all-rosters.js`, `get-all-rosters.js 1`, `run-challenge.js 1`, `get-free-agents.js`).
+Note `get-all-rosters.js` timed out on the first attempt and succeeded on retry — a
+transient Yahoo page-load timeout, not a script defect.
+
+## Final box score — our starters
+
+| Slot | Player | Pts | vs. league positional avg |
+|---|---|---|---|
+| QB | Josh Allen | 35.66 | 22.40 — big win |
+| RB | David Montgomery | 27.40 | 16.52 — win |
+| RB | Rico Dowdle | 3.10 | 16.52 — disaster |
+| WR | Amon-Ra St. Brown | 23.70 | 12.60 — big win |
+| WR | George Pickens | 4.30 | 12.60 — bad |
+| TE | Kyle Pitts Sr. | 0.00 | 8.68 — **zero** |
+| W/R/T | Tetairoa McMillan | 8.00 | 12.60 — below |
+| K | Eddy Pineiro | 11.00 | 7.20 — win |
+| DEF | Vikings | 8.00 | 6.90 — fine |
+
+Opponent's damage: Caleb Williams 37.26, Bijan Robinson 27.30, Javonte Williams 21.70,
+Chase Brown 16.30. Their TE (Colston Loveland) also scored **0.00** — the TE zero was a
+wash between the two teams and is **not** what lost the matchup.
+
+**What actually lost it:** the 14.70-point margin is smaller than the gap at RB2 alone.
+Dowdle's 3.10 while **Kyle Monangai scored 19.40 on our bench** is a 16.30-point swing —
+by itself larger than the margin of defeat. Pitts' zero hurt, but starting Monangai over
+Dowdle would have won this game outright even with Pitts at 0.00.
+
+## The Kyle Pitts zero — diagnosis
+
+Pitts finished with **1 target, 0 catches, 0.00 points**. The cause is not Pitts:
+
+**Atlanta started their third-string QB.** Tua Tagovailoa was named the Week 1 starter
+but sat with an oblique injury; Michael Penix Jr. was inactive (knee/ACL recovery). That
+left **Cooper Rush**, QB3, who finished with 12 completions, 2 interceptions, and 4
+sacks taken in a 20-13 loss.
+
+This is the structural point behind the QB-relationship question: the TE grade in
+`lineup-advice` Step 5 grades the **opposing defense**, and has no input for "the
+offense's own QB situation collapsed." Atlanta's implied team total of 19.75 (flagged in
+the pre-game Vegas table as "worth leaning Unfavorable") was the only signal in the whole
+pass that pointed at this — and it pointed at it correctly. See
+`reference/matchup-grade-accuracy.md`.
+
+**Outlook:** both Tua (week-to-week, oblique) and Penix (targeting Week 2 or 3) could
+return imminently, and under the new Stefanski/Rees scheme Pitts was projected as the
+**No. 2 target behind Drake London**. Verdict: **bad week caused by a temporary QB
+outage, not a broken role.** Hold, don't cut.
+
+## Challenge — Week 1 "Revis and Butthead" (FINAL — confirmed after Monday Night Football)
+
+Rule: highest-scoring player or D/ST left on the bench, league-wide.
+
+At the 2026-09-14 pass, this was flagged provisional: three bench-eligible players
+(Patrick Mahomes, Bo Nix, J.K. Dobbins) were tied up in the KC @ Den Monday-nighter and
+still showed `null` points. That game is now final — re-ran `get-all-rosters.js 1` and
+`run-challenge.js 1` on 2026-09-15 to close it out.
+
+| Rank | Player | Pts | Team |
+|---|---|---|---|
+| 1 | **Jalen Coker (WR)** | **29.80** | **Man Coverage Brigid — WINNER** |
+| 2 | **Patrick Mahomes (QB)** | **22.66** | **J's Pancakes** |
+| 3 | Chuba Hubbard (RB) | 22.20 | Knights Who Say Ni |
+| 4 | Brock Purdy (QB) | 22.10 | Queen of the Damned |
+| 5 | Dallas Goedert (TE) | 21.70 | 4th Qtr Maria |
+| 6 | Jordan Love (QB) | 20.48 | THE Lil Unk Rayrays |
+| 7 | Kyle Monangai (RB) | 19.40 | J's Pancakes |
+
+**Confirmed lost** — Coker's final MNF line held up as the league-wide max. Mahomes'
+final 22.66 (up from a mid-game 20.48 read Sunday) moved us to **2nd place, 7.14 points
+short** — closer than the earlier Monangai-only read suggested, but still not the win.
+Final per Yahoo scoring; standard post-game stat-correction window still applies per
+league rules, but nothing further is in flight.
+
+Bitter footnote: the Dowdle/Monangai lineup decision cost the matchup outright; missing
+this challenge by 7.14 was a photo finish by comparison.
+
+## League TE landscape (for the TE question)
+
+| Team | Starting TE | Wk 1 | Bench TE(s) | Wk 1 |
+|---|---|---|---|---|
+| Queen of the Damned | Isaiah Likely | 23.80 | **Tucker Kraft**, Jake Ferguson | 8.00, 1.60 |
+| Russini's Source | Travis Kelce | n/a | **Dalton Kincaid** | 15.50 |
+| 4th Qtr Maria | Harold Fannin Jr. | 3.10 | **Dallas Goedert** | 21.70 |
+| THE Lil Unk Rayrays | Colston Loveland | 0.00 | Mark Andrews | 6.90 |
+| True & Living 12th Gospel | Trey McBride | 20.00 | — | — |
+| Man Coverage Brigid | George Kittle | 2.20 | — | — |
+| Dusty Bottoms | Juwan Johnson | 12.90 | — | — |
+| Smokin Base Brian | Tyler Warren | 8.80 | — | — |
+| Knights Who Say Ni | Sam LaPorta | 7.30 | — | — |
+| **J's Pancakes** | **Kyle Pitts Sr.** | **0.00** | — | — |
+
+Only TE free agent in the league: **Evan Engram (Den)** — not an upgrade (Denver ranked
+24th in TE target share, and the Jaylen Waddle trade crowded the target picture further).
+
+## Notes
+
+- Trade cap: 1 of 15 used. Deadline November 21, 2026. Neither is close to binding.
+- **`get-free-agents.js` anomaly — resolved, hypothesis confirmed.** At the 2026-09-14
+  pass, every position returned only 0-2 players, all from KC or Den (the lone game not
+  yet kicked off). Re-ran all six positions on 2026-09-15, after MNF finished: **every
+  position now returns `[]` — completely empty**, including QB/RB/WR/TE/K/DEF.
+  This confirms the free-agent view is scoped to **"players addable before their game
+  locks this week,"** not the full FA pool — once every Week 1 game has kicked off,
+  nothing more can be added for Week 1, so the list goes to zero rather than showing
+  the true full-season waiver wire. **Do not read an empty result as "no free agents
+  exist league-wide."** Re-check once Week 2 waivers process (typically clears
+  Tue/Wed) before trusting `waiver-targets` output again.
