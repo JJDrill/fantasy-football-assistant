@@ -36,3 +36,22 @@ pass credited.
 
 **Watch for:** whether Rebecca accepts given how one-sided her own numbers look (real
 risk of decline or league veto), and whether it clears the 3-veto threshold if accepted.
+
+## 3. Carnell Tate ↔ Isaiah Likely (vs. Queen of the Damned) — counter-proposed 2026-09-17
+
+**Status:** Proposed by Rebecca (counter to #2), awaiting my response.
+
+**Give:** Carnell Tate (WR)
+**Receive:** Isaiah Likely (TE)
+
+Rebecca declined #2 (Tate for Kraft) and countered with her other bench TE, Likely,
+instead. Per the Yahoo trade screen: Likely was 112th pre-season/19th actual rank, 23.80
+Week 1 fantasy points, 93% rostered — well ahead of Kraft's Week 1 line (8.00 pts, see
+`week-01.md` TE landscape table). Not yet vetted with `trade-analyzer` or Yahoo's Evaluate
+Trade tool — do that before accepting or declining.
+
+**Watch for:** whether this is actually better or worse for me than the original #2 offer
+— Likely's hot Week 1 could be a name-value floor for Rebecca to protect her stronger TE
+(Kraft), so worth checking rest-of-season projections, not just Week 1 output, before
+deciding. Trade will process Sunday 9/20 for Week 2 (or Week 3 if either player already
+started in Week 2 before it clears), per Yahoo's own note on the trade screen.
