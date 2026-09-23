@@ -2,7 +2,8 @@
 
 ## 1. Jayden Reed ↔ Rhamondre Stevenson (vs. Man Coverage Brigid) — proposed 2026-08-26
 
-**Status:** Proposed by me, awaiting other side / league response.
+**Status:** Declined. (Corrected 2026-09-22 — earlier notes had this listed as still
+pending/unanswered; user confirmed Man Coverage Brigid actually declined it.)
 
 **Give:** Jayden Reed (WR)
 **Receive:** Rhamondre Stevenson (RB)
@@ -92,3 +93,38 @@ waiting on their counter. Re-check Bowers' Week 3 status (did he actually suit u
 setback) before finalizing — same pattern as the Pineiro/Jacobs weekly re-checks.
 
 **Watch for:** their response to the Bowers ask, and Bowers' actual Week 3 game status.
+**Superseded** by #5 below — pursue that one instead unless it falls through.
+
+## 5. Patrick Mahomes ↔ Javonte Williams + Michael Pittman Jr. (vs. THE Lil Unk Rayrays) — agreed in principle 2026-09-22
+
+**Status:** Raymond (WSraymore) verbally agreed via Discord DM 2026-09-22, 5:47pm
+("I'd do that trade"). **Trade proposal sent on Yahoo 2026-09-22.** Awaiting his
+in-app acceptance, then the 3-veto window.
+
+**Give:** Patrick Mahomes (QB)
+**Receive:** Javonte Williams (RB, Dal), Michael Pittman Jr. (WR, Pit)
+
+**Context:** Raymond reached out unprompted about Mahomes, mentioning a couple of pending
+transactions he might include. His own pending waiver moves (dropping Jordan Love for
+Tyler Shough, Colston Loveland for Dalton Schultz, Pittman for Rashod Bateman) showed
+he's actively thinning his roster, not QB-needy — he already carries Love + Caleb
+Williams and is trying to get down to 2 QBs total. Response was deliberately modest
+("nothing specific I need, but open to a combo") rather than pushing hard, and he
+offered the Williams+Pittman package back himself.
+
+**Yahoo's Evaluate Trade tool** (screenshotted 2026-09-22): Week 3 point differential
+**+3.91** (Javonte Williams, 13.22 proj, replaces Rico Dowdle, 9.31 proj, as starting
+RB2). Seasonal lineup-impact differential: **+37.84 for me, -72.14 for Raymond** — a
+~110-point swing, dramatically more favorable than the competing Tuten offer (#4's
+context) which only ran -5.xx vs -20.xx. Michael Pittman Jr. is flagged Questionable on
+Yahoo but real reporting has him more likely **OUT** Week 3 (new foot injury, Steelers) —
+doesn't change the verdict since he wasn't going to start over any current WR anyway;
+the trade's value is carried by Williams.
+
+**Roster math if accepted:** adds 2 players (Williams starts, bumping Dowdle to bench;
+Pittman needs a bench spot) while only freeing 1 (Mahomes). Bench would be over capacity
+by one — **plan to drop Rhamondre Stevenson** (lowest-value piece in a now-crowded RB
+group; also moot now that Trade #1 involving him was declined, see #1 above).
+
+**Watch for:** submitting the actual Yahoo trade proposal, whether it clears the 3-veto
+threshold, and Pittman's real Week 3 status once the injury report firms up.

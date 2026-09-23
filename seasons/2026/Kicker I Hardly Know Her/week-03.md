@@ -14,10 +14,15 @@ conversation for sourcing. Not reflected in the lineup grading below since Gadsd
 isn't a startable option over Pitts this week regardless of when the claim processes;
 revisit as a possible Pitts swap once he has a game in this offense.
 
-**Trade context**: Dusty Bottoms reached out unprompted asking about a Mahomes trade
-(open-ended, no specific offer yet) — see `trades.md` for the Mahomes-for-Bowers pitch
-already drafted. Also note Trade #1 (Jayden Reed ↔ Rhamondre Stevenson) is still pending
-per `trades.md`, unanswered since 2026-08-26.
+**Trade context**: Dusty Bottoms reached out unprompted asking about a Mahomes trade;
+evaluated as Mahomes ↔ Bhayshul Tuten via Yahoo's Evaluate Trade tool (favorable, seasonal
+lineup-impact -5.xx for me vs. -20.xx for them). Separately, THE Lil Unk Rayrays
+(Raymond) also floated a Mahomes deal — evaluated as Mahomes ↔ Javonte Williams + Michael
+Pittman Jr., dramatically more favorable (+37.84 seasonal for me vs. -72.14 for Raymond)
+and the current front-runner; see `trades.md` #4 for full detail and the pending
+Stevenson-drop roster math if it's accepted. **Correction (2026-09-22): Trade #1**
+(Jayden Reed ↔ Rhamondre Stevenson) was **declined** by Man Coverage Brigid, not still
+pending as earlier notes here said — see `trades.md` #1.
 
 ## This week's challenge: "Scobee Snacks"
 
@@ -52,7 +57,9 @@ not just the normal lineup call.
 - **Patrick Mahomes (QB, KC)** — trade bait (Dusty Bottoms conversation), not touched.
   Bench.
 - **Rhamondre Stevenson (RB, NE)** — no fresh news found; still buried on NE's depth
-  chart. Also the subject of still-pending Trade #1. Bench.
+  chart. Trade #1 (which would have sent him out) was declined, not pending — see
+  correction above. Now the top drop candidate if the Javonte Williams/Pittman trade
+  with Raymond is accepted (roster would be over the bench limit otherwise). Bench.
 - **Isaiah Likely (TE, NYG)** — **downgraded**: Giants QB Jaxson Dart suffered a knee
   injury Week 2 (initial MCL-sprain read, but the MRI came back worse than expected) and
   is out for an extended period, possibly the rest of the season. Jameis Winston now
