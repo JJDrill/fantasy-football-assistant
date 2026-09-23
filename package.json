@@ -4,7 +4,10 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "yahoo:auth": "node yahoo/setup-auth.js",
+    "yahoo:leagues": "node yahoo/smoke-test-leagues.js",
+    "yahoo:roster": "node yahoo/smoke-test-roster.js"
   },
   "dependencies": {
     "axios": "^1.7.9",
