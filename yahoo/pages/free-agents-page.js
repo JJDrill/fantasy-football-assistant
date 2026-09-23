@@ -101,8 +101,10 @@ async function getFreeAgents(page, { position } = {}) {
     const nameCellText = (await cells.nth(2).textContent()).trim();
     if (!nameCellText) continue;
 
+    // Available players show either "FA" (unclaimed) or "W (<date>)" (on waivers,
+    // claimable once they clear) — both are worth surfacing as pickup targets.
     const statusText = (await cells.nth(3).textContent()).trim();
-    if (statusText !== 'FA') continue;
+    if (statusText !== 'FA' && !statusText.startsWith('W')) continue;
 
     results.push({
       ...parsePlayerNameCell(nameCellText),

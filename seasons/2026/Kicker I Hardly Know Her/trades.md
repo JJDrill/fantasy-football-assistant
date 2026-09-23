@@ -73,3 +73,22 @@ lopsided steal, but a sound upgrade at a thin position (zero bench TE depth) for
 replaceable WR4/5.
 
 **Watch for:** whether it clears the 3-veto threshold before processing.
+
+## 4. Patrick Mahomes ↔ ? (vs. Dusty Bottoms) — inbound interest 2026-09-22
+
+**Status:** Dusty Bottoms reached out first, open-ended: "J's Pancakes, any chance you'd
+trade Pat Mahomes for anything?" No specific players named yet on their side.
+
+**Context:** I'd already drafted an unsent pitch for Mahomes ↔ Brock Bowers (their TE) —
+see the 2026-09-22 post-game-check conversation. Bowers hasn't played a snap in 2026
+(minor meniscus trim pre-season, sat Weeks 1-2) and is trending toward a Week 3 debut
+(full practice participation, Schefter expects him back) — real risk he doesn't look like
+himself Week 1 off the injury, but the opportunity (elite TE1 profile pre-injury) is
+exactly what I need behind a Pitts/Likely TE spot that's been a black hole. Mahomes has
+zero path to my lineup behind Josh Allen, so it's pure surplus for me either way.
+
+**Plan:** since they opened the door, respond with the Bowers ask directly rather than
+waiting on their counter. Re-check Bowers' Week 3 status (did he actually suit up, any
+setback) before finalizing — same pattern as the Pineiro/Jacobs weekly re-checks.
+
+**Watch for:** their response to the Bowers ask, and Bowers' actual Week 3 game status.

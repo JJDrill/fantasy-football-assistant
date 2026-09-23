@@ -36,7 +36,7 @@ window). Source tiering per `methodology/trusted-sources.md`.
 | Kyle Pitts Sr. | No confirmed status | No confirmed status | Search surfaced only other-week limited-practice mentions; nothing dated specifically to this Week 2 vs Car game found either way — **check Yahoo's badge before Sunday lock**. Falcons' own QB competition (Stefanski "leaving open every possibility") is a separate variable worth watching, per the Week 1 QB-outage lesson in `reference/matchup-grade-accuracy.md`. |
 | Tetairoa McMillan | No confirmed status | **Confirmed no flag** | Panthers "go into Week 2 mostly healthy" — only 4 players on report (Patrick Jones, Darren Waller rest day, Jalen Coker minor ankle); McMillan not among them. The "questionable/illness" hits from earlier searches were from Week 10/17, a different week — confirmed by re-search, not applicable here. [Cat Scratch Reader](https://www.catscratchreader.com/carolina-panthers-injuries/60930/carolina-panthers-injury-report-go-into-week-2-mostly-healthy) |
 | Vikings DEF | Clean bill | Clean bill | Vikings' Week 2 injury news (Kyler Murray concussion, Jordan Mason IR) is offense-side; doesn't touch the defense. [Star Tribune](https://www.startribune.com/minnesota-vikings-injury-report-updates-kyler-murray-news-carson-wentz-chicago-bears-nfl-week-2-game/601889384) |
-| **Eddy Pineiro (K)** | **No flags found** | **Watch closely — illness, missed Wed practice** | Missed Wednesday practice (9/16) with an illness; 49ers **carry no other kicker** on the active roster or practice squad. No "questionable" tag confirmed yet as of this search (Thu/Fri reports still pending), but this is a real, developing situation — **check Yahoo's injury badge Saturday/Sunday before the early-game lock.** His game is Sunday vs. Miami, not tonight, so there's still time for status to firm up. [NBC Sports Bay Area](https://www.nbcsportsbayarea.com/nfl/san-francisco-49ers/eddy-pineiro-kyle-juszczyk/1898235/), [49ers Webzone](https://www.49erswebzone.com/articles/203329-dolphins-injury-report-pieiro-practice/) |
+| **Eddy Pineiro (K)** | **Questionable (illness)** | **Escalated — missed all 3 practices this week (Wed/Thu/Fri), officially Questionable on the final injury report vs. Miami. 49ers are actively adding a kicker as insurance (Shanahan confirmed Sunday an addition would be made) — this is the strongest signal yet he may not play. No K on my bench to swap in if he's ruled OUT; would need a waiver pickup before Sunday's early-game lock.** | 2026-09-18 | [NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-09-18/49ers-k-eddy-pineiro-illness-questionable-week-2), [49ers Webzone final report](https://www.49erswebzone.com/articles/203375-dolphins-injury-report-pieiro-questionable/), [Yahoo Sports — 49ers may need temp kicker](https://sports.yahoo.com/articles/49ers-might-temporary-kicker-eddy-210625043.html) |
 | Josh Jacobs (bench) | OUT (exempt list) | **No change — still OUT** | Re-searched; no new coverage beyond the 9/12 status. Still on Commissioner's Exempt List, no return timeline. See `reference/legal-watch-list.md`. |
 | Kyle Monangai (bench) | Still recovering | Still recovering, trending up | Hyperextended knee (Aug 16), officially "week-to-week." Some positive noise (progressed to running per teammate D'Andre Swift) but no official clearance confirmed for Week 2 — not a confirmed start candidate yet even if he were closer to Dowdle's production. |
 
@@ -45,13 +45,14 @@ Burden III, Carnell Tate, Patrick Mahomes, Rhamondre Stevenson.
 
 ## Bottom line this pass
 
-- **Lineup unchanged from the 09-12 recommendation** — no bench player clears a starter
-  on health or matchup grounds, and tonight's two starters (Allen, St. Brown) are both
-  confirmed clean.
-- **Only real watch item: Eddy Pineiro.** No K on the bench to replace him with if he's
-  ultimately ruled out Sunday — if that happens, a waiver kicker pickup would be the only
-  option, and that's a same-day decision once his status firms up (out of scope for
-  tonight's check).
+- **Lineup unchanged from the 09-12/09-17 recommendation** — no bench player clears a
+  starter on health or matchup grounds. Thursday's two starters (Allen, St. Brown)
+  already played: Allen 40.82 pts, St. Brown 30.70 pts, both confirmed clean beforehand.
+- **Eddy Pineiro has escalated from "watch" to officially Questionable** (2026-09-18
+  re-check) — missed all 3 practices with illness, 49ers actively adding kicker
+  insurance. Real risk he's inactive Sunday. **No K on the bench** — if he's ruled OUT,
+  a waiver pickup is the only fix, and that's a Saturday/Sunday-morning action item, not
+  something to resolve tonight.
 
 ## Lineup — NO CHANGE
 
@@ -68,12 +69,39 @@ matchup grounds.
 | WR | George Pickens | Healthy — start |
 | TE | Kyle Pitts Sr. | No confirmed flags — start |
 | W/R/T | Tetairoa McMillan | No confirmed flags — start |
-| K | Eddy Pineiro | No flags found — start |
+| K | Eddy Pineiro | **Questionable (illness), no bench K** — start for now, watch Saturday/Sunday |
 | DEF | Vikings | Clean bill of health (Week 1 report) — start |
 
-Bench: Josh Jacobs (OUT — see below), Luther Burden III, Kyle Monangai (still recovering,
-see below), Carnell Tate, Patrick Mahomes, Rhamondre Stevenson — none close enough to a
-starter to warrant a swap this week.
+Bench: ~~Josh Jacobs~~ **dropped 2026-09-18** to open a spot for a contingency kicker
+(see Roster Moves below), Luther Burden III, Kyle Monangai (still recovering, see below),
+Carnell Tate, Patrick Mahomes, Rhamondre Stevenson — none close enough to a starter to
+warrant a swap this week.
+
+## Roster Moves
+
+- **2026-09-18: Dropped Josh Jacobs**, added as contingency-kicker prep in case Eddy
+  Pineiro (Questionable, illness) is ruled out Sunday. Jacobs remains on the NFL's
+  Commissioner's Exempt List with no return timeline (see `reference/legal-watch-list.md`)
+  — recommended as the droppable bench piece over Kyle Monangai, who has a more plausible
+  near-term return.
+- **2026-09-18: Added Chase McLaughlin (TB)** as the contingency kicker (favorable Week 2
+  matchup vs. Cle). Real deadline to choose a K starter is **1:00pm ET Sunday 9/20**
+  (Bucs @ Browns kickoff), not Pineiro's own 4:25pm ET kickoff (SF @ Mia) — the Niners'
+  official inactive list won't even publish until ~2:55pm ET, after the Bucs lock.
+- **2026-09-18: Started McLaughlin over Pineiro now**, ahead of the Sunday deadline,
+  because the user will be sailing all day Sat/Sun with uncertain connectivity. Plan: if
+  they get a signal window Sunday morning and Pineiro looks cleared/healthy, swap back
+  before the 1:00pm ET deadline; otherwise McLaughlin stays the Week 2 K starter.
+- **2026-09-20: Swapped back to Pineiro at K**, ahead of the 1:00pm ET Bucs @ Browns
+  deadline. Pineiro is now expected to play — 49ers worked out two replacement kickers
+  (Greg Joseph, Younghoe Koo) Saturday but signed neither, a strong signal from the
+  team's own medical/coaching staff that he's cleared at full capacity, not just
+  gutting through symptoms. [RotoWire](https://www.rotowire.com/football/headlines/eddy-pineiro-injury-expected-to-play-sunday-638058),
+  [Niners Nation](https://www.ninersnation.com/san-francisco-49ers-injuries/162888/the-49ers-might-need-a-temporary-kicker-with-eddy-pineiros-illness).
+  Matchup context also favored the swap back: 49ers -12.5, O/U 46 → implied SF total
+  ~29.25, vs. Bucs -8.5, O/U 41.5 → implied TB total ~25 — the bigger favorite in the
+  higher-scoring game, generally more red-zone/kicking opportunities. McLaughlin (no
+  known Week 2 issues) reverts to bench.
 
 ## Injury/Availability Report (fresh search 2026-09-12)
 
@@ -148,3 +176,29 @@ Dal/Atl (Pickens'/Pitts' road-or-home retractable roofs, typically closed) also 
   winning teams) can't be evaluated pre-game; it's a post-game computation. Flagged here
   because, unlike Week 3's kicker challenge, it doesn't constrain any Week 2 lineup
   choice.
+
+---
+
+# Week 2 Post-Game Check (2026-09-22)
+
+**Final score: J's Pancakes 123.92, Man Coverage Brigid 126.46 — loss by 2.54.** Josh
+Allen (40.82) and Amon-Ra St. Brown (30.70) both went off, but Jaxon Smith-Njigba's 38-point
+day for the opponent, plus dead weight at RB/TE (Montgomery 3.4, Dowdle 5.4, Pitts 2.0),
+was the difference. The bench-kicker call also stung in hindsight: Chase McLaughlin
+(benched) scored 16 vs. Pineiro's 5 — an 11-point swing that alone would have flipped the
+result, though the decision to start Pineiro was well-reasoned at the time (see the
+09-20 swap-back note above).
+
+Full data-access retest this pass: recap/scoreboard, all-rosters, and challenge data all
+worked live (`get-scoreboard.js`, `get-all-rosters.js`, `run-challenge.js`, `get-matchup.js`
+— Yahoo session was flaky under concurrent load but recovered on retry every time).
+`get-free-agents.js` was broken (filtered out every waiver-status player, only matched
+literal `"FA"`) — fixed in `yahoo/pages/free-agents-page.js` this pass to also accept
+`"W (<date>)"` waiver statuses.
+
+See `reference/matchup-grade-accuracy.md` for the Week 2 grade scoring (2/4 = 50%, season
+4/9 = 44%) and `reference/legal-watch-list.md` for this pass's legal-watch refresh
+(Jacobs: new suspension-range reporting, 4-6 games with exempt-list time credited, possible
+Week 7 return; Pickens PED rumor: still unverified after 5 checks, contradicted by two
+straight weeks of him playing; Pickens "anticipated discipline" prediction: resolved —
+minor punctuality-related internal discipline, per ESPN's Todd Archer).
