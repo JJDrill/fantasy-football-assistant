@@ -40,9 +40,9 @@ risk of decline or league veto), and whether it clears the 3-veto threshold if a
 
 ## 3. Carnell Tate ↔ Isaiah Likely (vs. Queen of the Damned) — counter-proposed 2026-09-17
 
-**Status:** Accepted (2026-09-17). Not yet cleared — 3 league veto votes cancel a trade;
-processes Sunday 9/20 for Week 2 (or Week 3 if either player already started in Week 2
-before it clears).
+**Status:** Accepted (2026-09-17) and **CLEARED** — confirmed via live roster pull
+2026-09-22: Isaiah Likely is on my bench, Carnell Tate is no longer on my roster.
+No further action needed on this one.
 
 **Give:** Carnell Tate (WR)
 **Receive:** Isaiah Likely (TE)
@@ -128,3 +128,57 @@ group; also moot now that Trade #1 involving him was declined, see #1 above).
 
 **Watch for:** submitting the actual Yahoo trade proposal, whether it clears the 3-veto
 threshold, and Pittman's real Week 3 status once the injury report firms up.
+
+## 6. Isaiah Likely ↔ Terry McLaurin (vs. Knights Who Say Ni) — considered, not pursued 2026-09-22
+
+**Status:** Passed on. Surfaced via `trade-finder` league scan, initially misjudged as
+favoring me on raw player value (McLaurin > Likely as standalone assets). **Yahoo's
+Evaluate Trade tool corrected this**: seasonal lineup-impact differential is
+**-8.63 for me, +4.49 for Knights Who Say Ni** — unfavorable. Reason: Likely is
+currently projected to out-score Pitts and actually start most weeks, while McLaurin
+would just sit dead on my bench behind an already-strong ARSB/Pickens/McMillan WR
+corps. Good reminder that raw player value ≠ lineup-fit value — Yahoo's tool catches
+the latter, standalone rankings don't.
+
+**Not ruled out permanently** — could revisit if the return included a piece that
+would actually start for me (e.g. an RB upgrade over Dowdle/Monangai) or a bigger
+package. No rush; not currently worth re-proposing as-is.
+
+## 7. Isaiah Likely ↔ Jaylen Warren (vs. Knights Who Say Ni) — watch item, 2026-09-22
+
+**Status:** Not proposed yet — logged as a watch item, no rush. Surfaced as a refined
+follow-up to #6 (Likely ↔ McLaurin), correcting for the lineup-fit lesson learned
+there: Warren has a real path into my starting lineup (RB2 over Dowdle), unlike
+McLaurin who would've just sat on the bench.
+
+**Give:** Isaiah Likely (TE)
+**Receive:** Jaylen Warren (RB, Pit)
+
+**Yahoo's Evaluate Trade tool** (screenshotted 2026-09-22): seasonal lineup-impact
+differential **-0.82 for me, +1.70 for Knights Who Say Ni** — close to fair, a big
+improvement over #6's -8.63. Week 3 point differential **+1.18 for me** — Warren
+(11.50 proj) would actually replace Rico Dowdle (9.31 proj) as starting RB2 that
+week, a genuine lineup upgrade rather than bench filler.
+
+**Context (same as #6):** Knights' only rostered TE is Sam LaPorta, no bench
+insurance — plausible want on their end. Warren's own role in Pittsburgh's backfield
+committee (vs. Kaleb Johnson) should be checked before pitching, since committee
+shares can shift week to week.
+
+**Watch for:** confirming Warren's current snap/touch share in Pittsburgh, and
+whether Rico Dowdle's matchup struggles continue (would strengthen the case). Also
+consider Rachaad White as an alternate target on the same roster if Warren's role
+looks shakier.
+
+**Update (2026-09-22, WebSearch):** Warren and my own Rico Dowdle are the **same
+Steelers backfield** — not a clean "add a committee back" move, more a bet on which
+Steelers RB wins the job. Depth chart lists Warren ahead of Dowdle, but Week 1 usage
+had Dowdle out-touching him (Warren: 35.9% snaps, 30.2% route share, playing backup
+role in practice). Dowdle left Week 2 vs. Patriots with a toe injury (carted off) but
+checked out "relatively okay" — day-to-day, Rapoport reports he should play Week 3
+vs. Bengals pending practice participation. **Hold off pitching this trade until
+Dowdle's practice status firms up** — if the toe lingers, Warren's value/role rises
+and the trade gets more attractive; if Dowdle's fully clear, Warren stays a
+backup/handcuff piece and the case is weaker. [FantasyPros Week 2 outlook](https://www.fantasypros.com/nfl/notes/440679/jaylen-warren-2026-week-2-outlook.php),
+[Rotoballer toe injury](https://www.rotoballer.com/player-news/rico-dowdle-considered-day-to-day-with-toe-injury/1947861),
+[Heavy.com Week 3 update](https://heavy.com/sports/nfl/pittsburgh-steelers/steelers-injury-rico-dowdle-bengals-game/)
