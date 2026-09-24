@@ -94,3 +94,79 @@ open entries (Josh Jacobs, George Pickens PED claim) are tracked and current as 
   consistent with the "not yet published this early" pattern noted in Weeks 1-2); revisit
   closer to kickoff for the Brazil game (Cowboys/Ravens) and any other outdoor tilt if
   wind/rain becomes a factor.
+
+## Pre-game refresh (2026-09-24, Thursday — TNF day)
+
+Live roster pulled via `yahoo/get-matchup.js 3` (Yahoo auth refreshed by user). Lineup
+unchanged from the 9/22 plan. Yahoo shows **Q** tags on only two rostered players:
+**Rico Dowdle** (starter) and **Kyle Monangai** (bench). Mahomes still on roster —
+**Trade #5 still pending** (confirmed by user). One open bench slot.
+
+### Dowdle — recommend swapping to Rhamondre Stevenson
+
+- DNP Wednesday (walking boot) and DNP Thursday (out of the boot, still not practicing)
+  per the [official Steelers injury report](https://www.steelers.com/news/week-3-injury-report-bengals-x2555).
+  [CBS Sports](https://www.cbssports.com/fantasy/football/news/fantasy-football-start-sit-week-3-running-backs-rb-jamey-eisenberg/)
+  calls him a long shot vs. Cincinnati; [RotoBaller](https://www.rotoballer.com/player-news/rico-dowdle-out-of-boot-still-no-practice-on-thursday/1949370)
+  says he needs to practice Friday to avoid being ruled out.
+- Even if active: Bengals held Montgomery + Woody Marks to 18 yds on 14 carries in Wk2
+  (3.00 yds/designed run, 3rd in NFL) — Unfavorable grade reconfirmed.
+- Steelers and Patriots both kick off Sun 10:00 am PT — no chance to wait for inactives
+  on one and pivot to the other, so decide off Friday's report.
+- **Stevenson correction:** the 9/22 note calling him "buried" was wrong. He's NE's
+  listed RB1 in a split with TreVeyon Henderson (23 touches Wk1), but a first-quarter fumble in
+  Wk2 cost him work (18 snaps vs. Henderson's 31, 6 carries for 43 yds) —
+  [FantasyPros](https://www.fantasypros.com/nfl/news/609285/rhamondre-stevenson-limited-to-six-carries-week-2.php),
+  [RotoWire](https://www.rotowire.com/football/headlines/rhamondre-stevenson-news-outplayed-by-henderson-in-week-2-638239).
+  Low-floor committee back, but near-certain to play — beats a likely-inactive Dowdle.
+- **Monangai is not the pivot**: knee, DNP Thursday ([NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-09-24/kyle-monangai-knee-does-not-practice-on-thursday)),
+  plays MNF.
+- Trade #7 (Likely ↔ Jaylen Warren) gets more interesting if Dowdle misses time — Warren
+  would be PIT's lead back — but Warren is himself limited (shoulder) Wed/Thu, and
+  Knights would likely value him higher now. Not actioned.
+
+### Injury/Availability Report (cached)
+
+| Player | Status | Note | Checked | Source |
+|---|---|---|---|---|
+| Rico Dowdle | Q (Yahoo) — DNP Wed/Thu | toe; out of boot Thu; must practice Fri | 2026-09-24 | [Steelers.com](https://www.steelers.com/news/week-3-injury-report-bengals-x2555), [RotoBaller](https://www.rotoballer.com/player-news/rico-dowdle-out-of-boot-still-no-practice-on-thursday/1949370) |
+| Kyle Monangai | Q (Yahoo) — DNP Thu | knee; MNF vs PHI; Sat report is the tell | 2026-09-24 | [NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-09-24/kyle-monangai-knee-does-not-practice-on-thursday) |
+| Kyle Pitts Sr. | Active (TNF) | not among Falcons inactives | 2026-09-24 | [Yahoo Sports](https://sports.yahoo.com/articles/falcons-final-week-3-injury-201745521.html) |
+| Rhamondre Stevenson | No tag | committee w/ Henderson, fumble-driven Wk2 demotion | 2026-09-24 | [FantasyPros](https://www.fantasypros.com/nfl/news/609285/rhamondre-stevenson-limited-to-six-carries-week-2.php) |
+| Allen, Montgomery, St. Brown, Pickens, McMillan, Pineiro, Vikings, Burden, Mahomes, Likely, Gadsden | No Yahoo injury tag | NFL.com league report page loaded incompletely (omitted Dowdle), so Yahoo tags used as the primary signal; no WebSearch hits of concern | 2026-09-24 | live Yahoo roster page |
+
+### Weather (raw, logged per lineup-advice step 6)
+
+- Santa Clara (Pineiro): 68°F, 0% precip, "moderate breeze" diagonally across the field
+  — no mph figure found. **Tier 2** (covers/sharp aggregators). Not flagged.
+- Cleveland (McMillan): partly cloudy, light breeze — not a factor. Tier 2.
+- Buffalo (Allen), Green Bay (Pitts, tonight): no forecast numbers found this pass.
+
+### Tooling issues found this pass — **fixed 2026-09-24** (Q tag now captured as `injuryStatus`; free agents found via the "Roster Status" header instead of a fixed column index)
+
+- `yahoo/pages/roster-page.js` reads the first `span.Fz-xxs` in the player cell; when a
+  player has an injury tag, position/team come back `null` (hit Dowdle, Monangai, and
+  opponent's Jordan Mason). Q tag itself isn't captured either.
+- `yahoo/get-free-agents.js` returns `[]` (with or without a position filter) — likely a
+  selector change on the players page.
+
+### Waiver targets (2026-09-24, live free-agent pull)
+
+One open bench slot. Acquisition cap is 60/season; at least 2 used per these notes
+(McLaughlin Wk2, Gadsden Wk3) — check Yahoo's transaction count for the exact number.
+
+1. **Woody Marks (RB, Hou) — FA, add.** Near 50/50 split with my own Montgomery (42 vs
+   38 snaps Wk2, out-targeted him 6-2) — [NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-09-20/marks-maintains-equal-snap-share-in-week-2).
+   Sunday 10am vs. Ind, and Yahoo's own tooltip says IND gives up the 3rd-most fantasy
+   points to RBs. Doubles as a Montgomery handcuff. Close call vs. Stevenson (Jax gives
+   up the 14th-fewest to RBs) for the RB2 slot.
+2. **T.J. Hockenson (TE, Min) — FA, streamer over Pitts to consider.** Kyler Murray back
+   for Wk3; Bucs have allowed 172 yds / 2 TD to TEs — [RotoBaller](https://www.rotoballer.com/player-news/t-j-hockenson-is-gaining-value-ahead-of-week-3/1947976).
+   Only matters if made before Pitts' TNF kickoff; needs a drop (slot taken by Marks).
+3. **Pass on Alvin Kamara** despite the name: 3-man NO committee, 9 carries for 15 yds
+   in his Wk2 debut — [CBS Sports](https://www.cbssports.com/fantasy/football/news/saints-alvin-kamara-unimpressive-in-2026-debut/).
+
+Drop math: Trade #5 is 1-for-2, so if it clears after the Marks add, one more drop is
+needed. Candidates: Monangai (Q knee, MNF, committee) or Likely (Dart now reported out
+for the season per [NBC Sports](https://www.nbcsports.com/fantasy/football/news/2026-nfl-week-3-injury-report-jaxson-dart-mcl-chargers-down-two-tes-more-49ers-injuries);
+still the Trade #7 chip).

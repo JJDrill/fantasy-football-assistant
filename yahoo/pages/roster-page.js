@@ -17,10 +17,12 @@ function parseTeamAbbreviation(teamAndPosition) {
 }
 
 // Yahoo's per-row schedule text, e.g. "Sun 10:00 am @ Hou" or "Sun 1:00 pm vs NE" —
-// day/time is not useful to us, only the trailing opponent code.
+// day/time is not useful to us, only the opponent code. Not anchored to the end of the
+// string: live (2026-09-24), the span ends in a private-use icon-font glyph (weather/dome
+// tooltip icon) after the team code.
 function parseOpponent(scheduleText) {
   if (!scheduleText) return null;
-  const match = scheduleText.match(/(?:@|vs)\s*([A-Za-z]+)\s*$/i);
+  const match = scheduleText.match(/(?:@|\bvs)\s*([A-Za-z]+)/i);
   return match ? match[1] : null;
 }
 
@@ -32,6 +34,7 @@ function parseRosterRow(raw) {
     teamAbbreviation: raw.teamAbbreviation || null,
     opponent: raw.opponent || null,
     yahooPlayerId: raw.yahooPlayerId || null,
+    injuryStatus: raw.injuryStatus || null,
     points: raw.points === '' ? null : Number(raw.points),
   };
 }
@@ -72,13 +75,22 @@ async function readRosterRow(row) {
   const playerName = hasNameLink ? (await nameLink.first().textContent()).trim() : '';
   const yahooPlayerId = hasNameLink ? await nameLink.first().getAttribute('data-ys-playerid') : null;
 
-  const teamAndPositionSpan = row.locator('td.player span.Fz-xxs');
+  // Live-verified (2026-09-24): an injured player's cell has a SECOND span.Fz-xxs ahead
+  // of the "Pit - RB" one — the injury badge, `span.ysf-player-status` (text "Q", "O",
+  // "IR", ...). Exclude it here, or `.first()` reads the badge and position/team both
+  // come back null; read it separately as the player's injury designation instead.
+  const teamAndPositionSpan = row.locator('td.player span.Fz-xxs:not(.ysf-player-status)');
   const teamAndPositionText = (await teamAndPositionSpan.count())
     ? (await teamAndPositionSpan.first().textContent()).trim()
     : '';
 
-  const scheduleLink = row.locator('td.player .ysf-game-status a');
-  const scheduleText = (await scheduleLink.count()) ? (await scheduleLink.first().textContent()).trim() : '';
+  const injuryBadge = row.locator('td.player span.ysf-player-status');
+  const injuryStatus = (await injuryBadge.count()) ? (await injuryBadge.first().textContent()).trim() : '';
+
+  // Live-verified (2026-09-24): the schedule is split across two links — "Sun 10:00 am
+  // vs&nbsp;" then the opponent code — so read the whole span, not just its first link.
+  const gameStatus = row.locator('td.player .ysf-game-status');
+  const scheduleText = (await gameStatus.count()) ? (await gameStatus.first().textContent()).trim() : '';
 
   const pointsCell = row.locator('td.pts');
   const points = (await pointsCell.count()) ? (await pointsCell.textContent()).trim() : '';
@@ -91,6 +103,7 @@ async function readRosterRow(row) {
     position: parsePosition(teamAndPositionText),
     teamAbbreviation: parseTeamAbbreviation(teamAndPositionText),
     opponent: parseOpponent(scheduleText),
+    injuryStatus,
   });
 }
 

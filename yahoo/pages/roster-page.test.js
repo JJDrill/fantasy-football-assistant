@@ -51,6 +51,7 @@ test('parseRosterRow extracts position, selected_position, team, opponent, name,
     teamAbbreviation: 'Buf',
     opponent: 'Hou',
     yahooPlayerId: '30977',
+    injuryStatus: null,
     points: 24.5,
   });
 });
@@ -67,6 +68,7 @@ test('parseRosterRow handles an empty bench slot', () => {
     teamAbbreviation: null,
     opponent: null,
     yahooPlayerId: null,
+    injuryStatus: null,
     points: null,
   });
 });
@@ -78,7 +80,7 @@ test('parseRosterRow carries yahooPlayerId through when present', () => {
   };
   assert.deepStrictEqual(parseRosterRow(raw), {
     selected_position: 'QB', playerName: 'Josh Allen', position: 'QB',
-    teamAbbreviation: 'Buf', opponent: 'Hou', yahooPlayerId: '30977', points: 24.5,
+    teamAbbreviation: 'Buf', opponent: 'Hou', yahooPlayerId: '30977', injuryStatus: null, points: 24.5,
   });
 });
 
@@ -89,7 +91,38 @@ test('parseRosterRow defaults yahooPlayerId to null for an empty slot', () => {
   };
   assert.deepStrictEqual(parseRosterRow(raw), {
     selected_position: 'BN', playerName: null, position: null,
-    teamAbbreviation: null, opponent: null, yahooPlayerId: null, points: null,
+    teamAbbreviation: null, opponent: null, yahooPlayerId: null, injuryStatus: null, points: null,
   });
 });
 
+
+test('parseRosterRow carries an injury designation through, alongside the real team/position', () => {
+  // Live-verified (2026-09-24): an injured player's td.player cell holds TWO span.Fz-xxs
+  // elements — the injury badge (span.ysf-player-status, text "Q") first, then the usual
+  // "Pit - RB". The badge must not be mistaken for the team/position text.
+  const raw = {
+    slot: 'RB', playerName: 'Rico Dowdle', points: '',
+    position: 'RB', teamAbbreviation: 'Pit', opponent: 'Cin', yahooPlayerId: '33100',
+    injuryStatus: 'Q',
+  };
+  assert.deepStrictEqual(parseRosterRow(raw), {
+    selected_position: 'RB', playerName: 'Rico Dowdle', position: 'RB',
+    teamAbbreviation: 'Pit', opponent: 'Cin', yahooPlayerId: '33100', injuryStatus: 'Q', points: null,
+  });
+});
+
+test('parseOpponent handles the full ysf-game-status span text (non-breaking space before the team)', () => {
+  // Live-verified (2026-09-24): Yahoo splits the schedule into two links — "Sun 10:00 am
+  // vs&nbsp;" and then the opponent code — so the whole span's text must be read, not
+  // just its first link (which ends at "vs" and yields no opponent).
+  assert.strictEqual(parseOpponent('Sun 10:00 am vs LAC'), 'LAC');
+  assert.strictEqual(parseOpponent('Sun 1:05 pm @ TB'), 'TB');
+  assert.strictEqual(parseOpponent('Sun 10:00 am vs '), null);
+});
+
+test('parseOpponent ignores the trailing weather/dome icon glyph Yahoo appends to the span', () => {
+  // Live-verified (2026-09-24): the span ends in a private-use icon-font character
+  // (U+E234 weather, U+E231 dome) from its tooltip, so the team code is not at the end.
+  assert.strictEqual(parseOpponent('Sun 10:00 am            vs LAC'), 'LAC');
+  assert.strictEqual(parseOpponent('Sun 10:00 am            @ Ind'), 'Ind');
+});

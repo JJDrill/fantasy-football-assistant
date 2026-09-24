@@ -1,6 +1,6 @@
 const { test } = require('node:test');
 const assert = require('node:assert');
-const { parsePlayerNameCell } = require('./free-agents-page');
+const { parsePlayerNameCell, findColumnIndex } = require('./free-agents-page');
 
 test('parsePlayerNameCell extracts name, team, and position from the compound cell text', () => {
   const raw = 'Jahmyr Gibbs Jahmyr Gibbs Video Forecast Open player notes for Jahmyr Gibbs Det - RB Sun 11:00 am vs NO';
@@ -67,4 +67,26 @@ test('parsePlayerNameCell handles a player with no video link, just "...Player N
     nflTeam: 'LAR',
     position: 'RB',
   });
+});
+
+test('findColumnIndex locates a column by its header label, not a fixed position', () => {
+  // Live-verified (2026-09-24): Yahoo inserted a "Highlight" column ahead of "Roster
+  // Status", shifting it from index 3 to 4 — a hardcoded index silently read the empty
+  // Highlight cell for every row and returned no free agents at all.
+  const headers = ['', '', 'Offense', 'Highlight', 'Roster Status', 'GP*', 'Bye', 'Fan Pts'];
+  assert.strictEqual(findColumnIndex(headers, 'Roster Status'), 4);
+});
+
+test('findColumnIndex returns -1 when the header is missing', () => {
+  assert.strictEqual(findColumnIndex(['', '', 'Offense', 'Owner'], 'Roster Status'), -1);
+});
+
+test('parsePlayerNameCell handles an injured player with no video link ("...QNew Player Note")', () => {
+  // Live-verified (2026-09-24): with no "Video Forecast" marker, the glued "New" from
+  // "New Player Note" sat between the injury tag and the "Player Note" marker, leaving
+  // "Tyjae SpearsQNew" as the name.
+  assert.deepStrictEqual(
+    parsePlayerNameCell('Tyjae SpearsQNew Player Note Ten - RB Sun 10:00 am vs NYG'),
+    { name: 'Tyjae Spears', nflTeam: 'Ten', position: 'RB' },
+  );
 });

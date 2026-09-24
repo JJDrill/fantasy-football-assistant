@@ -14,6 +14,7 @@ const TEAM_POS_RE = /([A-Z][a-zA-Z]{1,3}) - ([A-Z]{1,3})\b/;
 // false match at the start of "Noteboom" and truncate the name down to just "Joseph".
 const NAME_CELL_MARKERS = [
   'Video Forecast', // the usual first marker glued after the name, when a video exists
+  'New Player Note', // injured, no video: "SpearsQNew Player Note" — 'Player Note' alone leaves "QNew" glued on
   'Player Note', // some players have no video, just "...Player Note" glued directly on
   'Open player notes for',
   'No new player', // defenses have no video forecast link, just a "No new player Notes" note
@@ -81,6 +82,15 @@ function parsePlayerNameCell(raw) {
   return { name, nflTeam, position };
 }
 
+// Live-verified (2026-09-24): Yahoo inserted a "Highlight" column ahead of "Roster
+// Status", shifting it from td index 3 to 4. A hardcoded index then read the empty
+// Highlight cell for every row, so every player failed the FA/W check and the result was
+// silently `[]`. Look the column up by its header label instead. The table's second
+// header row has one <th> per <td>, so its indices line up with the body cells.
+function findColumnIndex(headerTexts, label) {
+  return headerTexts.findIndex((text) => text.trim() === label);
+}
+
 async function getFreeAgents(page, { position } = {}) {
   // Yahoo's players page filters by the `pos` query param (e.g. pos=RB), not `position`,
   // and `status=A` scopes the list to available (non-rostered) players.
@@ -91,7 +101,14 @@ async function getFreeAgents(page, { position } = {}) {
   // The page renders several `table` elements (the main sortable players list plus a
   // couple of "players also available" sidebar widgets); only the interactive one is
   // the real players list.
-  const rows = page.locator('table.Table-interactive tbody tr');
+  const table = page.locator('table.Table-interactive');
+  const headerTexts = await table.locator('thead tr').last().locator('th').allTextContents();
+  const statusColumn = findColumnIndex(headerTexts, 'Roster Status');
+  if (statusColumn === -1) {
+    throw new Error(`Players table has no "Roster Status" column (headers: ${headerTexts.map((t) => t.trim()).join(' | ')})`);
+  }
+
+  const rows = table.locator('tbody tr');
   const count = await rows.count();
   const results = [];
 
@@ -103,7 +120,7 @@ async function getFreeAgents(page, { position } = {}) {
 
     // Available players show either "FA" (unclaimed) or "W (<date>)" (on waivers,
     // claimable once they clear) — both are worth surfacing as pickup targets.
-    const statusText = (await cells.nth(3).textContent()).trim();
+    const statusText = (await cells.nth(statusColumn).textContent()).trim();
     if (statusText !== 'FA' && !statusText.startsWith('W')) continue;
 
     results.push({
@@ -115,4 +132,4 @@ async function getFreeAgents(page, { position } = {}) {
   return results;
 }
 
-module.exports = { parsePlayerNameCell, getFreeAgents };
+module.exports = { parsePlayerNameCell, findColumnIndex, getFreeAgents };
