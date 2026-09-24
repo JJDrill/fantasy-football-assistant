@@ -100,7 +100,9 @@ open entries (Josh Jacobs, George Pickens PED claim) are tracked and current as 
 Live roster pulled via `yahoo/get-matchup.js 3` (Yahoo auth refreshed by user). Lineup
 unchanged from the 9/22 plan. Yahoo shows **Q** tags on only two rostered players:
 **Rico Dowdle** (starter) and **Kyle Monangai** (bench). Mahomes still on roster —
-**Trade #5 still pending** (confirmed by user). One open bench slot.
+**Trade #5 still pending** (confirmed by user). Roster is full (15/15) — the
+"(Empty)" BN/IR rows are Yahoo placeholders shown under each of the three roster tables,
+not open slots (misread earlier this pass).
 
 ### Dowdle — recommend swapping to Rhamondre Stevenson
 
@@ -152,21 +154,23 @@ unchanged from the 9/22 plan. Yahoo shows **Q** tags on only two rostered player
 
 ### Waiver targets (2026-09-24, live free-agent pull)
 
-One open bench slot. Acquisition cap is 60/season; at least 2 used per these notes
+**Roster is full — any add needs a drop.** Acquisition cap is 60/season; at least 2 used per these notes
 (McLaughlin Wk2, Gadsden Wk3) — check Yahoo's transaction count for the exact number.
 
-1. **Woody Marks (RB, Hou) — FA, add.** Near 50/50 split with my own Montgomery (42 vs
+1. **Woody Marks (RB, Hou) — FA, add, dropping Kyle Monangai.** Near 50/50 split with my own Montgomery (42 vs
    38 snaps Wk2, out-targeted him 6-2) — [NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-09-20/marks-maintains-equal-snap-share-in-week-2).
    Sunday 10am vs. Ind, and Yahoo's own tooltip says IND gives up the 3rd-most fantasy
    points to RBs. Doubles as a Montgomery handcuff. Close call vs. Stevenson (Jax gives
    up the 14th-fewest to RBs) for the RB2 slot.
 2. **T.J. Hockenson (TE, Min) — FA, streamer over Pitts to consider.** Kyler Murray back
    for Wk3; Bucs have allowed 172 yds / 2 TD to TEs — [RotoBaller](https://www.rotoballer.com/player-news/t-j-hockenson-is-gaining-value-ahead-of-week-3/1947976).
-   Only matters if made before Pitts' TNF kickoff; needs a drop (slot taken by Marks).
+   Only matters if made before Pitts' TNF kickoff; also needs a drop, so realistically
+   Marks *or* Hockenson this week — Marks preferred (value beyond one week).
 3. **Pass on Alvin Kamara** despite the name: 3-man NO committee, 9 carries for 15 yds
    in his Wk2 debut — [CBS Sports](https://www.cbssports.com/fantasy/football/news/saints-alvin-kamara-unimpressive-in-2026-debut/).
 
-Drop math: Trade #5 is 1-for-2, so if it clears after the Marks add, one more drop is
-needed. Candidates: Monangai (Q knee, MNF, committee) or Likely (Dart now reported out
-for the season per [NBC Sports](https://www.nbcsports.com/fantasy/football/news/2026-nfl-week-3-injury-report-jaxson-dart-mcl-chargers-down-two-tes-more-49ers-injuries);
+Drop math: Monangai is the drop for Marks (Q knee, DNP Thu, MNF, backup behind Swift).
+Trade #5 is 1-for-2, so one more drop when it clears: Stevenson if Dowdle is back,
+otherwise Burden (Pittman replaces him at WR). Keep Likely (Dart now reported out for
+the season per [NBC Sports](https://www.nbcsports.com/fantasy/football/news/2026-nfl-week-3-injury-report-jaxson-dart-mcl-chargers-down-two-tes-more-49ers-injuries);
 still the Trade #7 chip).
