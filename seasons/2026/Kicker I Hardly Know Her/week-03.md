@@ -243,3 +243,12 @@ bench slot held for Trade #5.
 
 QB Allen · RB Montgomery, Marks · WR St. Brown, Pickens · TE Pitts (1.0, TNF) ·
 W/R/T McMillan · K Pineiro · DEF Vikings.
+
+**Yahoo Research Assistant disagrees (user screenshot, 2026-09-25):** projects Stevenson
+9.35 vs Marks 7.50, while rating Marks' matchup 4★ (@IND, 3rd-most 31.7 FPPG to RBs) vs
+Stevenson 2★ (@JAC, 19th-most 15.8). Kept Marks: NE is a Henderson/Stevenson split
+(Henderson 60% vs Stevenson 36% snaps Wk2; Vrabel expects a split again —
+[Yahoo Sports](https://sports.yahoo.com/articles/mike-vrabel-comments-rhamondre-stevensons-174826420.html)),
+so volume is comparable and the matchup gap is 2x. **Post-game: compare actuals to
+this 1.85-pt projection gap** — a data point on whether Yahoo projections should
+outweigh matchup grades in close RB calls.
