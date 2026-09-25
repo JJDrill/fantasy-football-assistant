@@ -137,7 +137,7 @@ would be RB5 behind Montgomery/Williams/Stevenson/Dowdle) *before* re-sending �
 checks roster space at processing time. Re-sent trade restarts the 2-day veto window,
 so it likely won't clear before Week 3's Sunday 10am PT kickoffs; keep Stevenson
 starting. Woody Marks add (week-03.md) dropped from the plan now that Williams is
-incoming. If Dowdle is ruled Out and Yahoo allows IR, that's an alternative free slot. **Monangai dropped 2026-09-25** — roster now 14/15, one open bench slot for the re-sent trade. **Trade re-sent on Yahoo 2026-09-25** — awaiting Raymond's re-acceptance, then the 2-day veto window. Keep the open slot free until it processes.
+incoming. If Dowdle is ruled Out and Yahoo allows IR, that's an alternative free slot. **Monangai dropped 2026-09-25** — roster now 14/15, one open bench slot for the re-sent trade. **Trade re-sent on Yahoo 2026-09-25** — awaiting Raymond's re-acceptance, then the 2-day veto window. Keep the open slot free until it processes. **Raymond re-accepted 2026-09-25** — now in the league veto window (3 veto votes cancel it); user reports ~3 days until it processes (settings list a 2-day reject time; Yahoo's shown date governs).
 
 ## 6. Isaiah Likely ↔ Terry McLaurin (vs. Knights Who Say Ni) — considered, not pursued 2026-09-22
 

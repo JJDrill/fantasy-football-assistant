@@ -174,3 +174,72 @@ Trade #5 is 1-for-2, so one more drop when it clears: Stevenson if Dowdle is bac
 otherwise Burden (Pittman replaces him at WR). Keep Likely (Dart now reported out for
 the season per [NBC Sports](https://www.nbcsports.com/fantasy/football/news/2026-nfl-week-3-injury-report-jaxson-dart-mcl-chargers-down-two-tes-more-49ers-injuries);
 still the Trade #7 chip).
+
+## Pre-game refresh #2 (2026-09-25, Friday afternoon)
+
+Live roster (`get-matchup.js 3`, auth refreshed): 14/15 active after the Monangai drop,
+Trade #5 re-sent/re-accepted and in the veto window (user: no changes, no alerts).
+**Pitts already played (TNF): 1.0 pts.**
+
+### IR: Dowdle is eligible — move him
+
+Yahoo now lists **Dowdle as O (Out)**, and his row's eligible-slot dropdown includes
+**IR** (live-read 2026-09-25; no other rostered player has it). Moving him to IR opens a
+second bench spot: one stays reserved for Trade #5, one is free for a pickup.
+Caveat: once Dowdle is healthy he must come back off IR to the bench — Yahoo blocks
+roster moves while an IR-ineligible player sits in IR — so a drop comes due then
+(Stevenson/Burden/the pickup, whichever is weakest at that point).
+
+**Pickup: Woody Marks (RB, Hou, FA)** — and start him over Stevenson at RB2:
+- Matchup: IND gives up the **3rd-most** fantasy pts to RBs (Yahoo) → **Favorable**,
+  vs. Stevenson's JAX **14th-fewest** → Neutral.
+- Vegas: HOU -1.5, O/U 42.5 → Texans implied ~22.0; NE +3 at JAX, O/U 45.5 → Patriots
+  implied ~21.25. Roughly a wash — signals mildly agree with Marks.
+- Role: 45.5% snaps, 13 touches Wk2, better per-touch efficiency than Montgomery;
+  FantasyPros rates him a viable flex in a good matchup
+  ([FantasyPros](https://www.fantasypros.com/nfl/notes/443121/woody-marks-2026-week-3-outlook.php)).
+  Nico Collins not expected to play ([Yahoo Sports](https://sports.yahoo.com/articles/nfl-injury-news-latest-texans-125925411.html)).
+- Correlation note: Marks + Montgomery share one backfield — a Texans dud hits both.
+- Close call, not a lock; Stevenson is the fallback if you'd rather avoid the stack.
+
+### Matchup grades (Yahoo's own "fantasy pts allowed to position" tooltips) + Vegas (ESPN)
+
+| Player | Opp | Yahoo rank | Grade | Vegas (implied) | Signals |
+|---|---|---|---|---|---|
+| Josh Allen | LAC | 12th most to QB | Neutral | BUF -7, 50.5 → ~28.75 | Vegas more bullish |
+| David Montgomery | @IND | 3rd most to RB | Favorable | HOU -1.5, 42.5 → ~22.0 | Agree (mild) |
+| Stevenson / Marks | @JAX / @IND | 14th fewest / 3rd most | Neutral / Favorable | ~21.25 / ~22.0 | — |
+| Amon-Ra St. Brown | NYJ | 10th fewest to WR | Unfavorable | DET -6.5, 48.5 → ~27.5 | Disagree — start anyway |
+| George Pickens | BAL | 17th fewest to WR | Neutral | BAL -3.5, 53.5 → DAL ~25.0 | Vegas bullish (highest total) |
+| Tetairoa McMillan | @CLE | 6th most to WR | Favorable | CAR -2.5, 42.5 → ~22.5 | Agree (mild) |
+| Eddy Pineiro | ARI | 4th fewest to K | Unfavorable | SF -8.5, 47.5 → ~28.0 | **Disagree** — keep |
+| Vikings DEF | @TB | 3rd most to DEF | Favorable | MIN -1.5 → TB ~20.5 | Agree |
+
+Odds: [ESPN Week 3 lines](https://www.espn.com/espn/betting/story/_/id/49995686/2026-nfl-week-3-schedule-odds-betting-point-spreads-totals).
+Weather: Yahoo's tooltips only give *today's* (Friday) forecast, not game day — none show
+wind; no rain on any active starter's game (Mahomes/MIA 51%, Likely/NYG 60% are bench).
+
+### Injury/Availability Report (cached, refreshed 2026-09-25)
+
+| Player | Status | Note | Checked | Source |
+|---|---|---|---|---|
+| Rico Dowdle | **O** (Yahoo), IR-eligible | toe; DNP Wed/Thu | 2026-09-25 | live Yahoo roster; [Steelers.com](https://www.steelers.com/news/week-3-injury-report-bengals-x2555) |
+| All other active starters + bench | No Yahoo tag | Friday designations reflected in Yahoo tags; none on my roster | 2026-09-25 | live Yahoo roster |
+| Woody Marks (FA) | No tag | active; Collins (WR) out for HOU | 2026-09-25 | [Yahoo Sports](https://sports.yahoo.com/articles/nfl-injury-news-latest-texans-125925411.html) |
+
+### Scobee Snacks (kicker challenge) outlook
+
+No kicks yet. Pineiro's SF implied ~28.0 is near the top of the league's starting kickers
+— main rival on paper is Tyler Loop (BAL ~28.5); Jake Bates (DET ~27.5) next.
+Tyler Bass (BUF, FA, implied ~28.75) is the only clearly better environment, but not
+worth a roster spot given Trade #5 needs the open slot.
+
+### Final Week 3 lineup (confirmed live 2026-09-25)
+
+Moves made: **Dowdle → IR**, **added Woody Marks (FA)**, **Marks starting at RB2 over
+Stevenson** (Stevenson to bench). A mis-click briefly left W/R/T empty with McMillan
+benched — caught on a live re-check and fixed. Roster 14/15 active + 1/2 IR, one open
+bench slot held for Trade #5.
+
+QB Allen · RB Montgomery, Marks · WR St. Brown, Pickens · TE Pitts (1.0, TNF) ·
+W/R/T McMillan · K Pineiro · DEF Vikings.
