@@ -129,6 +129,16 @@ group; also moot now that Trade #1 involving him was declined, see #1 above).
 **Watch for:** submitting the actual Yahoo trade proposal, whether it clears the 3-veto
 threshold, and Pittman's real Week 3 status once the injury report firms up.
 
+**Update (2026-09-25): trade FAILED at processing** — roster was full (15/15 active;
+the 2 IR slots can't hold healthy/Q players), so there was no room for the 2-for-1.
+Earlier "drop Stevenson" plan is superseded: Stevenson is now the Week 3 RB2 starter
+(Dowdle Q, toe). **New plan: drop Kyle Monangai** (Q knee, DNP Thu, backup behind Swift,
+would be RB5 behind Montgomery/Williams/Stevenson/Dowdle) *before* re-sending — Yahoo
+checks roster space at processing time. Re-sent trade restarts the 2-day veto window,
+so it likely won't clear before Week 3's Sunday 10am PT kickoffs; keep Stevenson
+starting. Woody Marks add (week-03.md) dropped from the plan now that Williams is
+incoming. If Dowdle is ruled Out and Yahoo allows IR, that's an alternative free slot. **Monangai dropped 2026-09-25** — roster now 14/15, one open bench slot for the re-sent trade. **Trade re-sent on Yahoo 2026-09-25** — awaiting Raymond's re-acceptance, then the 2-day veto window. Keep the open slot free until it processes.
+
 ## 6. Isaiah Likely ↔ Terry McLaurin (vs. Knights Who Say Ni) — considered, not pursued 2026-09-22
 
 **Status:** Passed on. Surfaced via `trade-finder` league scan, initially misjudged as
