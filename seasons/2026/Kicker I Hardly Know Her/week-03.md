@@ -252,3 +252,49 @@ Stevenson 2★ (@JAC, 19th-most 15.8). Kept Marks: NE is a Henderson/Stevenson s
 so volume is comparable and the matchup gap is 2x. **Post-game: compare actuals to
 this 1.85-pt projection gap** — a data point on whether Yahoo projections should
 outweigh matchup grades in close RB calls.
+
+## Pre-game refresh #3 (2026-09-26, Saturday — `pre-game-check`)
+
+Live roster (`get-matchup.js 3`) matches the 9/25 final lineup exactly: Dowdle on IR (O),
+Marks at RB2, Stevenson on the bench, Pitts 1.0 (TNF). Mahomes still rostered, so **Trade #5
+hasn't processed yet** (still in the veto window). User reports no new trades and no Yahoo alerts.
+Opponent Smokin Base Brian starts **Cameron Dicker (LAC @ BUF)** at K.
+
+### Marks vs. Stevenson, revisited (Yahoo still projects Stevenson higher)
+
+**Keep Marks.** Nothing new since 9/25 moves the call:
+- Texans' Friday report ruled out Collins, Clowney, Hummel and Ingram; **Marks not listed**
+  ([Houston Texans](https://www.houstontexans.com/news/week-3-injury-report-texans-at-colts)).
+  A PFN "Marks exits vs. Colts with foot injury" headline turned up in search. That game
+  hasn't been played yet this season, so the article is from a prior season. Ignored.
+- Stevenson "finally lost his job because of fumbles"; Henderson has the lead role. CBS has him
+  as a low-end flex ([FantasyPros](https://www.fantasypros.com/nfl/notes/443109/rhamondre-stevenson-2026-week-3-outlook.php),
+  [CBS Sports](https://www.cbssports.com/fantasy/football/news/fantasy-football-rankings-week-3-dave-richard-makes-tough-decisions-who-to-start-sit-and-flex/)).
+- Marks: IND allows the 2nd-most receiving yards to RBs and he has the passing-down role
+  ([Dynasty Nerds](https://www.dynastynerds.com/start-sit/week-3-fantasy-football-rankings-start-sit-qb-rb-wr-te/)).
+  One dissent: CBS lists Marks as a sit.
+
+### Weather (raw, game-day forecasts now published)
+
+| Game | Starter(s) | Forecast | Flag? | Source |
+|---|---|---|---|---|
+| LAC @ BUF | Allen (and opp's Dicker) | 64°F, NE 11–13 mph, gusts 20; another source says 16 mph, 39% rain | **Borderline**: may dent passing slightly. Allen still starts (no better QB) | [Yahoo Sports](https://sports.yahoo.com/articles/bills-vs-chargers-weather-forecast-083031498.html) |
+| CAR @ CLE | McMillan | 69°F, sunny, **17 mph** wind, 6% rain | **Yes (>15 mph)**: deep balls could suffer. Still start (no bench WR beats him) | [Wager on Weather](https://wageronweather.com/nfl-weather) |
+| ARI @ SF | Pineiro | 66°F, 3 mph WSW, 1% rain | No: ideal for kicking, good for Scobee Snacks | [Wager on Weather](https://wageronweather.com/nfl-weather) |
+| DAL vs BAL (Rio) | Pickens | no forecast found | Unknown | — |
+
+The BUF wind also hurts **Dicker**, the opponent's kicker, which helps Pineiro's Scobee Snacks odds.
+
+### Injury/Availability Report (cached, refreshed 2026-09-26)
+
+| Player | Status | Note | Checked | Source |
+|---|---|---|---|---|
+| Rico Dowdle | **O**, on IR | toe; ruled out for Wk3 | 2026-09-26 | live Yahoo; [FantasyPros injury report](https://www.fantasypros.com/2026/09/fantasy-football-injury-report-updates-week-3-2026/) |
+| Woody Marks | Active, not on report | Collins (WR) out for HOU | 2026-09-26 | [Houston Texans](https://www.houstontexans.com/news/week-3-injury-report-texans-at-colts) |
+| Rhamondre Stevenson | Active | role cut after Wk2 fumble; Henderson healthy | 2026-09-26 | [FantasyPros](https://www.fantasypros.com/nfl/notes/443109/rhamondre-stevenson-2026-week-3-outlook.php) |
+| Allen, Montgomery, St. Brown, Pickens, McMillan, Pineiro, Vikings, Burden, Mahomes, Likely, Gadsden | No Yahoo tag, not on Friday injury reports | Bills' Coleman and Moore are Q, which could mean more volume for Allen's other targets but doesn't affect Allen himself | 2026-09-26 | live Yahoo roster; [RotoBaller](https://www.rotoballer.com/player-news/josh-allen-remains-an-elite-week-3-option/1951202) |
+
+Legal: Pickens PED claim was re-checked a 7th time and is still social-media only (see
+`reference/legal-watch-list.md`). The only fresh league item is Keenan Allen (IND), who isn't on either roster.
+
+### Final: no changes. Lineup confirmed as set on 9/25.
