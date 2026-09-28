@@ -298,3 +298,24 @@ Legal: Pickens PED claim was re-checked a 7th time and is still social-media onl
 `reference/legal-watch-list.md`). The only fresh league item is Keenan Allen (IND), who isn't on either roster.
 
 ### Final: no changes. Lineup confirmed as set on 9/25.
+
+## Monday 2026-09-28: Allen Q, and whether to cancel Trade #5
+
+Sunday games are final. Live score is **83.66 vs 84.66**. My starters are all done; the opponent
+still has Rome Odunze (CHI) on MNF, so this week is very likely a loss. Burden (CHI, MNF) can't
+move in because every flex-eligible slot's player has already played.
+
+**Allen, now Q (Yahoo):** he took a helmet to the left knee with about 9:46 left in the 4th quarter and
+finished the game (18.96 pts, BUF won 24-16). Early read is a contusion. A sports-medicine doc's
+range: grade 1 MCL sprain means he likely plays Week 4; grade 2 means 1-3 weeks out
+([Yahoo Sports](https://sports.yahoo.com/articles/josh-allen-draws-injury-concern-130401551.html),
+[Sportskeeda](https://www.sportskeeda.com/nfl/news-josh-allen-injury-sports-doctor-reveals-concerns-bills-qb-potentially-missing-1-3-weeks-left-knee-issues),
+[Buffalo Rumblings](https://www.buffalorumblings.com/buffalo-bills-injuries/141496/did-josh-allen-injure-his-knee-in-fourth-quarter-vs-chargers)).
+No MRI result found yet.
+
+**Trade #5 (Mahomes ↔ Javonte Williams + Pittman): don't cancel.** Mahomes' only role on this
+roster is Allen insurance. The FA pool can cover a 1-3 week gap: Stafford, Darnold, Geno Smith,
+Daniel Jones and Rodgers are all on waivers, clearing Sep 30 (`get-free-agents.js QB`, 2026-09-28).
+Giving up +37.84 of seasonal lineup value to insure a likely-contusion isn't worth it. Watch
+Wednesday's practice report. If Allen is a DNP or the MRI shows grade 2+, put a waiver claim on a
+streamer (Stafford first).
