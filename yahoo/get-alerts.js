@@ -1,11 +1,12 @@
 // yahoo/get-alerts.js
 // Replaces asking the user about Yahoo app alerts: flags players on either roster in this
 // week's matchup who show up in Yahoo's league-wide add/drop trends, and lists recent moves
-// in this league. Usage: node yahoo/get-alerts.js <week> [days=7]
+// in this league, plus your pending waiver claims. Usage: node yahoo/get-alerts.js <week> [days=7]
 const { launchContext } = require('./browser');
 const { getPairings, findUserMatchup } = require('./pages/matchup-page');
 const { getRoster } = require('./pages/roster-page');
 const { TRENDS_SORTS, getTransactionTrends, getLeagueTransactions, buildAlerts } = require('./pages/alerts-page');
+const { getTeamNotes } = require('./pages/team-notes-page');
 
 const USER_TEAM_ID = '2'; // J's Pancakes
 
@@ -32,6 +33,8 @@ async function main() {
       trends.push(...(await getTransactionTrends(page, sort)));
     }
     const transactions = await getLeagueTransactions(page);
+    // Pending waiver claims (and any other pending item), waiver priority, IR usage.
+    const userTeamNotes = await getTeamNotes(page, USER_TEAM_ID);
 
     const alerts = buildAlerts({
       trends,
@@ -42,7 +45,7 @@ async function main() {
       userTeamId: USER_TEAM_ID,
     });
 
-    console.log(JSON.stringify({ week: Number(week), opponent: opponent.teamName, ...alerts }, null, 2));
+    console.log(JSON.stringify({ week: Number(week), opponent: opponent.teamName, userTeamNotes, ...alerts }, null, 2));
   } finally {
     await context.close();
   }
