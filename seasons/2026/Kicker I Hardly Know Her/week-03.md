@@ -319,3 +319,62 @@ Daniel Jones and Rodgers are all on waivers, clearing Sep 30 (`get-free-agents.j
 Giving up +37.84 of seasonal lineup value to insure a likely-contusion isn't worth it. Watch
 Wednesday's practice report. If Allen is a DNP or the MRI shows grade 2+, put a waiver claim on a
 streamer (Stafford first).
+
+**Post-game check deferred to Tuesday 2026-09-29** (after MNF; weekly waivers also process then).
+User asked to **prioritize a backup QB** in waiver targets because of Allen's knee.
+Win condition going into MNF: Odunze (opp's last player) must finish below −1.00 (exactly −1.00 is a tie).
+In practice that means a lost fumble with at most one short catch.
+
+**Trade #5 canceled 2026-09-28**: Raymond had buyer's remorse, and the user canceled it in Yahoo.
+Mahomes stays as Allen's backup (swap him in for Week 4 if Allen can't go). A waiver QB is no longer
+urgent. The bench slot that was held for the trade is open (roster 14/15 active + Dowdle on IR).
+
+## Post-Game (2026-09-29, after MNF; `post-game-check`)
+
+**Final: J's Pancakes 83.66, Smokin Base Brian 89.36 (L, now 0-3).** Odunze scored 4.7 on MNF with no
+fumble. The loss was decided on Sunday:
+- **Burden scored 16.3 on the bench while McMillan scored 2.7 at W/R/T.** That swap alone was +13.6
+  and would have won the matchup. Nothing flagged it pre-game: there was no Burden news, and
+  McMillan had a Favorable grade.
+- Pitts scored 1.0 (his third straight week under 3), and the RB pair added only 5.8 and 8.6. Allen
+  (18.96), the Vikings DEF (17) and Pickens (11.7) did most of the scoring.
+- Jeremiyah Love (19.4) and Jordan Addison (17.5) carried Brian. Drake Maye managed just 5.76.
+
+**Scobee Snacks (kicker challenge): 16-point TIE** between Will Reichard (4th Qtr Maria) and Harrison
+Mevis (True & Living 12th Gospel). Week 3's rule has no tiebreaker, so it's the commissioner's call.
+Pineiro scored 8 (7th of 10) and Dicker 10. Unofficial until Yahoo stat corrections.
+
+**Marks vs. Stevenson result**: Marks 8.6, Stevenson 5.3 (Yahoo had projected Stevenson +1.85).
+Logged in `reference/matchup-grade-accuracy.md`.
+
+### Week 4 waiver targets (live FA pull 2026-09-29; claims process Wed Sep 30)
+
+One open bench slot (Trade #5 was canceled). Mahomes covers QB. Acquisitions used: at least 3 of 60.
+1. **Kenyon Sadiq (TE, NYJ)**: the consensus top add. The rookie first-rounder had 8 targets and a
+   7-105-1 line in Wk3 ([4for4](https://www.4for4.com/2026/w4/waiver-wire-week-4-top-pickups-drops-grab-kenyon-sadiq),
+   [RotoBaller](https://www.rotoballer.com/player-news/kenyon-sadiq-emerges-as-strong-waiver-wire-option-in-week-4/1952718)).
+   Pitts has scored 0, 2 and 1, and Likely lost his QB, so Sadiq is a real TE1 candidate. Use the open slot.
+2. **Ollie Gordon II (RB, MIA)**: Achane is out for the season, and Gordon is the likely lead back
+   ([RotoBaller](https://www.rotoballer.com/waiver-wire-express-week-4-fantasy-football-pickups-adds-2026/1952285)).
+   He'd upgrade RB2 over Marks and Stevenson. Needs a drop: **Gadsden** scored 0.0 in Wk3 despite the
+   TE vacancy and becomes redundant once Sadiq is added.
+3. **Braelon Allen (RB, NYJ)**: the alternative to Gordon if Breece Hall misses time
+   ([Yahoo Sports](https://sports.yahoo.com/fantasy/article/fantasy-football-waiver-wire-week-4-braelon-allen-kenyon-sadiq-among-top-pickups-to-target-170104704.html)).
+   Keaton Mitchell (LAC) is a deeper option.
+
+Dowdle IR math still applies: once he's healthy, one more drop comes due.
+
+### Trade ideas (trade-finder scan 2026-09-29; W-L records in the data are pre-Wk3)
+
+1. **Luther Burden III ↔ Travis Kelce (Russini's Source).** They start Kincaid at TE with Kelce on the
+   bench, and they're thin at WR (Collins out, A.J. Brown on IR, starting Golden and Vele). Burden's
+   16.3 is a fresh selling point. For me, Kelce is a TE upgrade over Pitts.
+2. **Luther Burden III ↔ Jake Ferguson (Queen of the Damned).** Ferguson sits behind Tucker Kraft on
+   their bench, and they need WR help with Mike Evans hurt and Parker Washington starting. This is the
+   fallback if Russini's passes on #1.
+3. **Isaiah Likely ↔ Jaylen Warren (Knights Who Say Ni)**, the Trade #7 watch item. Still viable:
+   Knights have only LaPorta at TE and a crowded RB/WR bench. Warren's value depends on how long
+   Dowdle's toe keeps him out.
+
+Trades used: 1 of 15 (Trade #3). The deadline is Nov 28 per the league settings PDF (the trade-finder
+skill text says Nov 21; the settings PDF governs). 3 veto votes cancel a trade.

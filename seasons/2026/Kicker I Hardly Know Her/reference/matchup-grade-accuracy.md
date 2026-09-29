@@ -25,6 +25,7 @@ Computed from `node yahoo/get-all-rosters.js <week>` (started players only).
 | 1 (2026-09-14, provisional — KC@Den not yet played) | 22.40 (n=10) | 16.52 (n=24) | 12.60 (n=24) | 8.68 (n=9) | 7.20 (n=10) | 6.90 (n=10) |
 | 1 (2026-09-15, **FINAL** — after MNF) | 22.40 (n=10) | 17.16 (n=25) | 12.12 (n=25) | 8.67 (n=10) | 7.20 (n=10) | 6.90 (n=10) |
 | 2 (2026-09-22, **FINAL**) | 20.38 (n=8) | 12.69 (n=18) | 14.92 (n=21) | 9.94 (n=9) | 7.56 (n=9) | 7.89 (n=9) |
+| 3 (2026-09-29, **FINAL**, all 10 teams) | 19.37 (n=10) | 13.90 (n=24) | 13.07 (n=26) | 10.74 (n=10) | 9.90 (n=10) | 5.80 (n=10) |
 
 KC@Den added one qualifying starter each to RB (Kenneth Walker) and TE (Travis Kelce),
 plus one to WR (Jaylen Waddle) — QB/K/DEF slots for that game were already filled by
@@ -60,6 +61,15 @@ denominator.
 | 2 | Kyle Pitts Sr. | TE | Neutral (low confidence) | No strong signal — Falcons -1.5, O/U 43.5, fairly even implied totals | 2.00 | 9.94 | n/a (Neutral) |
 | 2 | Tetairoa McMillan | WR (W/R/T) | Neutral (low confidence) | No strong signal — Falcons -1.5, O/U 43.5, fairly even implied totals | 12.60 | 14.92 | n/a (Neutral) |
 | 2 | Eddy Pineiro | K | N/A (kicker) | No signal available yet at grading time | 5.00 | 7.56 | n/a (kicker) |
+| 3 | Josh Allen | QB | Neutral | Vegas more bullish (BUF implied ~28.75) | 18.96 | 19.37 | n/a (Neutral) |
+| 3 | David Montgomery | RB | Favorable | Agreed (mild): HOU implied ~22.0 | 5.80 | 13.90 | **Miss** |
+| 3 | Woody Marks | RB | Favorable | Agreed (mild): HOU implied ~22.0 | 8.60 | 13.90 | **Miss** |
+| 3 | Amon-Ra St. Brown | WR | Unfavorable | **Disagreed**: DET implied ~27.5 | 9.90 | 13.07 | **Hit** |
+| 3 | George Pickens | WR | Neutral | Vegas bullish (O/U 53.5, DAL ~25.0) | 11.70 | 13.07 | n/a (Neutral) |
+| 3 | Tetairoa McMillan | WR (W/R/T) | Favorable | Agreed (mild): CAR implied ~22.5 | 2.70 | 13.07 | **Miss** |
+| 3 | Kyle Pitts Sr. | TE | Favorable (low-medium; 9/22 grade, TNF) | Mild disagree: ATL implied ~18.75 | 1.00 | 10.74 | **Miss** |
+| 3 | Vikings | DEF | Favorable | Agreed: TB implied ~20.5 | 17.00 | 5.80 | **Hit** |
+| 3 | Eddy Pineiro | K | N/A (kicker; 9/25 table listed Unfavorable) | Disagreed: SF implied ~28.0 | 8.00 | 9.90 | n/a (kicker) |
 
 ## Running hit rate
 
@@ -67,6 +77,7 @@ denominator.
 |---|---|---|
 | 1 | 2/5 (40%) | 2/5 (40%) |
 | 2 | 2/4 (50%) | 4/9 (44%) |
+| 3 | 2/6 (33%) | 6/15 (40%) |
 
 ## Observations
 
@@ -97,3 +108,14 @@ denominator.
   badly (30.70 vs a 14.92 WR average) — but Neutral grades aren't scored, so this is a
   reference note, not a miss. Worth revisiting once Buffalo's defensive profile has more
   weeks of real data instead of an offseason-overhaul guess.
+- **Week 3 (33%)**: all four `Favorable` offensive grades missed (Montgomery, Marks,
+  McMillan, Pitts). The only hits were `Unfavorable` St. Brown and `Favorable` Vikings DEF.
+  The season rate is 6/15 (40%), now below a coin flip. Defense-vs-position ranks built on
+  2-3 games look too noisy to lean on. Treat them as a tiebreaker, not a driver, until
+  more weeks accumulate.
+- **Vegas vs. grade split again**: Vegas disagreed with the grade twice. The grade won on
+  St. Brown, and Vegas won on Pitts (as it did in Week 1). Pitts' problems come from his
+  role and his QB, which neither signal captures.
+- **Yahoo projection vs. matchup grade (Marks vs. Stevenson)**: Yahoo projected Stevenson
+  +1.85. Actual: Marks 8.60, Stevenson 5.30, so the matchup-grade call won by 3.3. Both
+  scored well below the RB average, though, so this is one data point in a low-stakes call.

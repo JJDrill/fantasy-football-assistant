@@ -97,7 +97,12 @@ setback) before finalizing — same pattern as the Pineiro/Jacobs weekly re-chec
 
 ## 5. Patrick Mahomes ↔ Javonte Williams + Michael Pittman Jr. (vs. THE Lil Unk Rayrays) — agreed in principle 2026-09-22
 
-**Status:** Raymond (WSraymore) verbally agreed via Discord DM 2026-09-22, 5:47pm
+**Status: CANCELED 2026-09-28** — Raymond reached out with buyer's remorse and the user
+canceled the trade in Yahoo before it processed. It came right after Josh Allen's Week 3
+left-knee injury (Q), so Mahomes stays on the roster as Allen insurance. The open bench slot
+held for this trade is now free.
+
+**Original status:** Raymond (WSraymore) verbally agreed via Discord DM 2026-09-22, 5:47pm
 ("I'd do that trade"). **Trade proposal sent on Yahoo 2026-09-22.** Awaiting his
 in-app acceptance, then the 3-veto window.
 
