@@ -54,7 +54,10 @@ from Keenum.
 - **Rico Dowdle (IR)**: DNP Monday and not seen at practice. PIT plays Thursday (TNF @ CLE) on a short
   week, so he likely misses a 2nd game ([NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-09-28/rico-dowdle-toe-listed-as-dnp-on-monday),
   [RotoBaller](https://www.rotoballer.com/player-news/rico-dowdle-not-spotted-at-steelers-practice-on-monday/1953123)).
-  Keep on IR; no drop is due yet. Jaylen Warren ran for 176 scrimmage yards on 20 touches in his place.
+  ~~Keep on IR; no drop is due yet.~~ **Correction (2026-09-29 evening):** Yahoo reset his tag from
+  O to **Q** for Wk4, so he no longer qualifies for IR. The Sadiq claim failed with Error #845 until
+  he was moved to BN. Plan now: Dowdle to BN; Sadiq claim drops Gadsden; Gordon claim drops
+  Stevenson. Move Dowdle back to IR if his tag returns to O (e.g. ruled Out for TNF). Jaylen Warren ran for 176 scrimmage yards on 20 touches in his place.
 
 ## Injury/Availability Report (cached)
 
