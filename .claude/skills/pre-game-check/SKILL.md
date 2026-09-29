@@ -22,6 +22,15 @@ either individually, use those skills directly instead.
      league-wide Transaction Trends, with adds/drops counts and a
      `dropping`/`adding` direction), `recentLeagueTransactions` (this league's adds,
      drops, trades and vetoed trades in the window), and `userTeamTransactions`.
+     It also returns `userTeamNotes`: `pending` (your pending waiver claims, each with
+     add/drop, claim order and process date; anything else pending, such as a trade, comes
+     through as `kind: "other"` with its raw text), `waiverPriority`, and `irUsage`.
+     Report pending claims in the checklist. Check that each claim's drop still makes
+     sense, and that claim order matches what matters most given the waiver priority
+     (the league uses a rolling list, so winning claim 1 drops you to the bottom before
+     claim 2 processes). Also check the live roster for an IR-slotted player whose tag
+     is no longer O/IR (e.g. reset to Q). Yahoo blocks every add until he's moved to BN
+     (Error #845).
 
    Try each; note which succeed and which fall back (missing script, expired session,
    Yahoo API not yet approved — all expected until OAuth + Yahoo API approval is done).
