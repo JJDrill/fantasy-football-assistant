@@ -17,6 +17,11 @@ either individually, use those skills directly instead.
 2. **Check live-data availability** for everything this checklist needs:
    - `yahoo/get-matchup.js` (roster data, used by `lineup-advice`)
    - `yahoo/run-challenge.js` (challenge data, used by `challenge-tracker`)
+   - `yahoo/get-alerts.js <week> [days=7]` (stands in for Yahoo app alerts). It returns
+     `rosterTrendFlags` (players on your roster or your opponent's who appear in Yahoo's
+     league-wide Transaction Trends, with adds/drops counts and a
+     `dropping`/`adding` direction), `recentLeagueTransactions` (this league's adds,
+     drops, trades and vetoed trades in the window), and `userTeamTransactions`.
 
    Try each; note which succeed and which fall back (missing script, expired session,
    Yahoo API not yet approved — all expected until OAuth + Yahoo API approval is done).
@@ -27,17 +32,19 @@ either individually, use those skills directly instead.
    - If live challenge data is unavailable: ask for whatever this week's specific
      challenge rule requires per `seasons/2026/Kicker I Hardly Know Her/reference/challenges.md` (e.g. Week 3 needs every
      team's starting kicker's points).
-   - Always ask (no live source exists for trade approval/veto status today): "Any
-     trades proposed, approved, or vetoed recently that might not be reflected yet in
-     your roster?"
-   - Always ask: "Any Yahoo app alerts (mass add/drop notifications, injury alerts,
-     etc.) you've gotten recently that you want looked into?" (no API access to these
-     exists today — this only works when the user pastes/describes one). Evaluate any
-     alert the user reports: a mass-drop number alone is usually just normal
-     streaming churn (common for K/DEF, which get streamed weekly) rather than a
-     signal, so check it against that player's actual injury/legal status and matchup
-     grade before deciding whether it's worth worrying about, and say so explicitly
-     either way rather than letting the raw number imply concern on its own.
+   - Always ask about **pending** trades only: "Any trades proposed or waiting on a
+     response that I should know about?" Completed, vetoed and canceled trades show up
+     in `get-alerts.js`'s league transactions (a canceled trade appears as "Vetoed
+     Trade"), so don't ask about those. Only fall back to asking about them if
+     `get-alerts.js` failed.
+   - **Don't ask about Yahoo app alerts.** Use `get-alerts.js` instead. Only if it
+     fails, fall back to asking: "Any Yahoo app alerts (mass add/drop notifications,
+     injury alerts, etc.) you want looked into?" Either way, evaluate each flag the
+     same way: a mass-drop number alone is usually normal streaming churn (common for
+     K/DEF, which get streamed weekly), or a reaction to news already known (e.g. a
+     player already on IR). Check it against the player's actual injury/legal status
+     and matchup grade before deciding whether it matters, and say so explicitly either
+     way rather than letting the raw number imply concern.
    - Always ask: "Anything specific worrying you this week — an injury, a tough
      matchup — you want me to focus on?"
 
@@ -61,6 +68,11 @@ either individually, use those skills directly instead.
      you have, note this explicitly rather than trying to resolve it automatically —
      it requires a fresh roster fetch after the trade posts, which is out of scope for
      this pass.
+   - **Trades, always:** for any trade that comes up in this pass (one the user mentions,
+     an incoming offer, a `trade-finder` candidate, or an idea you raise yourself), run
+     `trade-analyzer` on it without asking. Then make sure `seasons/2026/Kicker I Hardly Know Her/trades.md`
+     reflects it: new entries for new trades, and dated status updates for existing ones
+     (proposed / accepted / vetoed / canceled / dropped).
    - Invoke the `challenge-tracker` skill for this week's $10 challenge rule — surfaced
      here because some challenge rules constrain lineup choices (e.g. a challenge scored
      on starting kicker points), worth knowing before locking the lineup.

@@ -26,3 +26,11 @@ Evaluates a specific trade: players the user gives up vs. players they receive.
 5. Give a clear verdict: favors user / favors other team / fair, with the main reasoning
    (positional value, depth impact, rest-of-season outlook, bye weeks) using your general
    knowledge of the players involved.
+6. **Always record the result in `seasons/2026/Kicker I Hardly Know Her/trades.md`**, with no need to ask first. If the
+   trade already has an entry, update it (add a dated `**Update (YYYY-MM-DD):**` line and
+   correct the `**Status:**`). Otherwise append a new numbered section following the
+   file's existing format: header `## N. <give> ↔ <receive> (vs. <team>) — <status> <date>`,
+   then `**Status:**`, `**Give:**`/`**Receive:**`, the verdict with its reasoning and cited
+   sources, and anything to watch for. Log trades that were analyzed but never sent, and
+   ideas dropped before proposing, too. The file is the season's record of every trade
+   considered.
