@@ -45,6 +45,11 @@ directly instead.
    gathered in Step 3:
    - Invoke the `weekly-recap` skill.
    - Invoke the `trade-finder` skill.
+   - **Trades, always:** for any trade that comes up in this pass (one the user mentions,
+     an incoming offer, a `trade-finder` candidate, or an idea you raise yourself), run
+     `trade-analyzer` on it without asking. Then make sure `seasons/2026/Kicker I Hardly Know Her/trades.md`
+     reflects it: new entries for new trades, and dated status updates for existing ones
+     (proposed / accepted / vetoed / canceled / dropped).
    - Invoke the `challenge-tracker` skill.
    - Invoke the `waiver-targets` skill.
    - **Matchup-grade accuracy check**: for every one of your starters that got a

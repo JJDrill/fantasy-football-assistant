@@ -101,6 +101,8 @@ setback) before finalizing — same pattern as the Pineiro/Jacobs weekly re-chec
 canceled the trade in Yahoo before it processed. It came right after Josh Allen's Week 3
 left-knee injury (Q), so Mahomes stays on the roster as Allen insurance. The open bench slot
 held for this trade is now free.
+Yahoo's league transaction log records the cancellation as **"Vetoed Trade"** (Sep 28,
+7:39 pm), for both legs. Confirmed via `yahoo/get-alerts.js` on 2026-09-29.
 
 **Original status:** Raymond (WSraymore) verbally agreed via Discord DM 2026-09-22, 5:47pm
 ("I'd do that trade"). **Trade proposal sent on Yahoo 2026-09-22.** Awaiting his
@@ -197,3 +199,65 @@ and the trade gets more attractive; if Dowdle's fully clear, Warren stays a
 backup/handcuff piece and the case is weaker. [FantasyPros Week 2 outlook](https://www.fantasypros.com/nfl/notes/440679/jaylen-warren-2026-week-2-outlook.php),
 [Rotoballer toe injury](https://www.rotoballer.com/player-news/rico-dowdle-considered-day-to-day-with-toe-injury/1947861),
 [Heavy.com Week 3 update](https://heavy.com/sports/nfl/pittsburgh-steelers/steelers-injury-rico-dowdle-bengals-game/)
+
+**Update (2026-09-29, Wk4 pre-game): effectively dead.** Warren ran for 176 scrimmage yards on 20
+touches with Dowdle out in Wk3, so he's Pittsburgh's lead back now. Knights won't sell him for Likely.
+
+## 8. Tetairoa McMillan ↔ Tony Pollard (vs. Russini's Source) — analyzed 2026-09-29, not proposed
+
+**Status:** Analyzed only (`trade-analyzer`). Not sent.
+
+**Give:** Tetairoa McMillan (WR, CAR, bye Wk5)
+**Receive:** Tony Pollard (RB, TEN, bye Wk9)
+
+**Why it came up:** the Wk4 re-scan (see `week-04.md`) found RB is the real hole. Montgomery (5.8)
+and Marks (8.6) were both far below the 13.90 RB average in Wk3, Stevenson lost his job, and Dowdle
+is on IR. Russini's is missing Collins (O) and A.J. Brown (IR) and starts Devaughn Vele at WR, while
+Pollard sits on their bench behind Gibbs and Irving.
+
+**Verdict: favors Russini's on value. Don't send as-is.**
+- **McMillan is the better asset.** He's in year 2, tied for Carolina's target lead (18 through Wk2),
+  had a 10-target, 101-yard Wk2, and is projected as the offense's dominant target-earner with WR1
+  upside ([RotoBaller](https://www.rotoballer.com/player-news/tetairoa-mcmillan-a-wr2-in-week-3/1950698),
+  [FantasyPros](https://www.fantasypros.com/nfl/notes/424670/tetairoa-mcmillan-2026-outlook.php)).
+  His 2.7 in Wk3 looks like noise, not a role change.
+- **Pollard's ceiling is capped.** He's 29 with 7,500+ career touches, the early-down 1A to Tyjae
+  Spears, who handles receiving and third downs. That hurts in half-PPR. Tennessee is a mid-tier
+  offense at best, and 4for4 says "doesn't bring much upside"
+  ([4for4](https://www.4for4.com/2026/preseason/despite-leading-role-tony-pollard-doesn%E2%80%99t-bring-much-upside-fantasy-football),
+  [Fantasy Life](https://www.fantasylife.com/articles/fantasy/could-tony-pollard-and-tyjae-spears-both-be-viable-for-fantasy-f)).
+  Wk3 was a good line (21 touches, 96 yds;
+  [Titans.com](https://www.tennesseetitans.com/news/titans-giants-week-3-postgame-notes)), but a
+  low-TD profile.
+- **Wk4 specifically hurts me:** Pollard is TEN @ BAL (Ravens -11.5, bad game script), while
+  McMillan would play *against me* in Russini's lineup (@DET, 50.5 total, DET 4th-most to WR).
+- **Depth impact:** WR drops to St. Brown, Pickens, Burden. That's fine for now given Burden's 11
+  targets, but it's thin if Burden's usage falls back when Caleb Williams returns. RB gains a
+  steady-volume RB2/flex, which is a real but modest upgrade over Marks.
+- **Byes:** CAR is off Wk5, so McMillan misses Wk5 anyway. TEN is off Wk9.
+
+**Better versions to try instead:**
+1. **Burden ↔ Pollard.** Sells high on Burden's one-week spike while keeping McMillan. It still
+   answers Russini's WR need.
+2. **Stevenson + Likely ↔ Pollard** as a cheap opener. Less appealing to them, since they don't need
+   RB or TE.
+3. Wait on Ollie Gordon II (waiver claim Wed). If he lands the Miami lead role, the RB need is partly
+   solved for free.
+
+Before sending any version, check Yahoo's Evaluate Trade tool (it caught the lineup-fit issue on #6).
+Limits: 1 of 15 trades used. The deadline is **Nov 28, 2026** per `reference/League_Settings.pdf`
+(the skill text said Nov 21; the settings PDF governs). 3 veto votes cancel a trade.
+
+## 9. Luther Burden III ↔ Travis Kelce (vs. Russini's Source) — considered 2026-09-28, dropped 2026-09-29
+
+**Status:** Dropped before proposing. Came from the Wk3 post-game `trade-finder` scan (Russini's
+benches Kelce behind Kincaid and needs WR help). Week 3 usage killed it: Kelce had 2 targets and a
+reported 6 snaps ([NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-09-27/travis-kelce-goes-for-2-59-1-in-miami)),
+while Burden drew 11 targets on MNF. It would sell high-usage for low-usage. The TE need is going to
+waivers instead (Kenyon Sadiq claim).
+
+## 10. Luther Burden III ↔ Jake Ferguson (vs. Queen of the Damned) — considered 2026-09-28, dropped 2026-09-29
+
+**Status:** Dropped before proposing. This was the fallback to #9. Ferguson went 3-23-1 with a lost
+fumble in Wk3 ([FantasyPros](https://www.fantasypros.com/nfl/news/611180/jake-ferguson-finds-end-zone-week-3.php)).
+Dropped for the same reason as #9.

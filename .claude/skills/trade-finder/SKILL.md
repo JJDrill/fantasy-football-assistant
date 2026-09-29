@@ -55,7 +55,13 @@ already has in mind, use `trade-analyzer` instead.
    (November 21, 2026) — mention these if the season is getting close to either. Also
    note that 3 league veto votes can cancel a trade, same as `trade-analyzer` surfaces.
 
-7. **Point to trade-analyzer for a full verdict.**
-   Tell the user they can run `trade-analyzer` on any of these candidates for a fully
-   vetted favors-user/favors-other-team/fair verdict — this skill's ranking is a lighter
-   inline pass to build the shortlist, not a substitute for that deeper analysis.
+7. **Run trade-analyzer on every shortlisted candidate, without asking.**
+   This skill's ranking is a lighter inline pass to build the shortlist. Automatically
+   invoke `trade-analyzer` on each top candidate to get a vetted
+   favors-user/favors-other-team/fair verdict, and present the verdicts with the list.
+   Don't offer it as an optional next step.
+
+8. **Always update `seasons/2026/Kicker I Hardly Know Her/trades.md`.** Every candidate gets an entry (via
+   `trade-analyzer`'s step 6), including ones you drop after analysis. Also re-check
+   existing open or watch-list entries in that file against the current rosters and
+   news, and add a dated update line when their outlook changes.
