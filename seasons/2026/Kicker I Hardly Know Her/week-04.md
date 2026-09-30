@@ -116,3 +116,63 @@ Roster players in Yahoo's league-wide Transaction Trends, evaluated rather than 
 League moves (last 7 days): nothing new that affects me. Knights dropped Xavier Worthy (KC WR) on
 9/29; he'll be on waivers. Trade #5 shows in the league log as **"Vetoed Trade"** (Sep 28, 7:39 pm),
 which is how Yahoo records a canceled trade.
+
+## Pre-game refresh #2 (2026-09-30, Wednesday; `pre-game-check`, auth refreshed)
+
+**Waiver claims both won** (processed Sep 30, 12:57 am): **+Sadiq −Gadsden**, **+Gordon −Stevenson**
+(per `get-alerts.js`). Waiver priority dropped from 7th to **9th**. Nothing pending. Roster is 15/15:
+Dowdle is on BN (Q), IR 0/2.
+
+### Lineup: 1 change (TE), flex unchanged
+
+- **TE: Sadiq in, Pitts to bench.** Sadiq is now **Q**: limited in Wednesday practice, and it's
+  unclear whether it's new from Wk3 or related to his offseason hernia surgery
+  ([CBS Sports](https://www.cbssports.com/fantasy/football/news/jets-kenyon-sadiq-limited-in-wednesdays-practice/),
+  [RotoWire](https://www.rotowire.com/football/headlines/kenyon-sadiq-injury-limited-in-wednesdays-practice-639974)).
+  The order works as a hedge. Sadiq plays Sun 1pm ET, and Pitts plays **MNF**, so if Sadiq is
+  inactive Sunday morning, swap Pitts in. Watch the Thu/Fri reports.
+- **Flex: keep McMillan, still a close call.** Caleb Williams (Grade 2 hamstring, 3-4 weeks) is out
+  vs. NYJ ([ESPN](https://www.espn.com/nfl/story/_/id/50036929/sources-caleb-williams-injury-considered-3-4-week-line),
+  [CBS Sports](https://www.cbssports.com/nfl/news/bears-caleb-williams-expected-to-miss-3-4-weeks/)),
+  so Burden's 11-target role with Keenum should carry over. McMillan keeps the edge on matchup
+  (DET 4th-most to WR, 50.5 total). Revisit Saturday if anything changes.
+- **Gordon: bench this week.** He played 61 of 73 snaps in Wk3, but Jaylen Wright was inactive then;
+  Wright is practicing Wednesday, and HC Hafley says all RBs will "have their roles"
+  ([Yahoo Sports](https://sports.yahoo.com/articles/miami-dolphins-2026-week-3-135406474.html),
+  [CBS Sports](https://www.cbssports.com/fantasy/football/news/dolphins-jaylen-wright-taking-part-in-practice-wednesday/),
+  [NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-09-28/hafley-all-rbs-going-to-have-their-roles)).
+  With MIA @ MIN (implied ~14.75, facing my own Vikings DEF), Montgomery and Marks start.
+- **QB: Allen, with Mahomes as the late-game hedge.** OC Brady downplayed the knee again Wednesday.
+  Dr. Chao says "hurt, not injured," while Dr. Morse floats a Grade 2 MCL
+  ([Heavy](https://heavy.com/sports/nfl/buffalo-bills/josh-allen-injury-update-patriots-game/)).
+  BUF plays 1pm ET and KC 4:25pm, so if Allen is inactive, swap Mahomes in before his game.
+
+### Yahoo alerts (get-alerts.js 4)
+
+| Player | Trend | Read |
+|---|---|---|
+| **Eddy Pineiro** | 13,789 drops / 4,005 adds | **Real cause, but not a cut signal.** He missed 2 extra points in Wk3 (one wide left, one off the upright) in a 36-30 win ([CBS Sports](https://www.cbssports.com/nfl/gametracker/recap/NFL_20260927_ARI@SF/), [ESPN](https://www.espn.com/nfl/recap/_/gameId/401872958)). The rest is normal weekly K streaming churn. SF re-signed him to a 4-year deal this offseason ([49ers.com](https://www.49ers.com/news/49ers-sign-kicker-eddy-pineiro-to-a-four-year-extension-nfl-free-agency)), and there's no report of kicker competition. Keep; SF -3 vs DEN, implied ~24.75. |
+| Rico Dowdle | 13,452 drops | Known news: DNP Mon and Tue ([NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-09-29/rico-dowdle-toe-still-dnp-tuesday)), likely out TNF. **Once Yahoo tags him O, move him back to IR** to reopen a bench spot. |
+| Kyle Pitts Sr. | 12,066 drops | Same role concern as Tuesday. Already benched for Sadiq. |
+| Ollie Gordon II / Sadiq / Vikings / Marks | big add counts | Everyone chasing the same moves; confirms the claims. |
+
+League moves: Rayrays added Sam Darnold, Cooper Kupp and **Kyle Monangai** (my Wk3 drop); T&L added
+Kamara. Nothing affects this matchup.
+
+### Injury/Availability Report (cached, refreshed 2026-09-30)
+
+| Player | Status | Note | Checked | Source |
+|---|---|---|---|---|
+| Josh Allen | Q | knee contusion; expected to play; no Bills report filed as of Wed practice | 2026-09-30 | [Heavy](https://heavy.com/sports/nfl/buffalo-bills/josh-allen-injury-update-patriots-game/) |
+| Kenyon Sadiq | **Q** | limited Wed; cause unclear | 2026-09-30 | [CBS Sports](https://www.cbssports.com/fantasy/football/news/jets-kenyon-sadiq-limited-in-wednesdays-practice/) |
+| Rico Dowdle | Q (BN) | DNP Mon/Tue; TNF | 2026-09-30 | [NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-09-29/rico-dowdle-toe-still-dnp-tuesday) |
+| Ollie Gordon II | Healthy | Wright returning to practice | 2026-09-30 | [CBS Sports](https://www.cbssports.com/fantasy/football/news/dolphins-jaylen-wright-taking-part-in-practice-wednesday/) |
+| Eddy Pineiro | Healthy | 2 missed XPs Wk3, job secure | 2026-09-30 | [CBS Sports](https://www.cbssports.com/nfl/gametracker/recap/NFL_20260927_ARI@SF/) |
+| All others | No Yahoo tag | — | 2026-09-30 | live Yahoo roster |
+
+Trades: none pending, none new. Trade #8 (McMillan ↔ Pollard) stays analyzed/not sent. Stevenson is
+gone, so the "Stevenson + Likely ↔ Pollard" version in #8 is no longer possible.
+
+**Lineup confirmed live (2026-09-30):** Sadiq at TE, Pitts on BN (MNF fallback), McMillan at flex.
+Allen's Q tag has cleared. Dowdle's tag is back to **O**, and he's moved to IR. Roster is 14/15 active
++ 1/2 IR, with **one open bench slot**.

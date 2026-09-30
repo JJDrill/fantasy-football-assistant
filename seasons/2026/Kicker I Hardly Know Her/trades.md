@@ -244,6 +244,10 @@ Pollard sits on their bench behind Gibbs and Irving.
 3. Wait on Ollie Gordon II (waiver claim Wed). If he lands the Miami lead role, the RB need is partly
    solved for free.
 
+**Update (2026-09-30):** Stevenson was dropped for the Gordon claim, so option 2 is gone. The
+Gordon claim won, but Jaylen Wright is back at practice and Miami's HC expects a shared role. Hold
+off on any Pollard offer until Gordon's Wk4 usage is known.
+
 Before sending any version, check Yahoo's Evaluate Trade tool (it caught the lineup-fit issue on #6).
 Limits: 1 of 15 trades used. The deadline is **Nov 28, 2026** per `reference/League_Settings.pdf`
 (the skill text said Nov 21; the settings PDF governs). 3 veto votes cancel a trade.
