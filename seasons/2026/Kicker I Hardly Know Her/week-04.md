@@ -203,3 +203,13 @@ Pickens, Sadiq (TE), McMillan (flex), Pineiro, Vikings. Pitts stays on BN as the
 | All others | No Yahoo tag | — | 2026-10-01 | live Yahoo roster |
 
 Legal: Pickens re-searched (9th check). Nothing new, PED rumor still unverified.
+
+### Roster move (2026-10-01): kicker upgrade
+
+- **Added Evan McPherson (CIN vs JAX), free agent, now starting at K.** He's PFN's K3 for Wk4 and the
+  top-scoring kicker so far (8/8 FG, 8/8 XP)
+  ([PFN](https://www.profootballnetwork.com/fantasy-football/early-kicker-rankings-week-4-2026-katz/)).
+  Pineiro was ranked K17 vs. DEN.
+- **Pineiro kept on BN** and filled the open bench slot (user's call). **Plan: drop Pineiro when Dowdle comes
+  off IR** and needs the roster spot.
+- Verified live: K McPherson, BN Pineiro. Roster is 15/15 active + Dowdle on IR (1/2).
