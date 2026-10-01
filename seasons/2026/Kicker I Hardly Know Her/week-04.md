@@ -176,3 +176,30 @@ gone, so the "Stevenson + Likely ↔ Pollard" version in #8 is no longer possibl
 **Lineup confirmed live (2026-09-30):** Sadiq at TE, Pitts on BN (MNF fallback), McMillan at flex.
 Allen's Q tag has cleared. Dowdle's tag is back to **O**, and he's moved to IR. Roster is 14/15 active
 + 1/2 IR, with **one open bench slot**.
+
+## Pre-game refresh #3 (2026-10-01, Thursday; `pre-game-check`)
+
+All three live scripts worked after the user refreshed auth. (Running them **in parallel** returned
+`NOT_LOGGED_IN` from get-matchup and get-alerts because they share one browser session. Run them
+one at a time.) Nothing pending, waiver priority 9th, IR 1/2 (Dowdle, O). No pending trades (user confirmed).
+
+**Lineup: no changes.** Same as the Wednesday confirmation: Allen, Montgomery, Marks, St. Brown,
+Pickens, Sadiq (TE), McMillan (flex), Pineiro, Vikings. Pitts stays on BN as the MNF hedge for Sadiq.
+
+**Weather (outdoor games, Sun Oct 4):** Buffalo 68°F, wind 11 mph, 18% rain; Chicago 68°F, 12 mph,
+1%; Santa Clara 86°F, 9 mph, 1%. All are below the 15 mph flag threshold, so nothing to flag
+([Gambling USA / weather aggregators](https://www.gamblingusa.com/new-england-patriots-vs-buffalo-bills-nfl-preview-week-4-oct-4-2026/), [RotoWire weather](https://www.rotowire.com/football/weather.php)).
+
+### Injury/Availability Report (cached, refreshed 2026-10-01)
+
+| Player | Status | Note | Checked | Source |
+|---|---|---|---|---|
+| Josh Allen | **No designation** | Practiced Wed, not on the Bills' injury report; knee concern cleared | 2026-10-01 | [FantasyPros](https://www.fantasypros.com/nfl/news/611609/josh-allen-without-injury-designation-week-4.php), [Buffalo Rumblings](https://www.buffalorumblings.com/buffalo-bills-injuries/141728/bills-vs-patriots-week-4-injury-report-josh-allen-clear) |
+| Kenyon Sadiq | **Q** | Injury now identified as **back**; limited Wed. Thursday report not yet found | 2026-10-01 | [Jets.com Wed report](https://www.newyorkjets.com/news/jets-injury-report-week-4-vs-bears-wednesday-09-30-2026), [Yahoo Sports](https://sports.yahoo.com/articles/limited-practice-kenyon-sadiq-002153160.html) |
+| Amon-Ra St. Brown | No Yahoo tag | Fewer snaps in Wk3 from an undisclosed issue; Campbell says he "should be fine" | 2026-10-01 | [Yahoo Sports](https://sports.yahoo.com/articles/detroit-lions-injury-updates-st-221919495.html) |
+| Montgomery, Marks | No tag | Not on Texans' Wed report | 2026-10-01 | [Texans.com](https://www.houstontexans.com/news/week-4-injury-report-texans-vs-cowboys) |
+| George Pickens | No tag | No Wk4 report entry found; legal search turned up nothing new | 2026-10-01 | live Yahoo roster |
+| Rico Dowdle | O (IR) | PIT @ CLE tonight (TNF) | 2026-09-30 | prior cache |
+| All others | No Yahoo tag | — | 2026-10-01 | live Yahoo roster |
+
+Legal: Pickens re-searched (9th check). Nothing new, PED rumor still unverified.
