@@ -1,0 +1,18 @@
+#!/bin/sh
+# Copy gitignored .env* files from the main checkout into a newly created worktree.
+# Git passes an all-zero previous HEAD only on initial checkout (e.g. `git worktree add`).
+
+[ "$1" = "0000000000000000000000000000000000000000" ] || exit 0
+
+main=$(git worktree list --porcelain | sed -n '1s/^worktree //p')
+here=$(git rev-parse --show-toplevel)
+[ -n "$main" ] && [ "$main" != "$here" ] || exit 0
+
+git -C "$main" ls-files --others --ignored --exclude-standard \
+  | grep -E '(^|/)\.env[^/]*$' | grep -v node_modules \
+  | while IFS= read -r f; do
+      [ -e "$here/$f" ] && continue
+      mkdir -p "$(dirname "$here/$f")"
+      cp "$main/$f" "$here/$f" && echo "post-checkout: copied $f from main checkout"
+    done
+exit 0
