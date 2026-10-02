@@ -8,3 +8,4 @@ yahoo/.cache/
 .playwright-mcp/
 yahoo/draft-log.jsonl
 .temp/
+yarn.lock
