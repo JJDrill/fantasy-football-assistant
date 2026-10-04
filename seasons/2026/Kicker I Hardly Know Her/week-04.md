@@ -213,3 +213,39 @@ Legal: Pickens re-searched (9th check). Nothing new, PED rumor still unverified.
 - **Pineiro kept on BN** and filled the open bench slot (user's call). **Plan: drop Pineiro when Dowdle comes
   off IR** and needs the roster spot.
 - Verified live: K McPherson, BN Pineiro. Roster is 15/15 active + Dowdle on IR (1/2).
+
+## Pre-game refresh #4 (2026-10-03, Saturday; `pre-game-check`)
+
+Live data worked after copying the main checkout's Yahoo session into this Orca workspace. The new
+workspace had an empty `yahoo/.playwright-profile`, and `login.js` stalls at Google sign-in. Roster is
+unchanged from Thursday. Nothing pending, waiver priority 9th, IR 1/2 (Dowdle, O). No trade activity
+in the last 3 days. Recent league moves (T&L picked up Stevenson; Russini's added Braelon Allen and
+dropped Corum) don't affect my lineup.
+
+**Lineup: no changes.** Allen, Montgomery, Marks, St. Brown, Pickens, Sadiq (TE), McMillan (flex),
+McPherson (K), Vikings. Pitts stays on BN as the MNF hedge.
+
+- **Sadiq: Q (back), limited Wed/Thu/Fri.** He practiced all week, and Mason Taylor (thumb) is OUT, so
+  if Sadiq plays his role is secure. **Check Jets inactives around 11:30 am ET Sunday.** If he's
+  inactive, swap Pitts in (ATL plays MNF).
+- **Gordon stays on BN.** Achane's ACL tear makes it a Wright/Gordon split, projected about 60/40
+  in Wright's favor, at MIN.
+- Opponent: Nico Collins has no designation and will play; Jayden Daniels (O) is on their bench.
+
+### Injury/Availability Report (cached, refreshed 2026-10-03)
+
+| Player | Status | Note | Checked | Source |
+|---|---|---|---|---|
+| Kenyon Sadiq | **Q** | back; limited all week; M. Taylor OUT | 2026-10-03 | [RotoWire](https://www.rotowire.com/football/headlines/kenyon-sadiq-injury-listed-questionable-for-sunday-640323), [Jets.com Fri report](https://www.newyorkjets.com/news/jets-injury-report-week-4-vs-bears-friday-10-02-2026) |
+| St. Brown, McMillan | No designation | not on DET/CAR Friday reports | 2026-10-03 | [Panthers.com](https://panthers.com/news/week-4-friday-injury-report-two-ruled-out-for-lions-game-xavier-legette-damien-lewis-questionable-jalen-coker), [NFL.com](https://www.nfl.com/news/nfl-week-4-injury-report-player-statuses-for-all-16-games) |
+| Montgomery, Marks, Pickens | No designation | not on HOU/DAL reports | 2026-10-03 | [Texans.com](https://www.houstontexans.com/news/week-4-injury-report-texans-vs-cowboys) |
+| McPherson | No designation | not on CIN report | 2026-10-03 | [NFL.com](https://www.nfl.com/news/nfl-week-4-injury-report-player-statuses-for-all-16-games) |
+| Ollie Gordon II | Healthy (BN) | Achane ACL; Wright-led split | 2026-10-03 | [ESPN](https://www.espn.com/fantasy/football/story/_/page/FFWaiverWirePickUp-50051326/fantasy-football-waiver-wire-free-agent-pickups-nfl-week-4) |
+| Allen, Vikings, others | No Yahoo tag | per live roster + 10/01 cache | 2026-10-03 | live Yahoo roster |
+
+## Pre-game refresh #5 (2026-10-04, Sunday morning; `pre-game-check`)
+
+**GO, no changes.** Sadiq is **ACTIVE** ([RotoBaller](https://www.rotoballer.com/player-news/kenyon-sadiq-active-for-week-4-against-bears/1957820), [NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-10-04/mitchell-hall-lead-nyj-inactives-vs-bears)),
+and his Yahoo Q tag has cleared. The live roster matches Saturday, and no starter has a tag. Nothing
+pending, no transactions. The only drop trends on my roster are Pitts (bench) and Dowdle (IR, O),
+both already known.
