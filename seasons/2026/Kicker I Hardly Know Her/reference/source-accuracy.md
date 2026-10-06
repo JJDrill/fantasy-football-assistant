@@ -19,6 +19,9 @@ Sources:
 
 | Wk | Slot | Option A | Option B | Usage | ECR | Props | Matchup | Final call | A pts | B pts | Usage | ECR | Props | Matchup | Call |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 5 | RB2 | Montgomery | Marks | Marks (slight: more pts on targets; Montgomery more carries) | Montgomery (RB25 vs. RB32) | — (not posted Tue) | — (not gathered) | Montgomery | | | | | | | |
+| 5 | TE | Likely | Sadiq | Likely (tgt 10/5/12 vs. 3/8/4) | Likely (TE8 vs. TE16) | — | — | Likely | | | | | | | |
+| 5 | Flex | Burden | Marks | Burden (tgt 7/11/6) | Burden (WR20 vs. RB32) | — | — | Burden | | | | | | | |
 
 ## Running record
 
