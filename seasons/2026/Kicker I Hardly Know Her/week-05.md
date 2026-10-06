@@ -114,3 +114,48 @@ new on our roster.
 None of the targets beats this week's starters (Robinson Jr. RB42, Mitchell RB35, Hockenson TE14 vs.
 Likely TE8). They're depth claims. Before any claim, **move Dowdle off IR or the add will be blocked.**
 If the bench is full, that means a drop first (Pineiro or Pitts).
+
+### Drop analysis (2026-10-06, Tuesday)
+
+**Roster count:** 15 of 15 active (named players only; the "(Empty)" BN rows are placeholders),
+plus Dowdle on IR. Dowdle's tag reset from O to Q, so his IR slot is illegal and Yahoo will block
+every add (Error #845), the same as Wk4. Moving him to BN makes 16 active, so **the first drop is
+forced by any transaction at all**. A waiver claim on top of that needs a second drop.
+
+**Byes ([NFL.com](https://www.nfl.com/news/2026-nfl-schedule-release-every-team-bye-week)) change
+who's expendable:**
+
+| Week | Our players on bye |
+|---|---|
+| 5 | McMillan, Mahomes |
+| **6** | **St. Brown (DET), Gordon (MIA), McPherson (CIN), Vikings DEF (MIN)** |
+| 7 | **Allen (BUF)** |
+| 8 | Montgomery + Marks (HOU), Likely (NYG), Pineiro (SF) |
+| 9 | Dowdle (PIT) |
+| 10 | Burden (CHI) |
+| 11 | Pitts (ATL) |
+| 13 | Sadiq (NYJ) |
+| 14 | Pickens (DAL) |
+
+**Drop ranking**
+
+1. **Kyle Pitts: drop now.** He's the third TE behind Likely (TE8) and Sadiq (TE16), ranked TE23 with
+   an F grade. Targets have been 3/2/3/3 and he's scored 9.2 points in four weeks. He covers no bye.
+2. **Eddy Pineiro: keep through Week 6, then he's next.** He's our only cover for McPherson's Wk6
+   bye. After that he's a dead roster spot, since kickers can be streamed from free agency.
+3. **Woody Marks / Kenyon Sadiq: hold for now.** Marks is RB depth for Gordon's Wk6 bye (our RB room is
+   thin). Sadiq is the only TE cover for Likely's Wk8 bye.
+4. **Rico Dowdle: hold one more week.** He missed Wks 3-4 with a toe injury and wasn't practicing as
+   of the last report ([RotoBaller](https://www.rotoballer.com/?p=1953123)). If Pittsburgh lists him
+   Out again, his tag should return to O and he can go back on IR for free. If he's still out with no
+   timeline after Wk5, he becomes the drop for the Wk6 DEF add.
+5. **Patrick Mahomes: don't drop.** He's Allen's Wk7 bye cover and the chip for trade #11.
+
+**Coming next week:** the Vikings' Wk6 bye forces a DEF pickup, which needs another drop (Pineiro
+can't go until after Wk6, so it'll be Dowdle, Marks or Sadiq depending on Dowdle's news).
+
+### Roster moves made (2026-10-06, 3:55 pm; verified with `get-matchup 5` / `get-alerts 5`)
+
+- Dropped **Kyle Pitts** (to waivers). Moved **Dowdle** IR → BN (Q). IR now 0 of 2, 15 of 15 active.
+- Lineup set: Gordon RB, Likely TE, Burden W/R/T. Marks, Sadiq and McMillan (bye) on BN.
+- No pending claims. Adds are unblocked.
