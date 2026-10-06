@@ -310,6 +310,10 @@ Dusty Bottoms has no other QB, so this is the "ask for more" case: open with **M
 Jones are on waivers that process **Wed Oct 7**. Once Dusty claims one, Mahomes is worth much less
 to them, so the offer should go out before then.
 
+**Bye note (2026-10-06):** Mahomes is also Allen's cover for **Buffalo's Week 7 bye**. If #11 goes
+through, plan to stream a QB that week (Stafford, Love or Daniel Jones were free agents on 10/6).
+That doesn't change the verdict, but it means the trade costs one waiver move in Wk7.
+
 Limits: 1 of 15 trades used, deadline Nov 28, 2026 (`reference/League_Settings.pdf`), and 3 veto
 votes cancel a trade. Check Yahoo's Evaluate Trade tool before sending either one.
 
