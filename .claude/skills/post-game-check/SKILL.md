@@ -62,6 +62,16 @@ directly instead.
      columns Week | Player | Position | Grade | Vegas Signal | Actual Pts | Position Avg
      | Hit/Miss), so a hit rate accumulates across the season. Mention the resulting
      week's hit rate and the running season hit rate in the summary.
+   - **Source accuracy**: for each close call logged that week in
+     `seasons/2026/Kicker I Hardly Know Her/reference/source-accuracy.md`, fill in both players'
+     actual points, score each source ✓/✗/—, and update the running record. Mention in the
+     summary which source has been most reliable so far.
+   - **Injury-risk tier check**: for every starter that week's `lineup-advice` pass gave a
+     health risk tier (see the week's injury cache), append a row to the "Injury-risk tier
+     tracker" in `seasons/2026/Kicker I Hardly Know Her/reference/season-lessons.md`: practice
+     trend, final report, injury type, tier, actual points, positional average, above/below.
+     Also update that file's cross-week audit: for any loss, note which bench swap would have
+     flipped it and whether that was knowable at decision time or random.
    - **Legal watch-list refresh**: check every open entry in
      `seasons/2026/Kicker I Hardly Know Her/reference/legal-watch-list.md` for a status update (`WebSearch` the player's name
      plus their concern, e.g. "Josh Jacobs suspension decision"), update the row, and
