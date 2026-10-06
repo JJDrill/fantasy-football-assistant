@@ -249,3 +249,107 @@ McPherson (K), Vikings. Pitts stays on BN as the MNF hedge.
 and his Yahoo Q tag has cleared. The live roster matches Saturday, and no starter has a tag. Nothing
 pending, no transactions. The only drop trends on my roster are Pitts (bench) and Dowdle (IR, O),
 both already known.
+
+## Post-Game (2026-10-05, Monday night; `post-game-check`)
+
+**Final (pre stat-corrections): J's Pancakes 103.22, Russini's Source 104.68. L by 1.46. Record 0-4.**
+All live scripts worked (`get-matchup`, `get-scoreboard` 1-4, `run-challenge`, `get-free-agents`;
+`get-all-rosters` timed out once and worked on retry). Usage stats are from Sleeper (`sleeper-stats.js`).
+
+| Slot | Starter | Pts | Bench option | Pts |
+|---|---|---|---|---|
+| QB | Allen | 19.52 | Mahomes | 17.0 |
+| RB | Montgomery | 4.3 | **Gordon** | **17.0** |
+| RB | Marks | 8.2 | | |
+| WR | St. Brown | 11.5 | Burden | 9.4 |
+| WR | Pickens | 8.5 | | |
+| TE | **Sadiq** | **0.0** | **Likely** / Pitts | **10.1** / 6.2 |
+| FLEX | McMillan | 38.2 | | |
+| K | McPherson | 5.0 | Pineiro | 6.0 |
+| DEF | Vikings | 8.0 | | |
+
+Any one of Gordon, Likely or Pitts in the lineup wins the game. Pineiro alone does not (still a 0.46 loss).
+Hindsight-optimal lineup: 127.92, so we got 80.7% of it.
+
+### Luck or picks? Both, roughly evenly.
+
+- **Luck:** the all-play record is 16-20 (44%), worth about 1.8 wins, against 0 actual. Points against is
+  4th-highest (457.56). We scored 4th (Wk1) and 3rd (Wk2) and lost both.
+- **Picks / roster:** points for is 8th of 10 (431.96). Lineup efficiency (actual ÷ hindsight-optimal)
+  was 83.5 / 87.2 / 84.9 / 80.7%, avg ~84%. Our four opponents averaged ~94% (93.3 / 97.8 / 96.0 / 87.7).
+  That's about 20 pts/week left on the bench, and it has cost us at least Wk4.
+- **Pattern:** we keep losing points in the same two spots. (1) **The Houston RBs**: Montgomery's
+  carries ran 20 / 6 / 11 / 10 and Marks' 9 / 8 / 5 / 6, splitting a weak run game every week while the
+  "Favorable" matchup grade kept saying start both. (2) **TE**: Pitts scored 0 / 2 / 1, then Sadiq 0,
+  while **Likely drew 8 / 10 / 5 / 12 targets** and stayed on the bench all four weeks.
+
+### Sadiq and the Q tag
+
+- What happened: he played **22 of 32** Jets snaps (69%, *up* from 57.6% in Wk3) and drew 4 targets, tied
+  for the team lead, but caught none. Geno Smith completed only 8 passes in a 23-12 loss
+  ([CBS Sports](https://www.cbssports.com/fantasy/football/news/jets-kenyon-sadiq-held-catchless-by-bears/),
+  [NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-10-04/sadiq-posts-a-zero-in-week-4-loss)).
+  The back injury didn't cost him the role. The Jets' offense (32 plays, implied ~19.75) cost him the points.
+- The process gap: the Pitts-on-MNF hedge only protected against Sadiq being **inactive**. Once he was
+  active, his 1pm game locked him in, and nothing protected against "active but limited or bad." A Q tag,
+  a limited week, a rookie with one big game, and a low team total all point to a wide range of outcomes.
+  The real comparison should have been **Sadiq vs. Likely** (healthy, steady volume), not Sadiq vs. Pitts.
+- Rule going forward: when two options project about the same, **a Q tag plus a low implied total is a
+  tiebreaker against.** Take the healthy, high-volume player.
+
+### Gordon
+
+Benching him was defensible at the time (Wright returning, a 60/40 Wright split projected, MIN DEF), but
+usage had already pointed the other way. Gordon got 61/73 snaps and 20 touches in Wk3, while Montgomery got
+11 carries. Wk4: Gordon out-snapped Wright **22-12** and ran 9-100. Wright had 5-7. **Gordon starts over
+Montgomery going forward.**
+
+### Challenge ("Give It Away"): not ours
+
+Joe Burrow (True & Living) threw **2 INTs** and wins. Allen and Maye threw 1 each (Sleeper stats, pre
+stat-corrections).
+
+### Trades
+
+Mahomes has been a bench hedge with 0 starts in 4 weeks, so he's spendable for an RB. Logged as
+`trades.md` #11 (Mahomes ↔ Tuten, Dusty Bottoms; Lamar is Q and they have no backup QB) and #12 (Mahomes ↔
+Hubbard, Knights). #8 (McMillan ↔ Pollard) is updated: shelved, and McMillan is not for sale after a
+38.2-point game.
+
+### Waivers (process Wed Oct 7; we're 9th in priority)
+
+1. **Brian Robinson Jr. (ATL RB)**: carries 9 / 11 / 10 / 14, points 3.1 / 7.7 / 11.0 / **25.2** on MNF.
+   Check Bijan Robinson's health before claiming (hamstring reports seen, but dates unclear).
+2. **Keaton Mitchell (LAC RB)**: rising role, with 8 and 10 carries plus 3 and 6 targets in Wks 3-4.
+3. **T.J. Hockenson (MIN TE)**: 13 targets and 18.4 in Wk4. Only as a Pitts replacement.
+
+Drop pool: **Pineiro** (second kicker), **Pitts** (0 / 2 / 1 / 6.2). Week 5's challenge is "top-scoring
+starting RB," which is one more reason to get the RB room right.
+
+### Matchup-grade accuracy
+
+Wk4 1/6 (17%), season 7/21 (33%). `Favorable` grades are 5/16 (31%). See
+`reference/matchup-grade-accuracy.md`. Recommendation: rank start/sit by usage first, then Vegas, and use
+the matchup grade only as a last tiebreaker.
+
+### Legal watch list
+
+No changes. Jacobs: still no NFL ruling. Pickens: PED rumor still unverified (10th check). Nothing new added.
+## Final (2026-10-06, Tuesday; `post-game-check` final pass)
+
+Re-pulled everything after stat corrections: `get-matchup 4`, `get-scoreboard 4`, `run-challenge 4`,
+and Sleeper week 4 stats. **Nothing changed.** Final is still **103.22 to 104.68, L by 1.46, 0-4**.
+Positional averages, every starter's points and the challenge result match Monday night's numbers.
+
+- **Challenge final:** Joe Burrow (True & Living) wins "Give It Away" with **2 INTs**. Allen and Maye
+  had 1 each, and every other starting QB had 0.
+- **Matchup-grade accuracy final:** Wk4 1/6 (17%), season 7/21 (33%).
+- **Source accuracy:** no Wk4 rows. Logging starts with Wk5 close calls.
+- **New since Monday: Lamar Jackson is out for Week 5** (hamstring, 2-3 weeks per the Baltimore Sun's
+  Brian Wacker). That makes trade #11 (Mahomes for Tuten, Dusty Bottoms) stronger. Send it **before
+  Wednesday's waivers process**, since Stafford, Love and Daniel Jones are on the wire. See `trades.md`.
+- **Waivers:** Brian Robinson Jr., Keaton Mitchell and T.J. Hockenson are all still available (Tuesday
+  `get-free-agents.js`). The Bijan Robinson health search only returned older-season coverage, so his
+  status is still unconfirmed. Check the Falcons' Wednesday injury report.
+- **Legal watch list:** Jacobs re-checked; still on the exempt list, no NFL ruling, no timetable.
+  Nothing new to add.

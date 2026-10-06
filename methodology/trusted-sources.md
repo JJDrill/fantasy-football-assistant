@@ -20,6 +20,10 @@ every search stays open, but what a result is *allowed to justify* differs by ti
   `foxsports.com`, `sports.yahoo.com`, `si.com`, `theathletic.com`
 - Established fantasy/analytics outlets: `fantasypros.com`, `pro-football-reference.com`,
   `profootballnetwork.com`, `rotoballer.com`
+- Market/consensus data (added 2026-10-05): FantasyPros weekly ECR (via
+  `yahoo/fantasypros-ecr.js`), and player prop lines quoted by `bettingpros.com`,
+  `actionnetwork.com`, or a sportsbook's own page. These are estimates, not facts. Cite the line
+  and its date, and expect it to move during the week.
 - A named beat reporter's post (Adam Schefter, Ian Rapoport, etc.) even on a platform
   like X/Twitter — cite them by name, not just the platform, since the reporter (not the
   platform) is the trust signal
@@ -46,7 +50,7 @@ like a suspension, arrest, or roster status.
 
 ## Where this applies
 
-- `lineup-advice` Step 4 (injury/legal search) and Step 5 (matchup-grade sourcing)
+- `lineup-advice` Step 4 (injury/legal search) and Step 6 (matchup-grade sourcing)
 - `post-game-check`'s legal watch-list refresh
 - Any other skill's `WebSearch` call that feeds a factual claim into a cached file
   (`methodology/injury-cache-convention.md`,

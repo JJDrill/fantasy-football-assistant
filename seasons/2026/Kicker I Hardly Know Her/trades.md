@@ -252,6 +252,11 @@ Before sending any version, check Yahoo's Evaluate Trade tool (it caught the lin
 Limits: 1 of 15 trades used. The deadline is **Nov 28, 2026** per `reference/League_Settings.pdf`
 (the skill text said Nov 21; the settings PDF governs). 3 veto votes cancel a trade.
 
+**Update (2026-10-05, Wk4 post-game):** Gordon's Wk4 usage answered the question. He out-snapped
+Wright 22 to 12, ran 9-100 and scored 17.0 (Sleeper stats). Pollard went 16-48 for 12.0. Gordon is
+now the RB we lean on, so the Pollard need is smaller. Still not sent. The Mahomes-for-RB ideas (#11,
+#12) are cheaper, because they spend a surplus QB instead of the starting flex (McMillan scored 38.2).
+
 ## 9. Luther Burden III ↔ Travis Kelce (vs. Russini's Source) — considered 2026-09-28, dropped 2026-09-29
 
 **Status:** Dropped before proposing. Came from the Wk3 post-game `trade-finder` scan (Russini's
@@ -265,3 +270,46 @@ waivers instead (Kenyon Sadiq claim).
 **Status:** Dropped before proposing. This was the fallback to #9. Ferguson went 3-23-1 with a lost
 fumble in Wk3 ([FantasyPros](https://www.fantasypros.com/nfl/news/611180/jake-ferguson-finds-end-zone-week-3.php)).
 Dropped for the same reason as #9.
+
+## 11. Patrick Mahomes ↔ Bhayshul Tuten (vs. Dusty Bottoms) — analyzed 2026-10-05, not proposed
+
+**Status:** Analyzed (`trade-analyzer`, Wk4 post-game `trade-finder` pass). Not sent. **Top candidate.**
+
+**Give:** Patrick Mahomes (QB, bench). **Receive:** Bhayshul Tuten (RB).
+
+**Verdict: fair, and it fills a need on both sides.** Mahomes has been a pure bench hedge: 4 weeks,
+0 starts, because Allen has no designation now. Dusty Bottoms rosters **only one QB, Lamar Jackson,
+who is tagged Q** on Yahoo (live roster 2026-10-05), so a QB2 is worth more to them than to anyone.
+Tuten has been a steady volume back: 15/13/15/17 carries for 9.3/13.2/16.0/10.1 half-PPR (Sleeper).
+Our Houston RBs have fallen off. Montgomery had 6/11/10 carries and 3.4/5.8/4.3 in Wks 2-4, and
+Marks hasn't topped 8.6. Tuten would start over either one. Cost: there's no QB insurance for Allen's
+bye or an injury, but the free-agent pool has streamable QBs (Stafford, Love, Daniel Jones,
+`get-free-agents.js` 2026-10-05). Lamar's 2026 injury details couldn't be confirmed (search returned
+2025 coverage), so check his tag before sending. If Lamar is out multiple weeks, ask for more
+(Tuten + a bench piece).
+
+## 12. Patrick Mahomes ↔ Chuba Hubbard (vs. Knights Who Say Ni) — analyzed 2026-10-05, not proposed
+
+**Status:** Analyzed (`trade-analyzer`). Not sent. Fallback to #11.
+
+**Give:** Patrick Mahomes. **Receive:** Chuba Hubbard (RB, on Knights' bench).
+
+**Verdict: favors us if they accept, but they're less likely to need it.** Knights roster only Dak
+Prescott at QB, and they're RB-deep (McCaffrey, Warren and Walker start, with Hubbard and Harvey on the
+bench). Hubbard had 19 and 20 carries and scored 13.0 and 25.4 in Wks 3-4, which is lead-back usage
+sitting on their bench. A QB2 matters to them mainly for Dak's bye, so they have less urgency than
+Dusty. Kenneth Walker III (avg ~26 pts) was also considered and **dropped**, since Knights won't sell
+their best RB for a backup QB.
+
+**Update to #11 (2026-10-06, Wk4 final):** Lamar left Wk4 late in the 3rd quarter with a
+**hamstring injury** (33 of 64 snaps), is **ruled out for Week 5**, and could miss **2-3 weeks**
+per the Baltimore Sun's Brian Wacker ([CBS Sports](https://www.cbssports.com/nfl/news/lamar-jackson-injury-ravens-quarterback-exits-week-4-game-against-chiefs-with-hamstring-injury),
+[Fox News](https://www.foxnews.com/sports/ravens-lamar-jackson-reportedly-could-miss-2-3-games-due-hamstring-injury)).
+Dusty Bottoms has no other QB, so this is the "ask for more" case: open with **Mahomes for Tuten
++ a bench piece**, and settle for Tuten straight up. **Timing matters:** Stafford, Love and Daniel
+Jones are on waivers that process **Wed Oct 7**. Once Dusty claims one, Mahomes is worth much less
+to them, so the offer should go out before then.
+
+Limits: 1 of 15 trades used, deadline Nov 28, 2026 (`reference/League_Settings.pdf`), and 3 veto
+votes cancel a trade. Check Yahoo's Evaluate Trade tool before sending either one.
+
