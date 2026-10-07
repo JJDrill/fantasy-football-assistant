@@ -159,3 +159,16 @@ can't go until after Wk6, so it'll be Dowdle, Marks or Sadiq depending on Dowdle
 - Dropped **Kyle Pitts** (to waivers). Moved **Dowdle** IR → BN (Q). IR now 0 of 2, 15 of 15 active.
 - Lineup set: Gordon RB, Likely TE, Burden W/R/T. Marks, Sadiq and McMillan (bye) on BN.
 - No pending claims. Adds are unblocked.
+
+### Trades and free agents review (2026-10-06, evening)
+
+- **Trade #11 (Mahomes for Tuten): send tonight**, before Wednesday's waivers. See `trades.md`.
+  Mahomes' Wk7 cover for Allen is replaceable: Stafford (QB2 this week) and Love are free agents.
+- **#12 (Mahomes for Hubbard)** is the fallback only.
+- **No free-agent adds worth a drop this week.** The best RBs available are Allgeier (RB33), Mitchell
+  (RB35) and Robinson Jr. (RB42), none better than Marks (RB32). Hunter Henry (TE15) is roughly even with Sadiq (TE16).
+- **Week 6 plan:** add a DEF for the Vikings' bye (Broncos, Bengals, Cowboys, Commanders and others
+  are available; pick from the Wk6 matchups). Pineiro covers McPherson. If #11 goes through, Montgomery
+  and Tuten start at RB while Gordon is off.
+- **2026-10-06 evening: trade #11 sent** (Mahomes for Tuten, straight up). Pending. If it's accepted:
+  start Tuten over Montgomery this week (RB15 vs. RB25), and plan a free-agent QB for Allen's Wk7 bye.

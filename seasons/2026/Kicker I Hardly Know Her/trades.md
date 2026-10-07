@@ -271,9 +271,9 @@ waivers instead (Kenyon Sadiq claim).
 fumble in Wk3 ([FantasyPros](https://www.fantasypros.com/nfl/news/611180/jake-ferguson-finds-end-zone-week-3.php)).
 Dropped for the same reason as #9.
 
-## 11. Patrick Mahomes ↔ Bhayshul Tuten (vs. Dusty Bottoms) — analyzed 2026-10-05, not proposed
+## 11. Patrick Mahomes ↔ Bhayshul Tuten (vs. Dusty Bottoms) — proposed 2026-10-06
 
-**Status:** Analyzed (`trade-analyzer`, Wk4 post-game `trade-finder` pass). Not sent. **Top candidate.**
+**Status:** **Proposed 2026-10-06 (evening)**: Mahomes for Tuten straight up, before Wed Oct 7 waivers. Awaiting Dusty's response.
 
 **Give:** Patrick Mahomes (QB, bench). **Receive:** Bhayshul Tuten (RB).
 
@@ -314,6 +314,43 @@ to them, so the offer should go out before then.
 through, plan to stream a QB that week (Stafford, Love or Daniel Jones were free agents on 10/6).
 That doesn't change the verdict, but it means the trade costs one waiver move in Wk7.
 
+**Update (2026-10-06, evening re-analysis via `trade-analyzer`): still the top move, now stronger.
+Send it tonight.**
+- **Dusty still rosters only one QB** (Lamar, Q, out Wk5 and possibly 2-3 weeks), per a live
+  `get-all-rosters.js 5` pull. Their WRs are thin too: Jefferson and DJ Moore are both Q.
+- **Tuten is FantasyPros RB15 for Wk5** (vs. PHI, range 14-16). Our best RB is Montgomery at RB25, so
+  Tuten starts for us immediately. Usage Wks 1-4: carries 15/13/15/17, snaps ~50-59%, 9.3/13.2/16.0/10.1
+  half-PPR (Sleeper).
+- **It also helps the Wk6 bye crunch:** JAX plays Wk6, so Tuten and Montgomery start while Gordon is off.
+  Tuten's bye is Wk7, the same week as Allen's.
+- **Mahomes' Wk7 bye role is easy to replace.** Twelve QBs are free agents, including **Stafford
+  (QB2 this week)** and Love (QB11). Stream one for Wk7.
+- **The risk is timing.** Dusty can claim Stafford or Love on Wednesday's waivers, and then Mahomes
+  is worth little to them. Ask for Tuten plus a bench piece (Michael Wilson or Kalif Raymond), and
+  accept Tuten straight up.
+- **Correction (same evening): offer Tuten straight up, with no add-on.** Neither bench piece works:
+  - **Michael Wilson** is FantasyPros **WR9 this week** (targets 7/7/17/13). Asking for him plus
+    Tuten is lopsided enough to get rejected or vetoed (3 votes cancel), and a counter-offer burns
+    the time before waivers.
+  - **Kalif Raymond** is WR39 (targets 9/5/7/2), worse than Burden. A 2-for-1 also puts us at 16
+    players and forces a drop, and Pineiro can't go until after Wk6.
+  - Wilson is worth a *separate* look later as a WR target. He'd start over Burden.
+- **Yahoo Evaluate Trade (2026-10-06, user screenshot):** **J's Pancakes +16.11, Dusty Bottoms
+  −26.46** over the rest of the season. Mahomes O-Rank 60, 202.33 projected remaining points; Tuten O-Rank 41,
+  132.26. Our only negative week is **Wk7 (−15.48)**, which is Allen's bye with no QB2. Streaming a
+  free-agent QB that week erases most of it, so our real gain is closer to +30. Dusty is projected to
+  lose every week except Wk13 (+12.80, Lamar's bye). Yahoo's Wk5-7 numbers don't seem to reflect
+  Lamar's 2-3 week absence (Wk7 shows "even"). That absence is Dusty's actual reason to want a QB.
+  **Read:** confirms the trade favors us. Dusty may decline if they check this tool, and they can
+  also claim Stafford or Love for free. Nothing is lost by sending it, so send it as is. Don't
+  sweeten it. Mention Lamar's injury in the trade note.
+- Verdict: **favors us.** We trade a QB who hasn't started in 4 weeks for a starting RB, and the roster
+  count doesn't change.
+
 Limits: 1 of 15 trades used, deadline Nov 28, 2026 (`reference/League_Settings.pdf`), and 3 veto
 votes cancel a trade. Check Yahoo's Evaluate Trade tool before sending either one.
+
+**Update to #12 (2026-10-06):** Still the fallback if Dusty declines. Hubbard's usage keeps rising
+(carries 10/12/19/20, 22.2/13.4/13.0/25.4 half-PPR), but he's on bye in Wk5 and Knights are our Wk5
+opponent. Only send it after #11 is answered, since Mahomes can only go once.
 
