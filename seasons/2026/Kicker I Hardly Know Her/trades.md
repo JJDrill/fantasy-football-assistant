@@ -271,9 +271,9 @@ waivers instead (Kenyon Sadiq claim).
 fumble in Wk3 ([FantasyPros](https://www.fantasypros.com/nfl/news/611180/jake-ferguson-finds-end-zone-week-3.php)).
 Dropped for the same reason as #9.
 
-## 11. Patrick Mahomes ↔ Bhayshul Tuten (vs. Dusty Bottoms) — proposed 2026-10-06
+## 11. Patrick Mahomes ↔ Bhayshul Tuten (vs. Dusty Bottoms) — proposed 2026-10-06, rejected 2026-10-07
 
-**Status:** **Proposed 2026-10-06 (evening)**: Mahomes for Tuten straight up, before Wed Oct 7 waivers. Awaiting Dusty's response.
+**Status:** **Rejected 2026-10-07.** Proposed 2026-10-06 evening (Mahomes for Tuten straight up). Dusty instead **added Kirk Cousins** off waivers at 7:30 am Oct 7 (dropping Kalif Raymond), which closed their QB need.
 
 **Give:** Patrick Mahomes (QB, bench). **Receive:** Bhayshul Tuten (RB).
 
@@ -353,4 +353,23 @@ votes cancel a trade. Check Yahoo's Evaluate Trade tool before sending either on
 **Update to #12 (2026-10-06):** Still the fallback if Dusty declines. Hubbard's usage keeps rising
 (carries 10/12/19/20, 22.2/13.4/13.0/25.4 half-PPR), but he's on bye in Wk5 and Knights are our Wk5
 opponent. Only send it after #11 is answered, since Mahomes can only go once.
+
+**Update to #12 (2026-10-07, after #11 was rejected):** Now the only live Mahomes idea, and it's a
+long shot. **Stafford is still a free agent and is FantasyPros QB2 this week**, so any team can
+replace Mahomes for free. Knights have only Dak (DAL bye Wk14) and no current QB need, but they are
+RB-deep with Hubbard on their bench. Sending it costs nothing. If they accept, stream Stafford or Love
+for Allen's Wk7 bye.
+
+## 13. Patrick Mahomes ↔ Jacory Croskey-Merritt (vs. Smokin Base Brian) — considered 2026-10-07, dropped
+
+**Status:** Dropped before proposing (`trade-analyzer`, after #11 was rejected).
+
+Smokin Base Brian is the other team rostering one QB (Maye, NE bye Wk11) with spare RBs
+(Croskey-Merritt, Mason and Rodriguez on the bench). Croskey-Merritt is FantasyPros RB24 this week vs. NYG,
+but his carries are slipping (16/12/19/9) and he's averaging 7.1 half-PPR. Mason has played once (Wk1).
+**Verdict: not worth sending.** Brian has no near-term QB need, Stafford is free on waivers, and JCM
+would barely beat Montgomery (RB25).
+
+**Takeaway (2026-10-07):** Mahomes has almost no trade value while Stafford sits on waivers. Keep him
+as Allen's Wk7 cover. Getting an RB upgrade by trade will take a real asset, not a backup QB.
 

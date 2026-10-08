@@ -116,6 +116,16 @@ Gives start/sit recommendations for the user's team for a given week.
       | High | Limited all week or worse, Q on final report, soft tissue (hamstring, back, groin, calf), game-time decision, or snap-limit/"pitch count" reports | Counts against him when close. With a low implied total, prefer the healthy option |
       | Doubtful/Out | — | Don't start |
 
+      **Recently returned bump** (added 2026-10-08): players aren't 100% the moment a tag
+      drops. Raise a player one tier (Low → Medium, Medium → High) for the **first 2 games**
+      after his last Q/D/O designation or missed game, even with full practices and no tag.
+      For soft-tissue injuries (hamstring, calf, groin, back) the bump lasts **3 games**. In
+      his first game back, expect reduced snaps, and treat any "pitch count" report as High.
+      Like the tiers themselves, the bump is a tiebreaker on close calls, not an auto-bench.
+      Check the previous weeks' injury caches to find who qualifies. Log the bump in the
+      tier tracker (`reference/season-lessons.md`, "Recently returned" column) so we can
+      test whether these players actually underperform.
+
       Re-tier as reports come in (Wed → Fri → inactives). Record the tier in the week's
       injury cache. Prefer the healthy, steady-volume player when a High-tier player and a
       healthy one are close. A late-kickoff backup (e.g. an MNF

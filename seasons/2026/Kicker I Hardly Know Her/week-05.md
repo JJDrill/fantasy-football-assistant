@@ -172,3 +172,6 @@ can't go until after Wk6, so it'll be Dowdle, Marks or Sadiq depending on Dowdle
   and Tuten start at RB while Gordon is off.
 - **2026-10-06 evening: trade #11 sent** (Mahomes for Tuten, straight up). Pending. If it's accepted:
   start Tuten over Montgomery this week (RB15 vs. RB25), and plan a free-agent QB for Allen's Wk7 bye.
+- **2026-10-07: trade #11 rejected.** Dusty added Kirk Cousins off waivers instead. #12 (Hubbard) is a
+  free long shot. #13 (Croskey-Merritt) was considered and dropped. Mahomes has almost no trade value
+  while Stafford (QB2) is a free agent, so he stays as Allen's Wk7 cover. See `trades.md`.
