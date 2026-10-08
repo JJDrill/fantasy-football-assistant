@@ -115,10 +115,14 @@ that week. Compare to the same week's positional average in `matchup-grade-accur
 "Below avg" = a bad outcome. If High-tier starters don't underperform more often than Low-tier
 ones over the season, the ladder isn't earning its place. Appended by `post-game-check`.
 
-| Wk | Player | Pos | Practice trend | Final report | Injury type | Tier | Pts | Pos avg | Result |
-|---|---|---|---|---|---|---|---|---|---|
-| 4 | Josh Allen | QB | Practiced Wed onward | No designation | Knee contusion | Low | 19.52 | 19.20 | Above avg |
-| 4 | Kenyon Sadiq | TE | Limited Wed/Thu/Fri | Q, active Sunday | Back (soft tissue) | High | 0.00 | 9.23 | Below avg |
+| Wk | Player | Pos | Practice trend | Final report | Injury type | Recently returned? | Tier | Pts | Pos avg | Result |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 4 | Josh Allen | QB | Practiced Wed onward | No designation | Knee contusion | No | Low | 19.52 | 19.20 | Above avg |
+| 4 | Kenyon Sadiq | TE | Limited Wed/Thu/Fri | Q, active Sunday | Back (soft tissue) | No (injured that week) | High | 0.00 | 9.23 | Below avg |
+
+**Recently returned** (column added 2026-10-08): "Yes (game N of 2/3)" when the `lineup-advice`
+bump applied, meaning within 2 games of the last Q/D/O or missed game, or 3 for soft tissue. Log
+those starters even when they have no tag that week. That's the case this column tests.
 
 Tiers for Wk4 were assigned retroactively (2026-10-05) from the `week-04.md` injury cache.
 Weeks 1-3 have no tagged starters worth tiering (Dowdle Wk1-2 was healthy at lineup time).
