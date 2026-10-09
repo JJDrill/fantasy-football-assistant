@@ -26,8 +26,13 @@ function parsePendingItem(text, href) {
     };
   }
 
-  // Not seen live yet (e.g. a pending trade). Keep it raw rather than dropping it.
-  return { kind: 'other', text: clean.replace(/\s*View Details$/, ''), href };
+  // Pending trades (proposed by us or offered to us) share this list. Their exact live text
+  // hasn't been captured yet, so match "trade" in the text or link and keep the raw text.
+  const rest = clean.replace(/\s*View Details$/, '');
+  if (/trade/i.test(rest) || /trade/i.test(href ?? '')) return { kind: 'trade', text: rest, href };
+
+  // Anything else: keep it raw rather than dropping it.
+  return { kind: 'other', text: rest, href };
 }
 
 function parseWaiverPriority(text) {

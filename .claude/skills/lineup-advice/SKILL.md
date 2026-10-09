@@ -20,8 +20,8 @@ Gives start/sit recommendations for the user's team for a given week.
    - Ask the user to paste or screenshot their current roster for that week (starters and
      bench, with positions) from the Yahoo app. If known, also ask for their opponent's
      roster — useful for context but not required.
-   - Also ask if there's anything specific worrying them (a bye week, an injury designation,
-     a tough matchup) so you can focus there.
+   - Don't ask what's worrying them (changed 2026-10-08): the full pass already covers
+     every injury tag, bye and close call.
 4. Get injury/availability status for every player on the full roster (starters and
    bench), plus any off-field legal/status red flags (arrests, citations, suspensions,
    DUIs, etc. — the kind of thing that can sideline a player independent of health; see
