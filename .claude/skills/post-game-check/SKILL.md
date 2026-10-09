@@ -33,11 +33,10 @@ directly instead.
      challenge rule requires per `seasons/2026/Kicker I Hardly Know Her/reference/challenges.md`.
    - If live waiver data is unavailable: ask for the waiver wire / available-players
      list, and which position(s) they're interested in (or "all").
-   - Always ask: "Anything specific you want me to flag — a position need, a challenge
-     you're chasing?"
+   - **Don't ask what the user wants flagged** (changed 2026-10-08). When every script in
+     Step 2 worked, ask nothing and go straight to Step 4.
 
-   Do not proceed to Step 4 until this single message has been sent and answered (or
-   skipped because live data covered everything). Never ask a follow-up mid-checklist —
+   If a message was needed, don't proceed to Step 4 until it's answered. Never ask a follow-up mid-checklist —
    if something else comes up while running Step 4, note it in the final summary instead
    of interrupting.
 

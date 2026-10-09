@@ -175,3 +175,56 @@ can't go until after Wk6, so it'll be Dowdle, Marks or Sadiq depending on Dowdle
 - **2026-10-07: trade #11 rejected.** Dusty added Kirk Cousins off waivers instead. #12 (Hubbard) is a
   free long shot. #13 (Croskey-Merritt) was considered and dropped. Mahomes has almost no trade value
   while Stafford (QB2) is a free agent, so he stays as Allen's Wk7 cover. See `trades.md`.
+
+## Pre-game check #2 (2026-10-08, Thursday before TNF; `pre-game-check`)
+
+Live: `get-matchup 5`, `get-alerts 5`, `fantasypros-ecr.js` (41-42 experts, updated 10/08). User: no
+pending trades, no other concerns. Trade #11 rejected (see `trades.md`). Stafford is now rostered by
+4th Qtr Maria.
+
+### Lineup: no changes
+
+| Slot | Start | ECR 10/08 (range) | Implied total (fresh) | Note |
+|---|---|---|---|---|
+| QB | Allen | QB1 (1-1) | BUF 25.75 (at LAR -3, 54.5) | |
+| RB | Montgomery | RB23 (20-28) | HOU 22.75 (-7.5, 38) | Gap over Marks widened (RB35, 29-37). Props not found |
+| RB | Gordon | RB25 (21-31) | MIA 18.0 (+6.5, 42.5) | Total fell 3.5 pts, still ahead of Marks |
+| WR | St. Brown | WR3 (2-4) | DET 30.0 (-5.5, 54.5) | |
+| WR | Pickens | WR14 (12-20) | DAL 28.5 (-8.5, 48.5) | Not on the TNF out/inactive lists. Locked tonight |
+| TE | Likely | TE7 (4-10) | NYG 19.0 (+3.5, 41.5) | **Q: knee/groin, limited Wed + Thu.** See below |
+| W/R/T | Burden | WR20 (18-25) | CHI 23.5 (-1.5, 45.5) | |
+| K | McPherson | — | CIN 24.5 | |
+| DEF | Vikings | — | NO 19.75 (MIN -2.5, 42) | |
+
+Lines: [Fox Sports Week 5 odds](https://www.foxsports.com/stories/nfl/2026-nfl-odds-week-5-lines-spreads-results-all-15-games),
+[Yahoo Week 5 spreads](https://sports.yahoo.com/nfl/betting/article/2026-nfl-week-5-odds-betting-full-list-of-week-5-spreads-143316022.html),
+checked 2026-10-08. They replace the stale 9/7 look-ahead lines above.
+
+### TE: Likely stays, decide finally on Friday's report
+
+- **Health tier: High (provisional).** Groin is soft tissue, and he was limited Wed and Thu. He also
+  qualifies for the recently-returned bump if he's designated Friday. Reports call it soreness and
+  expect him to play ([NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-10-07/isaiah-likely-knee-groin-limited-to-begin-week-5),
+  [RotoWire](https://www.rotowire.com/football/headlines/isaiah-likely-injury-another-limited-practice-641390)).
+- **Why he still starts:** this isn't close. Usage is targets 10/5/12 vs. Sadiq's 3/8/4, and ECR is
+  TE7 vs. Sadiq TE15. The experts ranked him with the injury known. The High tier is a tiebreaker,
+  and it doesn't overcome a gap that size.
+- **Alternatives ranked:** Sadiq TE15 (NYJ 20.5; back injury Wk4, so he gets the soft-tissue bump too,
+  game 2 of 3). Free agent Hockenson TE13 (MIN 22.25), but MIN is on bye Wk6, and an add needs a drop.
+  Free agent Henry TE16.
+- **Friday trigger:** if Likely is **Doubtful/Out**, start Sadiq. If he's Q with a full Friday
+  practice, he drops to Medium. If he's Q and limited again, keep him (High, but the gap holds).
+
+### Close-call log update
+
+RB2 Montgomery vs. Marks: ECR now RB23 vs. RB35, Montgomery's lead widened. No prop lines found.
+TE Likely vs. Sadiq: Likely's health tier is High (provisional), and the call is unchanged.
+
+### Injury cache refresh (2026-10-08)
+
+| Player | Status | Note | Checked | Source |
+|---|---|---|---|---|
+| Isaiah Likely | Q (Yahoo) | Knee/groin, limited Wed + Thu. Expected to play. Tier High (provisional) | 2026-10-08 | [NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-10-07/isaiah-likely-knee-groin-limited-to-begin-week-5), [RotoWire](https://www.rotowire.com/football/headlines/isaiah-likely-injury-another-limited-practice-641390) |
+| George Pickens | No tag | Not on the TNF out/inactive lists (DAL out: Durant, Overshown, Shelton; Porter Jr. late scratch) | 2026-10-08 | [Yahoo Sports](https://sports.yahoo.com/articles/buccaneers-cowboys-final-injury-report-010757745.html), [SI](https://www.si.com/nfl/cowboys/onsi/joey-porter-jr-shockingly-headlines-dallas-cowboys-week-5-inactives-vs-buccaneers) |
+| Rico Dowdle | Q (Yahoo), BN | Toe (dislocated). Limited Wed + Thu, first practice in 2+ weeks. McCarthy: "up in the air." RB68. Stays on the bench | 2026-10-08 | [RotoWire](https://www.rotowire.com/football/headlines/rico-dowdle-injury-officially-limited-wednesday-641206), [Steelers Depot](https://steelersdepot.com/2026/10/steelers-week-five-thursday-injury-report-two-players-dnp-three-others-limited/) |
+| Kenyon Sadiq | No tag | No new Wk5 news found. Bump applies (back, Wk4) | 2026-10-08 | search, nothing new |

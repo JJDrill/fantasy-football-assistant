@@ -36,11 +36,23 @@ test('parsePendingItem skips the "Edit Waiver Priority" link, which Yahoo counts
   assert.strictEqual(parsePendingItem('Edit Waiver Priority Edit', '/f1/109715/2/editwaivers?pspid=1'), null);
 });
 
-test('parsePendingItem keeps any other pending item (e.g. a trade) as raw text', () => {
+test('parsePendingItem tags a pending trade as kind "trade", keeping the raw text', () => {
   assert.deepStrictEqual(parsePendingItem('  Trade proposed to Russini   View Details ', '/f1/109715/2/pendingtrade?x=1'), {
-    kind: 'other',
+    kind: 'trade',
     text: 'Trade proposed to Russini',
     href: '/f1/109715/2/pendingtrade?x=1',
+  });
+});
+
+test('parsePendingItem tags a trade by its link even when the text says "offer"', () => {
+  assert.strictEqual(parsePendingItem('Offer from Knights Who Say Ni View Details', '/f1/109715/2/viewtrade?trade_id=7').kind, 'trade');
+});
+
+test('parsePendingItem keeps any other pending item as raw text', () => {
+  assert.deepStrictEqual(parsePendingItem('Something new View Details', '/f1/109715/2/other'), {
+    kind: 'other',
+    text: 'Something new',
+    href: '/f1/109715/2/other',
   });
 });
 
