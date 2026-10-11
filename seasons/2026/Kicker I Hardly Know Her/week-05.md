@@ -228,3 +228,47 @@ TE Likely vs. Sadiq: Likely's health tier is High (provisional), and the call is
 | George Pickens | No tag | Not on the TNF out/inactive lists (DAL out: Durant, Overshown, Shelton; Porter Jr. late scratch) | 2026-10-08 | [Yahoo Sports](https://sports.yahoo.com/articles/buccaneers-cowboys-final-injury-report-010757745.html), [SI](https://www.si.com/nfl/cowboys/onsi/joey-porter-jr-shockingly-headlines-dallas-cowboys-week-5-inactives-vs-buccaneers) |
 | Rico Dowdle | Q (Yahoo), BN | Toe (dislocated). Limited Wed + Thu, first practice in 2+ weeks. McCarthy: "up in the air." RB68. Stays on the bench | 2026-10-08 | [RotoWire](https://www.rotowire.com/football/headlines/rico-dowdle-injury-officially-limited-wednesday-641206), [Steelers Depot](https://steelersdepot.com/2026/10/steelers-week-five-thursday-injury-report-two-players-dnp-three-others-limited/) |
 | Kenyon Sadiq | No tag | No new Wk5 news found. Bump applies (back, Wk4) | 2026-10-08 | search, nothing new |
+
+## Pre-game check #3 (2026-10-09, Friday final injury reports; `pre-game-check`)
+
+Live: `get-matchup 5`, `get-alerts 5 3` worked, so no questions were asked. No pending trades or
+claims. Waiver priority 8, IR 0 of 2. Pickens already played TNF: **23.5 pts**.
+
+- **Likely: full practice Friday, no designation. He starts.** His Yahoo Q is gone. Tier: Low by
+  practice, bumped to **Medium** by the recently-returned rule (game 1 of 3, since groin is soft
+  tissue). It doesn't matter here: no close call at TE (TE7 vs. Sadiq TE15). Sources:
+  [NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-10-09/isaiah-likely-knee-groin-good-to-go-for-week-5),
+  [CBS Sports](https://www.cbssports.com/fantasy/football/news/giants-isaiah-likely-good-to-go-for-week-5/).
+  Log him in the tier tracker after the game ("Yes, game 1 of 3").
+- **Other starters:** no Yahoo tags.
+- **Dowdle:** still Q on Yahoo, on the bench. No final designation found yet
+  ([Steelers.com report](https://www.steelers.com/news/week-5-injury-report-colts)). Nothing to do.
+- **Alerts:** Sadiq and Dowdle dropping, Gordon adding, all already known. The Knights added the
+  Broncos DEF and KC Concepcion Jr., which doesn't change anything for us.
+- **Lineup: no changes.**
+
+| Player | Status | Note | Checked | Source |
+|---|---|---|---|---|
+| Isaiah Likely | No designation | Full practice Fri after limited Wed/Thu (knee/groin). Tier Medium (recently-returned bump) | 2026-10-09 | NBC Sports, CBS Sports (above) |
+
+## Pre-game check #4 (2026-10-10, Saturday final; `pre-game-check`)
+
+Auth refreshed. `get-matchup 5`, `get-alerts 5 2` and `fantasypros-ecr.js` (updated 10/11) all
+worked, so no questions were asked. No pending trades or claims.
+
+- **Lineup: no changes.** ECR: Montgomery RB22, Gordon RB23 (Marks RB33), Burden WR21, Likely TE7
+  (Sadiq TE15), St. Brown WR3.
+- **Final reports** ([CBS Sports](https://www.cbssports.com/nfl/news/nfl-week-5-injury-report-eagles-saquon-barkley-devonta-smith-out/),
+  [NFL.com](https://www.nfl.com/news/nfl-week-5-injury-report-player-statuses-for-all-15-games)):
+  none of our starters is designated.
+  - **Bears: Caleb Williams Q (hamstring, Grade 2); Tyson Bagent expected to start**
+    ([NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-10-09/williams-hamstring-q-tag-bagent-likely-starts)).
+    That's a downgrade for Burden, but ECR (WR21, updated after the news) still puts him far ahead of
+    the flex alternatives (Marks RB33, Sadiq TE15). He stays.
+  - **Dolphins: Jaylen Wright Q (foot).** Good for Gordon's share.
+  - Bills: DJ Moore Q, Josh Palmer out. A slight volume boost for Allen's pass catchers, nothing to change.
+- **Weather:** Green Bay sunny, 76°F, wind 11 mph SSW
+  ([WeatherBug](https://www.weatherbug.com/markdown/weather-forecast/10-day-weather/green-bay-wi-54304)). No flag.
+- **League:** THE Lil Unk Rayrays and 4th Qtr Maria traded Jaylen Waddle for Aaron Jones Sr. (Oct 10).
+  Doesn't involve us. Our opponent (the Knights) is adding Sutton and the Broncos DEF per trends.
+- **Pickens** already has 23.5 pts.
