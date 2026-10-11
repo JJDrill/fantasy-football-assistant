@@ -299,7 +299,7 @@ with Montgomery, so Gordon + Mitchell are the Wk8 RBs.
 
 **Week 6 DEF (Vikings bye):** not added yet; 22 DEFs are FAs. Candidates: Colts vs. TEN, 49ers vs. WAS,
 Saints vs. NYG ([RotoBaller](https://www.rotoballer.com/fantasy-football-defense-d-st-rankings-streamers-for-weeks-5-6-7-8-2026/1959760)).
-Needs a drop (Sadiq, Pineiro after Wk6 or Mahomes after Wk7 are the candidates; Pineiro is McPherson's Wk6 cover).
+Needs a drop before Wk6. Sadiq is the likely one (TE14, about even with FA Henry). Pineiro (McPherson's Wk6 cover) and Mahomes (Allen's Wk7 cover) stay until their bye weeks pass.
 
 | Player | Status | Note | Checked | Source |
 |---|---|---|---|---|
