@@ -16,12 +16,15 @@ knowable.
 | 2 | | **Likely (5.8) for Pitts (2.0)**, wins by 1.3 | **Yes** | Wk1: Likely had 8 targets and 23.8 pts; Pitts had 1 target and 0 pts. Not compared in the notes. |
 | 2 | | Monangai (6.8) for Montgomery (3.4) | No | Monangai still not cleared. |
 | 3 | −6.90 | Burden (16.3) for McMillan (2.7) | **No: random** | Burden had 7.0 and 4.7 before. McMillan was coming off 100+ yards. No signal. |
-| 4 | −1.46 | **Likely (10.1) for Sadiq (0.0)** | **Close call, not clearly knowable** (revised after the agent replay below) | Likely had steadier volume, but his one Winston game was 2.3 pts, and Sadiq's 20-pt setup (Taylor out) repeated. |
+| 4 | −1.46 | **Likely (10.1) for Sadiq (0.0)** | **Yes, by the current rules** (revised 2026-10-11 after the league replay; earlier: "close call, not clearly knowable") | Final Sunday ECR had Likely TE10 vs. Sadiq TE12, and targets favored Likely (11.3 vs. 8.3). Both signals agreed. |
 | 4 | | **Gordon (17.0) for Montgomery (4.3)** | **No: leaned wrong on the info** (revised) | Wright returned as RB1, and MIA had the slate's lowest total (~14.75). Every agent rated Gordon's case Weak. |
 
-**Verdict (revised 2026-10-05 after the backtest and agent replay below):** Wks 1 and 3 were mostly bad
-luck. Wk4 was a close call where our lineup was the defensible pick on the information we had. **Wk2
-(Likely over Pitts) is the one clearly knowable miss.** The original "2-2 with fixes" claim had hindsight bias. All-play is 16-20 (~1.8 expected wins), and points against is 4th-highest.
+**Verdict (revised 2026-10-11 after the league-wide replay, `league-replay-wk1-4.md`):** Wks 1 and 3 were
+mostly bad luck. **Wk2 (Likely over Pitts, TE8 vs. TE17) and Wk4 (Likely over Sadiq, TE10 vs. TE12 with
+more targets) were both knowable.** Each single swap would have won. Under the current rules, the Wk4
+lineup wins (113.32 vs. 104.68). The Wk2 ECR lineup still loses by ~1, since ECR also swaps Stevenson in
+at RB. *Earlier verdict (2026-10-05): Wk4 was "a close call where our lineup was the defensible pick."
+That predated the archived Sunday ECR.* The original "2-2 with fixes" claim had hindsight bias. All-play is 16-20 (~1.8 expected wins), and points against is 4th-highest.
 
 ### Correction: mechanical backtest (2026-10-05, same night)
 
@@ -101,10 +104,16 @@ Re-run the Run B format on future weeks once ECR and props are in the packet.
 
 1. **Re-rank the whole position group each week, bench included**, by last 2-3 weeks' usage: snap share,
    carries, targets. Never only "current starter vs. new option."
-2. Order of evidence for start/sit, **by position** (revised 2026-10-11 to match the backtest above):
-   - **TE:** usage (targets) → ECR + Vegas → health tier.
-   - **RB/WR:** ECR + Vegas → usage, mainly to catch role changes (a teammate hurt, a depth-chart
+2. Order of evidence for start/sit, **by position** (revised again 2026-10-11 after the league-wide
+   replay, `league-replay-wk1-4.md`: ECR-first +36.6 pts and 4 extra wins over 40 team-weeks;
+   usage-first −155 pts over 30):
+   - **TE:** ECR + Vegas → targets break ties **within ~5 ECR spots** → health tier. Usage never
+     overrides ECR for a player returning from injury (it can't see him).
+   - **RB:** ECR + Vegas → usage, mainly to catch role changes (a teammate hurt, a depth-chart
      move, a snap jump like Gordon's) → health tier.
+   - **WR:** ECR + Vegas. Override only for a clear role change ECR hasn't caught (league-wide,
+     overriding ECR at WR was wrong 7 of 10 times).
+   - **Flex:** FLEX ECR. Within ~10 flex spots it's a coin flip, so start the **later kickoff**.
    - **QB/K/DEF:** ECR + Vegas → health tier.
 3. **Q tag + low implied total = tiebreaker against** when projections are close. Prefer the healthy,
    steady-volume player.
@@ -136,6 +145,12 @@ sub-ratings are logged so we can learn which one actually predicts a bad game.
   player can still score 3.
 - **Pts vs. pos avg:** league-wide average of started players at his position that week (flex
   counted under the real position). "Below avg" = a bad outcome.
+- **In-game injury?** (added 2026-10-11) If the snap drop came from an injury **during** the game
+  (left early, didn't return), write **"In-game"** in the Role column instead of "Limited." Those
+  don't count against the pre-game tier: no pre-game report could predict them. League-wide in
+  Wks 2-4, 10+ pt snap drops meant a below-average game 82% of the time (vs. 51%), but most were
+  in-game exits (Achane, Jefferson, Rice, Chase). Check game recaps or the injury report for an
+  "exited / did not return" note.
 If High-tier starters aren't Limited or Below avg more often than Low-tier ones over the season,
 the ladder isn't earning its place.
 

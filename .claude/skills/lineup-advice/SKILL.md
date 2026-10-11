@@ -43,10 +43,11 @@ Gives start/sit recommendations for the user's team for a given week.
    bench included, from Sleeper (`yahoo/sleeper-stats.js`: `getWeekStats(2026, week)`,
    keyed by Sleeper player id). Use `off_snp`/`tm_off_snp` (snap share), `rush_att`,
    `rec_tgt` and `pts_half_ppr`. Build a usage table per position group in the week's notes
-   file. How much it weighs depends on position (see step 8): it **leads at TE** and acts as
-   a **role-change detector at RB/WR**. See `seasons/2026/Kicker I Hardly Know Her/reference/season-lessons.md`:
-   Likely's 8/10/5/12 targets sat on the bench behind Pitts' 1/3/2 (TE usage is predictive),
-   but a mechanical usage rule lost ground at RB/WR every week of the Wks 2-4 backtest.
+   file. How much it weighs depends on position (see step 8): it **breaks close TE calls** and
+   acts as a **role-change detector at RB/WR**. The league-wide replay
+   (`seasons/2026/Kicker I Hardly Know Her/reference/league-replay-wk1-4.md`) found usage-first
+   lost 155 pts over 30 team-weeks, while ECR-first gained. **Usage can't see a player returning
+   from injury** (his recent weeks show 0 targets), so it never overrides ECR for a returning player.
    - **Re-rank the whole position group, bench included.** Never frame a decision as only
      "current starter vs. new option." Every eligible player at the position gets ranked.
    - **Flag role changes** at RB/WR: a teammate's injury or return, a depth-chart move, or a
@@ -88,13 +89,33 @@ Gives start/sit recommendations for the user's team for a given week.
 
    | Position | 1st | 2nd | Then |
    |---|---|---|---|
-   | **TE** | Usage (targets, snap share) | ECR + Vegas | Health tier |
-   | **RB / WR** | ECR + Vegas (+ props when gathered) | Usage, mainly as a role-change check | Health tier |
+   | **TE** | ECR + Vegas | Targets, **only when the two TEs are within ~5 ECR spots** | Health tier |
+   | **RB** | ECR + Vegas (+ props when gathered) | Usage, mainly as a role-change check | Health tier |
+   | **WR** | ECR + Vegas (+ props when gathered) | Usage only for a clear role change | Health tier |
+   | **W/R/T flex** | FLEX ECR (`half-point-ppr-flex.php`) | Within ~10 flex spots: **later kickoff** | Health tier |
    | **QB / K / DEF** | ECR + Vegas | — | Health tier |
 
-   1. **Leading signal** per the table. At RB/WR, a clear **role change** caught by usage
-      (step 5) can override ECR when the rankings look stale, e.g. ECR was set before the
-      teammate's injury news. Say so explicitly when it does.
+   (Revised 2026-10-11 after the league-wide replay in `reference/league-replay-wk1-4.md`.)
+
+   1. **Leading signal** per the table.
+      - **TE:** when two TEs are within ~5 ECR spots, start the one with more targets over the
+        last 2-3 games (Likely TE10 vs. Sadiq TE12 in Wk4: targets said Likely, who scored 10.1
+        to Sadiq's 0). Beyond ~5 spots, follow ECR. In Wk3, usage would have picked Juwan
+        Johnson (TE13) over Brock Bowers (TE3), who had 0 recent targets after missing time.
+        Bowers scored more.
+      - **WR:** follow ECR. Managers who overrode it league-wide were wrong 7 of 10 times
+        (−28.6 pts), and every usage-vs.-ECR disagreement went ECR's way. Override only for a
+        clear role change that ECR hasn't caught yet, and say so.
+      - **RB:** a clear **role change** caught by usage (step 5) can override ECR when the
+        rankings look stale, e.g. ECR was set before the teammate's injury news. Say so.
+      - **Flex:** compare RB/WR/TE candidates on FantasyPros' FLEX ECR, not positional ranks.
+        Within ~10 flex spots it's a coin flip (league-wide, managers and ECR each won 6 of 12),
+        so start the player with the **later kickoff**. Yahoo lets you swap a player until his
+        own kickoff, so that keeps the swap option open longest, e.g. if the other guy is ruled
+        out late. Don't spend research time on close flex calls.
+      - **Recently-returned players:** the bump stays a tiebreaker. Don't bench a returning
+        player across a big ECR gap. Maria benched Puka (WR7) in his Wk4 return for WR22/WR27,
+        and he scored 23.2 on the bench.
    2. **Disagreements:** when usage and ECR/props point to different players on a close call,
       say so and log it as a test case in `reference/source-accuracy.md`. Don't silently pick
       one: these disagreements are how we learn which source to trust.

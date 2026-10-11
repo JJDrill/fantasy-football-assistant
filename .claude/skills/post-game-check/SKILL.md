@@ -62,7 +62,8 @@ directly instead.
      tracker" in `seasons/2026/Kicker I Hardly Know Her/reference/season-lessons.md`: practice
      trend, final report, injury type, recently returned, play risk, limited risk, tier,
      **snap % in that game vs. his average over the previous 2-3 healthy games** (Sleeper
-     `off_snp`/`tm_off_snp`; a 10+ point drop = "Limited", else "Full"), actual points,
+     `off_snp`/`tm_off_snp`; a 10+ point drop = "Limited", or "In-game" if he left the game
+     injured, else "Full"), actual points,
      positional average, above/below.
      Also update that file's cross-week audit: for any loss, note which bench swap would have
      flipped it and whether that was knowable at decision time or random.
