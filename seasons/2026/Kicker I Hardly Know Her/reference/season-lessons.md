@@ -117,21 +117,38 @@ primary at RB/WR, which the backtest didn't support.*
 ## Injury-risk tier tracker
 
 Tests whether the `lineup-advice` health risk ladder (Low / Medium / High) predicts anything.
-Log every **started** player who carried a Yahoo injury tag or appeared on an injury report
-that week. Compare to the same week's positional average in `matchup-grade-accuracy.md`.
-"Below avg" = a bad outcome. If High-tier starters don't underperform more often than Low-tier
-ones over the season, the ladder isn't earning its place. Appended by `post-game-check`.
+Log every **started** player who carried a Yahoo injury tag, appeared on an injury report, or
+got the recently-returned bump that week. Appended by `post-game-check`.
 
-| Wk | Player | Pos | Practice trend | Final report | Injury type | Recently returned? | Tier | Pts | Pos avg | Result |
-|---|---|---|---|---|---|---|---|---|---|---|
-| 4 | Josh Allen | QB | Practiced Wed onward | No designation | Knee contusion | No | Low | 19.52 | 19.20 | Above avg |
-| 4 | Kenyon Sadiq | TE | Limited Wed/Thu/Fri | Q, active Sunday | Back (soft tissue) | No (injured that week) | High | 0.00 | 9.23 | Below avg |
+**Two risks, rated separately** (split 2026-10-11):
+- **Play risk:** will he be inactive or leave the game early? Practice trend and the final
+  designation drive it, and the inactive list settles most of it before kickoff.
+- **Limited risk:** if he plays, will his role shrink (fewer snaps, a pitch count, a decoy)?
+  Injury type (soft tissue), the recently-returned bump and pitch-count reports drive it.
+  This is the risk that cost us with Sadiq in Wk4, and no pre-kickoff hedge covers it.
+The overall **Tier** stays the start/sit input (the higher of the two, in practice). The two
+sub-ratings are logged so we can learn which one actually predicts a bad game.
+
+**Outcomes, two ways:**
+- **Snap % (game vs. prior):** his offensive snap share in that game vs. his average over the
+  previous 2-3 healthy games (Sleeper `off_snp`/`tm_off_snp`). A drop of **10+ points** = **Limited**.
+  This is the low-noise test of Limited risk: a touchdown can hide a reduced role, and a healthy
+  player can still score 3.
+- **Pts vs. pos avg:** league-wide average of started players at his position that week (flex
+  counted under the real position). "Below avg" = a bad outcome.
+If High-tier starters aren't Limited or Below avg more often than Low-tier ones over the season,
+the ladder isn't earning its place.
+
+| Wk | Player | Pos | Practice trend | Final report | Injury type | Recently returned? | Play risk | Limited risk | Tier | Snap % (game vs. prior) | Role | Pts | Pos avg | Result |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 4 | Josh Allen | QB | Practiced Wed onward | No designation | Knee contusion | No | Low | Low | Low | 100% vs. 100% | Full | 19.52 | 19.20 | Above avg |
+| 4 | Kenyon Sadiq | TE | Limited Wed/Thu/Fri | Q, active Sunday | Back (soft tissue) | No (injured that week) | Medium | High | High | 69% vs. — (not pulled) | — | 0.00 | 9.23 | Below avg |
 
 **Recently returned** (column added 2026-10-08): "Yes (game N of 2/3)" when the `lineup-advice`
 bump applied, meaning within 2 games of the last Q/D/O or missed game, or 3 for soft tissue. Log
 those starters even when they have no tag that week. That's the case this column tests.
 
-Tiers for Wk4 were assigned retroactively (2026-10-05) from the `week-04.md` injury cache.
+Wk4 play/limited ratings were assigned retroactively on 2026-10-11. Tiers for Wk4 were assigned retroactively (2026-10-05) from the `week-04.md` injury cache.
 Weeks 1-3 have no tagged starters worth tiering (Dowdle Wk1-2 was healthy at lineup time).
 
 ## Accept as random (don't over-correct)

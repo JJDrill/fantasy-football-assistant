@@ -120,6 +120,13 @@ Gives start/sit recommendations for the user's team for a given week.
       tier tracker (`reference/season-lessons.md`, "Recently returned" column) so we can
       test whether these players actually underperform.
 
+      **Rate two risks behind the tier** (added 2026-10-11): **play risk** (inactive or an
+      early exit; practice trend and final designation) and **limited risk** (active but a
+      reduced role; soft-tissue injury, the recently-returned bump, pitch-count reports). The
+      overall tier is the higher of the two. Once the inactive list is out, play risk is mostly
+      settled, so on Sunday morning the **limited risk** is what's left to weigh. Log both in
+      the week's injury cache.
+
       Re-tier as reports come in (Wed → Fri → inactives). Record the tier in the week's
       injury cache. Prefer the healthy, steady-volume player when a High-tier player and a
       healthy one are close. A late-kickoff backup (e.g. an MNF
