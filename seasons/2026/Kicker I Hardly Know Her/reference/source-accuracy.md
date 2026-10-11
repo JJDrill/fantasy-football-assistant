@@ -12,7 +12,7 @@ Sources:
 - **Usage**: last 2-3 weeks of snaps, carries and targets (Sleeper)
 - **ECR**: FantasyPros half-PPR weekly consensus rank (`yahoo/fantasypros-ecr.js`)
 - **Props**: player prop lines (yards/receptions/anytime TD)
-- **Matchup**: defense-vs-position grade (tiebreaker only)
+- **Matchup**: defense-vs-position grade. **Retired 2026-10-11** (7/21 hit rate); recorded as — from Wk5 on
 - **Final call**: what we actually started
 
 ## Close calls

@@ -51,16 +51,8 @@ directly instead.
      (proposed / accepted / vetoed / canceled / dropped).
    - Invoke the `challenge-tracker` skill.
    - Invoke the `waiver-targets` skill.
-   - **Matchup-grade accuracy check**: for every one of your starters that got a
-     matchup grade in that week's `lineup-advice` pass (see the week's notes file),
-     compare their actual fantasy points to the league-wide positional average for that
-     week. A grade is a **hit** if a Favorable player scored above the positional
-     average or an Unfavorable player scored below it; otherwise it's a **miss**
-     (Neutral grades aren't scored either way). Append one row per graded starter to
-     `seasons/2026/Kicker I Hardly Know Her/reference/matchup-grade-accuracy.md` (create it if it doesn't exist yet, with
-     columns Week | Player | Position | Grade | Vegas Signal | Actual Pts | Position Avg
-     | Hit/Miss), so a hit rate accumulates across the season. Mention the resulting
-     week's hit rate and the running season hit rate in the summary.
+   - **Matchup grades are retired** (2026-10-11, 7/21 hit rate). Don't score them.
+     `reference/matchup-grade-accuracy.md` is a closed record.
    - **Source accuracy**: for each close call logged that week in
      `seasons/2026/Kicker I Hardly Know Her/reference/source-accuracy.md`, fill in both players'
      actual points, score each source ✓/✗/—, and update the running record. Mention in the

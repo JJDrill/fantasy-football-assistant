@@ -55,8 +55,8 @@ either individually, use those skills directly instead.
      injury alerts, etc.) you want looked into?" Either way, evaluate each flag the
      same way: a mass-drop number alone is usually normal streaming churn (common for
      K/DEF, which get streamed weekly), or a reaction to news already known (e.g. a
-     player already on IR). Check it against the player's actual injury/legal status
-     and matchup grade before deciding whether it matters, and say so explicitly either
+     player already on IR). Check it against the player's actual injury/legal status,
+     ECR and Vegas implied total before deciding whether it matters, and say so explicitly either
      way rather than letting the raw number imply concern.
    - **Don't ask what's worrying the user.** The checklist already covers every injury tag,
      bye and close call. They'll say so if something else matters.

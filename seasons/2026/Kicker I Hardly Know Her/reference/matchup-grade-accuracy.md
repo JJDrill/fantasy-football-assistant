@@ -1,5 +1,9 @@
 # Matchup-Grade Accuracy Tracker
 
+> **Closed 2026-10-11.** Matchup grades are retired from `lineup-advice` after hitting 7/21 (33%)
+> through Week 4, worse than a coin flip. The matchup is already priced into Vegas implied totals
+> and FantasyPros ECR. Kept as the record of why; no new rows.
+
 Accumulates, across the season, how well the `lineup-advice` Step 6 matchup grades
 actually predicted performance. Appended once per week by `post-game-check`.
 

@@ -101,11 +101,18 @@ Re-run the Run B format on future weeks once ECR and props are in the packet.
 
 1. **Re-rank the whole position group each week, bench included**, by last 2-3 weeks' usage: snap share,
    carries, targets. Never only "current starter vs. new option."
-2. Order of evidence for start/sit: **usage → Vegas implied total → health tag → matchup grade** (last,
-   tiebreaker only).
+2. Order of evidence for start/sit, **by position** (revised 2026-10-11 to match the backtest above):
+   - **TE:** usage (targets) → ECR + Vegas → health tier.
+   - **RB/WR:** ECR + Vegas → usage, mainly to catch role changes (a teammate hurt, a depth-chart
+     move, a snap jump like Gordon's) → health tier.
+   - **QB/K/DEF:** ECR + Vegas → health tier.
 3. **Q tag + low implied total = tiebreaker against** when projections are close. Prefer the healthy,
    steady-volume player.
-4. A Favorable matchup does not rescue a player whose carries or targets are falling.
+4. **Matchup grades are retired** (2026-10-11). They hit 7/21 (33%) through Week 4, worse than a coin
+   flip, and the matchup is already priced into Vegas totals and ECR. See `matchup-grade-accuracy.md`.
+
+*Superseded 2026-10-11: "usage → Vegas → health → matchup grade" for every position. That made usage
+primary at RB/WR, which the backtest didn't support.*
 
 ## Injury-risk tier tracker
 
