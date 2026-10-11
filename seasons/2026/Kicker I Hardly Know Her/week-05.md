@@ -272,3 +272,37 @@ worked, so no questions were asked. No pending trades or claims.
 - **League:** THE Lil Unk Rayrays and 4th Qtr Maria traded Jaylen Waddle for Aaron Jones Sr. (Oct 10).
   Doesn't involve us. Our opponent (the Knights) is adding Sutton and the Broncos DEF per trends.
 - **Pickens** already has 23.5 pts.
+
+## Pre-game check #5 (2026-10-11, Sunday before 1 pm kickoffs; `pre-game-check` + `waiver-targets`)
+
+Live: `get-matchup 5`, `get-alerts 5 3`, `get-free-agents.js` (all positions), `fantasypros-ecr.js`.
+User moved Dowdle BN → IR this morning (his tag is back to O, so the slot is legal).
+
+- **Lineup: no changes.** No starter has a tag or is on an inactive list. Tee Higgins (Knights) is active.
+- **Pineiro:** the user saw something about him being out. No report found and no Yahoo tag
+  ([search](https://www.rotowire.com/football/headlines/eddy-pineiro-injury-expected-to-play-sunday-638058)
+  only turned up his Wk2 illness). He's on the bench anyway. The "out" was likely **Dowdle**, inactive again
+  ([NFL.com](https://www.nfl.com/news/week-5-injuries-sunday-pregame-2026-nfl-season),
+  [Steelers.com](https://www.steelers.com/news/steelers-inactives-for-week-5-vs-colts)).
+- **Why add before kickoff:** free agents go to waivers once their game starts (TNF/London players
+  already show "W (Oct 14)"). Adding before 1 pm skips our 8th waiver priority.
+
+### Free-agent moves (2026-10-11, 9:41-9:44 am PT; verified with `get-matchup 5` / `get-alerts 5 1`)
+
+| Move | ECR | Why |
+|---|---|---|
+| **Add Alvin Kamara (NO)** into the open bench spot | RB28 | Leads the NO committee with Etienne on IR; active today (back, Q) ([NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-10-11/alvin-kamara-back-active-for-week-5-vs-vikings)). Wk6 RB2 option with Gordon on bye |
+| **Add Keaton Mitchell (LAC), drop Woody Marks** | RB32 vs. RB35 | Role rising (out-snapped Hampton Wk4, 10 carries) ([RotoBaller](https://www.rotoballer.com/player-news/keaton-mitchell-carries-deep-league-flex-appeal-in-week-5-vs-broncos/1963140)). Marks shared Montgomery's Wk8 bye |
+
+Roster: 15 of 15 active, Dowdle (O) on IR (1 of 2). **Wk8 bye note:** Kamara (NO) shares the HOU Wk8 bye
+with Montgomery, so Gordon + Mitchell are the Wk8 RBs.
+
+**Week 6 DEF (Vikings bye):** not added yet; 22 DEFs are FAs. Candidates: Colts vs. TEN, 49ers vs. WAS,
+Saints vs. NYG ([RotoBaller](https://www.rotoballer.com/fantasy-football-defense-d-st-rankings-streamers-for-weeks-5-6-7-8-2026/1959760)).
+Needs a drop (Sadiq, Pineiro after Wk6 or Mahomes after Wk7 are the candidates; Pineiro is McPherson's Wk6 cover).
+
+| Player | Status | Note | Checked | Source |
+|---|---|---|---|---|
+| Rico Dowdle | O, inactive Wk5 | Toe. On our IR (legal again) | 2026-10-11 | NFL.com, Steelers.com (above) |
+| Eddy Pineiro | No tag | No Wk5 injury report found | 2026-10-11 | search, Yahoo roster |
+| Alvin Kamara | Q (back), active | Leads NO committee | 2026-10-11 | NBC Sports (above) |
