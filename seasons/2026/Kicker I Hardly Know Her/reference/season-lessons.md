@@ -158,12 +158,14 @@ the ladder isn't earning its place.
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 4 | Josh Allen | QB | Practiced Wed onward | No designation | Knee contusion | No | Low | Low | Low | 100% vs. 100% | Full | 19.52 | 19.20 | Above avg |
 | 4 | Kenyon Sadiq | TE | Limited Wed/Thu/Fri | Q, active Sunday | Back (soft tissue) | No (injured that week) | Medium | High | High | 69% vs. — (not pulled) | — | 0.00 | 9.23 | Below avg |
+| 5 | Isaiah Likely | TE | Limited Wed/Thu, full Fri | No designation | Knee/groin (soft tissue) | Yes (game 1 of 3) | Low | Medium | Medium | 80% vs. 73% (Wks 2-4) | Full | 26.9 | 11.91 | Above avg |
 
 **Recently returned** (column added 2026-10-08): "Yes (game N of 2/3)" when the `lineup-advice`
 bump applied, meaning within 2 games of the last Q/D/O or missed game, or 3 for soft tissue. Log
 those starters even when they have no tag that week. That's the case this column tests.
 
 Wk4 play/limited ratings were assigned retroactively on 2026-10-11. Tiers for Wk4 were assigned retroactively (2026-10-05) from the `week-04.md` injury cache.
+Wk5 (logged 2026-10-13): Likely was the only tiered starter. Montgomery had no tag before kickoff and left Wk5 in the 2nd quarter with a groin injury (14% of snaps); that was an in-game injury and he wasn't tiered, so he isn't logged. Wk5 was a 1.56-pt win, so there's no loss to audit.
 Weeks 1-3 have no tagged starters worth tiering (Dowdle Wk1-2 was healthy at lineup time).
 
 ## Accept as random (don't over-correct)

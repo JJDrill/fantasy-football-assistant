@@ -306,3 +306,111 @@ Needs a drop before Wk6. Sadiq is the likely one (TE14, about even with FA Henry
 | Rico Dowdle | O, inactive Wk5 | Toe. On our IR (legal again) | 2026-10-11 | NFL.com, Steelers.com (above) |
 | Eddy Pineiro | No tag | No Wk5 injury report found | 2026-10-11 | search, Yahoo roster |
 | Alvin Kamara | Q (back), active | Leads NO committee | 2026-10-11 | NBC Sports (above) |
+
+## Post-game check (2026-10-13, Tuesday; `post-game-check`)
+
+Auth refreshed. `get-matchup 5`, `get-scoreboard 5`, `get-all-rosters`, `run-challenge 5`, `get-free-agents`
+(all, RB, DEF, TE, WR) and `fantasypros-ecr.js` (Wk6, 21 experts, updated 10/13) all worked, so no
+questions were asked.
+
+**Result: W 132.60 – 131.04 vs. Knights Who Say Ni (now 1-4).** Allen 31.5, Likely 26.9, Pickens 23.5,
+Gordon 14.8, Vikings 11, St. Brown 9.9, McPherson 7, Burden 6.9, Montgomery 1.1. The Knights benched
+McLaurin (10.2) and Sutton (8.8) and started RJ Harvey (0.7); either swap wins it for them. Jaylen
+Warren's 33.8 nearly did it anyway.
+
+**Challenge ("Gotta Catch Jamaal", top starting RB):** Russini's Source, Jahmyr Gibbs 35.2 (Warren
+33.8, Irving 30.5). Ours: Gordon 14.8. Pre-stat-correction.
+
+**Montgomery: groin injury in the 2nd quarter, ruled out, no timeline** ([RotoBaller](https://www.rotoballer.com/?p=1963765),
+[RotoBaller](https://www.rotoballer.com/?p=1963820)). Yahoo tag D, so he isn't IR-eligible until it
+turns O. He isn't in the Wk6 FantasyPros RB rankings. **Woody Marks (whom we dropped Sunday) took over:
+85% of snaps, 15 carries, 4 targets, 10.5 half-PPR.** He's on waivers (clears Oct 14) and is RB25 for Wk6.
+
+### Week 6 waiver plan (process Wed Oct 14)
+
+| Priority | Move | ECR Wk6 | Why |
+|---|---|---|---|
+| 1 | **Claim Woody Marks**, drop **Kenyon Sadiq** | RB25 | Houston's lead back while Montgomery is out. Sadiq: 19% of snaps in Wk5, not in the TE top 20 (Likely is TE4) |
+| 2 | **Claim Chiefs DEF** (vs. LAC), drop **Keaton Mitchell** | DST2 | Vikings on bye. Patriots (DST3 vs. NYJ) and Ravens (DST5) are also free agents, as backups |
+
+- Keep Pineiro (K6 this week, McPherson's bye) and Mahomes (Allen's Wk7 bye), per the earlier plan.
+- If Montgomery's tag turns O, move him to IR and keep Mitchell instead.
+- **Wk6 lineup sketch:** Allen; RB Marks + Kamara (RB28); WR Pickens (WR16) + McMillan (WR13); TE Likely;
+  W/R/T Burden (WR20); K Pineiro; DEF Chiefs. St. Brown, Gordon, McPherson and the Vikings are on bye.
+- Trade: #14 (Burden for Chase Brown, Lil Unk) is the top candidate. Send it after the Marks claim.
+  See `trades.md`.
+- Season acquisition cap is 60. The used count wasn't checked this pass.
+
+### Roster moves (2026-10-13, after the post-game check; verified with `get-matchup 6` / `get-alerts 6 1`)
+
+- **Dropped Rico Dowdle from IR.** His tag reset O → Q again, which made the IR slot illegal and
+  blocked adds (Error #845). He'd missed 3 straight games, and Warren owns the PIT backfield. IR is
+  now 0 of 2, 15 of 15 active.
+- **Marks claim blocked: Error #245** ("You cannot add a player you dropped until the waiver period
+  ends"). We dropped him Sunday, so we can't claim him this cycle. **Lesson: dropping a player locks
+  us out of re-adding him until he clears waivers, so weigh that before dropping someone whose role
+  could grow** (Marks was Montgomery's direct backup).
+- **Revised Wk6 plan:** claim the Chiefs DEF, dropping Sadiq. On Wed after waivers clear, if Marks goes
+  unclaimed, add him as a free agent and drop Mitchell. No other free-agent RB beats Kamara and
+  Mitchell (Corum RB30, B. Robinson RB31, K. Miller RB32). Trade #14 (Burden for Chase Brown) is now
+  the main path to an RB2.
+- **Claim submitted (2026-10-13):** add Chiefs DEF, drop Kenyon Sadiq. Processes Oct 14. Verified pending
+  via `get-alerts 6 1` (claim 2_100012_42638, waiver priority 8).
+- **Backup claim (2026-10-13):** add Patriots DEF, drop Sadiq, order 2 behind the Chiefs (verified
+  via `get-alerts 6 1`). If the Chiefs claim succeeds, Sadiq is gone and this claim fails on its own.
+- **Wk6 lineup set (2026-10-13, verified `get-matchup 6`):** Allen; RB Kamara + Mitchell; WR Pickens +
+  McMillan; TE Likely; W/R/T Burden; K Pineiro. Benched: St. Brown, Gordon and McPherson (byes) and
+  Montgomery (D, groin). **DEF is still the Vikings (bye): swap in the Chiefs or Patriots after Wed waivers.**
+- **Trade #14 accepted (2026-10-13, 12:36 pm):** McMillan → Lil Unk for Chase Brown. In the 2-day veto
+  window. McMillan stays in the Wk6 lineup until it processes. Afterward: Brown to BN (CIN bye Wk6),
+  and fill the WR slot McMillan leaves (Burden moves to WR; flex goes to Marks if added, or a free-agent WR).
+- **Waivers processed (2026-10-14; verified `get-matchup 6` / `get-alerts 6 1` / `get-all-rosters`):**
+  the Chiefs claim succeeded (Sadiq dropped), and the Chiefs are in the DEF slot vs. LAC. The Patriots backup
+  failed as intended. **Marks was claimed by 4th Qtr Maria.** Trade #14 is still in the veto window, not
+  processed. Plan once it processes: add a free-agent WR (Shakir or Worthy) for the flex, drop McPherson
+  (or move Montgomery to IR if his tag turns O).
+
+### Week 6-8 plan (updated 2026-10-14)
+
+**Keep the Vikings DEF.** It's fantasy's #1 defense over Wks 1-5 (13.0 per game: 10/18/17/9/11, Sleeper).
+The Chiefs are a one-week rental for the Vikings' bye. Ravens and Patriots were claimed by others.
+Free-agent DEF fallbacks for later: **Raiders** (12.0 per game, #2, but 15/16/16/1; check the matchup),
+49ers (9.0, #4), Jaguars (waivers until Oct 16).
+
+**Keep McPherson.** He's perfect on FGs in 2026, 5 of them from 50+
+([Roundtable](https://roundtable.io/sports/nfl/bengals/players/evan-mcpherson-earns-recognition-for-red-hot-start-to-2026)).
+Pineiro is a Wk6-only fill-in. His health history: kicking-leg hamstring Nov 2025, illness Wk2 2026.
+If he's hurt before Sunday, swap in a free-agent K.
+
+**Montgomery: week-to-week (groin)** ([RotoBaller](https://www.rotoballer.com/?p=1964436)). Likely out Wk6,
+probably Wk7, and HOU is on bye Wk8, so Wk9 at the earliest. Yahoo tag D (not IR-eligible).
+
+| When | Move |
+|---|---|
+| **Thu/Fri (HOU injury report)** | If Montgomery's tag is **O**: move him to **IR** and add **Brenton Strange** (TE12). No drop. If he's still **D** on Friday: add Strange and **drop Montgomery** (RB68, likely out until Wk9). Mahomes stays (see refresh below) |
+| When trade #14 processes | Lineup: Burden → WR, Strange → W/R/T, Brown → BN (CIN bye). Strange stays on BN until then |
+| Before Sunday | Check Pineiro is active. If Strange was claimed by someone else, add Freiermuth (TE13) or Higbee (TE15) instead |
+| After Wk6 | Drop the **Chiefs** (Vikings back) and **Pineiro** (McPherson back). That frees 2 spots |
+| Wk7 | Allen on bye: start **Mahomes** |
+| Wk8 | Likely on bye: start **Strange** at TE (JAX plays Wk8; its bye is Wk7). Kamara (NO) is also on bye Wk8: RBs Brown, Gordon, Mitchell |
+
+**Why the plan changed (2026-10-14, critical review):**
+- **The TE add replaces the Tucker idea.** Freiermuth (FLEX 76 vs. Tucker 66, about a 1-pt gap) fills the Wk6
+  flex and also covers Likely's Wk8 bye plus his knee/groin risk.
+- **Freiermuth's usage:** targets 5/5/4/5/7, 60-75% of snaps, 10.2 per game. Darnell Washington's 53-76% of
+  snaps caps his ceiling.
+- **Higbee is the closest alternative:** targets 11/6/6 over the last 3 weeks, 12.1 per game.
+- **Montgomery isn't dropped yet.** HOU will likely rule him out for London, which should flip his tag to O
+  and make him IR-eligible for free.
+- **Our RB depth is fragile:** Brown/Perine split in Wk5, Gordon/Wright, Kamara in a committee, Mitchell at
+  about 35% of snaps. Montgomery (RB22-25 when healthy) is a stash worth keeping from Wk9.
+
+**Free-agent refresh (2026-10-14, later; `get-free-agents` all positions + ECR updated 10/14):**
+- **Jordan Love was claimed.** The best free-agent QBs now are Caleb Williams QB13 (Grade 2 hamstring),
+  Stroud QB15 (waivers until Oct 16), Brissett, Rodgers. Streaming a QB in Wk7 would cost about 4-6 pts vs.
+  Mahomes (QB11), so **Mahomes stays, and Montgomery is the Friday fallback drop.**
+- **TE pick switched to Strange** (TE12; targets 8/8 and 81-87% of snaps over the last 2 weeks; no
+  committee) over Freiermuth (TE13, shares snaps with Darnell Washington). Higbee is TE15.
+- **No changes elsewhere.** Chiefs are now DST1 for Wk6, Pineiro is K5, and Butker (K7) is a free-agent
+  backup K. The best free-agent RB is Corum (RB29), about even with Mitchell (RB30). Tucker (WR31) is
+  still available. The Raiders DEF is still available for later.

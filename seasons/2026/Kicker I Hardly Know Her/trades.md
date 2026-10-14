@@ -373,3 +373,81 @@ would barely beat Montgomery (RB25).
 **Takeaway (2026-10-07):** Mahomes has almost no trade value while Stafford sits on waivers. Keep him
 as Allen's Wk7 cover. Getting an RB upgrade by trade will take a real asset, not a backup QB.
 
+
+**Update to #12 (2026-10-13, post-Wk5 `trade-finder`):** Still not sent. Hubbard is FantasyPros RB11
+for Wk6 (back from bye, 84% snaps in Wks 3-4), and Montgomery's groin injury makes an RB more urgent.
+But Mahomes' value hasn't changed. Love (QB6 this week) and other starting QBs are free agents, and
+the Knights just lost to us. Still a free long shot. If it's sent, send it after the Wk6 waivers clear.
+
+## 14. Tetairoa McMillan ↔ Chase Brown (vs. THE Lil Unk Rayrays) — proposed 2026-10-13
+
+**Status:** **Accepted 2026-10-13 (12:36 pm), in the veto window, not processed yet** (McMillan was still on our roster per `get-matchup 6` right after). Raymond: "I was no shit looking at this exact trade last night just thought you might not go for it." Watch for 3 veto votes. Originally **proposed 2026-10-13** as McMillan ↔ Brown, straight up (verified pending via `get-alerts 6 1`, Yahoo trade id 10). The original Burden ↔ Brown version was analyzed first and judged too lopsided (see below).
+
+**Give:** Luther Burden III (WR, CHI, bye Wk10). **Receive:** Chase Brown (RB, CIN, bye **Wk6**).
+
+- **Why it helps us:** Montgomery left Wk5 with a groin injury and has no timeline
+  ([RotoBaller](https://www.rotoballer.com/?p=1963820)). Dowdle is on IR. Brown's role is steady:
+  60-79% of snaps every week, carries 16/20/13/9/13, targets 6/5/2/11/4, and 16.3/9.7/7.9/13.6/5.5
+  half-PPR (Sleeper). Once St. Brown is back (Wk7), our WRs are St. Brown, Pickens and McMillan,
+  so Burden is our 4th WR (WR20 for Wk6; 6/7/11/6/6 targets, 7.0/4.7/16.3/9.4/6.9).
+- **Why it helps them:** Brown sits on their bench behind Bijan (RB2) and Javonte (RB8). Their only
+  WRs are Egbuka, London and Waddle, so a bye or injury leaves their flex empty. They're 3-2.
+  Pitch line: "Brown's stuck behind two top-8 RBs on your bench. Burden starts for you any week one of
+  your three WRs is out."
+- **Cost:** Brown is on bye in Wk6, and Burden would have been our Wk6 flex with St. Brown off.
+  The Wk6 flex then falls to Mitchell (RB29) or Kamara (RB28) instead of Burden (WR20). That's a
+  small one-week cost for a rest-of-season RB2.
+- **Verdict: slightly favors us, plausible for them.** A WR4 for a starting-caliber RB. Their
+  RB depth is real surplus.
+- **Fallback:** McMillan for Brown (McMillan is WR13 for Wk6 with 80-95% snaps and 38.2 in Wk4).
+  That's fair or favors them, so only offer it if they insist on more.
+- **Order of operations:** claim Woody Marks on Wed Oct 14 waivers first (see `week-05.md`), then
+  send this. It's 1-for-1, so roster count doesn't change.
+
+**Yahoo Evaluate Trade (2026-10-13, user screenshot): J's Pancakes +57.34, Lil Unk −39.03.**
+Burden O-Rank 52, 113.98 projected points remaining; Brown O-Rank 12, 151.16. We lose Wk6 (−5.80, Brown's
+bye) and gain every week after. **Corrected verdict: clearly favors us, too lopsided to send.** Raymond
+already backed out of #5, and a gap this size invites veto votes. **Not sent.** Next step: run McMillan ↔
+Brown through Evaluate Trade and send it if it's within about ±15 for both teams.
+
+**Update (2026-10-13): switched to the fallback, McMillan ↔ Chase Brown. Yahoo Evaluate Trade (user
+screenshot): J's Pancakes +39.71, Lil Unk −13.29.** McMillan O-Rank 33, 61.50 pts to date, 139.72
+projected remaining; Brown O-Rank 12, 151.16. Lil Unk gains Wks 6/7/10 (+2.97/+0.17/+4.76) and loses
+about 1.5-2.7 a week after that. We lose Wk6 (−7.13), Wk7 is even, and we gain every week from Wk8 on,
+including the playoffs. **Verdict: favors us but stays within the ±15 bar for them. Recommended to
+send.** The Wk6 flex hole is covered by adding Marks (if unclaimed) or a free-agent WR, dropping McPherson.
+
+**Critical re-review (2026-10-14, before processing):** closer than first stated, still a modest win.
+- **Brown risk:** Samaje Perine jumped to 14 carries, 51% of snaps and 14.8 pts in Wk5 (Brown: 13 carries, 60%, 5.5).
+  Perine was at 28-40% of snaps before that. Brown's pts are 16.3/9.7/7.9/13.6/5.5 (10.6 per game). Wk4's 11 targets came
+  after Ja'Marr Chase's concussion exit ([NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-10-04/chase-browns-11-catches-hit-big-for-ppr-leagues)).
+- **McMillan context:** his 38.2 came with Coker and Legette both out
+  ([DraftSharks](https://www.draftsharks.com/fantasy-football-news/83158/tetairoa-mcmillan-erupts-for-442-ppr-points-as-week-4s-wr1)).
+  The other three games average 7.8. He plays 80-95% of snaps with about a 22% target share, so the upside is real.
+- **What matters is the gain over replacements:** McMillan → Burden at WR3 (8.9 per game) is about even (or −6 if the
+  breakout is real). Brown over Kamara or Mitchell at RB2 (~7-8) is about +3.
+- **What would change the verdict:** news that CIN is splitting carries with Perine. Withdrawing after acceptance
+  isn't possible in Yahoo; the only route is the #5 precedent (Raymond agrees, then the league vetoes). Not pursued.
+
+## 15. Luther Burden III ↔ Jacory Croskey-Merritt (vs. Smokin Base Brian) — considered 2026-10-13, dropped
+
+**Status:** Dropped before proposing (`trade-analyzer`, post-Wk5).
+
+Brian needs a WR (Addison O, McConkey Q) and has spare RBs (Croskey-Merritt, Love, Rodriguez). But
+Croskey-Merritt's role is unstable: 35-57% of snaps, carries 16/12/19/9/11, 4.8-14.2 half-PPR. He's
+RB21 for Wk6, barely above free agent Woody Marks (RB25), and WAS is on bye in Wk7. **Verdict: fair but
+not worth a WR.** Jeremiyah Love (RB23, rookie) would be the target, but Brian has no reason to move
+him for Burden.
+
+## 16. Luther Burden III ↔ Quinshon Judkins (vs. True & Living 12th Gospel) — considered 2026-10-13, fallback to #14
+
+**Status:** Analyzed. Not sent. Fallback if #14 is declined.
+
+The 0-5 team has Deebo out and thin WRs (Doubs, Downs, Watson), with Judkins on their bench behind
+Cook and Stevenson. Judkins: 51-67% of snaps, carries 12/12/18/17/14, 6.0/7.3/8.9/18.6/6.5 half-PPR.
+RB20 for Wk6, CLE bye Wk11. Yahoo shows him Q. No current injury report found
+([search](https://www.cbssports.com/fantasy/football/news/browns-quinshon-judkins-facing-four-to-six-month-recovery)
+only turned up his 2025 leg fracture), so check before sending. **Verdict: fair.** It's a lesser version of #14.
+
+Limits: 2 of 15 trades used once #14 clears, deadline Nov 28, 2026 (`reference/League_Settings.pdf`). 3 veto votes
+cancel a trade.
