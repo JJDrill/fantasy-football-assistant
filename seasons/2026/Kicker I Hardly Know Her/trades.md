@@ -451,3 +451,53 @@ only turned up his 2025 leg fracture), so check before sending. **Verdict: fair.
 
 Limits: 2 of 15 trades used once #14 clears, deadline Nov 28, 2026 (`reference/League_Settings.pdf`). 3 veto votes
 cancel a trade.
+
+## 17. Luther Burden III ↔ Aaron Jones Sr. (vs. 4th Qtr Maria) — analyzed 2026-10-14, top pick, not sent
+
+**Status:** Analyzed (`trade-finder` RB scan → `trade-analyzer`). Recommended. Send after Burden plays Wk6.
+
+**Give:** Luther Burden III (WR, CHI, bye Wk10). **Receive:** Aaron Jones Sr. (RB, MIN, bye Wk6, on Maria's bench).
+
+**Why it fits:** Maria (3-2) rosters 5 RBs (Henry, Marks, Kyren Williams, Jones, Barkley Q) and only 3 WRs (Puka,
+Worthy WR36, Jameson Williams on bye). They dropped MHJ and Q. Johnston this week, so WR is their open hole.
+Jones is a bench piece for them.
+
+**Usage (Sleeper Wks 1-5, half-PPR):** Jones 46/81/80/73/87% snaps, carries 12/23/17/20/25, 10.0/10.5/11.7/14.8/17.2
+(12.8 avg, rising). Jordan Mason is on IR (Brian's roster), so Jones is MIN's lead back. Burden 8.9 avg (targets 5/7/11/6/6).
+Our RB2 today is Mitchell (6.1 avg, ~35% snaps).
+
+**Verdict: favors us modestly, fair enough to get accepted.** Jones over Mitchell is about +6-7/week. Burden's
+WR3 spot is refilled from free agency (Wan'Dale Robinson ~11/game Wks 3-5, Tucker), so the WR loss is small.
+Maria gets a WR2 starter every week. Jones's MIN bye is Wk6, already done after this week.
+**Risks:** Jones is 31, with a 2025 hamstring IR stint. Burden's ECR (WR19) is higher than his production.
+
+**Timing:** Jones is on bye Wk6, and sending now would open a second WR hole before Sunday (McMillan leaves in #14).
+Send Sunday night after CHI-ATL so it clears the 2-day veto window before Wk7.
+
+## 18. Patrick Mahomes ↔ Javonte Williams (vs. THE Lil Unk Rayrays) — analyzed 2026-10-14, second pick, not sent
+
+**Status:** Analyzed. Send after #14 processes, and after confirming the Wk7 QB stream.
+
+**Give:** Patrick Mahomes (QB, KC). **Receive:** Javonte Williams (RB, DAL, bye Wk14).
+
+Lil Unk starts Bryce Young, with Darnold and Shough behind him, and offered Javonte + Pittman for Mahomes on
+9/22 (#5, then got buyer's remorse). Javonte: 71-85% snaps, 17.5 avg, RB7 for Wk6. After #14 their RBs are
+Bijan, Javonte and Monangai (Q), so losing Javonte thins them out. That makes it less likely than #17.
+**Verdict: favors us.** Mahomes is only Allen's Wk7 cover for us. Stream Stroud or Caleb Williams in Wk7.
+**Risk:** a second trade with the same team in one week invites veto votes (3 cancel it). If they decline, ask for Monangai plus a WR instead.
+
+## 19. Patrick Mahomes ↔ Chuba Hubbard or Jaylen Warren (vs. Knights Who Say Ni) — considered 2026-10-14, long shot
+
+Knights roster only Dak (DAL bye Wk14, before our playoffs) and five RBs (McCaffrey, Walker, Hubbard, Warren,
+Harvey). Hubbard RB12 Wk6 (18.5 avg), Warren RB10 (16.7 avg, 87-97% snaps Wks 3-5). Updates #12. Knights have
+little QB urgency and no WR need (Nabers, Rice, Higgins, McLaurin, Smith). **Verdict: would favor us; unlikely to
+be accepted.** Costs nothing to ask once #18 is answered.
+
+## 20. Amon-Ra St. Brown ↔ Kyren Williams (vs. 4th Qtr Maria) — considered 2026-10-14, dropped for #17
+
+Kyren (RB4 Wk6, 19.2 avg, LAR bye Wk11) for St. Brown (17.1 avg, but 9.9-11.5 over the last 3). Net about +6/wk,
+the same as #17, but it costs our best WR and leaves Pickens as the only proven WR. **Dropped in favor of #17.**
+
+**Re-check (2026-10-14):** #16 (Burden ↔ Judkins, our Wk6 opponent) is superseded by #17: Judkins is RB23 and Q.
+
+**Update to #14 (2026-10-16): PROCESSED** Oct 16, 12:38 am (`get-alerts 6 3`). Chase Brown is on our roster; McMillan is with Lil Unk. 2 of 15 trades used.

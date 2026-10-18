@@ -22,6 +22,7 @@ Sources:
 | 5 | RB2 | Montgomery | Marks | Marks (slight: more pts on targets; Montgomery more carries) | Montgomery (RB25 vs. RB32) | — (not posted Tue) | — (not gathered) | Montgomery | 1.1 | 10.5 | ✓ | ✗ | — | — | ✗ |
 | 5 | TE | Likely | Sadiq | Likely (tgt 10/5/12 vs. 3/8/4) | Likely (TE8 vs. TE16) | — | — | Likely | 26.9 | -0.7 | ✓ | ✓ | — | — | ✓ |
 | 5 | Flex | Burden | Marks | Burden (tgt 7/11/6) | Burden (WR20 vs. RB32) | — | — | Burden | 6.9 | 10.5 | ✗ | ✗ | — | — | ✗ |
+| 6 | RB1 | Kamara (Q back, tier High) | K. Miller | Miller (carries 9/7/3 vs. 4/6/10) | Kamara (RB29 vs. RB31, Sun) | — | — | Miller (health-tier tiebreak) | | | | | — | — | |
 
 ## Running record
 
