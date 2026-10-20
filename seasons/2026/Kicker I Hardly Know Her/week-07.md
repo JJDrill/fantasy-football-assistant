@@ -56,7 +56,10 @@ order 1, processes **Oct 21**, waiver priority 8.
 Wk7 fallback but has an SF bye in Wk8, so a kicker add is needed by next week regardless.
 
 **To-do (before Thu kickoff, open):** lineup is only partly set. Still to do: RB Miller → **Gordon**, Corum → **Brown** (RB slots),
-WR Tucker → **St. Brown**, W/R/T Burden → **Corum**. Burden locks at Thursday kickoff, so move him out before then.
+WR Tucker → **St. Brown**. **W/R/T Burden vs. Corum: decide Thu Oct 22 afternoon** (user, 2026-10-20). Check CHI's Wed/Thu practice
+reports and any coach or beat-reporter comment on Burden's Wk6 snap drop (39% vs. ~65%). A clear explanation (a planned rotation, game
+script, a one-off) → **start Burden** (FLEX 42, the better usage). Still unexplained or a new limitation → **start Corum** (FLEX 50,
+later-kickoff rule). Burden locks at the NE-CHI kickoff Thursday night, so decide before then.
 
 ### Trades
 
