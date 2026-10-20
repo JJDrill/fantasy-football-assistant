@@ -98,3 +98,67 @@ Sources: [Heavy](https://heavy.com/sports/nfl/new-orleans-saints/alvin-kamara-in
 Kamara confirmed **active** 11:33 ET ([DraftSharks](https://www.draftsharks.com/fantasy-football-news/83499/alvin-kamara-active)); call unchanged.
 **Moves done (2026-10-18, verified `get-matchup 6`):** added Miller (dropped McPherson). Lineup: Allen; Corum, Miller; Pickens, Tucker;
 Likely; W/R/T Burden; Pineiro; Chiefs. Bench: Kamara, St. Brown, Gordon, Mahomes, Brown, Vikings. Montgomery on IR.
+
+## Post-game review (2026-10-20, Tuesday; `post-game-check`, revised scope)
+
+Data: `get-matchup 6`, `get-scoreboard 6`, `run-challenge 6`, `get-alerts 7 4`, Sleeper Wk6 stats. All live, all final; no
+questions asked. The user's Yahoo PDF recap matches. (Run Yahoo scripts one at a time: parallel runs gave a false NOT_LOGGED_IN.)
+
+**Result: W 128.20 – 112.74 vs. True & Living 12th Gospel (0-6). We're 2-4 (692.76 PF, 4th-most in the league).**
+Tucker 24.2, Likely 20.9, Allen 18.3, Chiefs DEF 15, Burden 13.5, Corum 13.0, Pickens 10.3, Miller 8.0, Pineiro 5.
+Bench: Kamara 13.9, Mahomes 11.48. Gospel: Cook 22.8, Love 21.24, Bernard 20.2 (projected 8.6), K. Allen 12.2, McBride 8.8,
+Watson 7.9, Stevenson 3.6.
+
+### Decision scorecard (graded on what we knew at decision time)
+
+| # | Decision (when) | What we knew then | Outcome vs. alternative | Cell | Controllable? |
+|---|---|---|---|---|---|
+| 1 | No reactive moves Wed; wait for Friday (10/14) | One-week projections only; Kamara/Montgomery status unknown | Friday had better info; Tucker and Corum still free | **Right call, paid off** | Yes |
+| 2 | Montgomery to IR when tagged O (10/16) | O tag = IR-eligible | Opened the spot for Tucker at no cost | **Right call, paid off** | Yes |
+| 3 | Tucker (WR31) over Wan'Dale Robinson (WR33) at WR (10/16) | ECR + Vegas (LV 24 vs. TEN 19) for Tucker; targets for Robinson | 24.2 vs. 3.7 (**+20.5**). Without TDs, 12.2 vs. 3.7 | **Right call, paid off** (size partly luck: 2 TDs) | Pick yes; size no |
+| 4 | Corum (RB30) over Mitchell (RB32); drop Mitchell (10/16) | ECR + Vegas (LAR 32 vs. LAC 17); drops the anti-correlation with the Chiefs DEF | 13.0 vs. 0.4 (**+12.6**). Without TDs, 7.0 vs. 0.4 | **Right call, paid off** | Yes |
+| 5 | Miller over Kamara Sunday; drop McPherson (10/18) | ECR RB29 vs. RB31 (coin flip); Kamara Q, limited Wed-Fri; Wk5 role shift to Miller; Heavy depth-chart report | 8.0 vs. 13.9 (**−5.9**). Miller got the 20 carries we expected. Kamara's edge was one 6-pt receiving TD (7.9 without it) | **Right call, bad luck**: keep doing it | Call yes; TD no |
+| 6 | Burden at W/R/T (FLEX 45) | Best flex ECR on the roster | 13.5 vs. Kamara 13.9 (−0.4), a wash | **Right call, paid off** | Yes |
+| 7 | Allen, Likely, Pickens, Pineiro, Chiefs DEF started | Clear starters / only options (McPherson on bye) | Likely 20.9 (TE avg 7.9); Chiefs 15 (DEF avg 5.5); Pineiro 5 (K avg 7.9) | **Right call, paid off** | Mostly chance in size |
+| 8 | Trade #14 (McMillan for Chase Brown) cost Wk6 (accepted 10/13) | Expected Wk6 cost about −7 (Brown's bye) | McMillan 11.6; his slot went to Tucker 24.2 (+12.6) | **Right call, paid off** (Wk6 part); rest-of-season TBD | Yes |
+| 9 | Trade #17 (Burden for Jones): "send Sunday night" | Planned in the 10/14 notes | **Never sent and never formally dropped** | **Wrong call, got away with it** (no cost; RB is healthy now) | Yes, a process slip |
+
+### Controllable vs. chance
+
+- **Our side:** the hindsight-best lineup was +5.9 (Kamara for Miller). **The gap we could have known about: 0.** Every lineup call
+  followed the rules on the information we had.
+- **Their side:** Gospel's best bench swaps (Loveland 15.5 for Watson 7.9, Pierce 13.0 for Stevenson 3.6) add up to +17.0. That's
+  129.74, which **beats us by 1.5.** Bernard's 20.2 (projected 8.6) was also a ceiling game.
+- **So the 15.5-pt margin came from chance:** their bench mistakes (+17.0 for us), Tucker's 2 TDs (+12), and Likely's 99 yds and a TD.
+  It ran against us in one place: Kamara's TD. The part we controlled was picking the right players to give luck a chance (Tucker, Corum).
+
+### Lessons learned and proposed process updates
+
+1. **No start/sit rule changes.** The only bad result (Kamara) was a TD on a coin-flip call. Wks 5-6 have 6 scored calls, and TDs
+   decide most of them.
+2. **Proposed (tracking): score close calls TD-adjusted, too.** Add an "excluding TDs" points pair to `source-accuracy.md`, and score
+   sources both ways. Evidence: in Wk6, TDs flip one of three verdicts (usage was right on volume and ECR was right on points).
+   Recommendation: **change now**. Tracking only; it doesn't change any lineup rule.
+3. **Proposed (rules): define the RB tie window.** "Rules going forward" gives TE (~5 spots) and flex (~10) a coin-flip window but
+   not RB, so the Wk6 tiebreak was a judgment call. Wording: *"RB: within ~3 ECR spots it's a coin flip. Break it with usage role
+   changes, then the health tier."* That's what we did in Wk6. Recommendation: **change now** (it writes down existing practice).
+4. **Proposed (process): close out every "Still to do" item.** #17 was planned and then forgotten. Add to `pre-game-check`: "Re-read the
+   week file's 'Still to do' and planned-trade lines; mark each done / dropped (with a reason) / carried over." Recommendation:
+   **change now**.
+5. **Watch, no change: the health-tier ladder.** High-tier started 1 (Sadiq, bust); High-tier benched 1 (Kamara, a TD boom). n=2.
+
+**Applied 2026-10-20 (user approved #2-4):** ex-TD scoring added to `reference/source-accuracy.md` and the `post-game-check` skill; RB ~3-spot
+tie window added to `lineup-advice` and `season-lessons.md` Rules; open to-do close-out added to `pre-game-check`. Grade labels renamed
+to plain language (right call, paid off / right call, bad luck / wrong call, got away with it / wrong call, cost us).
+
+### Challenge: "Sack Up" (most sacks by a starting DEF)
+
+Ravens (Knights Who Say Ni) and Steelers (Smokin Base Brian) tied at 5. The tiebreak (higher team score) goes to **Knights, 146.52**
+vs. 72.8. Our Chiefs had 4 and finished 3rd. Pre-stat-correction.
+
+### Hand-offs to pre-game
+
+- Burden's snaps fell to 39% (65% over Wks 3-5) with no injury report; check before Wk7.
+- Allen has a Wk7 bye (BUF). Likely, Pineiro, Miller and Kamara have Wk8 byes (NYG, SF, NO).
+- Mahomes is spare after Wk7. The trade options logged in `trades.md` (post-Wk6 re-check) need a pre-game look.
+- Legal watch: Jacobs (Dusty's bench) is off the exempt list, eligible Wk7; the NFL review is still open (row already updated).

@@ -454,7 +454,7 @@ cancel a trade.
 
 ## 17. Luther Burden III ↔ Aaron Jones Sr. (vs. 4th Qtr Maria) — analyzed 2026-10-14, top pick, not sent
 
-**Status:** Analyzed (`trade-finder` RB scan → `trade-analyzer`). Recommended. Send after Burden plays Wk6.
+**Status:** Analyzed (`trade-finder` RB scan → `trade-analyzer`). **Never sent** (no pending trade per `get-alerts 7`, 2026-10-20). **Downgraded to watch item 2026-10-20** (see the post-Wk6 re-check at the end of this file).
 
 **Give:** Luther Burden III (WR, CHI, bye Wk10). **Receive:** Aaron Jones Sr. (RB, MIN, bye Wk6, on Maria's bench).
 
@@ -476,7 +476,7 @@ Send Sunday night after CHI-ATL so it clears the 2-day veto window before Wk7.
 
 ## 18. Patrick Mahomes ↔ Javonte Williams (vs. THE Lil Unk Rayrays) — analyzed 2026-10-14, second pick, not sent
 
-**Status:** Analyzed. Send after #14 processes, and after confirming the Wk7 QB stream.
+**Status:** Analyzed, never sent. **Dropped 2026-10-20:** Lil Unk added Caleb Williams on Oct 18, which closes their QB need (see the post-Wk6 re-check at the end of this file).
 
 **Give:** Patrick Mahomes (QB, KC). **Receive:** Javonte Williams (RB, DAL, bye Wk14).
 
@@ -501,3 +501,31 @@ the same as #17, but it costs our best WR and leaves Pickens as the only proven 
 **Re-check (2026-10-14):** #16 (Burden ↔ Judkins, our Wk6 opponent) is superseded by #17: Judkins is RB23 and Q.
 
 **Update to #14 (2026-10-16): PROCESSED** Oct 16, 12:38 am (`get-alerts 6 3`). Chase Brown is on our roster; McMillan is with Lil Unk. 2 of 15 trades used.
+
+**#14, how Wk6 played out (2026-10-20):** McMillan scored 11.6 for Lil Unk (6/9, 86 yds). Brown was on bye, as expected. His WR slot went to free agent Tre Tucker (24.2), so the expected Wk6 cost (−7) turned into +12.6 in practice. That was mostly Tucker's 2 TDs (chance). The trade's real test is Wk7 onward.
+
+## Post-Wk6 re-check (2026-10-20, `post-game-check` → `trade-finder` → `trade-analyzer`)
+
+Context: we're 2-4 after beating Gospel 128.20-112.74. Byes: **Allen Wk7** (BUF); **Likely, Pineiro, Miller and Kamara Wk8** (NYG, SF, NO).
+Our RBs are healthy again: Brown RB15 for Wk7, Gordon RB21, Corum RB22 (FantasyPros ECR, 10/20), with Montgomery on IR (HOU bye Wk8,
+so likely back Wk9). **RB is no longer an open hole.** The one asset that's dead weight is **Mahomes**: free agent C.J. Stroud is
+QB10 for Wk7 vs. Mahomes QB11 (Stroud 23.1/20.9/24.0 over Wks 4-6, Mahomes 17.0/—/11.5; Sleeper). Any return for Mahomes beats holding him.
+Trades used: 2 of 15. Deadline Nov 28 per `League_Settings.pdf` (rules PDF says Nov 21; treat Nov 21 as the safe date). 3 veto votes cancel a trade.
+
+- **#17 Burden ↔ Aaron Jones (Maria): fair, small edge to us. Downgraded to watch.** For Wk7, ECR has them about even: Jones RB17 /
+  FLEX 40, Burden WR22 / FLEX 42. Jones: 73-87% of snaps, 12.8 avg. Burden played 39% of snaps in Wk6 (8 targets, 13.5); no injury
+  report found to explain the drop. With Brown and Gordon back, Jones would be our flex rather than a fill-in RB2. That's maybe +1-3/week,
+  at the cost of WR depth (Tucker becomes WR3) and CHI's Wk10 bye cover. Maria is also our **Wk7 opponent**, and a trade processing
+  mid-week would hand them Burden for our game. Revisit after Wk7 only if an RB gets hurt.
+- **#11 re-pitch: Mahomes ↔ Bhayshul Tuten (Dusty): favors us; unlikely.** Tuten: 48-68% of snaps, 12-22 carries, 16.0/10.1/10.6/22.7
+  (14.9 avg). JAX bye Wk7. Dusty's QBs: Cousins (19-24 pts, 3 of 4 weeks) with Lamar out Wks 5-6 (ankle). Skattebo played 8% of snaps in
+  Wk6 (check whether he was hurt), but **Josh Jacobs is eligible to return Oct 25**, which crowds their RB room. They already rejected
+  this on 10/7, and Mahomes is barely an upgrade on Cousins. A cheap ask, low odds.
+- **#19 refresh: Mahomes ↔ Jaylen Warren (Knights): favors us; most plausible Mahomes deal.** Knights **bench** Warren (RB9 for Wk7;
+  75-97% of snaps, 14.1/33.8/8.8 over Wks 4-6). They roster six RBs (McCaffrey, Walker, Hubbard, Warren, Harvey, plus Allgeier added
+  10/17) and only one QB (Dak). Pitch: "Warren's buried on your bench; Mahomes is QB insurance for a 4-2 contender." Hubbard isn't
+  realistic now that he's their starting flex (94% of snaps, 28 carries in Wk6).
+- **#18 Mahomes ↔ Javonte (Lil Unk): dropped.** Caleb Williams was added Oct 18, and Javonte is their RB8 starter.
+
+**Recommendation:** send **#19 (Mahomes ↔ Warren)** now. If it's accepted before Sunday, add Stroud for Wk7 (drop the Chiefs DEF). If
+it's declined, try #11 (Tuten). If neither lands by Wk7 kickoff, start Mahomes, then drop him after Wk7 for a Wk8 kicker.

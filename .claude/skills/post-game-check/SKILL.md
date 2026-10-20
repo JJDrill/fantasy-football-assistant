@@ -1,87 +1,116 @@
 ---
 name: post-game-check
-description: Use when the user wants a full post-game/weekly wrap-up in the "Kicker? I Hardly Know Her" Yahoo league — recap, new trade opportunities, challenge status, and waiver targets for next week.
+description: Use when the user wants a post-game review of a completed week in the "Kicker? I Hardly Know Her" Yahoo league — recap, challenge result, and a deep dive on every decision we made that week, separating what we controlled from what was luck.
 ---
 
 # Post-Game Check
 
-Runs a full post-week wrap-up: recaps how the week went, scans for new trade
-opportunities the results opened up, checks the $10 challenge standing, and surfaces
-waiver targets for next week. Chains `weekly-recap`, `trade-finder`, `challenge-tracker`,
-and `waiver-targets` — for a deeper dive on any one of these individually, use that skill
-directly instead.
+A **backward-looking** review of one completed week: what happened, which of our decisions
+were good or bad **given what we knew when we made them**, and what was just chance.
+
+**Scope (changed 2026-10-20):** no next-week planning. No trade scans, waiver targets, bye
+planning, lineup sketches or legal-watch refreshes. Those belong to `pre-game-check`.
+If something forward-looking turns up, give it **one line** under "Hand-offs to pre-game"
+and stop there.
+
+Chains `weekly-recap` and `challenge-tracker`.
 
 ## Steps
 
 1. Determine the week (default: most recently completed).
 
-2. **Check live-data availability** for everything this checklist needs:
-   - `yahoo/get-matchup.js` / `yahoo/get-scoreboard.js` (recap)
-   - `yahoo/get-all-rosters.js` (trade-finder)
-   - `yahoo/run-challenge.js` (challenge-tracker)
-   - `yahoo/get-free-agents.js` (waiver-targets)
+2. **Check live-data availability.** Run these **one at a time**: they share one
+   Playwright profile, and parallel runs give a false `NOT_LOGGED_IN`.
+   - `yahoo/get-matchup.js <week>` and `yahoo/get-scoreboard.js <week>` (box score, final)
+   - `yahoo/run-challenge.js <week>` (challenge result, plus every team's starters/bench)
+   - `yahoo/get-alerts.js <next week> 7` (our adds/drops/trades during the week, with timestamps)
+   - Sleeper weekly stats (`yahoo/sleeper-stats.js` → `getWeekStats`) for snaps, carries
+     and targets
 
-   Try each; note which succeed and which fall back (missing script, expired session,
-   Yahoo API not yet approved — all expected until OAuth + Yahoo API approval is done).
+3. **Ask only for what live data couldn't get, in ONE message, before any analysis.**
+   - No box score: ask for both teams' starters and bench points and the final score.
+   - No challenge data: ask for whatever the week's rule needs, per
+     `seasons/2026/Kicker I Hardly Know Her/reference/challenges.md`.
+   - When everything worked, ask nothing. Never ask follow-ups mid-review; put open
+     questions in the summary instead.
 
-3. **Ask everything needed, in ONE combined message, before doing any analysis:**
-   - If live recap data is unavailable: ask for the final box score for that week (both
-     teams' starters and points, and the final score).
-   - If live trade-finder data is unavailable: ask for every other team's roster in one
-     message (text or screenshots).
-   - If live challenge data is unavailable: ask for whatever this week's specific
-     challenge rule requires per `seasons/2026/Kicker I Hardly Know Her/reference/challenges.md`.
-   - If live waiver data is unavailable: ask for the waiver wire / available-players
-     list, and which position(s) they're interested in (or "all").
-   - **Don't ask what the user wants flagged** (changed 2026-10-08). When every script in
-     Step 2 worked, ask nothing and go straight to Step 4.
+4. **Rebuild the decision log.** Read that week's file
+   (`seasons/2026/Kicker I Hardly Know Her/week-NN.md`) and list every decision we made:
+   each start/sit call, add/drop, waiver claim, trade sent or accepted, and any call where we
+   chose to do nothing. For each one, note **what we knew at decision time**: ECR,
+   usage, injury designation and practice trend, Vegas, and the reasoning written down then.
+   Don't use anything learned afterward.
 
-   If a message was needed, don't proceed to Step 4 until it's answered. Never ask a follow-up mid-checklist —
-   if something else comes up while running Step 4, note it in the final summary instead
-   of interrupting.
+5. **Grade each decision on process first, then outcome.** Put each one in one cell:
 
-4. **Run the rest of the checklist without further questions**, using whatever was
-   gathered in Step 3:
-   - Invoke the `weekly-recap` skill.
-   - Invoke the `trade-finder` skill.
-   - **Trades, always:** for any trade that comes up in this pass (one the user mentions,
-     an incoming offer, a `trade-finder` candidate, or an idea you raise yourself), run
-     `trade-analyzer` on it without asking. Then make sure `seasons/2026/Kicker I Hardly Know Her/trades.md`
-     reflects it: new entries for new trades, and dated status updates for existing ones
-     (proposed / accepted / vetoed / canceled / dropped).
-   - Invoke the `challenge-tracker` skill.
-   - Invoke the `waiver-targets` skill.
-   - **Matchup grades are retired** (2026-10-11, 7/21 hit rate). Don't score them.
-     `reference/matchup-grade-accuracy.md` is a closed record.
-   - **Source accuracy**: for each close call logged that week in
-     `seasons/2026/Kicker I Hardly Know Her/reference/source-accuracy.md`, fill in both players'
-     actual points, score each source ✓/✗/—, and update the running record. Mention in the
-     summary which source has been most reliable so far.
-   - **Injury-risk tier check**: for every starter that week's `lineup-advice` pass gave a
-     health risk tier (see the week's injury cache), append a row to the "Injury-risk tier
-     tracker" in `seasons/2026/Kicker I Hardly Know Her/reference/season-lessons.md`: practice
+   |  | Good result | Bad result |
+   |---|---|---|
+   | **Good process** | **Right call, paid off** | **Right call, bad luck**: keep doing it |
+   | **Bad process** | **Wrong call, got away with it**: don't repeat it | **Wrong call, cost us** |
+
+   - **Process** = was it the best call on the information available then, under our
+     rules (`season-lessons.md` "Rules going forward", ECR-first by position, health
+     tiers)? A coin flip (a 1-3 spot ECR gap) called with a sensible tiebreak is good
+     process **whichever way it lands**.
+   - **Outcome** = points vs. the alternative, from the box score.
+   - Mark each one **controllable** or **chance**. Chance includes TDs, in-game injuries,
+     game script, and opponent players going off. Something we couldn't have known before
+     lock isn't our mistake. Don't relitigate it with hindsight.
+   - Only a "Wrong call" cell (cost us, or got away with it) can produce a lesson. "Right call, bad luck" cells confirm
+     the process and **must not** change a rule.
+
+6. **Margin analysis.**
+   - Our bench vs. our starters: the best possible lineup in hindsight, and the gap.
+     Then the gap **we could have known about** before lock. These differ, and only the
+     second one counts against us.
+   - Opponent: their bench mistakes, and whether the result hinged on them.
+   - For a loss: the smallest set of swaps that flips it, each tagged knowable or chance.
+     For a win: what would have flipped it the other way.
+
+7. **Recap and challenge.**
+   - Invoke `weekly-recap` (the short, fun version).
+   - Invoke `challenge-tracker` for the final result (note it's pre-stat-correction).
+
+8. **Update the tracking logs** (record outcomes; these don't make next-week decisions):
+   - **Source accuracy:** for each close call logged in
+     `seasons/2026/Kicker I Hardly Know Her/reference/source-accuracy.md`, fill in actual points
+     **and points excluding TDs** (−6 per rushing/receiving TD, Sleeper `rush_td`/`rec_td`),
+     score each source ✓/✗/— both ways, and update both running records. A call where
+     the two verdicts differ was decided by a TD: grade it as chance. Add the process grade from
+     Step 5 in the notes, so a single result doesn't read as a rule change.
+   - **Injury-risk tier tracker** in `seasons/2026/Kicker I Hardly Know Her/reference/season-lessons.md`:
+     one row for every starter the week's `lineup-advice` pass gave a health tier: practice
      trend, final report, injury type, recently returned, play risk, limited risk, tier,
-     **snap % in that game vs. his average over the previous 2-3 healthy games** (Sleeper
-     `off_snp`/`tm_off_snp`; a 10+ point drop = "Limited", or "In-game" if he left the game
-     injured, else "Full"), actual points,
-     positional average, above/below.
-     Also update that file's cross-week audit: for any loss, note which bench swap would have
-     flipped it and whether that was knowable at decision time or random.
-   - **Legal watch-list refresh**: check every open entry in
-     `seasons/2026/Kicker I Hardly Know Her/reference/legal-watch-list.md` for a status update (`WebSearch` the player's name
-     plus their concern, e.g. "Josh Jacobs suspension decision"), update the row, and
-     mark it `Resolved` with a one-line outcome if it's been settled. Only clear an
-     `Unverified` status once a Tier 1 source (per `methodology/trusted-sources.md`)
-     corroborates it — a second Tier 2 hit doesn't count. Also append any new off-field/
-     legal flag surfaced anywhere else in this pass (recap, trade-finder, waiver-targets)
-     — including an unconfirmed rumor, marked `Unverified` per the same source tiering —
-     so it isn't rediscovered from scratch later.
+     **snap % that game vs. his average over the previous 2-3 healthy games** (Sleeper
+     `off_snp`/`tm_off_snp`; a 10+ point drop = "Limited", "In-game" if he left injured,
+     else "Full"), points, positional average, above/below. If a high-tier player was
+     **benched**, log how he did in a note, since that's the ladder's other test.
+   - **Cross-week audit** (same file): one line per week covering the margin analysis
+     and any real "Wrong call" lessons.
+   - **Matchup grades are retired** (2026-10-11, 7/21). Don't score them.
+   - **Trades executed that week:** add a dated "how it played out" line to the entry in
+     `trades.md` (both sides' points that week). Don't scan for new trades.
 
-5. **Present one consolidated summary**, not four separate walls of text:
-   - Recap: 2-3 sentence version of the full recap
-   - Trades: top candidate, if any, or "nothing worth pursuing this week"
-   - Challenge: current standing/result
-   - Waivers: top 2-3 pickups
-   - Matchup-grade accuracy: this week's hit rate and the running season hit rate
-   - Legal watch list: anything newly resolved, still open, or newly added
-   - Note that full detail from any individual step is available on request
+9. **Lessons learned → process updates.** This is the main output of the review. For each
+   "Wrong call" cell, and for any pattern now showing in the running records
+   (source accuracy, health-tier tracker, cross-week audit), ask: **does a rule or skill need
+   to change?** Check it against "Rules going forward" in `season-lessons.md` and the
+   `lineup-advice` / `pre-game-check` / `waiver-targets` skills. For each candidate change, give:
+   - the evidence (which weeks or calls, and the sample size),
+   - the exact proposed wording and where it goes,
+   - a recommendation: change now / watch (needs more weeks) / no change.
+   One week's "Right call, bad luck" result is never evidence for a change. Say "no process changes
+   this week" when that's the honest answer. **Propose, don't apply.** The user decides,
+   and changes are made after they say yes.
+
+10. **Write the review into the week file** as a `## Post-game review` section, then
+   **present one summary**:
+   - **Result:** score, record, 2-3 sentence recap
+   - **Decision scorecard:** every decision in its cell (Right call, paid off / Right call, bad
+     luck / Wrong call, got away with it / Wrong call, cost us), with points gained or lost vs. the alternative
+   - **Controllable vs. chance:** the margin, what we could have known, and what was luck
+   - **Lessons learned and proposed process updates** (from Step 9): each with evidence and
+     a change now / watch / no change recommendation. "None this week" is a fine answer
+   - **Challenge:** winner, and where we finished
+   - **Hand-offs to pre-game:** one line each, no analysis (e.g. "Burden's snaps dropped,
+     check before Wk7")

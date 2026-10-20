@@ -1,6 +1,6 @@
 ---
 name: pre-game-check
-description: Use when the user wants to confirm they're ready for an upcoming week/game in the "Kicker? I Hardly Know Her" Yahoo league — lineup set correctly, no inactive starters, trades accounted for, challenge rule known.
+description: Use when the user wants to prepare for an upcoming week/game in the "Kicker? I Hardly Know Her" Yahoo league — lineup set correctly, no inactive starters, trades accounted for, challenge rule known, plus (first check of the week) byes, waiver targets, trade scan and legal watch list.
 ---
 
 # Pre-Game Check
@@ -86,6 +86,29 @@ either individually, use those skills directly instead.
    - Invoke the `challenge-tracker` skill for this week's $10 challenge rule — surfaced
      here because some challenge rules constrain lineup choices (e.g. a challenge scored
      on starting kicker points), worth knowing before locking the lineup.
+   - **First pre-game check of the week only** (usually Tue/Wed; moved here from
+     `post-game-check` 2026-10-20). Later checks that week skip these unless something
+     changed, like an injury or a trade response:
+     - **Bye planning:** list byes for this week and next week that hit our roster, and
+       plan cover adds (when to add, who to drop).
+     - Invoke `waiver-targets` (uses `yahoo/get-free-agents.js`).
+     - Invoke `trade-finder` (uses `yahoo/get-all-rosters.js`), and re-check every open
+       or watch-list entry in `trades.md` against current rosters.
+     - **Legal watch-list refresh:** check every open entry in
+       `seasons/2026/Kicker I Hardly Know Her/reference/legal-watch-list.md` (`WebSearch` the player plus
+       the concern), update the row, and mark it `Resolved` with a one-line outcome once
+       settled. Only clear `Unverified` with a Tier 1 source (`methodology/trusted-sources.md`).
+       Append any new off-field flag from this pass, rumors included (marked `Unverified`).
+     - Pick up any "Hand-offs to pre-game" lines in the previous week's post-game review.
+   - **Close out open to-dos, every check** (added 2026-10-20, after trade #17 was planned
+     for "Sunday night" and quietly never sent). Re-read this week's file (and last week's,
+     on the first check) for every "Still to do", "send after…", "Sunday:", checklist item
+     or planned trade/claim. Mark each one in the week file as **done** (verified via
+     `get-alerts.js` or `get-matchup.js`), **dropped** (with a one-line reason), or
+     **carried over** (with a new date). Nothing stays open without a status. Mirror
+     any trade status in `trades.md`.
+   - Run the Yahoo scripts **one at a time**. They share a Playwright profile, and parallel
+     runs give a false `NOT_LOGGED_IN`.
 
 5. **Present one consolidated go/no-go checklist:**
    - Lineup: confirmed / N changes suggested (list them)
@@ -93,3 +116,6 @@ either individually, use those skills directly instead.
    - Trades: none pending / pending trade X (with `trade-analyzer` verdict) / roster
      doesn't yet reflect completed trade X
    - This week's challenge rule: one-line summary
+   - Open to-dos: each one's status (done / dropped / carried over)
+   - (First check of the week) Byes and cover plan, top 2-3 waiver pickups, top trade
+     candidate (with its verdict) or "nothing worth pursuing", and legal watch-list changes

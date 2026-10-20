@@ -90,7 +90,7 @@ Gives start/sit recommendations for the user's team for a given week.
    | Position | 1st | 2nd | Then |
    |---|---|---|---|
    | **TE** | ECR + Vegas | Targets, **only when the two TEs are within ~5 ECR spots** | Health tier |
-   | **RB** | ECR + Vegas (+ props when gathered) | Usage, mainly as a role-change check | Health tier |
+   | **RB** | ECR + Vegas (+ props when gathered) | **Within ~3 ECR spots:** usage (role changes first) | Health tier |
    | **WR** | ECR + Vegas (+ props when gathered) | Usage only for a clear role change | Health tier |
    | **W/R/T flex** | FLEX ECR (`half-point-ppr-flex.php`) | Within ~10 flex spots: **later kickoff** | Health tier |
    | **QB / K / DEF** | ECR + Vegas | — | Health tier |
@@ -106,8 +106,12 @@ Gives start/sit recommendations for the user's team for a given week.
       - **WR:** follow ECR. Managers who overrode it league-wide were wrong 7 of 10 times
         (−28.6 pts), and every usage-vs.-ECR disagreement went ECR's way. Override only for a
         clear role change that ECR hasn't caught yet, and say so.
-      - **RB:** a clear **role change** caught by usage (step 5) can override ECR when the
-        rankings look stale, e.g. ECR was set before the teammate's injury news. Say so.
+      - **RB:** within ~3 ECR spots it's a coin flip (added 2026-10-20). Break it with usage,
+        role changes first (a depth-chart move, a snap or carry shift), then the health tier.
+        Wk6: Kamara RB29 vs. Miller RB31. Miller had taken over the Wk5 role and Kamara was
+        Q/limited, so start Miller. That was the right call even though one Kamara TD beat it.
+        Beyond ~3 spots, a clear **role change** caught by usage (step 5) can still override
+        ECR when the rankings look stale, e.g. ECR was set before the teammate's injury news. Say so.
       - **Flex:** compare RB/WR/TE candidates on FantasyPros' FLEX ECR, not positional ranks.
         Within ~10 flex spots it's a coin flip (league-wide, managers and ECR each won 6 of 12),
         so start the player with the **later kickoff**. Yahoo lets you swap a player until his

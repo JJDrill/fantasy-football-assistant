@@ -110,7 +110,8 @@ Re-run the Run B format on future weeks once ECR and props are in the packet.
    - **TE:** ECR + Vegas → targets break ties **within ~5 ECR spots** → health tier. Usage never
      overrides ECR for a player returning from injury (it can't see him).
    - **RB:** ECR + Vegas → usage, mainly to catch role changes (a teammate hurt, a depth-chart
-     move, a snap jump like Gordon's) → health tier.
+     move, a snap jump like Gordon's) → health tier. **Within ~3 ECR spots it's a coin flip**
+     (added 2026-10-20): break it with usage/role change, then health tier (Wk6 Kamara vs. Miller).
    - **WR:** ECR + Vegas. Override only for a clear role change ECR hasn't caught (league-wide,
      overriding ECR at WR was wrong 7 of 10 times).
    - **Flex:** FLEX ECR. Within ~10 flex spots it's a coin flip, so start the **later kickoff**.
@@ -159,6 +160,23 @@ the ladder isn't earning its place.
 | 4 | Josh Allen | QB | Practiced Wed onward | No designation | Knee contusion | No | Low | Low | Low | 100% vs. 100% | Full | 19.52 | 19.20 | Above avg |
 | 4 | Kenyon Sadiq | TE | Limited Wed/Thu/Fri | Q, active Sunday | Back (soft tissue) | No (injured that week) | Medium | High | High | 69% vs. — (not pulled) | — | 0.00 | 9.23 | Below avg |
 | 5 | Isaiah Likely | TE | Limited Wed/Thu, full Fri | No designation | Knee/groin (soft tissue) | Yes (game 1 of 3) | Low | Medium | Medium | 80% vs. 73% (Wks 2-4) | Full | 26.9 | 11.91 | Above avg |
+| 6 | Isaiah Likely | TE | Full Wed onward | No designation | Foot (listed, not limiting) | Yes (game 2 of 3) | Low | Low | Low | 91% vs. 77% (Wks 3-5) | Full | 20.9 | 7.90 | Above avg |
+| 6 | Josh Allen | QB | No report | No designation | None | No | Low | Low | Low | 100% vs. 100% | Full | 18.3 | 19.93 | Below avg |
+| 6 | George Pickens | WR | No report | No designation | None | No | Low | Low | Low | 88% vs. 86% | Full | 10.3 | 10.64 | Below avg |
+| 6 | Luther Burden III | WR | No report | No designation | None | No | Low | Low | Low | **39% vs. 65%** (Wks 3-5) | Limited (cause not found) | 13.5 | 10.64 | Above avg |
+| 6 | Blake Corum | RB | No report | No designation | None (role risk only) | No | Low | Low | Low | 28% vs. 24% | Full | 13.0 | 11.67 | Above avg |
+| 6 | Tre Tucker | WR | No report | No designation | None (role risk only) | No | Low | Low | Low | 70% vs. 66% | Full | 24.2 | 10.64 | Above avg |
+
+**Week 6 note (2026-10-20):** the one **High**-tier player, Kamara (Q, back; limited all week), was **benched** for Kendre Miller,
+so he isn't a starter row. He played 26% of snaps vs. 32% average over Wks 3-5 (not a 10+ drop, so Full by the snap test) and scored
+13.9, above the 11.67 RB average. He outscored Miller (8.0) by 5.9, all from **one receiving TD** (7.9 without it). His role
+did shrink a bit (7 carries, Miller 20), so the High tier's limited-risk read was roughly right. Grade: **right call, bad luck.**
+Ladder record so far: High-tier started 1 (Sadiq Wk4, bust); High-tier benched 1 (Kamara Wk6, a TD-driven boom). n=2, keep watching.
+Burden's snap drop came with no injury tag, so the Low tier can't be blamed for it.
+**Cross-week audit, Wk6 (W 128.20-112.74):** hindsight-best lineup +5.9 (Kamara for Miller, a TD). **Knowable gap: 0.** Every call
+followed the rules. The opponent's best bench swaps (Loveland for Watson +7.6, Pierce for Stevenson +9.4) would have beaten us by 1.5,
+so the margin was **their mistakes plus Tucker's 2 TDs**, both outside our control. Process slip: trade #17 was planned for Sunday
+night and never sent or formally dropped (no cost this time).
 
 **Recently returned** (column added 2026-10-08): "Yes (game N of 2/3)" when the `lineup-advice`
 bump applied, meaning within 2 games of the last Q/D/O or missed game, or 3 for soft tissue. Log
