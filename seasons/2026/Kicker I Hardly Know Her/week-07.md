@@ -51,7 +51,7 @@ Vikings at DEF, Mahomes at QB. **Pitts was on waivers, so it's a claim, not an a
 order 1, processes **Oct 21**, waiver priority 8.
 **McPherson blocked: Error #245** (we dropped him Oct 18; can't re-add until his waiver period ends).
 
-**To-do (Wed Oct 21, carried over):** retry **add McPherson, drop Pineiro** once he clears waivers. If another team claims him, add
+**To-do (Wed Oct 21, carried over; dropped 10/21, McPherson claimed by Queen → Fitzgerald):** retry **add McPherson, drop Pineiro** once he clears waivers. If another team claims him, add
 **Cairo Santos (K9, CHI)** *before Thursday's NE-CHI kickoff*, or Matt Gay (K10, LV, Sunday). Either way, Pineiro (K13) is fine as a
 Wk7 fallback but has an SF bye in Wk8, so a kicker add is needed by next week regardless.
 
@@ -59,8 +59,7 @@ Wk7 fallback but has an SF bye in Wk8, so a kicker add is needed by next week re
 Bench: Tucker, Corum, Miller, Allen, Kamara, Montgomery (Q). IR 0 of 2. Pitts claim (drop Kamara) still pending for Oct 21.
 Only the flex call and the kicker remain (see below).
 
-**To-do (before Thu kickoff, open; partly done):** lineup was only partly set. Still to do: RB Miller → **Gordon**, Corum → **Brown** (RB slots),
-WR Tucker → **St. Brown**. **W/R/T Burden vs. Corum: decide Thu Oct 22 afternoon** (user, 2026-10-20). Check CHI's Wed/Thu practice
+**To-do (before Thu kickoff):** ~~RB Miller → Gordon, Corum → Brown, WR Tucker → St. Brown~~ (done 10/20). **W/R/T Burden vs. Corum: decide Thu Oct 22 afternoon** (user, 2026-10-20). Check CHI's Wed/Thu practice
 reports and any coach or beat-reporter comment on Burden's Wk6 snap drop (39% vs. ~65%). A clear explanation (a planned rotation, game
 script, a one-off) → **start Burden** (FLEX 42, the better usage). Still unexplained or a new limitation → **start Corum** (FLEX 50,
 later-kickoff rule). Burden locks at the NE-CHI kickoff Thursday night, so decide before then.
@@ -73,6 +72,22 @@ gone: Santos (before Thursday's kickoff), then Gay.
 
 **Roster check (2026-10-21, `get-matchup 7`):** Fitzgerald added and Pineiro dropped. **The Pitts claim went through** (Kamara dropped),
 so that to-do is **done**. **Issue found: the K slot is empty.** Fitzgerald is on the BN. He has to be moved to K before CAR's Sunday kickoff.
+**Fixed (2026-10-21, re-verified `get-matchup 7`):** Fitzgerald is at K.
+
+### To-do status (2026-10-21)
+
+| Item | Status |
+|---|---|
+| Lineup swaps (Mahomes, Gordon/Brown, St. Brown, Vikings) | **Done** (verified 10/20) |
+| Pitts claim (drop Kamara) | **Done** (won 10/21) |
+| McPherson re-add | **Dropped**: claimed by Queen. Replaced by Fitzgerald |
+| Add a kicker, drop Pineiro (also covers Pineiro's Wk8 bye) | **Done**: Fitzgerald at K (10/21) |
+| Burden vs. Corum flex | **Open → Thu Oct 22 afternoon**, before NE-CHI kickoff (CHI practice reports + beat news on the snap drop) |
+| Vegas lines: KC@SEA, LAR@LV, DAL@PHI, GB@DET | **Open → Thu/Fri** (LAR@LV feeds the flex call, so check it Thursday) |
+| Weather: KC@SEA (Mahomes), DAL@PHI (Pickens) | **Open → Sat** |
+| Friday injury reports for starters | **Open → Fri** (none tagged now; Likely is Medium on the returned bump) |
+| Trade #19 Mahomes ↔ Warren | **Open → after Wk7** (user's call; sending before Sunday means losing our only active QB mid-week) |
+| Wk8 byes: Likely (Pitts covers), Pineiro (gone), Miller (bench), Montgomery (out anyway) | **Covered**. Nothing else needed |
 
 ### Trades
 
