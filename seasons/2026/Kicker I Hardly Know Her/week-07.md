@@ -65,6 +65,12 @@ reports and any coach or beat-reporter comment on Burden's Wk6 snap drop (39% vs
 script, a one-off) → **start Burden** (FLEX 42, the better usage). Still unexplained or a new limitation → **start Corum** (FLEX 50,
 later-kickoff rule). Burden locks at the NE-CHI kickoff Thursday night, so decide before then.
 
+**Kicker update (2026-10-21, Wed):** McPherson was claimed by Queen, so the retry is **dropped**. FA kickers by ECR (updated 10/21):
+**Ryan Fitzgerald K7** (CAR vs. TB, Sun, range 5-9), Santos K9 (CHI, Thu), Gay K10 (LV, Sun), Bates K11 (DET), Pineiro K13 (ours).
+**Plan: add Fitzgerald, drop Pineiro.** He's the top FA by ECR, plays Sunday so he can still be swapped late, and CAR has no Wk8 bye
+(Pineiro's SF does). Fitzgerald wasn't in the 10/20 fallback list because that list was built from the earlier ECR pull. Fallbacks if he's
+gone: Santos (before Thursday's kickoff), then Gay.
+
 ### Trades
 
 None pending. Top candidate from today's scan (`trades.md`, post-Wk6 re-check): **#19 Mahomes ↔ Jaylen Warren (Knights)**: favors us, the
