@@ -71,6 +71,9 @@ later-kickoff rule). Burden locks at the NE-CHI kickoff Thursday night, so decid
 (Pineiro's SF does). Fitzgerald wasn't in the 10/20 fallback list because that list was built from the earlier ECR pull. Fallbacks if he's
 gone: Santos (before Thursday's kickoff), then Gay.
 
+**Roster check (2026-10-21, `get-matchup 7`):** Fitzgerald added and Pineiro dropped. **The Pitts claim went through** (Kamara dropped),
+so that to-do is **done**. **Issue found: the K slot is empty.** Fitzgerald is on the BN. He has to be moved to K before CAR's Sunday kickoff.
+
 ### Trades
 
 None pending. Top candidate from today's scan (`trades.md`, post-Wk6 re-check): **#19 Mahomes ↔ Jaylen Warren (Knights)**: favors us, the
