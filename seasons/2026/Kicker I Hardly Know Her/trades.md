@@ -271,7 +271,7 @@ waivers instead (Kenyon Sadiq claim).
 fumble in Wk3 ([FantasyPros](https://www.fantasypros.com/nfl/news/611180/jake-ferguson-finds-end-zone-week-3.php)).
 Dropped for the same reason as #9.
 
-## 11. Patrick Mahomes ↔ Bhayshul Tuten (vs. Dusty Bottoms) — proposed 2026-10-06, rejected 2026-10-07 — re-pitch recommended 2026-10-21
+## 11. Patrick Mahomes ↔ Bhayshul Tuten (vs. Dusty Bottoms) — proposed 2026-10-06, rejected 2026-10-07 — re-pitched 2026-10-21, rejected again 2026-10-22
 
 **Status:** **Rejected 2026-10-07.** Proposed 2026-10-06 evening (Mahomes for Tuten straight up). Dusty instead **added Kirk Cousins** off waivers at 7:30 am Oct 7 (dropping Kalif Raymond), which closed their QB need.
 
@@ -598,3 +598,5 @@ is settled. Sources: [Draft Sharks](https://www.draftsharks.com/fantasy-football
 
 **Update (2026-10-21, evening), #11:** still pending (trade id 12, `get-alerts 7 2`). Lamar's Thursday practice report isn't out yet; Wednesday was a DNP. Verdict unchanged.
 Wk7 cost if accepted is now smaller: Rodgers QB13 vs. Mahomes QB12 (ECR 10/22).
+
+**Update (2026-10-22), #11: REJECTED again.** User reported Dusty declined the re-pitch (trade id 12). `get-alerts 7 2` shows nothing pending. Dusty made no QB move after the offer: they're still Lamar-only, having dropped Cousins on Oct 21 at 8:00 am. So they're riding Lamar's ankle, or will stream a QB, rather than pay Tuten. That's twice they've passed on Mahomes ↔ Tuten, so **don't pitch it a third time** unless their roster changes (e.g., Lamar is ruled out and no free-agent QB is worth starting). **Lineup impact:** none. Mahomes stays and covers Allen's Wk7 bye as already set, so there's no need to add Rodgers or drop Miller.
