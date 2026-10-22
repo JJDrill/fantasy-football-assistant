@@ -114,6 +114,20 @@ Pitts TE13, too wide a gap for the total to matter. Sources: [Complex](https://w
 [Fox Sports](https://www.foxsports.com/stories/nfl/2026-nfl-odds-week-7-lines-spreads-results-all-14-games),
 [Sportsbook Review](https://www.sportsbookreview.com/picks/nfl/week-7-odds-betting-lines-2026/).
 
+### Weather (2026-10-21, Wed; NWS hourly forecasts from api.weather.gov)
+
+Outdoor games with a QB/WR/TE/K of ours. Domes skipped: LAR at LV, GB at DET, IND at MIN. NYG at HOU has a retractable roof. CIN at BAL and MIA at NYJ have only our RBs.
+
+| Player | Game / stadium | Game-window forecast | Flag? |
+|---|---|---|---|
+| Burden | NE at CHI, Thu 7:15 pm CT, Soldier Field | 57-62°F, wind 5 mph ENE, 0% precip | No |
+| Mahomes | KC at SEA, Sun 5:20 pm PT, Lumen Field | 50-54°F, wind 2-3 mph N, **26-33% chance of light rain** | No (light rain, low chance, calm) |
+| Fitzgerald | TB at CAR, Sun, Bank of America Stadium | 60-67°F, **wind 9-12 mph NNE/NE**, 0% precip | No (under 15 mph) |
+| Pickens | DAL at PHI, Mon night, Lincoln Financial Field | 56-65°F, wind 0-5 mph W, 0% precip | No |
+
+**No weather flags.** The SEA and PHI forecasts are 4-5 days out, so take a quick look Saturday in case Seattle's rain chance or the
+Carolina wind picks up (flag at wind over 15 mph or a high rain chance).
+
 ### To-do status (2026-10-21)
 
 | Item | Status |
@@ -124,7 +138,7 @@ Pitts TE13, too wide a gap for the total to matter. Sources: [Complex](https://w
 | Add a kicker, drop Pineiro (also covers Pineiro's Wk8 bye) | **Done**: Fitzgerald at K (10/21) |
 | Burden vs. Corum flex | **Done 10/21: start Burden** (see the flex decision below) |
 | Vegas lines: KC@SEA, LAR@LV, DAL@PHI, GB@DET | **Done 10/21**: no lineup changes (see Vegas lines) |
-| Weather: KC@SEA (Mahomes), DAL@PHI (Pickens) | **Open → Sat** |
+| Weather: KC@SEA (Mahomes), DAL@PHI (Pickens), plus CAR (Fitzgerald), CHI (Burden) | **Checked 10/21: no flags.** Quick recheck Sat (SEA rain, CAR wind) |
 | Friday injury reports for starters | **Open → Fri** (none tagged now; Likely is Medium on the returned bump) |
 | Trade #19 Mahomes ↔ Warren | **Open → after Wk7** (user's call; sending before Sunday means losing our only active QB mid-week) |
 | Wk8 byes: Likely (Pitts covers), Pineiro (gone), Miller (bench), Montgomery (out anyway) | **Covered**. Nothing else needed |
