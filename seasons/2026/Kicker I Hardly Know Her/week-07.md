@@ -87,6 +87,33 @@ so that to-do is **done**. **Issue found: the K slot is empty.** Fitzgerald is o
   [Patriots.com Week 7 report](https://www.patriots.com/news/week-7-injury-report-patriots-at-bears),
   [SI, Wk6 snap observations](https://si.com/nfl/bears/onsi/kyler-gordon-s-playing-time-and-other-bears-snap-count-observations-from-week-6-win).
 
+### Vegas lines (2026-10-21, Wed)
+
+Implied total = total/2 ± spread/2. Books differ by a point or so; midpoints used.
+
+| Our player(s) | Game | Spread / total | Our team's implied | Change vs. 10/6 look-ahead |
+|---|---|---|---|---|
+| Mahomes | KC at SEA (SNF) | SEA −2.5 / 42.5 | **KC 20.0** | new |
+| St. Brown | GB at DET | DET −3.5 / 53.5 | **DET 28.5** | new (week's highest total) |
+| Pickens | DAL at PHI (MNF) | DAL −4.5 / 44.5 | **DAL 24.5** | new |
+| Corum (BN), Tucker (BN) | LAR at LV | LAR −4 / 47.5 | LAR 25.75, LV 21.75 | new |
+| Brown | CIN at BAL | BAL −2.5 / 51 | **CIN 24.25** | about the same (24) |
+| Gordon | MIA at NYJ | NYJ −5 / 39 | **MIA 17.0** | down from 19.5 |
+| Likely | NYG at HOU | HOU −9.5 / 43.25 | **NYG 16.9** | down from 19 |
+| Vikings DEF | IND at MIN | MIN −6.5 / 41.5 | **IND 17.5 (opponent)** | down from 22: good for our DEF |
+| Fitzgerald | TB at CAR | CAR −3.25 / 44.5 | **CAR 23.9** | new |
+| Burden | NE at CHI (TNF) | not found | — | already decided (start) |
+
+**Changes: none.** Mahomes has the lowest QB-relevant total (KC 20.0), so free-agent QBs were checked: Stroud (QB9) has been rostered
+since 10/20. The best free agents (Shough QB13, Rodgers QB14) rank below Mahomes (QB11), so keep him. **Gordon (MIA 17) vs. Corum (LAR 25.75):** the totals favor Corum,
+but ECR re-pulled 10/22 still has Gordon RB21 vs. Corum RB24. That's 3 spots, the edge of the RB coin-flip window, so usage breaks it,
+and usage is lopsided: Gordon 56-84% snaps, 9-18 carries vs. Corum 15-29%, 5-9 carries. **Keep Gordon.** Likely (NYG 16.9) is TE4 vs.
+Pitts TE13, too wide a gap for the total to matter. Sources: [Complex](https://www.complex.com/bets/a/matt-burke/nfl-week-7-odds-point-spreads-totals),
+[FantasyAlarm](https://www.fantasyalarm.com/articles/nfl/predictions/2026-nfl-week-7-picks-straight-up-odds-spreads-all-14-games/197488),
+[SI DAL-PHI](https://www.si.com/betting/cowboys-vs-eagles-prediction-odds-spread-injuries-trends-for-nfl-week-7-2026),
+[Fox Sports](https://www.foxsports.com/stories/nfl/2026-nfl-odds-week-7-lines-spreads-results-all-14-games),
+[Sportsbook Review](https://www.sportsbookreview.com/picks/nfl/week-7-odds-betting-lines-2026/).
+
 ### To-do status (2026-10-21)
 
 | Item | Status |
@@ -96,7 +123,7 @@ so that to-do is **done**. **Issue found: the K slot is empty.** Fitzgerald is o
 | McPherson re-add | **Dropped**: claimed by Queen. Replaced by Fitzgerald |
 | Add a kicker, drop Pineiro (also covers Pineiro's Wk8 bye) | **Done**: Fitzgerald at K (10/21) |
 | Burden vs. Corum flex | **Done 10/21: start Burden** (see the flex decision below) |
-| Vegas lines: KC@SEA, LAR@LV, DAL@PHI, GB@DET | **Open → Thu/Fri** (LAR@LV feeds the flex call, so check it Thursday) |
+| Vegas lines: KC@SEA, LAR@LV, DAL@PHI, GB@DET | **Done 10/21**: no lineup changes (see Vegas lines) |
 | Weather: KC@SEA (Mahomes), DAL@PHI (Pickens) | **Open → Sat** |
 | Friday injury reports for starters | **Open → Fri** (none tagged now; Likely is Medium on the returned bump) |
 | Trade #19 Mahomes ↔ Warren | **Open → after Wk7** (user's call; sending before Sunday means losing our only active QB mid-week) |
