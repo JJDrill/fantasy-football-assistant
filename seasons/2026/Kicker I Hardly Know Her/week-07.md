@@ -128,6 +128,17 @@ Outdoor games with a QB/WR/TE/K of ours. Domes skipped: LAR at LV, GB at DET, IN
 **No weather flags.** The SEA and PHI forecasts are 4-5 days out, so take a quick look Saturday in case Seattle's rain chance or the
 Carolina wind picks up (flag at wind over 15 mph or a high rain chance).
 
+### Yahoo add/drop suggestions (2026-10-21, team page, probe script)
+
+| Yahoo suggests | ECR (10/22) | Verdict |
+|---|---|---|
+| Add Malik Washington (MIA WR), drop Kendre Miller | Washington WR37 vs. Miller RB26 | **Pass.** Washington would be our WR5, behind Tucker (WR30), and never start. Miller is low value too, but his spot is earmarked for a QB add if the Tuten trade lands |
+| Add Chris Godwin Jr. (TB WR), drop Kyle Pitts | Godwin WR46 vs. Pitts TE13 | **Pass.** Pitts is Likely's Wk8 bye cover, and Godwin is a bench WR at best |
+| Add Jake Bates (DET K), drop Ryan Fitzgerald | Bates K11 vs. Fitzgerald K6 | **Pass.** ECR favors Fitzgerald |
+
+Yahoo's suggestions run on Yahoo's own projections. We decide on ECR, so treat them as a list of names to check, not a signal.
+Trade-suggestions tab: Yahoo Fantasy Plus (paid) only, apart from naming one team (Smokin Base Brian).
+
 ### To-do status (2026-10-21)
 
 | Item | Status |
