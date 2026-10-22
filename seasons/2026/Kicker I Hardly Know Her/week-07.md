@@ -74,6 +74,19 @@ gone: Santos (before Thursday's kickoff), then Gay.
 so that to-do is **done**. **Issue found: the K slot is empty.** Fitzgerald is on the BN. He has to be moved to K before CAR's Sunday kickoff.
 **Fixed (2026-10-21, re-verified `get-matchup 7`):** Fitzgerald is at K.
 
+### Flex decision (2026-10-21, Wed): start Burden
+
+- **Final CHI injury report is out** (a TNF team's Wednesday report is the final one). **Burden isn't on it.** Bears out: Monangai (RB),
+  Sanborn (LB). Doubtful/Q: Edwards (LB). Patriots out: starting CB **Carlton Davis III** and two reserve CBs, so NE's secondary is thin.
+- **The snap drop is still unexplained**, but it didn't cost production: 39% of snaps (30) and still **8 catches, 95 yards, team high**
+  in the 31-23 win over ATL. No coach comment found on a rotation.
+- **FLEX ECR updated 10/21: Burden FLEX45 (range 42-51) vs. Corum FLEX57 (46-82).** That's a 12-spot gap, **outside the ~10-spot coin-flip
+  window**, so the flex rule says follow ECR, not the later kickoff. Corum's wide range also means low expert agreement.
+- **Call: Burden stays at W/R/T** (already set). The original plan (unexplained → Corum) assumed a coin flip, and the ranks have since moved apart.
+- Sources: [NBC Chicago, final Bears report](https://www.nbcchicago.com/news/local/the-chicago-bears-injury-report-has-been-released-ahead-of-patriots-game/4005619/),
+  [Patriots.com Week 7 report](https://www.patriots.com/news/week-7-injury-report-patriots-at-bears),
+  [SI, Wk6 snap observations](https://si.com/nfl/bears/onsi/kyler-gordon-s-playing-time-and-other-bears-snap-count-observations-from-week-6-win).
+
 ### To-do status (2026-10-21)
 
 | Item | Status |
@@ -82,7 +95,7 @@ so that to-do is **done**. **Issue found: the K slot is empty.** Fitzgerald is o
 | Pitts claim (drop Kamara) | **Done** (won 10/21) |
 | McPherson re-add | **Dropped**: claimed by Queen. Replaced by Fitzgerald |
 | Add a kicker, drop Pineiro (also covers Pineiro's Wk8 bye) | **Done**: Fitzgerald at K (10/21) |
-| Burden vs. Corum flex | **Open → Thu Oct 22 afternoon**, before NE-CHI kickoff (CHI practice reports + beat news on the snap drop) |
+| Burden vs. Corum flex | **Done 10/21: start Burden** (see the flex decision below) |
 | Vegas lines: KC@SEA, LAR@LV, DAL@PHI, GB@DET | **Open → Thu/Fri** (LAR@LV feeds the flex call, so check it Thursday) |
 | Weather: KC@SEA (Mahomes), DAL@PHI (Pickens) | **Open → Sat** |
 | Friday injury reports for starters | **Open → Fri** (none tagged now; Likely is Medium on the returned bump) |

@@ -31,7 +31,7 @@ Sources:
 | 6 | RB1 | Kamara (Q back, tier High) | K. Miller | Miller (carries 9/7/3 vs. 4/6/10) | Kamara (RB29 vs. RB31, Sun) | — | — | Miller (health-tier tiebreak) | 13.9 | 8.0 | ✗ | ✓ | — | — | ✗ | 7.9 | 8.0 | ✓ | ✗ | ✓ |
 | 6 | RB2 | Corum | K. Mitchell | Mitchell (34-38% snaps, carries 8/10/6 vs. Corum 15-29%, 6/5/5) | Corum (RB30 vs. RB32) | — | — | Corum | 13.0 | 0.4 | ✗ | ✓ | — | — | ✓ | 7.0 | 0.4 | ✗ | ✓ | ✓ |
 | 6 | WR2 | Tucker | Wan'Dale Robinson | Robinson (targets 11/5/7 vs. 4/8/5) | Tucker (WR31 vs. WR33) | — | — | Tucker | 24.2 | 3.7 | ✗ | ✓ | — | — | ✓ | 12.2 | 3.7 | ✗ | ✓ | ✓ |
-| 7 | Flex | Corum | Burden | Burden (targets 11/6/6/8, 39-77% snaps vs. Corum 15-29%, carries 5-9) | Burden (FLEX 42 vs. 50) | — | — | Corum (coin flip within 10 flex spots → later kickoff: Sun vs. Burden's Thu) | | | | | — | — | | | | | | |
+| 7 | Flex | Corum | Burden | Burden (targets 11/6/6/8, 39-77% snaps vs. Corum 15-29%, carries 5-9) | Burden (FLEX 42 vs. 50 on 10/20; 45 vs. 57 on 10/21) | — | — | Burden (10/21: gap widened to 12 flex spots, outside the coin-flip window, so ECR decides; clean final injury report) | | | | | — | — | | | | | | |
 
 ## Running record
 
