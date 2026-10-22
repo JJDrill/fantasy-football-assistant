@@ -177,6 +177,37 @@ impact; a TE is in the slot either way.
 | Post-game hand-off: Burden's snaps | **Done**: no cause found; benched this week on the flex rule anyway. Recheck the CHI report Wed |
 | Post-game hand-off: Mahomes spare after Wk7 | **Carried over**: #19 decision (send now / after Wk7), user's call |
 
+## Pre-game check #2 (2026-10-21, Wed evening; `pre-game-check`, later check, so first-of-week items skipped)
+
+Scripts (one at a time): `get-matchup 7`, `get-alerts 7 2`, `run-challenge 7`, `fantasypros-ecr.js` (10/22, 16-18 experts) all worked,
+after reinstalling Playwright's Chromium (`npx playwright install chromium`). The browser binary went missing after the 10/21 dependency bump.
+Waiver priority 8, IR 0 of 2, no pending claims. **Pending: trade id 12 (#11 Mahomes ↔ Tuten, Dusty)**, still unanswered.
+
+**Lineup: confirmed, no changes.** Mahomes; Gordon, Brown; Pickens, St. Brown; Likely; W/R/T Burden; K Fitzgerald; DEF Vikings.
+ECR moves since this morning: Mahomes QB11 → **QB12** (Rodgers QB13, so the Wk7 cost of the trade is now 1 spot), Pickens WR14 → **WR16**
+(range 14-20; Tucker WR30, so no change), Vikings DST1 → **DST2**, Fitzgerald K6, Burden FLEX45 vs. Corum FLEX57 (gap unchanged at 12,
+keep Burden). Gordon RB21 vs. Corum RB24 vs. Miller RB26: unchanged, keep Gordon (usage).
+
+**Health:** no Yahoo tags on any starter. Montgomery (Q) is on BN, not IR, so nothing blocks adds. Injury cache from earlier today is
+still fresh. Friday finals still to come.
+
+**Alert flags (`get-alerts`):** all of ours are "adding" (Vikings, Miller, Tucker, Pitts, Gordon, Corum): normal waiver churn, no concern.
+Opponent: **Patriots DEF, 76k drops.** That's Maria's DEF, and it's normal weekly DEF streaming. Their opponent is CHI (Burden), which is a
+small plus for us if anything. Maria's other moves: added Stroud (on her bench), dropped Hurts (IR) and Grupe (K, IR).
+
+**Challenge (Gronk Memorial):** TE receiving yards closest to 69. Field: Kelce (Q), Kittle, LaPorta, Kraft, Fannin, Andrews,
+**Likely** (ours), Bowers (Q), T. Warren (Q), McBride. No points yet.
+
+**To-do status (check #2):**
+
+| Item | Status |
+|---|---|
+| Trade #11 (id 12) | **Carried over**: pending. If accepted before Sunday: add Rodgers (QB13), drop Miller, start Rodgers. If Lamar practices fully Thu/Fri, expect a decline; #19 Warren after Wk7 |
+| Friday injury reports (Pickens' final is Sat) | **Carried over → Fri 10/23 / Sat 10/24** |
+| Weather recheck (SEA rain, CAR wind) | **Carried over → Sat 10/24** |
+| Pickens trade watch (NFL deadline Nov 10) | **Carried over → recheck before each lineup lock** |
+| Everything else in the 10/21 to-do table | **Done** (unchanged) |
+
 ## Injury/Availability Report (cached)
 
 | Player | Status | Note | Checked | Source |

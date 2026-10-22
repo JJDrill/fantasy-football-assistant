@@ -595,3 +595,6 @@ is settled. Sources: [Draft Sharks](https://www.draftsharks.com/fantasy-football
 
 **Update (2026-10-21), #11: PROPOSED (re-pitch).** Mahomes ↔ Tuten, straight up, with the Lamar-ankle note. Verified pending via
 `get-alerts 7 1` (Yahoo trade id 12). **If accepted:** add Rodgers (QB14, PIT at NO), drop Miller, start Rodgers before Sunday.
+
+**Update (2026-10-21, evening), #11:** still pending (trade id 12, `get-alerts 7 2`). Lamar's Thursday practice report isn't out yet; Wednesday was a DNP. Verdict unchanged.
+Wk7 cost if accepted is now smaller: Rodgers QB13 vs. Mahomes QB12 (ECR 10/22).
