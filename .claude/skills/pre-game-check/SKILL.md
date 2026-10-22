@@ -92,6 +92,11 @@ either individually, use those skills directly instead.
      - **Bye planning:** list byes for this week and next week that hit our roster, and
        plan cover adds (when to add, who to drop).
      - Invoke `waiver-targets` (uses `yahoo/get-free-agents.js`).
+     - **Yahoo's own suggestions** (added 2026-10-21): run `yahoo/get-yahoo-suggestions.js`
+       (team page "Add/drop suggestions" tab, plus the sit/start tab text). Check each suggested
+       add/drop against FantasyPros ECR, byes and planned cover adds, and give a one-line verdict
+       on each. Yahoo works from its own projections, so treat these as names worth checking,
+       not a signal. The trade tab is paid (Yahoo Fantasy Plus) and isn't read.
      - Invoke `trade-finder` (uses `yahoo/get-all-rosters.js`), and re-check every open
        or watch-list entry in `trades.md` against current rosters.
      - **Legal watch-list refresh:** check every open entry in
@@ -117,5 +122,6 @@ either individually, use those skills directly instead.
      doesn't yet reflect completed trade X
    - This week's challenge rule: one-line summary
    - Open to-dos: each one's status (done / dropped / carried over)
-   - (First check of the week) Byes and cover plan, top 2-3 waiver pickups, top trade
+   - (First check of the week) Byes and cover plan, top 2-3 waiver pickups, Yahoo's add/drop
+     suggestions with a verdict on each, top trade
      candidate (with its verdict) or "nothing worth pursuing", and legal watch-list changes
