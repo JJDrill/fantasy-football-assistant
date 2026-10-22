@@ -119,4 +119,5 @@ impact; a TE is in the slot either way.
 | Whole roster | No Yahoo tags except Montgomery (Q, on IR) | Practice reports not out yet (Tue) | 2026-10-20 | `get-matchup 7` |
 | Isaiah Likely | Healthy | Recently returned, game 3 of 3 (knee/groin soft tissue) → Medium | 2026-10-20 | week-05/06 caches |
 | Luther Burden III | No injury report found | 39% snaps Wk6 vs. 65% Wks 3-5 | 2026-10-20 | search (no 2026 result) |
+| George Pickens | Healthy; no tag | Called out for lack of effort after the Wk6 GB loss; Schottenheimer said it's on the staff to involve him more. Trade-candidate talk (ESPN's Solak; Jerry Jones open to it), NFL deadline Nov 10. Media noise, not a role change: 11 targets in Wk6, ECR WR14. Keep starting him; recheck for a trade before each lineup lock | 2026-10-21 | [Yahoo](https://sports.yahoo.com/articles/cowboys-wr-george-pickens-called-003839630.html), [Athlon](https://athlonsports.com/nfl/trending/cowboys-brian-schottenheimer-breaks-silence-on-george-pickens-problem) |
 | David Montgomery | Groin, week-to-week; HOU bye Wk8 | Likely out Wk7, back Wk9 at the earliest | 2026-10-20 | [RotoBaller](https://www.rotoballer.com/?p=1963820) |
