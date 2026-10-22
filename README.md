@@ -7,7 +7,9 @@ side-challenges.
 ## Status
 
 Yahoo's Fantasy Sports API access is pending approval (applied via
-[sports.yahoo.com/developer/access](https://sports.yahoo.com/developer/access/)). Until
+[sports.yahoo.com/developer/access](https://sports.yahoo.com/developer/access/); first
+application got no reply, **resubmitted 2026-10-21**). Until approved, API calls return
+`RBAC: access denied` — check with `node yahoo/smoke-test-leagues.js`. Until
 that comes through, all five skills below work in a **manual mode** — they'll ask you to
 paste or screenshot whatever they need from the Yahoo app instead of fetching it
 automatically. Once API access is approved and OAuth is set up (see below), the same
