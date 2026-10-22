@@ -2,6 +2,8 @@ const js = require('@eslint/js');
 const globals = require('globals');
 
 module.exports = [
+  // ESLint doesn't read .gitignore; mirror its scratch/browser-profile dirs here.
+  { ignores: ['.temp/**', '**/.playwright-profile/**', '.playwright-mcp/**', 'yahoo/.cache/**'] },
   js.configs.recommended,
   {
     files: ['**/*.js'],
