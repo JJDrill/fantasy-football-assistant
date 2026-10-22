@@ -16,12 +16,15 @@ knowable.
 | 2 | | **Likely (5.8) for Pitts (2.0)**, wins by 1.3 | **Yes** | Wk1: Likely had 8 targets and 23.8 pts; Pitts had 1 target and 0 pts. Not compared in the notes. |
 | 2 | | Monangai (6.8) for Montgomery (3.4) | No | Monangai still not cleared. |
 | 3 | −6.90 | Burden (16.3) for McMillan (2.7) | **No: random** | Burden had 7.0 and 4.7 before. McMillan was coming off 100+ yards. No signal. |
-| 4 | −1.46 | **Likely (10.1) for Sadiq (0.0)** | **Close call, not clearly knowable** (revised after the agent replay below) | Likely had steadier volume, but his one Winston game was 2.3 pts, and Sadiq's 20-pt setup (Taylor out) repeated. |
+| 4 | −1.46 | **Likely (10.1) for Sadiq (0.0)** | **Yes, by the current rules** (revised 2026-10-11 after the league replay; earlier: "close call, not clearly knowable") | Final Sunday ECR had Likely TE10 vs. Sadiq TE12, and targets favored Likely (11.3 vs. 8.3). Both signals agreed. |
 | 4 | | **Gordon (17.0) for Montgomery (4.3)** | **No: leaned wrong on the info** (revised) | Wright returned as RB1, and MIA had the slate's lowest total (~14.75). Every agent rated Gordon's case Weak. |
 
-**Verdict (revised 2026-10-05 after the backtest and agent replay below):** Wks 1 and 3 were mostly bad
-luck. Wk4 was a close call where our lineup was the defensible pick on the information we had. **Wk2
-(Likely over Pitts) is the one clearly knowable miss.** The original "2-2 with fixes" claim had hindsight bias. All-play is 16-20 (~1.8 expected wins), and points against is 4th-highest.
+**Verdict (revised 2026-10-11 after the league-wide replay, `league-replay-wk1-4.md`):** Wks 1 and 3 were
+mostly bad luck. **Wk2 (Likely over Pitts, TE8 vs. TE17) and Wk4 (Likely over Sadiq, TE10 vs. TE12 with
+more targets) were both knowable.** Each single swap would have won. Under the current rules, the Wk4
+lineup wins (113.32 vs. 104.68). The Wk2 ECR lineup still loses by ~1, since ECR also swaps Stevenson in
+at RB. *Earlier verdict (2026-10-05): Wk4 was "a close call where our lineup was the defensible pick."
+That predated the archived Sunday ECR.* The original "2-2 with fixes" claim had hindsight bias. All-play is 16-20 (~1.8 expected wins), and points against is 4th-highest.
 
 ### Correction: mechanical backtest (2026-10-05, same night)
 
@@ -101,30 +104,86 @@ Re-run the Run B format on future weeks once ECR and props are in the packet.
 
 1. **Re-rank the whole position group each week, bench included**, by last 2-3 weeks' usage: snap share,
    carries, targets. Never only "current starter vs. new option."
-2. Order of evidence for start/sit: **usage → Vegas implied total → health tag → matchup grade** (last,
-   tiebreaker only).
+2. Order of evidence for start/sit, **by position** (revised again 2026-10-11 after the league-wide
+   replay, `league-replay-wk1-4.md`: ECR-first +36.6 pts and 4 extra wins over 40 team-weeks;
+   usage-first −155 pts over 30):
+   - **TE:** ECR + Vegas → targets break ties **within ~5 ECR spots** → health tier. Usage never
+     overrides ECR for a player returning from injury (it can't see him).
+   - **RB:** ECR + Vegas → usage, mainly to catch role changes (a teammate hurt, a depth-chart
+     move, a snap jump like Gordon's) → health tier. **Within ~3 ECR spots it's a coin flip**
+     (added 2026-10-20): break it with usage/role change, then health tier (Wk6 Kamara vs. Miller).
+   - **WR:** ECR + Vegas. Override only for a clear role change ECR hasn't caught (league-wide,
+     overriding ECR at WR was wrong 7 of 10 times).
+   - **Flex:** FLEX ECR. Within ~10 flex spots it's a coin flip, so start the **later kickoff**.
+   - **QB/K/DEF:** ECR + Vegas → health tier.
 3. **Q tag + low implied total = tiebreaker against** when projections are close. Prefer the healthy,
    steady-volume player.
-4. A Favorable matchup does not rescue a player whose carries or targets are falling.
+4. **Matchup grades are retired** (2026-10-11). They hit 7/21 (33%) through Week 4, worse than a coin
+   flip, and the matchup is already priced into Vegas totals and ECR. See `matchup-grade-accuracy.md`.
+
+*Superseded 2026-10-11: "usage → Vegas → health → matchup grade" for every position. That made usage
+primary at RB/WR, which the backtest didn't support.*
 
 ## Injury-risk tier tracker
 
 Tests whether the `lineup-advice` health risk ladder (Low / Medium / High) predicts anything.
-Log every **started** player who carried a Yahoo injury tag or appeared on an injury report
-that week. Compare to the same week's positional average in `matchup-grade-accuracy.md`.
-"Below avg" = a bad outcome. If High-tier starters don't underperform more often than Low-tier
-ones over the season, the ladder isn't earning its place. Appended by `post-game-check`.
+Log every **started** player who carried a Yahoo injury tag, appeared on an injury report, or
+got the recently-returned bump that week. Appended by `post-game-check`.
 
-| Wk | Player | Pos | Practice trend | Final report | Injury type | Recently returned? | Tier | Pts | Pos avg | Result |
-|---|---|---|---|---|---|---|---|---|---|---|
-| 4 | Josh Allen | QB | Practiced Wed onward | No designation | Knee contusion | No | Low | 19.52 | 19.20 | Above avg |
-| 4 | Kenyon Sadiq | TE | Limited Wed/Thu/Fri | Q, active Sunday | Back (soft tissue) | No (injured that week) | High | 0.00 | 9.23 | Below avg |
+**Two risks, rated separately** (split 2026-10-11):
+- **Play risk:** will he be inactive or leave the game early? Practice trend and the final
+  designation drive it, and the inactive list settles most of it before kickoff.
+- **Limited risk:** if he plays, will his role shrink (fewer snaps, a pitch count, a decoy)?
+  Injury type (soft tissue), the recently-returned bump and pitch-count reports drive it.
+  This is the risk that cost us with Sadiq in Wk4, and no pre-kickoff hedge covers it.
+The overall **Tier** stays the start/sit input (the higher of the two, in practice). The two
+sub-ratings are logged so we can learn which one actually predicts a bad game.
+
+**Outcomes, two ways:**
+- **Snap % (game vs. prior):** his offensive snap share in that game vs. his average over the
+  previous 2-3 healthy games (Sleeper `off_snp`/`tm_off_snp`). A drop of **10+ points** = **Limited**.
+  This is the low-noise test of Limited risk: a touchdown can hide a reduced role, and a healthy
+  player can still score 3.
+- **Pts vs. pos avg:** league-wide average of started players at his position that week (flex
+  counted under the real position). "Below avg" = a bad outcome.
+- **In-game injury?** (added 2026-10-11) If the snap drop came from an injury **during** the game
+  (left early, didn't return), write **"In-game"** in the Role column instead of "Limited." Those
+  don't count against the pre-game tier: no pre-game report could predict them. League-wide in
+  Wks 2-4, 10+ pt snap drops meant a below-average game 82% of the time (vs. 51%), but most were
+  in-game exits (Achane, Jefferson, Rice, Chase). Check game recaps or the injury report for an
+  "exited / did not return" note.
+If High-tier starters aren't Limited or Below avg more often than Low-tier ones over the season,
+the ladder isn't earning its place.
+
+| Wk | Player | Pos | Practice trend | Final report | Injury type | Recently returned? | Play risk | Limited risk | Tier | Snap % (game vs. prior) | Role | Pts | Pos avg | Result |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 4 | Josh Allen | QB | Practiced Wed onward | No designation | Knee contusion | No | Low | Low | Low | 100% vs. 100% | Full | 19.52 | 19.20 | Above avg |
+| 4 | Kenyon Sadiq | TE | Limited Wed/Thu/Fri | Q, active Sunday | Back (soft tissue) | No (injured that week) | Medium | High | High | 69% vs. — (not pulled) | — | 0.00 | 9.23 | Below avg |
+| 5 | Isaiah Likely | TE | Limited Wed/Thu, full Fri | No designation | Knee/groin (soft tissue) | Yes (game 1 of 3) | Low | Medium | Medium | 80% vs. 73% (Wks 2-4) | Full | 26.9 | 11.91 | Above avg |
+| 6 | Isaiah Likely | TE | Full Wed onward | No designation | Foot (listed, not limiting) | Yes (game 2 of 3) | Low | Low | Low | 91% vs. 77% (Wks 3-5) | Full | 20.9 | 7.90 | Above avg |
+| 6 | Josh Allen | QB | No report | No designation | None | No | Low | Low | Low | 100% vs. 100% | Full | 18.3 | 19.93 | Below avg |
+| 6 | George Pickens | WR | No report | No designation | None | No | Low | Low | Low | 88% vs. 86% | Full | 10.3 | 10.64 | Below avg |
+| 6 | Luther Burden III | WR | No report | No designation | None | No | Low | Low | Low | **39% vs. 65%** (Wks 3-5) | Limited (cause not found) | 13.5 | 10.64 | Above avg |
+| 6 | Blake Corum | RB | No report | No designation | None (role risk only) | No | Low | Low | Low | 28% vs. 24% | Full | 13.0 | 11.67 | Above avg |
+| 6 | Tre Tucker | WR | No report | No designation | None (role risk only) | No | Low | Low | Low | 70% vs. 66% | Full | 24.2 | 10.64 | Above avg |
+
+**Week 6 note (2026-10-20):** the one **High**-tier player, Kamara (Q, back; limited all week), was **benched** for Kendre Miller,
+so he isn't a starter row. He played 26% of snaps vs. 32% average over Wks 3-5 (not a 10+ drop, so Full by the snap test) and scored
+13.9, above the 11.67 RB average. He outscored Miller (8.0) by 5.9, all from **one receiving TD** (7.9 without it). His role
+did shrink a bit (7 carries, Miller 20), so the High tier's limited-risk read was roughly right. Grade: **right call, bad luck.**
+Ladder record so far: High-tier started 1 (Sadiq Wk4, bust); High-tier benched 1 (Kamara Wk6, a TD-driven boom). n=2, keep watching.
+Burden's snap drop came with no injury tag, so the Low tier can't be blamed for it.
+**Cross-week audit, Wk6 (W 128.20-112.74):** hindsight-best lineup +5.9 (Kamara for Miller, a TD). **Knowable gap: 0.** Every call
+followed the rules. The opponent's best bench swaps (Loveland for Watson +7.6, Pierce for Stevenson +9.4) would have beaten us by 1.5,
+so the margin was **their mistakes plus Tucker's 2 TDs**, both outside our control. Process slip: trade #17 was planned for Sunday
+night and never sent or formally dropped (no cost this time).
 
 **Recently returned** (column added 2026-10-08): "Yes (game N of 2/3)" when the `lineup-advice`
 bump applied, meaning within 2 games of the last Q/D/O or missed game, or 3 for soft tissue. Log
 those starters even when they have no tag that week. That's the case this column tests.
 
-Tiers for Wk4 were assigned retroactively (2026-10-05) from the `week-04.md` injury cache.
+Wk4 play/limited ratings were assigned retroactively on 2026-10-11. Tiers for Wk4 were assigned retroactively (2026-10-05) from the `week-04.md` injury cache.
+Wk5 (logged 2026-10-13): Likely was the only tiered starter. Montgomery had no tag before kickoff and left Wk5 in the 2nd quarter with a groin injury (14% of snaps); that was an in-game injury and he wasn't tiered, so he isn't logged. Wk5 was a 1.56-pt win, so there's no loss to audit.
 Weeks 1-3 have no tagged starters worth tiering (Dowdle Wk1-2 was healthy at lineup time).
 
 ## Accept as random (don't over-correct)

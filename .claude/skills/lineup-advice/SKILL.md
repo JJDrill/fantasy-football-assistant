@@ -39,18 +39,20 @@ Gives start/sit recommendations for the user's team for a given week.
    **Unverified** rather than stated as fact, per that file's protocol. A legal/off-field
    flag is informational only — surface it clearly in the final list (step 10), but don't
    auto-bench the player for it.
-5. **Usage first.** Pull the last 2-3 weeks of usage for every player on the full roster,
+5. **Usage.** Pull the last 2-3 weeks of usage for every player on the full roster,
    bench included, from Sleeper (`yahoo/sleeper-stats.js`: `getWeekStats(2026, week)`,
    keyed by Sleeper player id). Use `off_snp`/`tm_off_snp` (snap share), `rush_att`,
    `rec_tgt` and `pts_half_ppr`. Build a usage table per position group in the week's notes
-   file. This is the **primary** start/sit input. It's why this step comes before the
-   matchup grade. See `seasons/2026/Kicker I Hardly Know Her/reference/season-lessons.md` for the
-   Weeks 1-4 audit that set this order: Likely's 8/10/5/12 targets sat on the bench behind
-   Pitts' 1/3/2, and the matchup grade kept a fading Montgomery in the lineup.
+   file. How much it weighs depends on position (see step 8): it **breaks close TE calls** and
+   acts as a **role-change detector at RB/WR**. The league-wide replay
+   (`seasons/2026/Kicker I Hardly Know Her/reference/league-replay-wk1-4.md`) found usage-first
+   lost 155 pts over 30 team-weeks, while ECR-first gained. **Usage can't see a player returning
+   from injury** (his recent weeks show 0 targets), so it never overrides ECR for a returning player.
    - **Re-rank the whole position group, bench included.** Never frame a decision as only
      "current starter vs. new option." Every eligible player at the position gets ranked.
-   - A player whose carries/targets/snap share are **falling** stays in that tier even with
-     a Favorable matchup. A Favorable grade doesn't rescue declining usage.
+   - **Flag role changes** at RB/WR: a teammate's injury or return, a depth-chart move, or a
+     big jump or drop in snaps/carries/targets (Gordon's 0 → 17 carries in Wk3). These are
+     what usage catches that ECR can be slow to price in.
    - **Byes:** a player missing from every FantasyPros list (step 5b) is usually on bye. Confirm
      it and fill the slot.
 5b. **Expert consensus + player props** (added 2026-10-05, being tested; see
@@ -67,43 +69,60 @@ Gives start/sit recommendations for the user's team for a given week.
      low line on a Q-tagged player is a direct read on the "active but limited" risk.
    - Don't scrape BettingPros' private API (it needs a key pulled from their site code). Use pages
      and search results only.
-6. Get a matchup grade for every player on the full roster: look up their real-life NFL
-   opponent for the week and that opponent's defensive rank against the player's
-   position (e.g. rushing yards allowed to RBs, for a RB). `WebSearch` per team+position
-   if not already cached this week (e.g. "CIN defense vs RB rank 2026") — reuse the same
-   cache file as step 4, keyed by team+position+week, since defense-vs-position rank
-   doesn't change within a week and is shared across every player facing that defense.
-   Grade on a 3-tier scale from the 32-team rank:
-   - Rank 1–10 (stingiest defense) → Unfavorable
-   - Rank 11–21 → Neutral
-   - Rank 22–32 (most generous defense) → Favorable
-   Source rank claims per `methodology/trusted-sources.md`'s tiering; if only a Tier 2 site
-   gives a specific rank, say so and note it as lower-confidence rather than stating it
-   flatly (as already done for a few Week 1 grades).
-   **The matchup grade is a tiebreaker only.** It hit 7/21 (33%) through Week 4, and `Favorable`
-   grades hit 5/16 (see `reference/matchup-grade-accuracy.md`). Use it only between players
-   whose usage and Vegas signals are about equal, and say so when it decides a call.
+6. **Matchup grade: retired 2026-10-11.** Don't gather defense-vs-position grades. They hit
+   7/21 (33%) through Week 4, worse than a coin flip on an above/below-average call, and no
+   usable 2026 table was findable without interactive filtering. The matchup itself is already
+   priced into the Vegas implied total and FantasyPros ECR. `reference/matchup-grade-accuracy.md`
+   stays as the closed record of why.
 7. For every player in an **outdoor-stadium game** (skip domes and closed-roof
-   retractable stadiums entirely), gather two more signals:
-   - **Weather**: `WebSearch` the game's forecast (e.g. "<city> weather <game date>").
-     Record the actual wind speed and precipitation chance in the week's notes file —
-     log the raw numbers, not just a flag, so a future pass can analyze whether weather
-     should eventually fold into the matchup grade itself instead of standing alone.
-     Only note it as relevant for QB/WR/TE/K (passing-and-kicking-sensitive positions);
-     skip it for RB/DEF. Treat wind >15mph or a high precipitation chance as worth
-     flagging in the final list; anything milder is just logged, not surfaced.
-   - **Vegas signal**: `WebSearch` the game's spread and over/under, and derive each
-     team's implied point total. Log it as a second, independent signal next to the
-     matchup grade — note whether it agrees or disagrees with the defense-rank grade
-     (e.g. "signals agree" when a Favorable grade also has a top-10 implied total, or
-     "signals disagree" when they point opposite directions), since agreement raises
-     confidence and disagreement is worth calling out explicitly rather than picking one.
-8. Decide each slot by weighing the evidence **in this order**:
-   1. **Usage** (step 5): recent snap share, carries, targets.
-   2. **Market and consensus** (steps 5b and 7): player props, the Vegas implied team total, and
-      FantasyPros ECR. When usage and consensus/props **disagree** on a close call, say so
-      explicitly and log it as a test case in `reference/source-accuracy.md`. Don't silently
-      pick one: these disagreements are how we learn which source to trust.
+   retractable stadiums entirely), check **weather**: `WebSearch` the game's forecast
+   (e.g. "<city> weather <game date>"). Record the actual wind speed and precipitation
+   chance in the week's notes file (raw numbers, not just a flag). Only note it as relevant
+   for QB/WR/TE/K (passing-and-kicking-sensitive positions); skip it for RB/DEF. Treat wind
+   >15mph or a high precipitation chance as worth flagging in the final list; anything
+   milder is just logged, not surfaced.
+   For **every** game with a rostered player, get the **Vegas signal**: `WebSearch` the
+   spread and over/under, and derive each team's implied point total.
+8. Decide each slot by weighing the evidence **in this order**, which depends on position
+   (set 2026-10-11 from the Wks 2-4 backtest in `reference/season-lessons.md`; revisit as
+   `reference/source-accuracy.md` fills in):
+
+   | Position | 1st | 2nd | Then |
+   |---|---|---|---|
+   | **TE** | ECR + Vegas | Targets, **only when the two TEs are within ~5 ECR spots** | Health tier |
+   | **RB** | ECR + Vegas (+ props when gathered) | **Within ~3 ECR spots:** usage (role changes first) | Health tier |
+   | **WR** | ECR + Vegas (+ props when gathered) | Usage only for a clear role change | Health tier |
+   | **W/R/T flex** | FLEX ECR (`half-point-ppr-flex.php`) | Within ~10 flex spots: **later kickoff** | Health tier |
+   | **QB / K / DEF** | ECR + Vegas | — | Health tier |
+
+   (Revised 2026-10-11 after the league-wide replay in `reference/league-replay-wk1-4.md`.)
+
+   1. **Leading signal** per the table.
+      - **TE:** when two TEs are within ~5 ECR spots, start the one with more targets over the
+        last 2-3 games (Likely TE10 vs. Sadiq TE12 in Wk4: targets said Likely, who scored 10.1
+        to Sadiq's 0). Beyond ~5 spots, follow ECR. In Wk3, usage would have picked Juwan
+        Johnson (TE13) over Brock Bowers (TE3), who had 0 recent targets after missing time.
+        Bowers scored more.
+      - **WR:** follow ECR. Managers who overrode it league-wide were wrong 7 of 10 times
+        (−28.6 pts), and every usage-vs.-ECR disagreement went ECR's way. Override only for a
+        clear role change that ECR hasn't caught yet, and say so.
+      - **RB:** within ~3 ECR spots it's a coin flip (added 2026-10-20). Break it with usage,
+        role changes first (a depth-chart move, a snap or carry shift), then the health tier.
+        Wk6: Kamara RB29 vs. Miller RB31. Miller had taken over the Wk5 role and Kamara was
+        Q/limited, so start Miller. That was the right call even though one Kamara TD beat it.
+        Beyond ~3 spots, a clear **role change** caught by usage (step 5) can still override
+        ECR when the rankings look stale, e.g. ECR was set before the teammate's injury news. Say so.
+      - **Flex:** compare RB/WR/TE candidates on FantasyPros' FLEX ECR, not positional ranks.
+        Within ~10 flex spots it's a coin flip (league-wide, managers and ECR each won 6 of 12),
+        so start the player with the **later kickoff**. Yahoo lets you swap a player until his
+        own kickoff, so that keeps the swap option open longest, e.g. if the other guy is ruled
+        out late. Don't spend research time on close flex calls.
+      - **Recently-returned players:** the bump stays a tiebreaker. Don't bench a returning
+        player across a big ECR gap. Maria benched Puka (WR7) in his Wk4 return for WR22/WR27,
+        and he scored 23.2 on the bench.
+   2. **Disagreements:** when usage and ECR/props point to different players on a close call,
+      say so and log it as a test case in `reference/source-accuracy.md`. Don't silently pick
+      one: these disagreements are how we learn which source to trust.
    3. **Health risk tier**, not the raw Yahoo tag. A Yahoo Q early in the week is often a
       carryover; official designations come on the final injury report (usually Friday).
       Assign every tagged or recently injured starter a tier from the practice trend, the
@@ -126,6 +145,13 @@ Gives start/sit recommendations for the user's team for a given week.
       tier tracker (`reference/season-lessons.md`, "Recently returned" column) so we can
       test whether these players actually underperform.
 
+      **Rate two risks behind the tier** (added 2026-10-11): **play risk** (inactive or an
+      early exit; practice trend and final designation) and **limited risk** (active but a
+      reduced role; soft-tissue injury, the recently-returned bump, pitch-count reports). The
+      overall tier is the higher of the two. Once the inactive list is out, play risk is mostly
+      settled, so on Sunday morning the **limited risk** is what's left to weigh. Log both in
+      the week's injury cache.
+
       Re-tier as reports come in (Wed → Fri → inactives). Record the tier in the week's
       injury cache. Prefer the healthy, steady-volume player when a High-tier player and a
       healthy one are close. A late-kickoff backup (e.g. an MNF
@@ -133,7 +159,6 @@ Gives start/sit recommendations for the user's team for a given week.
       kickoff locks him in, and nothing protects against "active but limited or bad" (Sadiq,
       Wk4: active, 0 catches, Jets offense collapsed). So weigh that risk at lineup time,
       not on Sunday morning.
-   4. **Matchup grade** (step 6), tiebreaker only.
    Then the weather flag (step 7) for passing/kicking positions. You have no live stat
    projections from any script, so combine fetched data with general knowledge of the
    players and say clearly when you're speculating vs. reporting fetched data.
@@ -144,7 +169,6 @@ Gives start/sit recommendations for the user's team for a given week.
    (e.g. IR eligibility rules, no median matchup so only your own score matters).
 10. Present recommendations as a short list per player: position, current starter,
    suggested replacement (if any), **recent usage (e.g. "targets 8/10/12", "carries 6/11/10")**,
-   FantasyPros ECR (e.g. "TE7, range 5-10"), the main prop line when gathered, the Vegas implied total, health tag, matchup grade (Favorable/Neutral/Unfavorable,
-   labeled as a tiebreaker), any weather flag, any off-field legal/status flag, and one-line
+   FantasyPros ECR (e.g. "TE7, range 5-10"), the main prop line when gathered, the Vegas implied total, health tag and tier, any weather flag, any off-field legal/status flag, and one-line
    start/sit reasoning that names which signal decided it. For each position group, list the
    bench players you ranked and why they sit, so no bench player goes un-reviewed for weeks.

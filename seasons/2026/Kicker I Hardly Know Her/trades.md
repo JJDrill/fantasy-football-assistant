@@ -271,7 +271,7 @@ waivers instead (Kenyon Sadiq claim).
 fumble in Wk3 ([FantasyPros](https://www.fantasypros.com/nfl/news/611180/jake-ferguson-finds-end-zone-week-3.php)).
 Dropped for the same reason as #9.
 
-## 11. Patrick Mahomes ↔ Bhayshul Tuten (vs. Dusty Bottoms) — proposed 2026-10-06, rejected 2026-10-07
+## 11. Patrick Mahomes ↔ Bhayshul Tuten (vs. Dusty Bottoms) — proposed 2026-10-06, rejected 2026-10-07 — re-pitch recommended 2026-10-21
 
 **Status:** **Rejected 2026-10-07.** Proposed 2026-10-06 evening (Mahomes for Tuten straight up). Dusty instead **added Kirk Cousins** off waivers at 7:30 am Oct 7 (dropping Kalif Raymond), which closed their QB need.
 
@@ -373,3 +373,225 @@ would barely beat Montgomery (RB25).
 **Takeaway (2026-10-07):** Mahomes has almost no trade value while Stafford sits on waivers. Keep him
 as Allen's Wk7 cover. Getting an RB upgrade by trade will take a real asset, not a backup QB.
 
+
+**Update to #12 (2026-10-13, post-Wk5 `trade-finder`):** Still not sent. Hubbard is FantasyPros RB11
+for Wk6 (back from bye, 84% snaps in Wks 3-4), and Montgomery's groin injury makes an RB more urgent.
+But Mahomes' value hasn't changed. Love (QB6 this week) and other starting QBs are free agents, and
+the Knights just lost to us. Still a free long shot. If it's sent, send it after the Wk6 waivers clear.
+
+## 14. Tetairoa McMillan ↔ Chase Brown (vs. THE Lil Unk Rayrays) — proposed 2026-10-13
+
+**Status:** **Accepted 2026-10-13 (12:36 pm), in the veto window, not processed yet** (McMillan was still on our roster per `get-matchup 6` right after). Raymond: "I was no shit looking at this exact trade last night just thought you might not go for it." Watch for 3 veto votes. Originally **proposed 2026-10-13** as McMillan ↔ Brown, straight up (verified pending via `get-alerts 6 1`, Yahoo trade id 10). The original Burden ↔ Brown version was analyzed first and judged too lopsided (see below).
+
+**Give:** Luther Burden III (WR, CHI, bye Wk10). **Receive:** Chase Brown (RB, CIN, bye **Wk6**).
+
+- **Why it helps us:** Montgomery left Wk5 with a groin injury and has no timeline
+  ([RotoBaller](https://www.rotoballer.com/?p=1963820)). Dowdle is on IR. Brown's role is steady:
+  60-79% of snaps every week, carries 16/20/13/9/13, targets 6/5/2/11/4, and 16.3/9.7/7.9/13.6/5.5
+  half-PPR (Sleeper). Once St. Brown is back (Wk7), our WRs are St. Brown, Pickens and McMillan,
+  so Burden is our 4th WR (WR20 for Wk6; 6/7/11/6/6 targets, 7.0/4.7/16.3/9.4/6.9).
+- **Why it helps them:** Brown sits on their bench behind Bijan (RB2) and Javonte (RB8). Their only
+  WRs are Egbuka, London and Waddle, so a bye or injury leaves their flex empty. They're 3-2.
+  Pitch line: "Brown's stuck behind two top-8 RBs on your bench. Burden starts for you any week one of
+  your three WRs is out."
+- **Cost:** Brown is on bye in Wk6, and Burden would have been our Wk6 flex with St. Brown off.
+  The Wk6 flex then falls to Mitchell (RB29) or Kamara (RB28) instead of Burden (WR20). That's a
+  small one-week cost for a rest-of-season RB2.
+- **Verdict: slightly favors us, plausible for them.** A WR4 for a starting-caliber RB. Their
+  RB depth is real surplus.
+- **Fallback:** McMillan for Brown (McMillan is WR13 for Wk6 with 80-95% snaps and 38.2 in Wk4).
+  That's fair or favors them, so only offer it if they insist on more.
+- **Order of operations:** claim Woody Marks on Wed Oct 14 waivers first (see `week-05.md`), then
+  send this. It's 1-for-1, so roster count doesn't change.
+
+**Yahoo Evaluate Trade (2026-10-13, user screenshot): J's Pancakes +57.34, Lil Unk −39.03.**
+Burden O-Rank 52, 113.98 projected points remaining; Brown O-Rank 12, 151.16. We lose Wk6 (−5.80, Brown's
+bye) and gain every week after. **Corrected verdict: clearly favors us, too lopsided to send.** Raymond
+already backed out of #5, and a gap this size invites veto votes. **Not sent.** Next step: run McMillan ↔
+Brown through Evaluate Trade and send it if it's within about ±15 for both teams.
+
+**Update (2026-10-13): switched to the fallback, McMillan ↔ Chase Brown. Yahoo Evaluate Trade (user
+screenshot): J's Pancakes +39.71, Lil Unk −13.29.** McMillan O-Rank 33, 61.50 pts to date, 139.72
+projected remaining; Brown O-Rank 12, 151.16. Lil Unk gains Wks 6/7/10 (+2.97/+0.17/+4.76) and loses
+about 1.5-2.7 a week after that. We lose Wk6 (−7.13), Wk7 is even, and we gain every week from Wk8 on,
+including the playoffs. **Verdict: favors us but stays within the ±15 bar for them. Recommended to
+send.** The Wk6 flex hole is covered by adding Marks (if unclaimed) or a free-agent WR, dropping McPherson.
+
+**Critical re-review (2026-10-14, before processing):** closer than first stated, still a modest win.
+- **Brown risk:** Samaje Perine jumped to 14 carries, 51% of snaps and 14.8 pts in Wk5 (Brown: 13 carries, 60%, 5.5).
+  Perine was at 28-40% of snaps before that. Brown's pts are 16.3/9.7/7.9/13.6/5.5 (10.6 per game). Wk4's 11 targets came
+  after Ja'Marr Chase's concussion exit ([NBC Sports](https://www.nbcsports.com/fantasy/football/player-news/2026-10-04/chase-browns-11-catches-hit-big-for-ppr-leagues)).
+- **McMillan context:** his 38.2 came with Coker and Legette both out
+  ([DraftSharks](https://www.draftsharks.com/fantasy-football-news/83158/tetairoa-mcmillan-erupts-for-442-ppr-points-as-week-4s-wr1)).
+  The other three games average 7.8. He plays 80-95% of snaps with about a 22% target share, so the upside is real.
+- **What matters is the gain over replacements:** McMillan → Burden at WR3 (8.9 per game) is about even (or −6 if the
+  breakout is real). Brown over Kamara or Mitchell at RB2 (~7-8) is about +3.
+- **What would change the verdict:** news that CIN is splitting carries with Perine. Withdrawing after acceptance
+  isn't possible in Yahoo; the only route is the #5 precedent (Raymond agrees, then the league vetoes). Not pursued.
+
+## 15. Luther Burden III ↔ Jacory Croskey-Merritt (vs. Smokin Base Brian) — considered 2026-10-13, dropped
+
+**Status:** Dropped before proposing (`trade-analyzer`, post-Wk5).
+
+Brian needs a WR (Addison O, McConkey Q) and has spare RBs (Croskey-Merritt, Love, Rodriguez). But
+Croskey-Merritt's role is unstable: 35-57% of snaps, carries 16/12/19/9/11, 4.8-14.2 half-PPR. He's
+RB21 for Wk6, barely above free agent Woody Marks (RB25), and WAS is on bye in Wk7. **Verdict: fair but
+not worth a WR.** Jeremiyah Love (RB23, rookie) would be the target, but Brian has no reason to move
+him for Burden.
+
+## 16. Luther Burden III ↔ Quinshon Judkins (vs. True & Living 12th Gospel) — considered 2026-10-13, fallback to #14
+
+**Status:** Analyzed. Not sent. Fallback if #14 is declined.
+
+The 0-5 team has Deebo out and thin WRs (Doubs, Downs, Watson), with Judkins on their bench behind
+Cook and Stevenson. Judkins: 51-67% of snaps, carries 12/12/18/17/14, 6.0/7.3/8.9/18.6/6.5 half-PPR.
+RB20 for Wk6, CLE bye Wk11. Yahoo shows him Q. No current injury report found
+([search](https://www.cbssports.com/fantasy/football/news/browns-quinshon-judkins-facing-four-to-six-month-recovery)
+only turned up his 2025 leg fracture), so check before sending. **Verdict: fair.** It's a lesser version of #14.
+
+Limits: 2 of 15 trades used once #14 clears, deadline Nov 28, 2026 (`reference/League_Settings.pdf`). 3 veto votes
+cancel a trade.
+
+## 17. Luther Burden III ↔ Aaron Jones Sr. (vs. 4th Qtr Maria) — analyzed 2026-10-14, top pick, not sent
+
+**Status:** Analyzed (`trade-finder` RB scan → `trade-analyzer`). **Never sent** (no pending trade per `get-alerts 7`, 2026-10-20). **Downgraded to watch item 2026-10-20** (see the post-Wk6 re-check at the end of this file).
+
+**Give:** Luther Burden III (WR, CHI, bye Wk10). **Receive:** Aaron Jones Sr. (RB, MIN, bye Wk6, on Maria's bench).
+
+**Why it fits:** Maria (3-2) rosters 5 RBs (Henry, Marks, Kyren Williams, Jones, Barkley Q) and only 3 WRs (Puka,
+Worthy WR36, Jameson Williams on bye). They dropped MHJ and Q. Johnston this week, so WR is their open hole.
+Jones is a bench piece for them.
+
+**Usage (Sleeper Wks 1-5, half-PPR):** Jones 46/81/80/73/87% snaps, carries 12/23/17/20/25, 10.0/10.5/11.7/14.8/17.2
+(12.8 avg, rising). Jordan Mason is on IR (Brian's roster), so Jones is MIN's lead back. Burden 8.9 avg (targets 5/7/11/6/6).
+Our RB2 today is Mitchell (6.1 avg, ~35% snaps).
+
+**Verdict: favors us modestly, fair enough to get accepted.** Jones over Mitchell is about +6-7/week. Burden's
+WR3 spot is refilled from free agency (Wan'Dale Robinson ~11/game Wks 3-5, Tucker), so the WR loss is small.
+Maria gets a WR2 starter every week. Jones's MIN bye is Wk6, already done after this week.
+**Risks:** Jones is 31, with a 2025 hamstring IR stint. Burden's ECR (WR19) is higher than his production.
+
+**Timing:** Jones is on bye Wk6, and sending now would open a second WR hole before Sunday (McMillan leaves in #14).
+Send Sunday night after CHI-ATL so it clears the 2-day veto window before Wk7.
+
+## 18. Patrick Mahomes ↔ Javonte Williams (vs. THE Lil Unk Rayrays) — analyzed 2026-10-14, second pick, not sent
+
+**Status:** Analyzed, never sent. **Dropped 2026-10-20:** Lil Unk added Caleb Williams on Oct 18, which closes their QB need (see the post-Wk6 re-check at the end of this file).
+
+**Give:** Patrick Mahomes (QB, KC). **Receive:** Javonte Williams (RB, DAL, bye Wk14).
+
+Lil Unk starts Bryce Young, with Darnold and Shough behind him, and offered Javonte + Pittman for Mahomes on
+9/22 (#5, then got buyer's remorse). Javonte: 71-85% snaps, 17.5 avg, RB7 for Wk6. After #14 their RBs are
+Bijan, Javonte and Monangai (Q), so losing Javonte thins them out. That makes it less likely than #17.
+**Verdict: favors us.** Mahomes is only Allen's Wk7 cover for us. Stream Stroud or Caleb Williams in Wk7.
+**Risk:** a second trade with the same team in one week invites veto votes (3 cancel it). If they decline, ask for Monangai plus a WR instead.
+
+## 19. Patrick Mahomes ↔ Chuba Hubbard or Jaylen Warren (vs. Knights Who Say Ni) — considered 2026-10-14, long shot
+
+Knights roster only Dak (DAL bye Wk14, before our playoffs) and five RBs (McCaffrey, Walker, Hubbard, Warren,
+Harvey). Hubbard RB12 Wk6 (18.5 avg), Warren RB10 (16.7 avg, 87-97% snaps Wks 3-5). Updates #12. Knights have
+little QB urgency and no WR need (Nabers, Rice, Higgins, McLaurin, Smith). **Verdict: would favor us; unlikely to
+be accepted.** Costs nothing to ask once #18 is answered.
+
+## 20. Amon-Ra St. Brown ↔ Kyren Williams (vs. 4th Qtr Maria) — considered 2026-10-14, dropped for #17
+
+Kyren (RB4 Wk6, 19.2 avg, LAR bye Wk11) for St. Brown (17.1 avg, but 9.9-11.5 over the last 3). Net about +6/wk,
+the same as #17, but it costs our best WR and leaves Pickens as the only proven WR. **Dropped in favor of #17.**
+
+**Re-check (2026-10-14):** #16 (Burden ↔ Judkins, our Wk6 opponent) is superseded by #17: Judkins is RB23 and Q.
+
+**Update to #14 (2026-10-16): PROCESSED** Oct 16, 12:38 am (`get-alerts 6 3`). Chase Brown is on our roster; McMillan is with Lil Unk. 2 of 15 trades used.
+
+**#14, how Wk6 played out (2026-10-20):** McMillan scored 11.6 for Lil Unk (6/9, 86 yds). Brown was on bye, as expected. His WR slot went to free agent Tre Tucker (24.2), so the expected Wk6 cost (−7) turned into +12.6 in practice. That was mostly Tucker's 2 TDs (chance). The trade's real test is Wk7 onward.
+
+## Post-Wk6 re-check (2026-10-20, `post-game-check` → `trade-finder` → `trade-analyzer`)
+
+Context: we're 2-4 after beating Gospel 128.20-112.74. Byes: **Allen Wk7** (BUF); **Likely, Pineiro, Miller and Kamara Wk8** (NYG, SF, NO).
+Our RBs are healthy again: Brown RB15 for Wk7, Gordon RB21, Corum RB22 (FantasyPros ECR, 10/20), with Montgomery on IR (HOU bye Wk8,
+so likely back Wk9). **RB is no longer an open hole.** The one asset that's dead weight is **Mahomes**: free agent C.J. Stroud is
+QB10 for Wk7 vs. Mahomes QB11 (Stroud 23.1/20.9/24.0 over Wks 4-6, Mahomes 17.0/—/11.5; Sleeper). Any return for Mahomes beats holding him.
+Trades used: 2 of 15. Deadline Nov 28 per `League_Settings.pdf` (rules PDF says Nov 21; treat Nov 21 as the safe date). 3 veto votes cancel a trade.
+
+- **#17 Burden ↔ Aaron Jones (Maria): fair, small edge to us. Downgraded to watch.** For Wk7, ECR has them about even: Jones RB17 /
+  FLEX 40, Burden WR22 / FLEX 42. Jones: 73-87% of snaps, 12.8 avg. Burden played 39% of snaps in Wk6 (8 targets, 13.5); no injury
+  report found to explain the drop. With Brown and Gordon back, Jones would be our flex rather than a fill-in RB2. That's maybe +1-3/week,
+  at the cost of WR depth (Tucker becomes WR3) and CHI's Wk10 bye cover. Maria is also our **Wk7 opponent**, and a trade processing
+  mid-week would hand them Burden for our game. Revisit after Wk7 only if an RB gets hurt.
+- **#11 re-pitch: Mahomes ↔ Bhayshul Tuten (Dusty): favors us; unlikely.** Tuten: 48-68% of snaps, 12-22 carries, 16.0/10.1/10.6/22.7
+  (14.9 avg). JAX bye Wk7. Dusty's QBs: Cousins (19-24 pts, 3 of 4 weeks) with Lamar out Wks 5-6 (ankle). Skattebo played 8% of snaps in
+  Wk6 (check whether he was hurt), but **Josh Jacobs is eligible to return Oct 25**, which crowds their RB room. They already rejected
+  this on 10/7, and Mahomes is barely an upgrade on Cousins. A cheap ask, low odds.
+- **#19 refresh: Mahomes ↔ Jaylen Warren (Knights): favors us; most plausible Mahomes deal.** Knights **bench** Warren (RB9 for Wk7;
+  75-97% of snaps, 14.1/33.8/8.8 over Wks 4-6). They roster six RBs (McCaffrey, Walker, Hubbard, Warren, Harvey, plus Allgeier added
+  10/17) and only one QB (Dak). Pitch: "Warren's buried on your bench; Mahomes is QB insurance for a 4-2 contender." Hubbard isn't
+  realistic now that he's their starting flex (94% of snaps, 28 carries in Wk6).
+- **#18 Mahomes ↔ Javonte (Lil Unk): dropped.** Caleb Williams was added Oct 18, and Javonte is their RB8 starter.
+
+**Recommendation:** send **#19 (Mahomes ↔ Warren)** now. If it's accepted before Sunday, add Stroud for Wk7 (drop the Chiefs DEF). If
+it's declined, try #11 (Tuten). If neither lands by Wk7 kickoff, start Mahomes, then drop him after Wk7 for a Wk8 kicker.
+
+## Wed re-check (2026-10-21, `get-all-rosters` → `trade-analyzer`)
+
+**What changed since 10/20:** Dusty Bottoms **dropped Kirk Cousins** (for WR Omar Cooper Jr.), leaving **Lamar Jackson as their only QB**.
+Lamar (ankle) hasn't practiced since Oct 4. He missed the open portion of Wednesday's practice and has been inactive for 2 straight games
+([NFL.com](https://www.nfl.com/news/ravens-qb-lamar-jackson-ankle-still-not-practicing), [CBS](https://www.cbssports.com/nfl/news/nfl-week-7-injury-report-ravens-lamar-jackson-jets-breece-hall/)).
+Cousins is on waivers until Oct 23, and Yahoo's #245 rule blocks Dusty from reclaiming him before then. **C.J. Stroud is gone:** 4th Qtr
+Maria added him, so the "add Stroud if Mahomes leaves" fallback is dead. The best FA QBs now are Rodgers (QB14, PIT at NO) and Watson (QB17).
+
+- **#11 re-pitch: Mahomes ↔ Bhayshul Tuten (Dusty): favors us, and now plausible. TOP PICK; send now.** Dusty has a real Wk7 QB hole,
+  and Mahomes (QB11) beats every free agent. Their RB room is crowded: Skattebo and Lloyd start, Tuten and **Josh Jacobs** (eligible
+  Oct 25) are on the bench, so Tuten is their 3rd-4th RB. Tuten: JAX lead early-down back, snaps rose from ~49% (Wk1) to 68% (Wk5),
+  career-high 22 carries vs. PHI; 14.9 avg over Wks 3-6 ([Draft Sharks](https://www.draftsharks.com/fantasy-football-news/83324/bhayshul-tuten-continues-role-growth)).
+  Short-yardage and passing downs still go to Rodriguez/Allen. **JAX's bye was Wk7**, so he helps from Wk8 on, the same week Miller/Montgomery are out.
+  **Cost to us:** if it's accepted before Sunday (2-day veto window), we start a free-agent QB in Wk7: **add Rodgers (QB14), drop Miller**
+  (RB26, NO bye Wk8, RB6 once Tuten arrives). That's about a 3-spot QB downgrade for one week, in exchange for a starting-calibre RB the
+  rest of the season. After Wk7, Allen is back and Mahomes would be dead weight anyway.
+  **Pitch:** "Lamar still isn't practicing and you cut Cousins. Mahomes starts for you Sunday and covers you if the ankle lingers.
+  With Jacobs back this week, Tuten is your 4th back." Risks: Dusty adds a FA QB instead (all rank below Mahomes), or Lamar
+  practices Thu/Fri and they wait. 3 veto votes cancel a trade; this one is fair enough not to draw them.
+- **#19 Mahomes ↔ Jaylen Warren (Knights): fallback, after Wk7.** Unchanged: Warren is still on the Knights' bench (6 RBs, Dak their
+  only QB). No 2026 injury news found. The Knights have no urgent QB need, so it doesn't need to go before Sunday.
+- **#17 Burden ↔ Aaron Jones (Maria): stays on watch.** Jones is still on Maria's bench. Maria is our Wk7 opponent, and Burden is our
+  starting flex (FLEX45). No change.
+
+Trades used: 2 of 15. Deadline Nov 21 (safe date).
+
+## 21-23. Smokin Base Brian ideas, "for fun" (2026-10-21; Yahoo's trade tab named them; not sent)
+
+**Context.** Brian is 2-4, rated "Inactive" in `reference/league-patterns.md` (no moves found), and it shows: this week they're
+**starting Brian Thomas Jr. and Chris Rodriguez Jr., both on JAX's Wk7 bye**, plus two Q-tagged starters (Denzel Boston, Tyler Warren).
+**Needs:** RB (Taylor RB7, then Rodriguez on a committee; Jeremiyah Love has a lingering ankle and may miss Wk7, RB63 with a 25-95 range;
+Croskey-Merritt is on IR and Mason on IR-R) and TE (Warren is Q, TE34 with a 9-47 range). **Surplus:** WR (six of them: Thomas, Odunze WR35,
+Boston WR28, Addison WR42, McConkey, Luke McCaffrey). QB: Maye is QB2, so they need no QB except on NE's Wk11 bye, which rules out Mahomes.
+Ranks are FantasyPros weekly ECR, 10/22.
+
+- **#21 Blake Corum ↔ Ladd McConkey: favors us, the best of the three.** McConkey left Wk6 with a **concussion**, and LAC is on bye in Wk7,
+  so he should be back for Wk8 ([Draft Sharks](https://www.draftsharks.com/fantasy-football-news/83519/ladd-mcconkey-out-with-concussion)).
+  One outlet also lists a foot issue, so check before sending. That makes it a buy-low on a WR2-calibre talent with an injury discount.
+  Corum is our RB3/4 (RB24) and a flex coin flip. Brian gets a healthy RB this week to cover Love's ankle. For us, McConkey would replace Tucker
+  (WR30) as WR4 or flex. **Only makes sense if the Tuten deal lands**, or if Montgomery's back by Wk9; otherwise RB depth gets thin.
+- **#22 Kyle Pitts ↔ Jordan Addison: fair, and pointless before Wk9.** Pitts is Likely's Wk8 bye cover, so we can't move him until after Wk8.
+  After that, a TE2 for a WR42 doesn't change our lineup.
+- **#23 Corum + Pitts ↔ Brian Thomas Jr.: favors Brian on paper, a gamble for us.** BTJ was a 2025 star, but his 2026 role and form
+  aren't clear. It costs two depth pieces for a player we'd start only at flex. Pass.
+
+**Odds:** low. An inactive manager rarely answers trade offers, and a lopsided deal with an inactive team is the kind that draws veto
+votes. If you want to try one, send **#21** after Wk7, once McConkey's concussion clearance is confirmed, and after the Tuten deal
+is settled. Sources: [Draft Sharks](https://www.draftsharks.com/fantasy-football-news/83519/ladd-mcconkey-out-with-concussion),
+[PFN Wk7 injury recap](https://www.profootballnetwork.com/fantasy-football/fantasy-football-injury-recap-week-7-2026/),
+[Yahoo: Love ankle](https://sports.yahoo.com/articles/jeremiyah-love-missing-week-7-193850078.html).
+
+**Update (2026-10-21), #11 Mahomes ↔ Tuten: Yahoo's "Evaluate Trade" screen** (user's PDF; projected optimal lineups, Wks 7-17):
+- **Us: +2.29 for the season**, but that includes **−16.46 in Wk7**, because Yahoo leaves our QB slot empty (Allen on bye, 0 pts).
+  Adding a FA QB (Rodgers, QB14) recovers most of that. **Wks 8-17 alone come to about +18.8** (+3.22, +0.48, +3.64, +1.76, +1.22, +1.77, +2.93,
+  +0.40, +2.05, +1.28), positive every week. Yahoo's season ranks: Tuten O-Rank 19 (81.9 pts so far, 121.5 projected), Mahomes O-Rank 75 (97.1, 204.1).
+- **Dusty: −46.51.** Wk7 "even", every other week −4 to −11, except **+11.58 in Wk13** (BAL's bye). Yahoo's projections assume **Lamar
+  plays every week**, so Mahomes only helps them in Lamar's bye week, and they lose Tuten every week. **Dusty sees this same screen**,
+  which makes them less likely to accept.
+- **What it means:** the deal is good for us (with a Wk7 QB add), and Yahoo will tell Dusty it's bad for them. The deal now rests on Dusty
+  doubting Lamar's ankle. Still worth sending; it costs nothing. The pitch has to lead with the risk to Lamar's ankle (no practice since
+  Oct 4, inactive 2 straight games), since Yahoo's screen assumes he's healthy. If Lamar practices fully Thu/Fri, odds drop further:
+  hold it, and go to #19 (Warren) after Wk7.
+
+**Update (2026-10-21), #11: PROPOSED (re-pitch).** Mahomes ↔ Tuten, straight up, with the Lamar-ankle note. Verified pending via
+`get-alerts 7 1` (Yahoo trade id 12). **If accepted:** add Rodgers (QB14, PIT at NO), drop Miller, start Rodgers before Sunday.

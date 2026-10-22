@@ -7,6 +7,7 @@
 // Usage:
 //   node yahoo/fantasypros-ecr.js                      # all positions, full lists
 //   node yahoo/fantasypros-ecr.js TE RB                # just these positions
+//   node yahoo/fantasypros-ecr.js FLEX --players "Luther Burden III,Alvin Kamara"  # flex calls
 //   node yahoo/fantasypros-ecr.js --players "Isaiah Likely,Kyle Pitts Sr."
 //
 // `ecr` is the consensus positional rank; `best`/`worst`/`std` show expert disagreement.
@@ -19,6 +20,7 @@ const PAGES = {
   RB: 'half-point-ppr-rb.php',
   WR: 'half-point-ppr-wr.php',
   TE: 'half-point-ppr-te.php',
+  FLEX: 'half-point-ppr-flex.php', // cross-position RB/WR/TE ranks, for W/R/T calls
   K: 'k.php',
   DST: 'dst.php',
 };

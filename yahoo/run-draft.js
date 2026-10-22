@@ -181,7 +181,6 @@ async function main() {
     let lastDialogText = null;
     const ourPicks = [];
 
-    // eslint-disable-next-line no-constant-condition
     while (true) {
       // Checked every poll interval, independent of turn state: catches an unexpected
       // dialog/toast (e.g. a "someone else just picked" notification card, or a genuine

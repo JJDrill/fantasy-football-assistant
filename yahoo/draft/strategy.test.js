@@ -3,9 +3,6 @@ const { test } = require('node:test');
 const assert = require('node:assert');
 const { pickPlayer } = require('./strategy');
 
-const STARTING_SLOTS = ['QB', 'WR', 'WR', 'RB', 'RB', 'TE', 'W/R/T'];
-const TOTAL_ROUNDS = 15;
-
 function emptyRoster() {
   return [
     { slot: 'QB', playerName: null },
