@@ -208,6 +208,30 @@ small plus for us if anything. Maria's other moves: added Stroud (on her bench),
 | Pickens trade watch (NFL deadline Nov 10) | **Carried over → recheck before each lineup lock** |
 | Everything else in the 10/21 to-do table | **Done** (unchanged) |
 
+## Pre-game check #3 (2026-10-22, Thu before TNF; later check, so first-of-week items skipped)
+
+Scripts (one at a time): `get-alerts 7 2` (earlier today), `get-matchup 7`. Both worked. `run-challenge 7` skipped: no Wk7 games played yet, and the rule is known.
+No pending claims or trades. **Trade id 12 (#11 Mahomes ↔ Tuten) was rejected 10/22** (`trades.md` updated; don't re-pitch).
+
+**Lineup: confirmed, no changes.** Mahomes; Gordon, Brown; Pickens, St. Brown; Likely; W/R/T Burden; K Fitzgerald; DEF Vikings.
+
+**New tag: Pickens Q (shoulder).** He was limited in DAL's first practice (Thu, for a Monday game). ESPN's Todd Archer says it isn't expected to keep him
+out. He's been icing the shoulder after the last two games. **Keep starting him for now.** Since DAL plays Monday night, **decide by Sat/before
+Sunday's kickoff**: every bench option (Tucker WR30, Corum) plays Sunday and locks then. Sat final report → Q with full/limited Fri-Sat and
+"expected to play" = start Pickens. Doubtful/Out, or DNP Fri-Sat = start **Tucker**.
+Montgomery Q → **D** (bench; already out-expected, HOU Wk8 bye). Burden: no tag, not on CHI's final report (10/21), starts tonight.
+
+**To-do status (check #3):**
+
+| Item | Status |
+|---|---|
+| Trade #11 (id 12) | **Done: rejected 10/22.** No Rodgers add needed. Mahomes starts Wk7 |
+| Pickens shoulder (Q) | **New → Sat 10/24** final DAL report; swap to Tucker before Sunday kickoff if Doubtful/Out/DNP |
+| Friday injury reports (Pickens' final is Sat) | **Carried over → Fri 10/23 / Sat 10/24** |
+| Weather recheck (SEA rain, CAR wind) | **Carried over → Sat 10/24** |
+| Pickens trade watch (NFL deadline Nov 10) | **Carried over → recheck before each lineup lock** |
+| #19 Mahomes ↔ Warren (Knights) | **Carried over → after Wk7** (now the only live Mahomes idea) |
+
 ## Injury/Availability Report (cached)
 
 | Player | Status | Note | Checked | Source |
@@ -219,4 +243,5 @@ small plus for us if anything. Maria's other moves: added Stroud (on her bench),
 | Patrick Mahomes | **Full practice Wed** (knee, listed as maintenance) | Low tier. KC's weapons are thinner: WR Rashee Rice (hamstring) DNP, Kelce (ankle) limited, RT Jaylon Moore (concussion) DNP, LT Simmons DNP (non-injury). Watch Fri | 2026-10-21 | [Seahawks.com](https://www.seahawks.com/news/2026-week-7-injury-report-chiefs-at-seahawks), [Arrowhead Pride](https://www.arrowheadpride.com/kansas-city-chiefs-injuries/213789/chiefs-seahawks-week-7-wednesday-injury-report-josh-simmons-misses-practice) |
 | Chase Brown (game context) | No tag | BAL QB Lamar Jackson (ankle) still not practicing; a backup QB for BAL could mean a more run-heavy CIN script | 2026-10-21 | [CBS Sports](https://www.cbssports.com/nfl/news/nfl-week-7-injury-report-ravens-lamar-jackson-jets-breece-hall/) |
 | George Pickens | Healthy; no tag | Called out for lack of effort after the Wk6 GB loss; Schottenheimer said it's on the staff to involve him more. Trade-candidate talk (ESPN's Solak; Jerry Jones open to it), NFL deadline Nov 10. Media noise, not a role change: 11 targets in Wk6, ECR WR14. Keep starting him; recheck for a trade before each lineup lock | 2026-10-21 | [Yahoo](https://sports.yahoo.com/articles/cowboys-wr-george-pickens-called-003839630.html), [Athlon](https://athlonsports.com/nfl/trending/cowboys-brian-schottenheimer-breaks-silence-on-george-pickens-problem) |
-| David Montgomery | Groin, week-to-week; HOU bye Wk8 | Likely out Wk7, back Wk9 at the earliest | 2026-10-20 | [RotoBaller](https://www.rotoballer.com/?p=1963820) |
+| George Pickens (Thu) | **Q, shoulder; limited Thu** (DAL's first practice for a MNF game) | Not expected to keep him out (ESPN's Archer); has iced it after the last two games. Two more practices before the Sat final report | 2026-10-22 | [NBC Sports/PFT](https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/george-pickens-limited-in-thursdays-practice-with-shoulder-injury), [RotoWire](https://www.rotowire.com/football/headlines/george-pickens-injury-dealing-with-shoulder-injury-643793) |
+| David Montgomery | Groin, week-to-week; HOU bye Wk8 (Yahoo tag Q → **D** on 10/22) | Likely out Wk7, back Wk9 at the earliest | 2026-10-20 | [RotoBaller](https://www.rotoballer.com/?p=1963820) |
