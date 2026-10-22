@@ -580,3 +580,15 @@ votes. If you want to try one, send **#21** after Wk7, once McConkey's concussio
 is settled. Sources: [Draft Sharks](https://www.draftsharks.com/fantasy-football-news/83519/ladd-mcconkey-out-with-concussion),
 [PFN Wk7 injury recap](https://www.profootballnetwork.com/fantasy-football/fantasy-football-injury-recap-week-7-2026/),
 [Yahoo: Love ankle](https://sports.yahoo.com/articles/jeremiyah-love-missing-week-7-193850078.html).
+
+**Update (2026-10-21), #11 Mahomes ↔ Tuten: Yahoo's "Evaluate Trade" screen** (user's PDF; projected optimal lineups, Wks 7-17):
+- **Us: +2.29 for the season**, but that includes **−16.46 in Wk7**, because Yahoo leaves our QB slot empty (Allen on bye, 0 pts).
+  Adding a FA QB (Rodgers, QB14) recovers most of that. **Wks 8-17 alone come to about +18.8** (+3.22, +0.48, +3.64, +1.76, +1.22, +1.77, +2.93,
+  +0.40, +2.05, +1.28), positive every week. Yahoo's season ranks: Tuten O-Rank 19 (81.9 pts so far, 121.5 projected), Mahomes O-Rank 75 (97.1, 204.1).
+- **Dusty: −46.51.** Wk7 "even", every other week −4 to −11, except **+11.58 in Wk13** (BAL's bye). Yahoo's projections assume **Lamar
+  plays every week**, so Mahomes only helps them in Lamar's bye week, and they lose Tuten every week. **Dusty sees this same screen**,
+  which makes them less likely to accept.
+- **What it means:** the deal is good for us (with a Wk7 QB add), and Yahoo will tell Dusty it's bad for them. The deal now rests on Dusty
+  doubting Lamar's ankle. Still worth sending; it costs nothing. The pitch has to lead with the risk to Lamar's ankle (no practice since
+  Oct 4, inactive 2 straight games), since Yahoo's screen assumes he's healthy. If Lamar practices fully Thu/Fri, odds drop further:
+  hold it, and go to #19 (Warren) after Wk7.
