@@ -555,3 +555,28 @@ Maria added him, so the "add Stroud if Mahomes leaves" fallback is dead. The bes
   starting flex (FLEX45). No change.
 
 Trades used: 2 of 15. Deadline Nov 21 (safe date).
+
+## 21-23. Smokin Base Brian ideas, "for fun" (2026-10-21; Yahoo's trade tab named them; not sent)
+
+**Context.** Brian is 2-4, rated "Inactive" in `reference/league-patterns.md` (no moves found), and it shows: this week they're
+**starting Brian Thomas Jr. and Chris Rodriguez Jr., both on JAX's Wk7 bye**, plus two Q-tagged starters (Denzel Boston, Tyler Warren).
+**Needs:** RB (Taylor RB7, then Rodriguez on a committee; Jeremiyah Love has a lingering ankle and may miss Wk7, RB63 with a 25-95 range;
+Croskey-Merritt is on IR and Mason on IR-R) and TE (Warren is Q, TE34 with a 9-47 range). **Surplus:** WR (six of them: Thomas, Odunze WR35,
+Boston WR28, Addison WR42, McConkey, Luke McCaffrey). QB: Maye is QB2, so they need no QB except on NE's Wk11 bye, which rules out Mahomes.
+Ranks are FantasyPros weekly ECR, 10/22.
+
+- **#21 Blake Corum ↔ Ladd McConkey: favors us, the best of the three.** McConkey left Wk6 with a **concussion**, and LAC is on bye in Wk7,
+  so he should be back for Wk8 ([Draft Sharks](https://www.draftsharks.com/fantasy-football-news/83519/ladd-mcconkey-out-with-concussion)).
+  One outlet also lists a foot issue, so check before sending. That makes it a buy-low on a WR2-calibre talent with an injury discount.
+  Corum is our RB3/4 (RB24) and a flex coin flip. Brian gets a healthy RB this week to cover Love's ankle. For us, McConkey would replace Tucker
+  (WR30) as WR4 or flex. **Only makes sense if the Tuten deal lands**, or if Montgomery's back by Wk9; otherwise RB depth gets thin.
+- **#22 Kyle Pitts ↔ Jordan Addison: fair, and pointless before Wk9.** Pitts is Likely's Wk8 bye cover, so we can't move him until after Wk8.
+  After that, a TE2 for a WR42 doesn't change our lineup.
+- **#23 Corum + Pitts ↔ Brian Thomas Jr.: favors Brian on paper, a gamble for us.** BTJ was a 2025 star, but his 2026 role and form
+  aren't clear. It costs two depth pieces for a player we'd start only at flex. Pass.
+
+**Odds:** low. An inactive manager rarely answers trade offers, and a lopsided deal with an inactive team is the kind that draws veto
+votes. If you want to try one, send **#21** after Wk7, once McConkey's concussion clearance is confirmed, and after the Tuten deal
+is settled. Sources: [Draft Sharks](https://www.draftsharks.com/fantasy-football-news/83519/ladd-mcconkey-out-with-concussion),
+[PFN Wk7 injury recap](https://www.profootballnetwork.com/fantasy-football/fantasy-football-injury-recap-week-7-2026/),
+[Yahoo: Love ankle](https://sports.yahoo.com/articles/jeremiyah-love-missing-week-7-193850078.html).
