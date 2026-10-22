@@ -139,7 +139,7 @@ Carolina wind picks up (flag at wind over 15 mph or a high rain chance).
 | Burden vs. Corum flex | **Done 10/21: start Burden** (see the flex decision below) |
 | Vegas lines: KC@SEA, LAR@LV, DAL@PHI, GB@DET | **Done 10/21**: no lineup changes (see Vegas lines) |
 | Weather: KC@SEA (Mahomes), DAL@PHI (Pickens), plus CAR (Fitzgerald), CHI (Burden) | **Checked 10/21: no flags.** Quick recheck Sat (SEA rain, CAR wind) |
-| Friday injury reports for starters | **Open → Fri** (none tagged now; Likely is Medium on the returned bump) |
+| Friday injury reports for starters | **Wed check done 10/21** (no tags; Mahomes full). **Final reports → Fri** (Pickens' DAL plays Mon, so his final comes Sat) |
 | Trade #19 Mahomes ↔ Warren | **Open → after Wk7** (user's call; sending before Sunday means losing our only active QB mid-week) |
 | Wk8 byes: Likely (Pitts covers), Pineiro (gone), Miller (bench), Montgomery (out anyway) | **Covered**. Nothing else needed |
 
@@ -173,5 +173,8 @@ impact; a TE is in the slot either way.
 | Whole roster | No Yahoo tags except Montgomery (Q, on IR) | Practice reports not out yet (Tue) | 2026-10-20 | `get-matchup 7` |
 | Isaiah Likely | Healthy | Recently returned, game 3 of 3 (knee/groin soft tissue) → Medium | 2026-10-20 | week-05/06 caches |
 | Luther Burden III | No injury report found | 39% snaps Wk6 vs. 65% Wks 3-5 | 2026-10-20 | search (no 2026 result) |
+| Whole roster (Wed recheck) | No Yahoo tags except Montgomery (Q) | Wednesday reports are out for Sunday teams; Friday finals aren't yet | 2026-10-21 | `get-matchup 7` |
+| Patrick Mahomes | **Full practice Wed** (knee, listed as maintenance) | Low tier. KC's weapons are thinner: WR Rashee Rice (hamstring) DNP, Kelce (ankle) limited, RT Jaylon Moore (concussion) DNP, LT Simmons DNP (non-injury). Watch Fri | 2026-10-21 | [Seahawks.com](https://www.seahawks.com/news/2026-week-7-injury-report-chiefs-at-seahawks), [Arrowhead Pride](https://www.arrowheadpride.com/kansas-city-chiefs-injuries/213789/chiefs-seahawks-week-7-wednesday-injury-report-josh-simmons-misses-practice) |
+| Chase Brown (game context) | No tag | BAL QB Lamar Jackson (ankle) still not practicing; a backup QB for BAL could mean a more run-heavy CIN script | 2026-10-21 | [CBS Sports](https://www.cbssports.com/nfl/news/nfl-week-7-injury-report-ravens-lamar-jackson-jets-breece-hall/) |
 | George Pickens | Healthy; no tag | Called out for lack of effort after the Wk6 GB loss; Schottenheimer said it's on the staff to involve him more. Trade-candidate talk (ESPN's Solak; Jerry Jones open to it), NFL deadline Nov 10. Media noise, not a role change: 11 targets in Wk6, ECR WR14. Keep starting him; recheck for a trade before each lineup lock | 2026-10-21 | [Yahoo](https://sports.yahoo.com/articles/cowboys-wr-george-pickens-called-003839630.html), [Athlon](https://athlonsports.com/nfl/trending/cowboys-brian-schottenheimer-breaks-silence-on-george-pickens-problem) |
 | David Montgomery | Groin, week-to-week; HOU bye Wk8 | Likely out Wk7, back Wk9 at the earliest | 2026-10-20 | [RotoBaller](https://www.rotoballer.com/?p=1963820) |
