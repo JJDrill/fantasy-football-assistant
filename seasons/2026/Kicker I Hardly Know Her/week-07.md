@@ -140,7 +140,7 @@ Carolina wind picks up (flag at wind over 15 mph or a high rain chance).
 | Vegas lines: KC@SEA, LAR@LV, DAL@PHI, GB@DET | **Done 10/21**: no lineup changes (see Vegas lines) |
 | Weather: KC@SEA (Mahomes), DAL@PHI (Pickens), plus CAR (Fitzgerald), CHI (Burden) | **Checked 10/21: no flags.** Quick recheck Sat (SEA rain, CAR wind) |
 | Friday injury reports for starters | **Wed check done 10/21** (no tags; Mahomes full). **Final reports → Fri** (Pickens' DAL plays Mon, so his final comes Sat) |
-| Trade #19 Mahomes ↔ Warren | **Open → after Wk7** (user's call; sending before Sunday means losing our only active QB mid-week) |
+| Trade: Mahomes deal | **Updated 10/21:** send **#11 re-pitch Mahomes ↔ Tuten (Dusty)** now. Dusty cut Cousins, and Lamar isn't practicing. If accepted before Sunday: add Rodgers (QB14), drop Miller, start Rodgers. #19 Warren = fallback after Wk7. Stroud is no longer available (Maria). See `trades.md` |
 | Wk8 byes: Likely (Pitts covers), Pineiro (gone), Miller (bench), Montgomery (out anyway) | **Covered**. Nothing else needed |
 
 ### Trades

@@ -271,7 +271,7 @@ waivers instead (Kenyon Sadiq claim).
 fumble in Wk3 ([FantasyPros](https://www.fantasypros.com/nfl/news/611180/jake-ferguson-finds-end-zone-week-3.php)).
 Dropped for the same reason as #9.
 
-## 11. Patrick Mahomes ↔ Bhayshul Tuten (vs. Dusty Bottoms) — proposed 2026-10-06, rejected 2026-10-07
+## 11. Patrick Mahomes ↔ Bhayshul Tuten (vs. Dusty Bottoms) — proposed 2026-10-06, rejected 2026-10-07 — re-pitch recommended 2026-10-21
 
 **Status:** **Rejected 2026-10-07.** Proposed 2026-10-06 evening (Mahomes for Tuten straight up). Dusty instead **added Kirk Cousins** off waivers at 7:30 am Oct 7 (dropping Kalif Raymond), which closed their QB need.
 
@@ -529,3 +529,29 @@ Trades used: 2 of 15. Deadline Nov 28 per `League_Settings.pdf` (rules PDF says 
 
 **Recommendation:** send **#19 (Mahomes ↔ Warren)** now. If it's accepted before Sunday, add Stroud for Wk7 (drop the Chiefs DEF). If
 it's declined, try #11 (Tuten). If neither lands by Wk7 kickoff, start Mahomes, then drop him after Wk7 for a Wk8 kicker.
+
+## Wed re-check (2026-10-21, `get-all-rosters` → `trade-analyzer`)
+
+**What changed since 10/20:** Dusty Bottoms **dropped Kirk Cousins** (for WR Omar Cooper Jr.), leaving **Lamar Jackson as their only QB**.
+Lamar (ankle) hasn't practiced since Oct 4. He missed the open portion of Wednesday's practice and has been inactive for 2 straight games
+([NFL.com](https://www.nfl.com/news/ravens-qb-lamar-jackson-ankle-still-not-practicing), [CBS](https://www.cbssports.com/nfl/news/nfl-week-7-injury-report-ravens-lamar-jackson-jets-breece-hall/)).
+Cousins is on waivers until Oct 23, and Yahoo's #245 rule blocks Dusty from reclaiming him before then. **C.J. Stroud is gone:** 4th Qtr
+Maria added him, so the "add Stroud if Mahomes leaves" fallback is dead. The best FA QBs now are Rodgers (QB14, PIT at NO) and Watson (QB17).
+
+- **#11 re-pitch: Mahomes ↔ Bhayshul Tuten (Dusty): favors us, and now plausible. TOP PICK; send now.** Dusty has a real Wk7 QB hole,
+  and Mahomes (QB11) beats every free agent. Their RB room is crowded: Skattebo and Lloyd start, Tuten and **Josh Jacobs** (eligible
+  Oct 25) are on the bench, so Tuten is their 3rd-4th RB. Tuten: JAX lead early-down back, snaps rose from ~49% (Wk1) to 68% (Wk5),
+  career-high 22 carries vs. PHI; 14.9 avg over Wks 3-6 ([Draft Sharks](https://www.draftsharks.com/fantasy-football-news/83324/bhayshul-tuten-continues-role-growth)).
+  Short-yardage and passing downs still go to Rodriguez/Allen. **JAX's bye was Wk7**, so he helps from Wk8 on, the same week Miller/Montgomery are out.
+  **Cost to us:** if it's accepted before Sunday (2-day veto window), we start a free-agent QB in Wk7: **add Rodgers (QB14), drop Miller**
+  (RB26, NO bye Wk8, RB6 once Tuten arrives). That's about a 3-spot QB downgrade for one week, in exchange for a starting-calibre RB the
+  rest of the season. After Wk7, Allen is back and Mahomes would be dead weight anyway.
+  **Pitch:** "Lamar still isn't practicing and you cut Cousins. Mahomes starts for you Sunday and covers you if the ankle lingers.
+  With Jacobs back this week, Tuten is your 4th back." Risks: Dusty adds a FA QB instead (all rank below Mahomes), or Lamar
+  practices Thu/Fri and they wait. 3 veto votes cancel a trade; this one is fair enough not to draw them.
+- **#19 Mahomes ↔ Jaylen Warren (Knights): fallback, after Wk7.** Unchanged: Warren is still on the Knights' bench (6 RBs, Dak their
+  only QB). No 2026 injury news found. The Knights have no urgent QB need, so it doesn't need to go before Sunday.
+- **#17 Burden ↔ Aaron Jones (Maria): stays on watch.** Jones is still on Maria's bench. Maria is our Wk7 opponent, and Burden is our
+  starting flex (FLEX45). No change.
+
+Trades used: 2 of 15. Deadline Nov 21 (safe date).
