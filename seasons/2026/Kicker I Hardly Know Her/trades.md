@@ -592,3 +592,6 @@ is settled. Sources: [Draft Sharks](https://www.draftsharks.com/fantasy-football
   doubting Lamar's ankle. Still worth sending; it costs nothing. The pitch has to lead with the risk to Lamar's ankle (no practice since
   Oct 4, inactive 2 straight games), since Yahoo's screen assumes he's healthy. If Lamar practices fully Thu/Fri, odds drop further:
   hold it, and go to #19 (Warren) after Wk7.
+
+**Update (2026-10-21), #11: PROPOSED (re-pitch).** Mahomes ↔ Tuten, straight up, with the Lamar-ankle note. Verified pending via
+`get-alerts 7 1` (Yahoo trade id 12). **If accepted:** add Rodgers (QB14, PIT at NO), drop Miller, start Rodgers before Sunday.
