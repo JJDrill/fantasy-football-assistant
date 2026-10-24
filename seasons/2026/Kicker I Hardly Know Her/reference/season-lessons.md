@@ -120,6 +120,18 @@ Re-run the Run B format on future weeks once ECR and props are in the packet.
    steady-volume player.
 4. **Matchup grades are retired** (2026-10-11). They hit 7/21 (33%) through Week 4, worse than a coin
    flip, and the matchup is already priced into Vegas totals and ECR. See `matchup-grade-accuracy.md`.
+5. **Judge our team on points scored, not the record** (added 2026-10-23, from the Wk7 league scouting,
+   `scouting/week-07.md`). Through Wk6 we're 2-4 but **4th in average points (115.5)** and above the
+   league median in 4 of 6 weeks. Two losses were by 2.5 and 1.5. Gospel (0-6, median scoring) and Queen
+   (4-2, above the median in only 2 weeks) show the same thing: close games are mostly luck. A losing
+   record alone is never a reason for panic moves or a rebuild. Weigh changes against points scored and
+   the process grades in post-game reviews.
+6. **Move fast on QB trades; RBs are the scarce asset** (added 2026-10-23, same source). Five teams
+   carry two starting-caliber QBs (Russini, Rayrays, Gospel, Maria, us), and only Knights clearly need one
+   (Dusty too if Lamar sits). Our spare QB has few buyers, and each one goes away once someone else sells
+   them a QB. When a QB-needy team shows up, pitch promptly instead of waiting a week. Re-check the QB
+   supply and demand on each `team-scout` run; drop this rule if more teams need QBs. RBs are short
+   league-wide (Brigid most of all), so our RB depth is worth more in trades than the spare QB.
 
 *Superseded 2026-10-11: "usage → Vegas → health → matchup grade" for every position. That made usage
 primary at RB/WR, which the backtest didn't support.*
