@@ -27,6 +27,7 @@ in `.claude/skills/<name>/SKILL.md`.
 | `waiver-targets` | Suggests free-agent pickups based on your roster needs. |
 | `trade-analyzer` | Evaluates a specific trade offer (your side vs. theirs). |
 | `weekly-recap` | Generates a flavorful, data-grounded recap/trash-talk writeup of your matchup. |
+| `team-scout` | Scouting report on every other team each week (strengths, weaknesses, what it means for us), with predictions graded after the week in `reference/scouting-accuracy.md`. Data from `node yahoo/scout-league.js <week>`. |
 
 **Example prompts:**
 - "Who's winning this week's challenge?"

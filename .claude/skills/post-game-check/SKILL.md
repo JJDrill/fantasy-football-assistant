@@ -90,10 +90,17 @@ Chains `weekly-recap` and `challenge-tracker`.
    - **Matchup grades are retired** (2026-10-11, 7/21). Don't score them.
    - **Trades executed that week:** add a dated "how it played out" line to the entry in
      `trades.md` (both sides' points that week). Don't scan for new trades.
+   - **Scouting accuracy** (added 2026-10-23, for learning): fill in Actual and Result
+     (**hit / miss / push**, with the numbers) for that week's rows in
+     `reference/scouting-accuracy.md`, then update its hit-rate-by-type table. Use the
+     scoring rules in that file's header. Under each `## Other-team analysis: <team>` section in
+     `scouting/week-NN.md`, add a short `### How it played out`: the hits and misses, and which
+     misses were bad reads vs. luck. `scout-league.js <week>` re-run after the week gives every
+     team's final roster points, which settles most rows.
 
 9. **Lessons learned → process updates.** This is the main output of the review. For each
    "Wrong call" cell, and for any pattern now showing in the running records
-   (source accuracy, health-tier tracker, cross-week audit), ask: **does a rule or skill need
+   (source accuracy, scouting accuracy, health-tier tracker, cross-week audit), ask: **does a rule or skill need
    to change?** Check it against "Rules going forward" in `season-lessons.md` and the
    `lineup-advice` / `pre-game-check` / `waiver-targets` skills. For each candidate change, give:
    - the evidence (which weeks or calls, and the sample size),
@@ -112,5 +119,6 @@ Chains `weekly-recap` and `challenge-tracker`.
    - **Lessons learned and proposed process updates** (from Step 9): each with evidence and
      a change now / watch / no change recommendation. "None this week" is a fine answer
    - **Challenge:** winner, and where we finished
+   - **Scouting accuracy:** this week's hit rate, by type, and the biggest miss
    - **Hand-offs to pre-game:** one line each, no analysis (e.g. "Burden's snaps dropped,
      check before Wk7")

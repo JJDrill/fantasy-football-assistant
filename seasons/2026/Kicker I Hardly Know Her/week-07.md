@@ -232,6 +232,10 @@ Montgomery Q → **D** (bench; already out-expected, HOU Wk8 bye). Burden: no ta
 | Pickens trade watch (NFL deadline Nov 10) | **Carried over → recheck before each lineup lock** |
 | #19 Mahomes ↔ Warren (Knights) | **Carried over → after Wk7** (now the only live Mahomes idea) |
 
+## Other-team analysis
+
+Moved 2026-10-23 to `scouting/week-07.md` (all 9 other teams, graded in `reference/scouting-accuracy.md`).
+
 ## Injury/Availability Report (cached)
 
 | Player | Status | Note | Checked | Source |
