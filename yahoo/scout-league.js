@@ -186,11 +186,12 @@ async function loadSleeperPlayers() {
   return JSON.parse(fs.readFileSync(SLEEPER_PLAYERS_CACHE, 'utf8')).players;
 }
 
-async function fetchAllEcr() {
+// With a week, reads FantasyPros' archived page for it (its final, Sunday update).
+async function fetchAllEcr(week) {
   const axios = require('axios');
   const out = {};
   for (const [pos, page] of Object.entries(PAGES)) {
-    const res = await axios.get(`https://www.fantasypros.com/nfl/rankings/${page}`, {
+    const res = await axios.get(`https://www.fantasypros.com/nfl/rankings/${page}${week ? `?week=${week}` : ''}`, {
       headers: { 'User-Agent': 'Mozilla/5.0' },
     });
     out[pos] = parseEcrHtml(res.data);
@@ -306,4 +307,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { normalizeTeam, seasonSummary, buildEcrIndex, slotEligible, lineupFlags, forecast, buildSleeperIndex, weekLine };
+module.exports = { normalizeTeam, seasonSummary, buildEcrIndex, slotEligible, lineupFlags, forecast, buildSleeperIndex, weekLine, fetchAllEcr };

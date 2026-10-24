@@ -97,7 +97,8 @@ either individually, use those skills directly instead.
        add/drop against FantasyPros ECR, byes and planned cover adds, and give a one-line verdict
        on each. Yahoo works from its own projections, so treat these as names worth checking,
        not a signal. The trade tab is paid (Yahoo Fantasy Plus) and isn't read.
-     - **Invoke `team-scout`** for all 9 other teams (added 2026-10-23; uses `yahoo/scout-league.js`), writing
+     - **Invoke `team-scout`** (added 2026-10-23; uses `yahoo/scout-league.js`): a summary row for every team, full
+       reports only for this and next week's opponents and live trade partners, writing
        `scouting/week-NN.md` and logging its predictions in `reference/scouting-accuracy.md`. Its trade fits feed
        `trade-finder` below.
      - Invoke `trade-finder` (uses `yahoo/get-all-rosters.js`), and re-check every open

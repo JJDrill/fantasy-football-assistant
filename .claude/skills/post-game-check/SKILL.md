@@ -97,10 +97,17 @@ Chains `weekly-recap` and `challenge-tracker`.
      `scouting/week-NN.md`, add a short `### How it played out`: the hits and misses, and which
      misses were bad reads vs. luck. `scout-league.js <week>` re-run after the week gives every
      team's final roster points, which settles most rows.
+   - **League-wide start/sit grading** (added 2026-10-23; the main evidence for our lineup rules):
+     run `node yahoo/grade-league-decisions.js <week>` (on its own, not alongside another Yahoo
+     script), then `node yahoo/grade-league-decisions.js --summary`. Add a dated section to
+     `reference/league-decisions.md` with the new cumulative table, and say what moved: is the
+     favorite still ~50% inside the coin-flip windows and well above it outside, and is the TE
+     watch item (favorite only ~50% even outside the window) holding? Note any of our own calls
+     that went against ECR outside a window.
 
 9. **Lessons learned → process updates.** This is the main output of the review. For each
    "Wrong call" cell, and for any pattern now showing in the running records
-   (source accuracy, scouting accuracy, health-tier tracker, cross-week audit), ask: **does a rule or skill need
+   (source accuracy, scouting accuracy, league-wide start/sit grading, health-tier tracker, cross-week audit), ask: **does a rule or skill need
    to change?** Check it against `methodology/rules.md` (all seasons), "This season's rules" in `season-lessons.md`, and the
    `lineup-advice` / `pre-game-check` / `waiver-targets` skills. For each candidate change, give:
    - the evidence (which weeks or calls, and the sample size),
