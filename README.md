@@ -95,7 +95,7 @@ If a script ever fails with `NOT_LOGGED_IN`, just run `node yahoo/login.js` agai
 ```
 yahoo/                  Yahoo OAuth + API client (auth.js, client.js) and the weekly
                          challenge evaluator engine (challenge-config.js, evaluate-challenge.js)
-methodology/             Cross-season methodology (source tiering, injury-cache protocol)
+methodology/             Cross-season methodology (standing rules, source tiering, injury-cache protocol)
 seasons/2026/Kicker I Hardly Know Her/reference/
                          League rules, weekly challenge definitions, and other
                          2026/this-league-specific reference data

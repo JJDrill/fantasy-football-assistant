@@ -49,7 +49,7 @@ Chains `weekly-recap` and `challenge-tracker`.
    | **Bad process** | **Wrong call, got away with it**: don't repeat it | **Wrong call, cost us** |
 
    - **Process** = was it the best call on the information available then, under our
-     rules (`season-lessons.md` "Rules going forward", ECR-first by position, health
+     rules (`methodology/rules.md` for all seasons, `season-lessons.md` "This season's rules", health
      tiers)? A coin flip (a 1-3 spot ECR gap) called with a sensible tiebreak is good
      process **whichever way it lands**.
    - **Outcome** = points vs. the alternative, from the box score.
@@ -101,11 +101,14 @@ Chains `weekly-recap` and `challenge-tracker`.
 9. **Lessons learned → process updates.** This is the main output of the review. For each
    "Wrong call" cell, and for any pattern now showing in the running records
    (source accuracy, scouting accuracy, health-tier tracker, cross-week audit), ask: **does a rule or skill need
-   to change?** Check it against "Rules going forward" in `season-lessons.md` and the
+   to change?** Check it against `methodology/rules.md` (all seasons), "This season's rules" in `season-lessons.md`, and the
    `lineup-advice` / `pre-game-check` / `waiver-targets` skills. For each candidate change, give:
    - the evidence (which weeks or calls, and the sample size),
    - the exact proposed wording and where it goes,
-   - a recommendation: change now / watch (needs more weeks) / no change.
+   - a recommendation: change now / watch (needs more weeks) / no change,
+   - **scope** (added 2026-10-23): **all seasons** (`methodology/rules.md`; holds with any roster and
+     league, marked Structural or Provisional) or **this season** (`season-lessons.md`; marked Rule or
+     Suggestion). Also say if a this-season rule has earned promotion, or an all-seasons rule is contradicted.
    One week's "Right call, bad luck" result is never evidence for a change. Say "no process changes
    this week" when that's the honest answer. **Propose, don't apply.** The user decides,
    and changes are made after they say yes.

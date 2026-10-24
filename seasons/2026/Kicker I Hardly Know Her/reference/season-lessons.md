@@ -100,38 +100,33 @@ Re-run the Run B format on future weeks once ECR and props are in the packet.
 4. **The "inactive" hedge covers only half the Q-tag risk.** A late-game backup protects against a
    scratch, but not against "active but limited or bad," because the player locks at kickoff.
 
-## Rules going forward
+## This season's rules (2026)
 
-1. **Re-rank the whole position group each week, bench included**, by last 2-3 weeks' usage: snap share,
-   carries, targets. Never only "current starter vs. new option."
-2. Order of evidence for start/sit, **by position** (revised again 2026-10-11 after the league-wide
-   replay, `league-replay-wk1-4.md`: ECR-first +36.6 pts and 4 extra wins over 40 team-weeks;
-   usage-first −155 pts over 30):
-   - **TE:** ECR + Vegas → targets break ties **within ~5 ECR spots** → health tier. Usage never
-     overrides ECR for a player returning from injury (it can't see him).
-   - **RB:** ECR + Vegas → usage, mainly to catch role changes (a teammate hurt, a depth-chart
-     move, a snap jump like Gordon's) → health tier. **Within ~3 ECR spots it's a coin flip**
-     (added 2026-10-20): break it with usage/role change, then health tier (Wk6 Kamara vs. Miller).
-   - **WR:** ECR + Vegas. Override only for a clear role change ECR hasn't caught (league-wide,
-     overriding ECR at WR was wrong 7 of 10 times).
+**All-seasons rules are in `methodology/rules.md`** (split out 2026-10-23): bye/inactive check, re-rank the whole group, ECR first,
+no matchup grades, process vs. outcome, judge on points scored, read the trade market, and more. This section holds how those apply in
+2026 (the calibrated numbers) plus suggestions that only fit this year's league and roster. Each one is marked **Rule** (follow it) or
+**Suggestion** (lean this way, and re-check as the season goes).
+
+1. **Rule: evidence order by position, with the 2026 tie windows** (applies all-seasons rules 2-5; revised 2026-10-11 after the
+   league-wide replay, `league-replay-wk1-4.md`; RB window added 2026-10-20):
+   - **TE:** ECR + Vegas → targets break ties **within ~5 ECR spots** → health tier.
+   - **RB:** ECR + Vegas → usage, mainly to catch role changes (a teammate hurt, a depth-chart move, a snap jump like Gordon's)
+     → health tier. **Within ~3 ECR spots it's a coin flip:** break it with usage/role change, then health tier (Wk6 Kamara vs. Miller).
+   - **WR:** ECR + Vegas. Override only for a clear role change ECR hasn't caught.
    - **Flex:** FLEX ECR. Within ~10 flex spots it's a coin flip, so start the **later kickoff**.
    - **QB/K/DEF:** ECR + Vegas → health tier.
-3. **Q tag + low implied total = tiebreaker against** when projections are close. Prefer the healthy,
-   steady-volume player.
-4. **Matchup grades are retired** (2026-10-11). They hit 7/21 (33%) through Week 4, worse than a coin
-   flip, and the matchup is already priced into Vegas totals and ECR. See `matchup-grade-accuracy.md`.
-5. **Judge our team on points scored, not the record** (added 2026-10-23, from the Wk7 league scouting,
-   `scouting/week-07.md`). Through Wk6 we're 2-4 but **4th in average points (115.5)** and above the
-   league median in 4 of 6 weeks. Two losses were by 2.5 and 1.5. Gospel (0-6, median scoring) and Queen
-   (4-2, above the median in only 2 weeks) show the same thing: close games are mostly luck. A losing
-   record alone is never a reason for panic moves or a rebuild. Weigh changes against points scored and
-   the process grades in post-game reviews.
-6. **Move fast on QB trades; RBs are the scarce asset** (added 2026-10-23, same source). Five teams
-   carry two starting-caliber QBs (Russini, Rayrays, Gospel, Maria, us), and only Knights clearly need one
-   (Dusty too if Lamar sits). Our spare QB has few buyers, and each one goes away once someone else sells
-   them a QB. When a QB-needy team shows up, pitch promptly instead of waiting a week. Re-check the QB
-   supply and demand on each `team-scout` run; drop this rule if more teams need QBs. RBs are short
-   league-wide (Brigid most of all), so our RB depth is worth more in trades than the spare QB.
+2. **Rule: we're a playoff-scoring team; don't rebuild** (applies all-seasons rule 7; 2026-10-23). Through Wk6 we're 2-4 but **4th in
+   average points (115.5)**, above the league median in 4 of 6 weeks, with losses by 2.5 and 1.5. Make changes that add points,
+   not changes that react to the record.
+3. **Rule: move fast on QB trades; RBs are the scarce asset** (applies all-seasons rule 12; 2026-10-23, Wk7 scouting). Five teams carry
+   two starting-caliber QBs (Russini, Rayrays, Gospel, Maria, us), and only Knights clearly need one (Dusty too if Lamar sits). When a
+   QB-needy team shows up, pitch promptly. RBs are short league-wide (Brigid most of all), so our RB depth is worth more in trades than
+   the spare QB. Re-check supply and demand on each `team-scout` run; drop this if more teams need QBs.
+4. **Suggestion: TE is our biggest edge; keep a real backup.** Maria (Fannin), Rayrays (Andrews) and Queen (Kraft) get under ~7 a week
+   at TE (Wk7 scouting). Likely is scarce, not just good, so lean toward keeping Pitts after Likely's Wk8 bye rather than cutting him.
+5. **Suggestion: manager reads for trade pitches** (applies all-seasons rule 13). Smokin Base Brian: no moves all season, don't
+   bother. Man Coverage Brigid: 3 moves, set-and-forget, only a clearly-good-for-them offer. THE Lil Unk Rayrays and Knights: active,
+   the best places to pitch. Dusty: rejected trade id 12, don't re-pitch that deal (`trades.md`).
 
 *Superseded 2026-10-11: "usage → Vegas → health → matchup grade" for every position. That made usage
 primary at RB/WR, which the backtest didn't support.*
