@@ -87,6 +87,27 @@ available historically, so they're not in the packet.
 **claim checker** on the Saturday pass that verifies each recommendation's claims against the data.
 Re-run the Run B format on future weeks once ECR and props are in the packet.
 
+## League-wide grading: what it says about our lineup (2026-10-23, Wks 1-6)
+
+From `grade-league-decisions.js` (521 pairs league-wide, 52 ours; `league-decisions.md`).
+
+1. **Going against ECR likely cost us two wins.** We started the lower-ranked player 10 times, at a net cost of 17.9 points, and 9 of
+   those came before the ECR-first rule (2026-10-11). Wk4: Sadiq (TE12, 0.0) over Likely (TE10, 10.1), lost by 1.46. Wk2: Pitts (TE17,
+   2.0) over Likely (TE8, 5.8), lost by 2.54. Each single swap wins its game (matches the Wks 1-4 audit above), so we'd likely be 4-2,
+   not 2-4.
+2. **Since the rule, we've followed it.** One call against ECR in Wks 5-6 (Wk6 Miller RB30 over Kamara RB27), inside the RB window, so
+   it's fine by our rules. Both weeks won. Too few weeks to call it proof, but nothing argues against the rule.
+3. **Our roster behaves like the league's:** the ECR favorite won 34/51 of our pairs (67%) vs. 69% league-wide. No special rules needed.
+4. **Our worst "followed ECR and lost" calls were random:** mostly Burden in Wk3 (WR36, 16.3) beating St. Brown, Pickens and McMillan
+   from the bench. That's the "low-usage WR spikes from nowhere" case in "Accept as random." Don't chase it.
+5. **TE rankings are shaky league-wide, but mostly not because of us.** Most upsets were other teams (Queen's Kraft lost to his own
+   bench 4 times, Gospel's McBride twice to Loveland). Our TE lesson is the opposite: ECR was right about Likely over Pitts and we
+   didn't listen. With Pitts covering in Wk8, a small TE gap should lean on health and targets, which the rules already say.
+
+**What it can't tell us yet:** whether our rules beat ECR (since Wk5 we've mostly just followed it), and anything about roster moves
+(dropping Stevenson and Marks); the grader only sees start/sit.
+**Takeaway:** keep following ECR outside the coin-flip windows. The weekly grading decides whether the TE window widens; check at about Wk10.
+
 ## Recurring mistakes (the part we can fix)
 
 1. **The TE blind spot: Likely never got re-ranked.** Targets by week: Likely 8 / 10 / 5 / 12;
