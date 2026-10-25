@@ -245,6 +245,34 @@ Starter vs. benched WR on the same team, 160 pairs (`league-decisions.md`), by E
 **Wk10 window check:** the grader's WR window is a placeholder 5, and Rule 1 has no WR window. If WR pairs within ~20 spots are still
 near 55% after 10 weeks, propose a WR window (~10-20) in Rule 1, alongside the RB and QB checks above.
 
+## League-wide grading: what it says about TEs (2026-10-24, Wks 1-6)
+
+Starter vs. benched TE on the same team, 33 pairs across 7 teams (`league-decisions.md`), by ECR gap:
+
+| Gap | Better-ranked TE scored more |
+|---|---|
+| 1-5 | 5 of 11 (45%) |
+| 6-10 | 8 of 16 (50%) |
+| 11-20 | 3 of 6 (50%) |
+
+1. **Below the elite tier, TE ECR is a coin flip at every gap: 16 of 33 (48%).** Unlike RB and WR, it never pulls away within 20
+   spots (almost no pair is further apart). Week to week, a TE5 and a TE20 look about the same.
+2. **Elite TEs are the exception.** Bowers (ranked 1-3) won 4 of 4, McBride 2 of 4; top-3 TEs won 6 of 10. Small, but a true top TE
+   separates and nobody else does.
+3. **It isn't TDs.** Removing TDs changed only 1 of 33 results. TE weeks swing on targets: Loveland 0 and 0.8, Sadiq 0, Kraft 2.5,
+   Pitts 1 and 2 were all ranked TEs.
+4. **Ours: ~15 points lost going against ECR, all Wks 2-4.** Pitts over Likely Wks 2-3 (−3.8, −1.3), Sadiq over Likely Wk4 (−10.1,
+   Sadiq 0). Given point 1 those were mostly coin flips lost, except Wk4: a rookie with no clear role. Since ECR-first we've started
+   Likely (26.9 in Wk5).
+
+**Takeaway:**
+- **Lineup:** Rule 1's TE order (ECR, then targets within ~5) is right in spirit, but nearly every non-elite TE call is a toss-up, so
+  lean on targets and health, not the size of the ECR gap. Wk8: Pitts covering Likely's bye costs less than his rank suggests.
+- **Trades:** don't pay for a TE upgrade unless it's a true top 3. TE12 to TE6 buys almost nothing week to week (e.g. Russini's
+  benched Kelce). Suggestion 4 below is softened to match.
+- **Wk10 window check:** this is the existing TE watch item. If non-elite TE pairs are still near 50% at any gap after 10 weeks,
+  propose in Rule 1: "TE outside the top 3: treat every call as a toss-up; decide on targets, then health tier."
+
 ## Recurring mistakes (the part we can fix)
 
 1. **The TE blind spot: Likely never got re-ranked.** Targets by week: Likely 8 / 10 / 5 / 12;
@@ -280,8 +308,10 @@ no matchup grades, process vs. outcome, judge on points scored, read the trade m
    two starting-caliber QBs (Russini, Rayrays, Gospel, Maria, us), and only Knights clearly need one (Dusty too if Lamar sits). When a
    QB-needy team shows up, pitch promptly. RBs are short league-wide (Brigid most of all), so our RB depth is worth more in trades than
    the spare QB. Re-check supply and demand on each `team-scout` run; drop this if more teams need QBs.
-4. **Suggestion: TE is our biggest edge; keep a real backup.** Maria (Fannin), Rayrays (Andrews) and Queen (Kraft) get under ~7 a week
-   at TE (Wk7 scouting). Likely is scarce, not just good, so lean toward keeping Pitts after Likely's Wk8 bye rather than cutting him.
+4. **Suggestion: TE is an edge for us, but a noisy one; keep a real backup.** Maria (Fannin), Rayrays (Andrews) and Queen (Kraft) get
+   under ~7 a week at TE (Wk7 scouting). Likely is scarce, not just good, so lean toward keeping Pitts after Likely's Wk8 bye rather than
+   cutting him. *Softened 2026-10-24:* league grading shows non-elite TE weeks are close to random (better-ranked TE won 48%, TEs
+   section), so the edge is real over a season but small and unreliable in any one week. Not a reason to turn down a good trade.
 5. **Suggestion: manager reads for trade pitches** (applies all-seasons rule 13). Smokin Base Brian: no moves all season, don't
    bother. Man Coverage Brigid: 3 moves, set-and-forget, only a clearly-good-for-them offer. THE Lil Unk Rayrays and Knights: active,
    the best places to pitch. Dusty: rejected trade id 12, don't re-pitch that deal (`trades.md`).
