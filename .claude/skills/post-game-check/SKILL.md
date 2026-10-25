@@ -120,9 +120,10 @@ Chains `weekly-recap` and `challenge-tracker`.
      pairs within ~20 spots: if still near 55% from Wk10, propose a WR window (~10-20) in Rule 1. And
      for TE pairs where neither TE is top 3: if still near 50% at every gap from Wk10, propose "TE
      outside the top 3: every call is a toss-up; decide on targets, then health tier" in Rule 1. And
-     for FLEX: split RB-vs-WR pairs by which one FLEX ECR preferred (positions from the Sleeper player
-     cache). From Wk10, if WR-favored pairs are still near 50% and RB-favored near 70%, propose making
-     suggestion 7 ("lean RB in a close FLEX call") a Rule; if FLEX pairs at gap 11-25 are still near
+     for FLEX: `--summary` prints an RB-vs-WR table (split by which one FLEX ECR preferred, with a
+     within-25-spots column). From Wk10, if WR-favored pairs are still near 50% and RB-favored near 70%,
+     **and the close column now leans RB too**, propose making suggestion 7 ("lean RB in a close FLEX
+     call") a Rule; if the close column still looks like a coin flip, propose dropping the lean instead; if FLEX pairs at gap 11-25 are still near
      60%, consider widening the FLEX window toward ~20. From Wk10,
      if the better-ranked kicker is still winning under ~50%, propose promoting "kickers are
      interchangeable" (`season-lessons.md` suggestion 6) to `methodology/rules.md` in Step 9.

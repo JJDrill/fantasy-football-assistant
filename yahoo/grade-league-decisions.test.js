@@ -1,7 +1,7 @@
 // yahoo/grade-league-decisions.test.js
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { snapshotFromRosters, decisionPairs, summarize, crossTeamStarters, crossTeamSummary, WINDOWS } = require('./grade-league-decisions');
+const { snapshotFromRosters, decisionPairs, summarize, crossTeamStarters, crossTeamSummary, flexRbVsWr, WINDOWS } = require('./grade-league-decisions');
 
 // Stand-in for scout-league.js's buildEcrIndex(): positional and FLEX ranks by name.
 function fakeIndex(pos, flex) {
@@ -40,8 +40,8 @@ test('decisionPairs compares each starter with every eligible ranked bench playe
   assert.equal(pairs.length, 1);
   assert.deepEqual(pairs[0], {
     week: 7, teamId: '1', team: 'Gospel', slot: 'W/R/T', group: 'FLEX',
-    starter: 'Josh Downs', starterRank: 79, starterPts: 6.2,
-    bench: 'Keenan Allen', benchRank: 70, benchPts: 11.0,
+    starter: 'Josh Downs', starterPos: 'WR', starterRank: 79, starterPts: 6.2,
+    bench: 'Keenan Allen', benchPos: 'WR', benchRank: 70, benchPts: 11.0,
     gap: 9, window: WINDOWS.FLEX, insideWindow: true,
     managerFollowedEcr: false, favorite: 'Keenan Allen',
     favoriteWon: true, favoriteWonExTd: false,
@@ -114,5 +114,25 @@ test('crossTeamSummary compares every two teams\' starters at a position in the 
     { position: 'DEF', tier: '1-5', n: 3, avgPoints: 9 },
     { position: 'DEF', tier: '6-12', n: 1, avgPoints: 4 },
     { position: 'DEF', tier: '13+', n: 1, avgPoints: 15 },
+  ]);
+});
+
+test('flexRbVsWr splits RB-vs-WR FLEX pairs by which one ECR preferred, overall and within 25 spots', () => {
+  // The starter is the favorite unless stated otherwise.
+  const p = (favPos, otherPos, gap, favoriteWon, group = 'FLEX') =>
+    ({ group, gap, favoriteWon, favorite: 'F', starter: 'F', starterPos: favPos, benchPos: otherPos });
+  const rows = flexRbVsWr([
+    p('RB', 'WR', 30, true),
+    p('RB', 'WR', 10, false),
+    p('WR', 'RB', 40, false),
+    { group: 'FLEX', gap: 5, favoriteWon: true, favorite: 'B', starter: 'S', starterPos: 'RB', benchPos: 'WR' }, // bench WR favored
+    p('WR', 'WR', 12, true), // same position: skipped
+    p('RB', 'TE', 12, true), // not RB-vs-WR: skipped
+    p('RB', 'WR', 12, null), // tie: skipped
+    p('RB', 'WR', 12, true, 'RB'), // not FLEX: skipped
+  ]);
+  assert.deepEqual(rows, [
+    { favored: 'RB', n: 2, favoriteWon: 1, favoriteWonPct: 50, closeN: 1, closeWon: 0 },
+    { favored: 'WR', n: 2, favoriteWon: 1, favoriteWonPct: 50, closeN: 1, closeWon: 1 },
   ]);
 });

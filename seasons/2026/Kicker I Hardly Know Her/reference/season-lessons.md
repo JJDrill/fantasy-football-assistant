@@ -354,6 +354,9 @@ no matchup grades, process vs. outcome, judge on points scored, read the trade m
 7. **Suggestion: in a close FLEX call, lean RB over WR** (2026-10-24, league grading Wks 1-6). Within ~25 FLEX spots, start the RB,
    then use the later kickoff (Rule 1) as the next tiebreak. FLEX ECR's RB picks won 72% against WRs, its WR picks only 53%, and RBs
    at FLEX averaged 14.8 vs. 10.5 (66 RB-vs-WR pairs, only 10 of them close). **Wk10 check** in the FLEX section above.
+   *Caveat (2026-10-24, once the grader split it out):* the 10 close RB-vs-WR pairs don't back this yet. The favored RB won 1 of 5
+   and the favored WR 2 of 5, so close calls look like coin flips either way. The lean rests on the overall split; treat it as the
+   weakest suggestion here until close pairs build up.
 
 *Superseded 2026-10-11: "usage → Vegas → health → matchup grade" for every position. That made usage
 primary at RB/WR, which the backtest didn't support.*

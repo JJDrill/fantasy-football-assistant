@@ -88,8 +88,8 @@ function decisionPairs({ week, teamId, teamName, finalRoster, snapshot, tdsByNam
       const gap = Math.abs(sr - br);
       pairs.push({
         week, teamId, team: teamName, slot, group,
-        starter: s.playerName, starterRank: sr, starterPts: s.points,
-        bench: b.playerName, benchRank: br, benchPts: b.points,
+        starter: s.playerName, starterPos: s.position, starterRank: sr, starterPts: s.points,
+        bench: b.playerName, benchPos: b.position, benchRank: br, benchPts: b.points,
         gap, window: WINDOWS[group], insideWindow: gap <= WINDOWS[group],
         managerFollowedEcr: followed, favorite: fav.playerName,
         favoriteWon: compare(fav.points, other.points),
@@ -128,6 +128,40 @@ function summarize(pairs) {
       againstEcr: r.againstEcr, againstEcrPointsLost: r.againstEcrPointsLost,
     }))
     .sort((a, b) => order.indexOf(a.group) - order.indexOf(b.group) || (b.insideWindow - a.insideWindow));
+}
+
+// FLEX ECR seemed to overrate WRs against RBs in this half-PPR league (season-lessons.md, FLEX
+// section). For RB-vs-WR FLEX pairs: how often the ECR favorite won, split by the favorite's
+// position, overall and within FLEX_CLOSE spots.
+const FLEX_CLOSE = 25;
+
+function flexRbVsWr(pairs) {
+  const rows = new Map();
+  for (const p of pairs) {
+    if (p.group !== 'FLEX' || p.favoriteWon == null) continue;
+    const favPos = p.favorite === p.starter ? p.starterPos : p.benchPos;
+    const otherPos = p.favorite === p.starter ? p.benchPos : p.starterPos;
+    if (!((favPos === 'RB' && otherPos === 'WR') || (favPos === 'WR' && otherPos === 'RB'))) continue;
+    if (!rows.has(favPos)) rows.set(favPos, { favored: favPos, n: 0, favoriteWon: 0, closeN: 0, closeWon: 0 });
+    const r = rows.get(favPos);
+    r.n++;
+    if (p.favoriteWon) r.favoriteWon++;
+    if (p.gap <= FLEX_CLOSE) {
+      r.closeN++;
+      if (p.favoriteWon) r.closeWon++;
+    }
+  }
+  return ['RB', 'WR'].filter((pos) => rows.has(pos)).map((pos) => {
+    const r = rows.get(pos);
+    return { favored: r.favored, n: r.n, favoriteWon: r.favoriteWon, favoriteWonPct: Math.round((100 * r.favoriteWon) / r.n), closeN: r.closeN, closeWon: r.closeWon };
+  });
+}
+
+function printFlexRbVsWr(rows) {
+  console.log('\nFLEX, RB vs. WR calls:\n');
+  console.log(`| FLEX ECR preferred | Pairs | He scored more | Within ${FLEX_CLOSE} spots |`);
+  console.log('|---|---|---|---|');
+  for (const r of rows) console.log(`| the ${r.favored} | ${r.n} | ${r.favoriteWon} (${r.favoriteWonPct}%) | ${r.closeWon} of ${r.closeN} |`);
 }
 
 // QB, DEF and K: every team starts one. No one benches a DEF or K, and only some teams bench a QB,
@@ -255,6 +289,7 @@ async function main() {
     const pairs = data.flatMap((d) => d.pairs);
     console.log(`Weeks graded: ${files.map((f) => Number(f.slice(5, 7))).join(', ') || 'none'}. Pairs: ${pairs.length}.\n`);
     printSummary(summarize(pairs));
+    printFlexRbVsWr(flexRbVsWr(pairs));
     printCrossTeamSummary(crossTeamSummary(data.flatMap((d) => d.starters ?? [])));
     return;
   }
@@ -283,6 +318,7 @@ async function main() {
   }
   console.log('');
   printSummary(summarize(all));
+  printFlexRbVsWr(flexRbVsWr(all));
   printCrossTeamSummary(crossTeamSummary(starters));
 }
 
@@ -293,4 +329,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { snapshotFromRosters, decisionPairs, summarize, crossTeamStarters, crossTeamSummary, WINDOWS, decisionsPath };
+module.exports = { snapshotFromRosters, decisionPairs, summarize, crossTeamStarters, crossTeamSummary, flexRbVsWr, WINDOWS, decisionsPath };
