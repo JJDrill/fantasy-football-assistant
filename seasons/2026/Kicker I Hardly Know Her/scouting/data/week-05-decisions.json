@@ -1,7 +1,7 @@
 {
  "week": 5,
  "ecrLastUpdated": "10/11",
- "gradedAt": "2026-10-25T03:15:45.377Z",
+ "gradedAt": "2026-10-25T03:26:25.105Z",
  "pairs": [
   {
    "week": 5,
@@ -1458,10 +1458,28 @@
    "week": 5,
    "teamId": "9",
    "team": "Russini’s Source",
+   "position": "QB",
+   "player": "Jared Goff",
+   "rank": 3,
+   "points": 28.94
+  },
+  {
+   "week": 5,
+   "teamId": "9",
+   "team": "Russini’s Source",
    "position": "K",
    "player": "Tyler Loop",
    "rank": 15,
    "points": 14
+  },
+  {
+   "week": 5,
+   "teamId": "6",
+   "team": "Man Coverage Brigid",
+   "position": "QB",
+   "player": "Trevor Lawrence",
+   "rank": 8,
+   "points": 22.74
   },
   {
    "week": 5,
@@ -1485,6 +1503,15 @@
    "week": 5,
    "teamId": "3",
    "team": "Knights Who Say Ni",
+   "position": "QB",
+   "player": "Dak Prescott",
+   "rank": 2,
+   "points": 14.64
+  },
+  {
+   "week": 5,
+   "teamId": "3",
+   "team": "Knights Who Say Ni",
    "position": "K",
    "player": "Jake Bates",
    "rank": 3,
@@ -1498,6 +1525,15 @@
    "player": "Broncos",
    "rank": 5,
    "points": 12
+  },
+  {
+   "week": 5,
+   "teamId": "5",
+   "team": "Queen of the Damned",
+   "position": "QB",
+   "player": "Brock Purdy",
+   "rank": 9,
+   "points": 17.16
   },
   {
    "week": 5,
@@ -1521,6 +1557,15 @@
    "week": 5,
    "teamId": "7",
    "team": "4th Qtr Maria",
+   "position": "QB",
+   "player": "Matthew Stafford",
+   "rank": 4,
+   "points": 27.32
+  },
+  {
+   "week": 5,
+   "teamId": "7",
+   "team": "4th Qtr Maria",
    "position": "K",
    "player": "Will Reichard",
    "rank": 4,
@@ -1534,6 +1579,15 @@
    "player": "Bengals",
    "rank": 4,
    "points": 9
+  },
+  {
+   "week": 5,
+   "teamId": "4",
+   "team": "THE Lil Unk Rayrays",
+   "position": "QB",
+   "player": "Sam Darnold",
+   "rank": 16,
+   "points": 10.3
   },
   {
    "week": 5,
@@ -1557,6 +1611,15 @@
    "week": 5,
    "teamId": "2",
    "team": "J's Pancakes",
+   "position": "QB",
+   "player": "Josh Allen",
+   "rank": 1,
+   "points": 31.5
+  },
+  {
+   "week": 5,
+   "teamId": "2",
+   "team": "J's Pancakes",
    "position": "K",
    "player": "Evan McPherson",
    "rank": 2,
@@ -1570,6 +1633,15 @@
    "player": "Vikings",
    "rank": 2,
    "points": 11
+  },
+  {
+   "week": 5,
+   "teamId": "8",
+   "team": "Dusty Bottoms",
+   "position": "QB",
+   "player": "Kirk Cousins",
+   "rank": 22,
+   "points": 13.72
   },
   {
    "week": 5,
@@ -1593,6 +1665,15 @@
    "week": 5,
    "teamId": "10",
    "team": "Smokin Base Brian",
+   "position": "QB",
+   "player": "Drake Maye",
+   "rank": 7,
+   "points": 39.46
+  },
+  {
+   "week": 5,
+   "teamId": "10",
+   "team": "Smokin Base Brian",
    "position": "K",
    "player": "Cameron Dicker",
    "rank": 26,
@@ -1606,6 +1687,15 @@
    "player": "Steelers",
    "rank": 7,
    "points": 1
+  },
+  {
+   "week": 5,
+   "teamId": "1",
+   "team": "True & Living 12th Gospel",
+   "position": "QB",
+   "player": "Joe Burrow",
+   "rank": 5,
+   "points": 24.6
   },
   {
    "week": 5,

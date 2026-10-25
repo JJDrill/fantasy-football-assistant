@@ -169,6 +169,24 @@ Every team starts one kicker and benches none, so the grader compares each week'
 
 **Takeaway:** spend nothing on kickers (suggestion 6 in "This season's rules"). The only kicker challenge (Wk3 "Scobee Snacks") is past.
 
+## League-wide grading: what it says about QBs (2026-10-24, Wks 1-6)
+
+Two views (`league-decisions.md`): starter vs. benched QB on the same team (32 pairs, 7 teams), and every two teams' starting QBs in
+the same week (~60 starters).
+
+1. **Within a team, follow the ranking.** The better-ranked QB won 24 of 32 (75%). Benched QBs are usually well behind the starter, so
+   these gaps are big.
+2. **Across teams, the rankings sort tiers but not close QBs.** Top-5 QBs averaged 22.4, 6-12 averaged 19.9, 13+ averaged 16.6. But the
+   better-ranked QB won only 51% with a 1-3 spot gap, 56% at 4-8 and 59% at 9-15; only a 16+ gap was reliable (9 of 10). So the QB
+   coin-flip window is likely much wider than the placeholder 3, maybe ~8-15. Watch item through ~Wk10.
+3. **Going against the ranking worked 5 of 6 times (+11.8 points),** mostly Rayrays with two close QBs. Too few calls, mostly one
+   manager: luck-sized, no rule change.
+4. **Mahomes is wasted on our bench.** Allen outscored him 6 of 6 (Allen ranked 1-5 every week, 27.5 a game), so benching Mahomes cost
+   nothing, but Mahomes scored 11.5-29.0 a week there: starter points for most teams. That's the strongest case for #19 (Mahomes ↔ Warren).
+5. **Point 2 matters for trades:** a QB8 isn't much worse than a QB4 week to week, so QB-needy teams can get by with a mid-ranked QB, and
+   with Rayrays selling two, Mahomes's price should be pitched on his season points, not his rank. Backs Rule 3 (move fast).
+6. **Wk8:** Queen starts Herbert (ranked ~23-25 most weeks) with Purdy on bye. A plus for us.
+
 ## Recurring mistakes (the part we can fix)
 
 1. **The TE blind spot: Likely never got re-ranked.** Targets by week: Likely 8 / 10 / 5 / 12;

@@ -1,7 +1,7 @@
 // yahoo/grade-league-decisions.test.js
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { snapshotFromRosters, decisionPairs, summarize, streamStarters, crossTeamSummary, WINDOWS } = require('./grade-league-decisions');
+const { snapshotFromRosters, decisionPairs, summarize, crossTeamStarters, crossTeamSummary, WINDOWS } = require('./grade-league-decisions');
 
 // Stand-in for scout-league.js's buildEcrIndex(): positional and FLEX ranks by name.
 function fakeIndex(pos, flex) {
@@ -84,15 +84,18 @@ test('summarize reports how often the ECR favorite won, by group and inside/outs
   });
 });
 
-test('streamStarters lists each team\'s starting DEF and K with its ECR, skipping bench and unplayed', () => {
+test('crossTeamStarters lists each team\'s starting DEF and K with its ECR, skipping bench and unplayed', () => {
   const finalRoster = [
+    { selected_position: 'QB', playerName: 'Josh Allen', position: 'QB', points: 18.3 },
+    { selected_position: 'BN', playerName: 'Patrick Mahomes', position: 'QB', points: 11.5 },
     { selected_position: 'DEF', playerName: 'Detroit', position: 'DEF', teamAbbreviation: 'DET', points: 9 },
     { selected_position: 'K', playerName: 'Jake Bates', position: 'K', points: NaN },
     { selected_position: 'BN', playerName: 'Denver', position: 'DEF', teamAbbreviation: 'DEN', points: 14 },
   ];
   const snapshot = snapshotFromRosters([{ teamId: '2', teamName: 'Us', roster: finalRoster }],
-    fakeIndex({ Detroit: 4, 'Jake Bates': 7, Denver: 2 }, {}));
-  assert.deepEqual(streamStarters({ week: 6, teamId: '2', teamName: 'Us', finalRoster, snapshot }), [
+    fakeIndex({ 'Josh Allen': 1, 'Patrick Mahomes': 9, Detroit: 4, 'Jake Bates': 7, Denver: 2 }, {}));
+  assert.deepEqual(crossTeamStarters({ week: 6, teamId: '2', teamName: 'Us', finalRoster, snapshot }), [
+    { week: 6, teamId: '2', team: 'Us', position: 'QB', player: 'Josh Allen', rank: 1, points: 18.3 },
     { week: 6, teamId: '2', team: 'Us', position: 'DEF', player: 'Detroit', rank: 4, points: 9 },
   ]);
 });

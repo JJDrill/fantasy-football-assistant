@@ -1,7 +1,7 @@
 {
  "week": 4,
  "ecrLastUpdated": "10/04",
- "gradedAt": "2026-10-25T03:15:12.486Z",
+ "gradedAt": "2026-10-25T03:25:55.166Z",
  "pairs": [
   {
    "week": 4,
@@ -1983,6 +1983,15 @@
    "week": 4,
    "teamId": "9",
    "team": "Russini’s Source",
+   "position": "QB",
+   "player": "Jared Goff",
+   "rank": 8,
+   "points": 20.48
+  },
+  {
+   "week": 4,
+   "teamId": "9",
+   "team": "Russini’s Source",
    "position": "K",
    "player": "Tyler Loop",
    "rank": 2,
@@ -1996,6 +2005,15 @@
    "player": "Rams",
    "rank": 10,
    "points": 5
+  },
+  {
+   "week": 4,
+   "teamId": "6",
+   "team": "Man Coverage Brigid",
+   "position": "QB",
+   "player": "Trevor Lawrence",
+   "rank": 4,
+   "points": 13.08
   },
   {
    "week": 4,
@@ -2019,6 +2037,15 @@
    "week": 4,
    "teamId": "3",
    "team": "Knights Who Say Ni",
+   "position": "QB",
+   "player": "Dak Prescott",
+   "rank": 9,
+   "points": 18.1
+  },
+  {
+   "week": 4,
+   "teamId": "3",
+   "team": "Knights Who Say Ni",
    "position": "K",
    "player": "Jake Bates",
    "rank": 11,
@@ -2032,6 +2059,15 @@
    "player": "Bills",
    "rank": 6,
    "points": 4
+  },
+  {
+   "week": 4,
+   "teamId": "5",
+   "team": "Queen of the Damned",
+   "position": "QB",
+   "player": "Brock Purdy",
+   "rank": 7,
+   "points": 19.62
   },
   {
    "week": 4,
@@ -2055,6 +2091,15 @@
    "week": 4,
    "teamId": "7",
    "team": "4th Qtr Maria",
+   "position": "QB",
+   "player": "Jalen Hurts",
+   "rank": 17,
+   "points": 13.52
+  },
+  {
+   "week": 4,
+   "teamId": "7",
+   "team": "4th Qtr Maria",
    "position": "K",
    "player": "Will Reichard",
    "rank": 6,
@@ -2068,6 +2113,15 @@
    "player": "Raiders",
    "rank": 27,
    "points": 1
+  },
+  {
+   "week": 4,
+   "teamId": "4",
+   "team": "THE Lil Unk Rayrays",
+   "position": "QB",
+   "player": "Tyler Shough",
+   "rank": 6,
+   "points": 15.94
   },
   {
    "week": 4,
@@ -2091,6 +2145,15 @@
    "week": 4,
    "teamId": "2",
    "team": "J's Pancakes",
+   "position": "QB",
+   "player": "Josh Allen",
+   "rank": 1,
+   "points": 19.52
+  },
+  {
+   "week": 4,
+   "teamId": "2",
+   "team": "J's Pancakes",
    "position": "K",
    "player": "Evan McPherson",
    "rank": 1,
@@ -2104,6 +2167,15 @@
    "player": "Vikings",
    "rank": 1,
    "points": 8
+  },
+  {
+   "week": 4,
+   "teamId": "8",
+   "team": "Dusty Bottoms",
+   "position": "QB",
+   "player": "Lamar Jackson",
+   "rank": 2,
+   "points": 18.88
   },
   {
    "week": 4,
@@ -2127,6 +2199,15 @@
    "week": 4,
    "teamId": "10",
    "team": "Smokin Base Brian",
+   "position": "QB",
+   "player": "Drake Maye",
+   "rank": 15,
+   "points": 27.16
+  },
+  {
+   "week": 4,
+   "teamId": "10",
+   "team": "Smokin Base Brian",
    "position": "K",
    "player": "Cameron Dicker",
    "rank": 29,
@@ -2140,6 +2221,15 @@
    "player": "Steelers",
    "rank": 3,
    "points": 6
+  },
+  {
+   "week": 4,
+   "teamId": "1",
+   "team": "True & Living 12th Gospel",
+   "position": "QB",
+   "player": "Joe Burrow",
+   "rank": 3,
+   "points": 25.72
   },
   {
    "week": 4,

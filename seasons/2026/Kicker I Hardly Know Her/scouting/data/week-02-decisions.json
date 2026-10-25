@@ -1,7 +1,7 @@
 {
  "week": 2,
  "ecrLastUpdated": "9/20",
- "gradedAt": "2026-10-25T03:14:06.448Z",
+ "gradedAt": "2026-10-25T03:24:56.682Z",
  "pairs": [
   {
    "week": 2,
@@ -1836,6 +1836,15 @@
    "week": 2,
    "teamId": "9",
    "team": "Russini’s Source",
+   "position": "QB",
+   "player": "Jayden Daniels",
+   "rank": 7,
+   "points": 14.74
+  },
+  {
+   "week": 2,
+   "teamId": "9",
+   "team": "Russini’s Source",
    "position": "K",
    "player": "Tyler Loop",
    "rank": 5,
@@ -1849,6 +1858,15 @@
    "player": "Rams",
    "rank": 7,
    "points": 11
+  },
+  {
+   "week": 2,
+   "teamId": "6",
+   "team": "Man Coverage Brigid",
+   "position": "QB",
+   "player": "Trevor Lawrence",
+   "rank": 9,
+   "points": 7.16
   },
   {
    "week": 2,
@@ -1872,6 +1890,15 @@
    "week": 2,
    "teamId": "3",
    "team": "Knights Who Say Ni",
+   "position": "QB",
+   "player": "Dak Prescott",
+   "rank": 4,
+   "points": 29.76
+  },
+  {
+   "week": 2,
+   "teamId": "3",
+   "team": "Knights Who Say Ni",
    "position": "K",
    "player": "Jake Bates",
    "rank": 15,
@@ -1885,6 +1912,15 @@
    "player": "Buccaneers",
    "rank": 2,
    "points": 2
+  },
+  {
+   "week": 2,
+   "teamId": "5",
+   "team": "Queen of the Damned",
+   "position": "QB",
+   "player": "Brock Purdy",
+   "rank": 6,
+   "points": 28.48
   },
   {
    "week": 2,
@@ -1908,6 +1944,15 @@
    "week": 2,
    "teamId": "7",
    "team": "4th Qtr Maria",
+   "position": "QB",
+   "player": "Jalen Hurts",
+   "rank": 3,
+   "points": 18.16
+  },
+  {
+   "week": 2,
+   "teamId": "7",
+   "team": "4th Qtr Maria",
    "position": "K",
    "player": "Will Reichard",
    "rank": 18,
@@ -1921,6 +1966,15 @@
    "player": "Raiders",
    "rank": 24,
    "points": 12
+  },
+  {
+   "week": 2,
+   "teamId": "4",
+   "team": "THE Lil Unk Rayrays",
+   "position": "QB",
+   "player": "Jordan Love",
+   "rank": 16,
+   "points": 13.8
   },
   {
    "week": 2,
@@ -1944,6 +1998,15 @@
    "week": 2,
    "teamId": "2",
    "team": "J's Pancakes",
+   "position": "QB",
+   "player": "Josh Allen",
+   "rank": 1,
+   "points": 40.82
+  },
+  {
+   "week": 2,
+   "teamId": "2",
+   "team": "J's Pancakes",
    "position": "K",
    "player": "Eddy Pineiro",
    "rank": 3,
@@ -1957,6 +2020,15 @@
    "player": "Vikings",
    "rank": 20,
    "points": 17
+  },
+  {
+   "week": 2,
+   "teamId": "8",
+   "team": "Dusty Bottoms",
+   "position": "QB",
+   "player": "Lamar Jackson",
+   "rank": 2,
+   "points": 15.8
   },
   {
    "week": 2,
@@ -1980,6 +2052,15 @@
    "week": 2,
    "teamId": "10",
    "team": "Smokin Base Brian",
+   "position": "QB",
+   "player": "Drake Maye",
+   "rank": 10,
+   "points": 9.02
+  },
+  {
+   "week": 2,
+   "teamId": "10",
+   "team": "Smokin Base Brian",
    "position": "K",
    "player": "Cameron Dicker",
    "rank": 2,
@@ -1993,6 +2074,15 @@
    "player": "Steelers",
    "rank": 13,
    "points": 8
+  },
+  {
+   "week": 2,
+   "teamId": "1",
+   "team": "True & Living 12th Gospel",
+   "position": "QB",
+   "player": "C.J. Stroud",
+   "rank": 21,
+   "points": 17.02
   },
   {
    "week": 2,

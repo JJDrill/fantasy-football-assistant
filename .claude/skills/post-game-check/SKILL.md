@@ -111,9 +111,10 @@ Chains `weekly-recap` and `challenge-tracker`.
      `reference/league-decisions.md` with the new cumulative table, and say what moved: is the
      favorite still ~50% inside the coin-flip windows and well above it outside, and is the TE
      watch item (favorite only ~50% even outside the window) holding? Note any of our own calls
-     that went against ECR outside a window. The summary also prints a **DEF/K** table (added 2026-10-24:
+     that went against ECR outside a window. The summary also prints a **QB/DEF/K** table (added 2026-10-24:
      starters compared across teams, plus average points by ECR tier). Update that section too, and say
-     whether DEF rankings are still near a coin flip (~55%) and kickers still look random. From Wk10,
+     whether DEF rankings are still near a coin flip (~55%), kickers still look random, and close QBs
+     (gap under ~8) are still a coin flip, which would mean widening the QB window. From Wk10,
      if the better-ranked kicker is still winning under ~50%, propose promoting "kickers are
      interchangeable" (`season-lessons.md` suggestion 6) to `methodology/rules.md` in Step 9.
 

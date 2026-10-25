@@ -8,8 +8,8 @@
 // ECR comes from FantasyPros' archived page for the week (`?week=N`), which keeps its final
 // Sunday update, so any completed week can be graded. Each starter in a team's final lineup is
 // paired with every eligible ranked bench player, and the ECR favorite is scored (raw points,
-// and excluding rushing/receiving TDs). DEF and K have no bench to pair with, so their starters
-// are compared across teams instead (crossTeamSummary).
+// and excluding rushing/receiving TDs). QB, DEF and K starters are also compared across teams
+// (crossTeamSummary): DEF and K have no bench to pair with, and only some teams bench a QB.
 //
 // Usage: node yahoo/grade-league-decisions.js <week | first-last> [--out <file>]
 //        node yahoo/grade-league-decisions.js --summary   # every graded week so far
@@ -130,16 +130,17 @@ function summarize(pairs) {
     .sort((a, b) => order.indexOf(a.group) - order.indexOf(b.group) || (b.insideWindow - a.insideWindow));
 }
 
-// DEF and K: every team starts one and benches none, so decisionPairs never sees them. Instead
-// record each team's starter with its ECR, and compare starters across teams (below).
-const STREAM_POSITIONS = ['DEF', 'K'];
+// QB, DEF and K: every team starts one. No one benches a DEF or K, and only some teams bench a QB,
+// so decisionPairs sees little of them. Instead record each team's starter with its ECR, and
+// compare starters across teams (below).
+const CROSS_TEAM_POSITIONS = ['QB', 'DEF', 'K'];
 const TIERS = [[1, 5, '1-5'], [6, 12, '6-12'], [13, Infinity, '13+']];
 
-function streamStarters({ week, teamId, teamName, finalRoster, snapshot }) {
+function crossTeamStarters({ week, teamId, teamName, finalRoster, snapshot }) {
   const snapTeam = snapshot.teams[teamId];
   if (!snapTeam) return [];
   return finalRoster
-    .filter((p) => STREAM_POSITIONS.includes(p.selected_position) && p.playerName && Number.isFinite(p.points))
+    .filter((p) => CROSS_TEAM_POSITIONS.includes(p.selected_position) && p.playerName && Number.isFinite(p.points))
     .map((p) => {
       const snap = snapTeam.players[normalizeName(p.playerName)];
       return { week, teamId, team: teamName, position: p.selected_position, player: p.playerName, rank: snap?.ecr ?? null, points: p.points };
@@ -152,7 +153,7 @@ function streamStarters({ week, teamId, teamName, finalRoster, snapshot }) {
 function crossTeamSummary(starters) {
   const pairs = [];
   const tiers = [];
-  for (const position of STREAM_POSITIONS) {
+  for (const position of CROSS_TEAM_POSITIONS) {
     const rows = starters.filter((s) => s.position === position);
     let n = 0;
     let won = 0;
@@ -178,8 +179,8 @@ function crossTeamSummary(starters) {
   return { pairs, tiers };
 }
 
-function printStreamSummary({ pairs, tiers }) {
-  console.log('\nDEF/K, starters compared across teams (same week):\n');
+function printCrossTeamSummary({ pairs, tiers }) {
+  console.log('\nQB/DEF/K, starters compared across teams (same week):\n');
   console.log('| Position | Pairs | Better-ranked starter scored more |');
   console.log('|---|---|---|');
   for (const r of pairs) console.log(`| ${r.position} | ${r.n} | ${r.favoriteWon} (${r.favoriteWonPct}%) |`);
@@ -235,14 +236,14 @@ async function gradeWeek(context, week, outFile) {
   const pairs = withRosters.flatMap((t) => decisionPairs({
     week, teamId: t.teamId, teamName: t.teamName, finalRoster: t.roster, snapshot, tdsByName,
   }));
-  const starters = withRosters.flatMap((t) => streamStarters({
+  const starters = withRosters.flatMap((t) => crossTeamStarters({
     week, teamId: t.teamId, teamName: t.teamName, finalRoster: t.roster, snapshot,
   }));
 
   const file = outFile ?? decisionsPath(week);
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, JSON.stringify({ week, ecrLastUpdated: ecrByPos.QB.lastUpdated, gradedAt: new Date().toISOString(), pairs, starters }, null, 1));
-  console.log(`Week ${week} (ECR updated ${ecrByPos.QB.lastUpdated}): ${pairs.length} pairs, ${starters.length} DEF/K starters → ${file}`);
+  console.log(`Week ${week} (ECR updated ${ecrByPos.QB.lastUpdated}): ${pairs.length} pairs, ${starters.length} QB/DEF/K starters → ${file}`);
   return { pairs, starters };
 }
 
@@ -254,7 +255,7 @@ async function main() {
     const pairs = data.flatMap((d) => d.pairs);
     console.log(`Weeks graded: ${files.map((f) => Number(f.slice(5, 7))).join(', ') || 'none'}. Pairs: ${pairs.length}.\n`);
     printSummary(summarize(pairs));
-    printStreamSummary(crossTeamSummary(data.flatMap((d) => d.starters ?? [])));
+    printCrossTeamSummary(crossTeamSummary(data.flatMap((d) => d.starters ?? [])));
     return;
   }
   const m = /^(\d+)(?:-(\d+))?$/.exec(args[0] ?? '');
@@ -282,7 +283,7 @@ async function main() {
   }
   console.log('');
   printSummary(summarize(all));
-  printStreamSummary(crossTeamSummary(starters));
+  printCrossTeamSummary(crossTeamSummary(starters));
 }
 
 if (require.main === module) {
@@ -292,4 +293,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { snapshotFromRosters, decisionPairs, summarize, streamStarters, crossTeamSummary, WINDOWS, decisionsPath };
+module.exports = { snapshotFromRosters, decisionPairs, summarize, crossTeamStarters, crossTeamSummary, WINDOWS, decisionsPath };
