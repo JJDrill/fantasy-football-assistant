@@ -62,7 +62,8 @@ already has in mind, use `trade-analyzer` instead.
 
 6. **Check league constraints.**
    Check `seasons/2026/Kicker I Hardly Know Her/reference/2026_League_Rules.pdf` for the trade cap (15/season) and deadline
-   (November 21, 2026) — mention these if the season is getting close to either. Also
+   (**November 21, 2026**; Yahoo's `League_Settings.pdf` says November 28, and the rules say to tell the
+   commissioner about a conflict, so treat Nov 21 as the deadline until it's settled) — mention these if the season is getting close to either. Also
    note that 3 league veto votes can cancel a trade, same as `trade-analyzer` surfaces.
 
 7. **Run trade-analyzer on every shortlisted candidate, without asking.**

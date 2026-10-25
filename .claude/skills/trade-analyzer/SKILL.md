@@ -21,7 +21,8 @@ Evaluates a specific trade: players the user gives up vs. players they receive.
      you can assess positional depth and how the trade affects it. Ask about the other
      team's roster too, if the user knows it or can share it — helpful but not required.
 4. Check `seasons/2026/Kicker I Hardly Know Her/reference/2026_League_Rules.pdf` for trade rules: max 15 trades/season, deadline
-   November 21 2026, and that 3 league veto votes cancel a trade — mention these if
+   November 21 2026 (Yahoo's `League_Settings.pdf` says November 28; the rules say to tell the commissioner
+   about a conflict, so treat Nov 21 as the deadline until it's settled), and that 3 league veto votes cancel a trade — mention these if
    relevant (e.g. if it's getting close to the deadline).
 5. Give a clear verdict: favors user / favors other team / fair, with the main reasoning
    (positional value, depth impact, rest-of-season outlook, bye weeks) using your general
