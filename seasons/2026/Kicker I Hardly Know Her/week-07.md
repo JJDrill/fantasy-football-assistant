@@ -232,6 +232,26 @@ Montgomery Q → **D** (bench; already out-expected, HOU Wk8 bye). Burden: no ta
 | Pickens trade watch (NFL deadline Nov 10) | **Carried over → recheck before each lineup lock** |
 | #19 Mahomes ↔ Warren (Knights) | **Carried over → after Wk7** (now the only live Mahomes idea) |
 
+## Pre-game check #4 (2026-10-24, Sat: Pickens final report and weather)
+
+**Pickens: no injury designation** on DAL's Saturday final report (limited Thu, **full Fri and Sat**). He told reporters the shoulder
+won't be an issue Monday. **Start him; no swap to Tucker.** Game context: PHI rules out WR DeVonta Smith; Barkley is Q. One low-tier
+source says CeeDee Lamb is out with an ankle injury, with no official designation found: **Unverified**. If true, more targets for Pickens.
+
+**Weather recheck (NWS hourly, 2026-10-24):** no flags.
+- KC at SEA (Mahomes, 5:20 pm PT): 54-55°F, wind 2 mph, 32-35% chance of light rain early, then dry. Same as Wednesday.
+- TB at CAR (Fitzgerald): sunny, 63-70°F, wind 10-12 mph NE, under the 15 mph kicker flag.
+
+**Lineup: confirmed, no changes.** Mahomes; Gordon, Brown; Pickens, St. Brown; Likely; W/R/T Burden; K Fitzgerald; DEF Vikings.
+
+| Item | Status |
+|---|---|
+| Pickens shoulder (Q) | **Done:** no designation on the Sat final report; starts |
+| Friday/Saturday injury reports | **Done** |
+| Weather recheck (SEA rain, CAR wind) | **Done:** no flags |
+| Pickens trade watch (NFL deadline Nov 10) | **Carried over → recheck before each lineup lock** |
+| #19 Mahomes ↔ Warren (Knights) | **Carried over → Tue 10/27** (playoff odds: worth +10 to +16 points, `season-lessons.md`) |
+
 ## Other-team analysis
 
 Moved 2026-10-23 to `scouting/week-07.md` (all 9 other teams, graded in `reference/scouting-accuracy.md`).
@@ -248,4 +268,5 @@ Moved 2026-10-23 to `scouting/week-07.md` (all 9 other teams, graded in `referen
 | Chase Brown (game context) | No tag | BAL QB Lamar Jackson (ankle) still not practicing; a backup QB for BAL could mean a more run-heavy CIN script | 2026-10-21 | [CBS Sports](https://www.cbssports.com/nfl/news/nfl-week-7-injury-report-ravens-lamar-jackson-jets-breece-hall/) |
 | George Pickens | Healthy; no tag | Called out for lack of effort after the Wk6 GB loss; Schottenheimer said it's on the staff to involve him more. Trade-candidate talk (ESPN's Solak; Jerry Jones open to it), NFL deadline Nov 10. Media noise, not a role change: 11 targets in Wk6, ECR WR14. Keep starting him; recheck for a trade before each lineup lock | 2026-10-21 | [Yahoo](https://sports.yahoo.com/articles/cowboys-wr-george-pickens-called-003839630.html), [Athlon](https://athlonsports.com/nfl/trending/cowboys-brian-schottenheimer-breaks-silence-on-george-pickens-problem) |
 | George Pickens (Thu) | **Q, shoulder; limited Thu** (DAL's first practice for a MNF game) | Not expected to keep him out (ESPN's Archer); has iced it after the last two games. Two more practices before the Sat final report | 2026-10-22 | [NBC Sports/PFT](https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/george-pickens-limited-in-thursdays-practice-with-shoulder-injury), [RotoWire](https://www.rotowire.com/football/headlines/george-pickens-injury-dealing-with-shoulder-injury-643793) |
+| George Pickens (Sat final) | **No designation**; full practice Fri and Sat | Says the shoulder won't be an issue Mon. CeeDee Lamb reportedly out (ankle), Unverified (low-tier source only) | 2026-10-24 | [PFT](https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/wr-george-pickens-cb-joey-porter-jr-have-no-injury-designation), [Yahoo](https://sports.yahoo.com/articles/cowboys-injuries-tyler-guyton-george-220017533.html), [Blogging the Boys](https://www.bloggingtheboys.com/dallas-cowboys-injuries/223758/injuries-demarvion-overshow-cobie-durant-play-eagles-game), [Hot Takes](https://hottakes.com/articles/george-pickens-clears-injury-report-leaving-cowboys-fans-to-worry-about-632c3f5a-d79b-4173-b3df-67e592bd3ccb) |
 | David Montgomery | Groin, week-to-week; HOU bye Wk8 (Yahoo tag Q → **D** on 10/22) | Likely out Wk7, back Wk9 at the earliest | 2026-10-20 | [RotoBaller](https://www.rotoballer.com/?p=1963820) |
