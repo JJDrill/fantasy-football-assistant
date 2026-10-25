@@ -128,6 +128,28 @@ The grader tests start/sit calls, not trades, so it can't say whether a trade wo
 
 **Suggestion (this season):** `trade-finder` now runs this bench-surplus check weekly on current rosters (step 3).
 
+## League-wide grading: what it says about waivers (2026-10-24, Wks 1-6)
+
+The grader only compares rostered players, so this is indirect. Re-cut by how deep the lower-ranked player was (outside the
+coin-flip windows):
+
+| Lower-ranked player | Beat the higher-ranked one |
+|---|---|
+| RB13-24 | 10 of 23 (43%) |
+| RB25-36 | 13 of 59 (22%) |
+| RB37+ | 4 of 32 (13%) |
+| WR37+ | 24 of 78 (31%) |
+| TE, top 12 or below | 11 of 22 (~50%) |
+
+1. **Waiver RBs are bets on a role, not weekly points.** Most wire RBs rank RB37+ and beat a starter about one week in eight. Add
+   them for upside (a handcuff, a backup one injury from the job), not as a fill-in starter. Fits Rule 3 (RBs are scarce).
+2. **Waiver WRs pop more often.** A deep WR wins about one in three, so a bye-week WR pickup is a fair one-week gamble.
+3. **A streamed TE may do about as well as a ranked one** (same n=22 TE watch item). It matters more to other teams than to us.
+
+**What it can't tell us:** DEF (no pairs: teams roster one), K (5 pairs), and whether our own adds and drops worked. To fill that
+gap, `post-game-check` now logs every add we make in `reference/waiver-log.md` (added 2026-10-24): his rank when added, his
+points, the dropped player's points, and the best player left on the wire. DEF streaming gets its first real test there.
+
 ## Recurring mistakes (the part we can fix)
 
 1. **The TE blind spot: Likely never got re-ranked.** Targets by week: Likely 8 / 10 / 5 / 12;

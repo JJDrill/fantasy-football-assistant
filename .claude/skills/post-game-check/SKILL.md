@@ -90,6 +90,14 @@ Chains `weekly-recap` and `challenge-tracker`.
    - **Matchup grades are retired** (2026-10-11, 7/21). Don't score them.
    - **Trades executed that week:** add a dated "how it played out" line to the entry in
      `trades.md` (both sides' points that week). Don't scan for new trades.
+   - **Waiver log** (added 2026-10-24; league grading can't see roster moves): one row per add we
+     made that week in `reference/waiver-log.md` (DEF and K streams included), from `get-alerts.js`
+     `userTeamTransactions`. Record his ECR when added (from that week's pre-game notes, or archived
+     FantasyPros `?week=N`), whether he started, his points (and excluding TDs), the dropped player's
+     points that week, and the best player we could have had instead (the top scorer at that position
+     who was a free agent at add time, if `get-free-agents.js` notes or the week file show it; else
+     "—"). Grade it like a decision: process first (was it the best add on what we knew?), then
+     outcome. For an earlier add still rostered, update its "Since" column (weeks started, points per start).
    - **Scouting accuracy** (added 2026-10-23, for learning): fill in Actual and Result
      (**hit / miss / push**, with the numbers) for that week's rows in
      `reference/scouting-accuracy.md`, then update its hit-rate-by-type table. Use the
@@ -107,7 +115,7 @@ Chains `weekly-recap` and `challenge-tracker`.
 
 9. **Lessons learned → process updates.** This is the main output of the review. For each
    "Wrong call" cell, and for any pattern now showing in the running records
-   (source accuracy, scouting accuracy, league-wide start/sit grading, health-tier tracker, cross-week audit), ask: **does a rule or skill need
+   (source accuracy, scouting accuracy, waiver log, league-wide start/sit grading, health-tier tracker, cross-week audit), ask: **does a rule or skill need
    to change?** Check it against `methodology/rules.md` (all seasons), "This season's rules" in `season-lessons.md`, and the
    `lineup-advice` / `pre-game-check` / `waiver-targets` skills. For each candidate change, give:
    - the evidence (which weeks or calls, and the sample size),
