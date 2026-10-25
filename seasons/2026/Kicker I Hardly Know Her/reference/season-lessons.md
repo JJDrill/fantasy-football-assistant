@@ -150,6 +150,25 @@ coin-flip windows):
 gap, `post-game-check` now logs every add we make in `reference/waiver-log.md` (added 2026-10-24): his rank when added, his
 points, the dropped player's points, and the best player left on the wire. DEF streaming gets its first real test there.
 
+## League-wide grading: what it says about kickers (2026-10-24, Wks 1-6)
+
+Every team starts one kicker and benches none, so the grader compares each week's 10 starting kickers with each other
+(`league-decisions.md`, DEF and K section).
+
+| Kicker's rank that week | Starters | Avg points |
+|---|---|---|
+| 1-5 | 26 | 8.0 |
+| 6-12 | 20 | 10.9 |
+| 13+ | 13 | 9.2 |
+
+1. **Kicker rankings predicted nothing.** The better-ranked starter outscored the other only 40% of the time (101 of 250 pairs), worse
+   than a coin flip, and the 6-12 tier outscored the top 5. With ~60 kickers that's most likely noise, not low-ranked kickers being better.
+2. **Ours fit the pattern.** We started a top-3-ranked kicker in 5 of 6 weeks (Pineiro, McPherson) and averaged 6.8, below every tier.
+   Not a mistake; the ranking just didn't help.
+3. **Almost no bench data** (4 pairs), since no one carries two kickers, and the finding above says a second one wouldn't help.
+
+**Takeaway:** spend nothing on kickers (suggestion 6 in "This season's rules"). The only kicker challenge (Wk3 "Scobee Snacks") is past.
+
 ## Recurring mistakes (the part we can fix)
 
 1. **The TE blind spot: Likely never got re-ranked.** Targets by week: Likely 8 / 10 / 5 / 12;
@@ -190,6 +209,10 @@ no matchup grades, process vs. outcome, judge on points scored, read the trade m
 5. **Suggestion: manager reads for trade pitches** (applies all-seasons rule 13). Smokin Base Brian: no moves all season, don't
    bother. Man Coverage Brigid: 3 moves, set-and-forget, only a clearly-good-for-them offer. THE Lil Unk Rayrays and Knights: active,
    the best places to pitch. Dusty: rejected trade id 12, don't re-pitch that deal (`trades.md`).
+6. **Suggestion: kickers are interchangeable** (2026-10-24, league grading Wks 1-6: better-ranked kicker won 40%). Start any kicker
+   whose team plays that week, preferring indoors or good weather. No waiver priority, no backup kicker, no lineup time on K matchups;
+   put that roster spot and attention on an RB handcuff instead. **Promotion check ~Wk10:** if the better-ranked kicker still wins
+   under ~50% across 10 weeks of league grading, propose it for `methodology/rules.md` as an all-seasons Provisional rule.
 
 *Superseded 2026-10-11: "usage → Vegas → health → matchup grade" for every position. That made usage
 primary at RB/WR, which the backtest didn't support.*
