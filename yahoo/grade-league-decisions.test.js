@@ -1,7 +1,7 @@
 // yahoo/grade-league-decisions.test.js
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { snapshotFromRosters, decisionPairs, summarize, WINDOWS } = require('./grade-league-decisions');
+const { snapshotFromRosters, decisionPairs, summarize, streamStarters, crossTeamSummary, WINDOWS } = require('./grade-league-decisions');
 
 // Stand-in for scout-league.js's buildEcrIndex(): positional and FLEX ranks by name.
 function fakeIndex(pos, flex) {
@@ -82,4 +82,34 @@ test('summarize reports how often the ECR favorite won, by group and inside/outs
     group: 'TE', insideWindow: false, n: 1, favoriteWon: 1, favoriteWonPct: 100, favoriteWonExTd: 1, favoriteWonExTdPct: 100,
     againstEcr: 1, againstEcrPointsLost: 7,
   });
+});
+
+test('streamStarters lists each team\'s starting DEF and K with its ECR, skipping bench and unplayed', () => {
+  const finalRoster = [
+    { selected_position: 'DEF', playerName: 'Detroit', position: 'DEF', teamAbbreviation: 'DET', points: 9 },
+    { selected_position: 'K', playerName: 'Jake Bates', position: 'K', points: NaN },
+    { selected_position: 'BN', playerName: 'Denver', position: 'DEF', teamAbbreviation: 'DEN', points: 14 },
+  ];
+  const snapshot = snapshotFromRosters([{ teamId: '2', teamName: 'Us', roster: finalRoster }],
+    fakeIndex({ Detroit: 4, 'Jake Bates': 7, Denver: 2 }, {}));
+  assert.deepEqual(streamStarters({ week: 6, teamId: '2', teamName: 'Us', finalRoster, snapshot }), [
+    { week: 6, teamId: '2', team: 'Us', position: 'DEF', player: 'Detroit', rank: 4, points: 9 },
+  ]);
+});
+
+test('crossTeamSummary compares every two teams\' starters at a position in the same week, and averages points by rank tier', () => {
+  const s = (week, position, player, rank, points) => ({ week, position, player, rank, points });
+  const { pairs, tiers } = crossTeamSummary([
+    s(1, 'DEF', 'A', 1, 12), s(1, 'DEF', 'B', 8, 4), s(1, 'DEF', 'C', 20, 15),
+    s(2, 'DEF', 'A', 2, 6), s(2, 'DEF', 'D', 2, 9), // same rank: not a pair
+    s(1, 'K', 'X', 3, 8),
+  ]);
+  // Wk1 DEF: A>B (fav won), A vs C (fav lost), B vs C (fav lost). Wk2: none. K: one starter, no pairs.
+  assert.deepEqual(pairs.find((r) => r.position === 'DEF'), { position: 'DEF', n: 3, favoriteWon: 1, favoriteWonPct: 33 });
+  assert.equal(pairs.find((r) => r.position === 'K'), undefined);
+  assert.deepEqual(tiers.filter((t) => t.position === 'DEF'), [
+    { position: 'DEF', tier: '1-5', n: 3, avgPoints: 9 },
+    { position: 'DEF', tier: '6-12', n: 1, avgPoints: 4 },
+    { position: 'DEF', tier: '13+', n: 1, avgPoints: 15 },
+  ]);
 });

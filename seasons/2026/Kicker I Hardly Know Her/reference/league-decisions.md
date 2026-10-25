@@ -13,7 +13,7 @@ FLEX ~10 from `season-lessons.md`; QB/WR/K/DEF windows are placeholders, since n
 **Caveats:** pairs aren't independent (one starter is compared with several bench players), the windows hold small samples, and the
 Sunday rankings can differ from what a manager saw when he set his lineup.
 
-## Weeks 1-6 (graded 2026-10-23): 521 pairs
+## Weeks 1-6 (graded 2026-10-23, regraded 2026-10-24): 518 pairs
 
 | Group | ECR gap | Pairs | ECR favorite won | Excl. TDs | Calls against ECR | Points lost going against ECR |
 |---|---|---|---|---|---|---|
@@ -22,7 +22,7 @@ Sunday rankings can differ from what a manager saw when he set his lineup.
 | RB | ≤3 (coin-flip window) | 9 | 3 (33%) | 5 (56%) | 3 | 8.2 |
 | RB | >3 | 118 | 90 (76%) | 95 (81%) | 4 | −0.2 |
 | WR | ≤5 (coin-flip window) | 9 | 6 (67%) | 6 (67%) | 6 | 20.4 |
-| WR | >5 | 154 | 105 (68%) | 107 (69%) | 5 | −2.0 |
+| WR | >5 | 151 | 101 (67%) | 102 (68%) | 5 | −2.0 |
 | TE | ≤5 (coin-flip window) | 11 | 5 (45%) | 5 (45%) | 5 | 35.7 |
 | TE | >5 | 22 | 11 (50%) | 12 (55%) | 5 | −24.8 |
 | FLEX | ≤10 (coin-flip window) | 13 | 5 (38%) | 6 (46%) | 6 | −9.3 |
@@ -46,6 +46,40 @@ negative = it paid off.
 4. **Our own calls against ECR were all early.** We went against ECR 10 times, the most in the league, but 9 came in Wks 1-4, before the
    ECR-first rule (2026-10-11). The one since then (Wk6, Miller RB30 over Kamara RB27) was inside the RB window: a coin flip by our rules.
 5. **League-wide, managers went against ECR on 9% of pairs in Wks 1-4 (34/388) and 8% in Wks 5-6 (10/133).**
+
+The 2026-10-24 regrade (to add DEF/K, below) found 3 fewer WR pairs than the first run (Yahoo's past-week rosters came back slightly
+different). Outside the window WR moved from 68% to 67%; nothing else changed.
+
+## DEF and K (Wks 1-6, added 2026-10-24)
+
+Every team starts one DEF and one K and benches none, so the table above can't test them. Instead each week's 10 starters are compared
+with each other: **did the better-ranked starter score more?** Each starter appears in up to 9 pairs, so the real sample is the ~60
+starters, not the pair count. Only rostered starters are in it (mostly well-ranked), not all 32 defenses.
+
+| Position | Pairs | Better-ranked starter scored more |
+|---|---|---|
+| DEF | 249 | 141 (57%) |
+| K | 250 | 101 (40%) |
+
+| Position | ECR tier | Starters | Avg points |
+|---|---|---|---|
+| DEF | 1-5 | 28 | 7.9 |
+| DEF | 6-12 | 19 | 4.6 |
+| DEF | 13+ | 12 | 7.3 |
+| K | 1-5 | 26 | 8.0 |
+| K | 6-12 | 20 | 10.9 |
+| K | 13+ | 13 | 9.2 |
+
+**What it says so far:**
+1. **DEF rankings barely beat a coin flip (57%).** A top-5 defense averaged 7.9 points, but one ranked 13th or worse still averaged 7.3.
+   Small sample (12 starters in the 13+ tier), but so far streaming defenses by ranking hasn't bought much league-wide.
+2. **K rankings did worse than random (40%), and top-5 kickers scored the least.** Kicker scoring looks close to pure noise. Treat
+   any kicker as interchangeable: don't spend waiver priority or roster thought on one.
+3. **Ours:** we started the Vikings Wks 1-5 (ranked 1-20) and the Chiefs in Wk6 (ranked 1); 12.7 points per week, well above every
+   tier's average. That's more likely good fortune than a better method, since the rankings themselves predicted little.
+
+**Watch:** if DEF stays near 55% through ~Wk10, consider holding one solid defense instead of streaming, and test that in the waiver
+log (`waiver-log.md`).
 
 ## Manager habits (Wks 1-6, for trade pitches)
 

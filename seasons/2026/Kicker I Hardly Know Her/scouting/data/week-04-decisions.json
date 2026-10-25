@@ -1,7 +1,7 @@
 {
  "week": 4,
  "ecrLastUpdated": "10/04",
- "gradedAt": "2026-10-24T04:05:33.247Z",
+ "gradedAt": "2026-10-25T03:15:12.486Z",
  "pairs": [
   {
    "week": 4,
@@ -1015,27 +1015,6 @@
    "week": 4,
    "teamId": "4",
    "team": "THE Lil Unk Rayrays",
-   "slot": "WR",
-   "group": "WR",
-   "starter": "Drake London",
-   "starterRank": 6,
-   "starterPts": 12.1,
-   "bench": "Dontayvion Wicks",
-   "benchRank": 29,
-   "benchPts": 3.3,
-   "gap": 23,
-   "window": 5,
-   "insideWindow": false,
-   "managerFollowedEcr": true,
-   "favorite": "Drake London",
-   "favoriteWon": true,
-   "favoriteWonExTd": true,
-   "pointsLostVsFavorite": 0
-  },
-  {
-   "week": 4,
-   "teamId": "4",
-   "team": "THE Lil Unk Rayrays",
    "slot": "TE",
    "group": "TE",
    "starter": "Dalton Schultz",
@@ -1108,27 +1087,6 @@
    "benchRank": 147,
    "benchPts": 1.8,
    "gap": 128,
-   "window": 10,
-   "insideWindow": false,
-   "managerFollowedEcr": true,
-   "favorite": "Aaron Jones Sr.",
-   "favoriteWon": true,
-   "favoriteWonExTd": true,
-   "pointsLostVsFavorite": 0
-  },
-  {
-   "week": 4,
-   "teamId": "4",
-   "team": "THE Lil Unk Rayrays",
-   "slot": "W/R/T",
-   "group": "FLEX",
-   "starter": "Aaron Jones Sr.",
-   "starterRank": 19,
-   "starterPts": 14.8,
-   "bench": "Dontayvion Wicks",
-   "benchRank": 64,
-   "benchPts": 3.3,
-   "gap": 45,
    "window": 10,
    "insideWindow": false,
    "managerFollowedEcr": true,
@@ -2018,6 +1976,188 @@
    "favoriteWon": false,
    "favoriteWonExTd": false,
    "pointsLostVsFavorite": 0
+  }
+ ],
+ "starters": [
+  {
+   "week": 4,
+   "teamId": "9",
+   "team": "Russini’s Source",
+   "position": "K",
+   "player": "Tyler Loop",
+   "rank": 2,
+   "points": 8
+  },
+  {
+   "week": 4,
+   "teamId": "9",
+   "team": "Russini’s Source",
+   "position": "DEF",
+   "player": "Rams",
+   "rank": 10,
+   "points": 5
+  },
+  {
+   "week": 4,
+   "teamId": "6",
+   "team": "Man Coverage Brigid",
+   "position": "K",
+   "player": "Ka'imi Fairbairn",
+   "rank": 4,
+   "points": 16
+  },
+  {
+   "week": 4,
+   "teamId": "6",
+   "team": "Man Coverage Brigid",
+   "position": "DEF",
+   "player": "Eagles",
+   "rank": 16,
+   "points": 5
+  },
+  {
+   "week": 4,
+   "teamId": "3",
+   "team": "Knights Who Say Ni",
+   "position": "K",
+   "player": "Jake Bates",
+   "rank": 11,
+   "points": 18
+  },
+  {
+   "week": 4,
+   "teamId": "3",
+   "team": "Knights Who Say Ni",
+   "position": "DEF",
+   "player": "Bills",
+   "rank": 6,
+   "points": 4
+  },
+  {
+   "week": 4,
+   "teamId": "5",
+   "team": "Queen of the Damned",
+   "position": "K",
+   "player": "Cam Little",
+   "rank": 10,
+   "points": 14
+  },
+  {
+   "week": 4,
+   "teamId": "5",
+   "team": "Queen of the Damned",
+   "position": "DEF",
+   "player": "Ravens",
+   "rank": 2,
+   "points": 6
+  },
+  {
+   "week": 4,
+   "teamId": "7",
+   "team": "4th Qtr Maria",
+   "position": "K",
+   "player": "Will Reichard",
+   "rank": 6,
+   "points": 19
+  },
+  {
+   "week": 4,
+   "teamId": "7",
+   "team": "4th Qtr Maria",
+   "position": "DEF",
+   "player": "Raiders",
+   "rank": 27,
+   "points": 1
+  },
+  {
+   "week": 4,
+   "teamId": "4",
+   "team": "THE Lil Unk Rayrays",
+   "position": "K",
+   "player": "Jason Myers",
+   "rank": 7,
+   "points": 6
+  },
+  {
+   "week": 4,
+   "teamId": "4",
+   "team": "THE Lil Unk Rayrays",
+   "position": "DEF",
+   "player": "Seahawks",
+   "rank": 4,
+   "points": 12
+  },
+  {
+   "week": 4,
+   "teamId": "2",
+   "team": "J's Pancakes",
+   "position": "K",
+   "player": "Evan McPherson",
+   "rank": 1,
+   "points": 5
+  },
+  {
+   "week": 4,
+   "teamId": "2",
+   "team": "J's Pancakes",
+   "position": "DEF",
+   "player": "Vikings",
+   "rank": 1,
+   "points": 8
+  },
+  {
+   "week": 4,
+   "teamId": "8",
+   "team": "Dusty Bottoms",
+   "position": "K",
+   "player": "Brandon Aubrey",
+   "rank": 3,
+   "points": 12
+  },
+  {
+   "week": 4,
+   "teamId": "8",
+   "team": "Dusty Bottoms",
+   "position": "DEF",
+   "player": "Texans",
+   "rank": 8,
+   "points": 4
+  },
+  {
+   "week": 4,
+   "teamId": "10",
+   "team": "Smokin Base Brian",
+   "position": "K",
+   "player": "Cameron Dicker",
+   "rank": 29,
+   "points": 12
+  },
+  {
+   "week": 4,
+   "teamId": "10",
+   "team": "Smokin Base Brian",
+   "position": "DEF",
+   "player": "Steelers",
+   "rank": 3,
+   "points": 6
+  },
+  {
+   "week": 4,
+   "teamId": "1",
+   "team": "True & Living 12th Gospel",
+   "position": "K",
+   "player": "Harrison Mevis",
+   "rank": 16,
+   "points": 7
+  },
+  {
+   "week": 4,
+   "teamId": "1",
+   "team": "True & Living 12th Gospel",
+   "position": "DEF",
+   "player": "49ers",
+   "rank": 18,
+   "points": 3
   }
  ]
 }

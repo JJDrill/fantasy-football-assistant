@@ -111,7 +111,9 @@ Chains `weekly-recap` and `challenge-tracker`.
      `reference/league-decisions.md` with the new cumulative table, and say what moved: is the
      favorite still ~50% inside the coin-flip windows and well above it outside, and is the TE
      watch item (favorite only ~50% even outside the window) holding? Note any of our own calls
-     that went against ECR outside a window.
+     that went against ECR outside a window. The summary also prints a **DEF/K** table (added 2026-10-24:
+     starters compared across teams, plus average points by ECR tier). Update that section too, and say
+     whether DEF rankings are still near a coin flip (~55%) and kickers still look random.
 
 9. **Lessons learned → process updates.** This is the main output of the review. For each
    "Wrong call" cell, and for any pattern now showing in the running records
