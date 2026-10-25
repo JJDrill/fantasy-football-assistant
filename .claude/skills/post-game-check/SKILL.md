@@ -116,7 +116,8 @@ Chains `weekly-recap` and `challenge-tracker`.
      whether DEF rankings are still near a coin flip (~55%), kickers still look random, and close QBs
      (gap under ~8) are still a coin flip, which would mean widening the QB window. Same check for RB
      pairs with a gap of 4-8 (beyond the current ~3 window): from Wk10, if those are still near 50%,
-     propose widening the RB window in "This season's rules" Rule 1 from ~3 to ~8 in Step 9. From Wk10,
+     propose widening the RB window in "This season's rules" Rule 1 from ~3 to ~8 in Step 9. And for WR
+     pairs within ~20 spots: if still near 55% from Wk10, propose a WR window (~10-20) in Rule 1. From Wk10,
      if the better-ranked kicker is still winning under ~50%, propose promoting "kickers are
      interchangeable" (`season-lessons.md` suggestion 6) to `methodology/rules.md` in Step 9.
 

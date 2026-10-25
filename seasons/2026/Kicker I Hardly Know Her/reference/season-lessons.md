@@ -215,6 +215,36 @@ RB37+ beat a starter ~13% of the time). Between two of our RBs within ~8 spots, 
 **Wk10 window check:** if close RB pairs (gap ≤8) are still near 50% after 10 weeks of league grading, propose widening the RB window in
 Rule 1 from ~3 to ~8 (and the QB placeholder likewise, from the QB section above). Until then Rule 1 stays at ~3.
 
+## League-wide grading: what it says about WRs (2026-10-24, Wks 1-6)
+
+Starter vs. benched WR on the same team, 160 pairs (`league-decisions.md`), by ECR gap:
+
+| Gap | Better-ranked WR scored more |
+|---|---|
+| 1-5 | 6 of 9 (67%) |
+| 6-10 | 10 of 14 (71%) |
+| 11-20 | 22 of 45 (49%) |
+| 21-40 | 40 of 59 (68%) |
+| 41+ | 29 of 33 (88%) |
+
+1. **WR ECR is only reliable at big gaps.** The small 1-10 rows are noisy; read them together: within ~20 spots the better-ranked WR
+   won 38 of 68 (56%). Only past ~20 does ECR clearly beat a coin flip, and even a top-12 favorite won just 72%.
+2. **It isn't TDs.** Removing TDs changed the winner in only 8% of WR pairs (RB: 18%). The swings come from targets and big plays,
+   which is also why wire WRs at WR37+ beat a starter about a third of the time (waivers section).
+3. **Going against ECR broke about even, except benching a top-10 WR.** 11 calls league-wide (Russini 4, Gospel 2, Brian 2, Maria 2,
+   Dusty 1; none ours). Maria benching Puka (WR7) in Wk4 cost ~21 points.
+4. **Ours: right calls, noisy results.** We followed ECR every time. Pickens (ranked 7-16 in Wks 1-4) scored 4.3, 7.0, 11.7 and 8.5,
+   and a lower-ranked bench WR (Burden or Tate) beat him in 4 of 5 pairs. That's point 1's noise, not a mistake.
+
+**Takeaway:**
+- **Lineup:** within ~10 WR spots, call it a coin flip and start the **later kickoff** (same tiebreak as FLEX) to keep options open.
+  Never bench a top-10 WR on a hunch.
+- **Trades:** WR rank is fuzzy within ~20 spots, so don't pay much to move up 10 at WR; 15-20 spots at RB is worth far more.
+- **Waivers:** a deep WR is a fair one-week bye fill-in.
+
+**Wk10 window check:** the grader's WR window is a placeholder 5, and Rule 1 has no WR window. If WR pairs within ~20 spots are still
+near 55% after 10 weeks, propose a WR window (~10-20) in Rule 1, alongside the RB and QB checks above.
+
 ## Recurring mistakes (the part we can fix)
 
 1. **The TE blind spot: Likely never got re-ranked.** Targets by week: Likely 8 / 10 / 5 / 12;
