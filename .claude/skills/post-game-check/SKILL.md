@@ -134,6 +134,9 @@ Chains `weekly-recap` and `challenge-tracker`.
      that flips only on **their** swaps is chance. Add the week's row to the "Our games, re-scored" table
      in `season-lessons.md`.
    - **Manager habits:** refresh the "Manager habits" table in `league-decisions.md` from `--summary`.
+   - **Playoff odds** (added 2026-10-24): run `node yahoo/playoff-odds.js <week>` (on its own; it uses the Yahoo
+     profile) and update the odds table in `season-lessons.md` (playoffs section). This records where we stand;
+     pricing a trade with `--boost` is `pre-game-check`'s job.
 
 9. **Lessons learned → process updates.** This is the main output of the review. For each
    "Wrong call" cell, and for any pattern now showing in the running records

@@ -335,6 +335,43 @@ we're a playoff-scoring team, don't rebuild.
 Pitts call in Wk2. It said following ECR would have made us 4-2 and won Wk2 by ~1.3; the grader's version (above) shows 3-3, with
 Wk2 still a loss by 1.0. It also named Thomas Jr. instead of Boston for Brian's Wk3 call.
 
+## League-wide grading: what it says about the playoffs (2026-10-24, through Wk6)
+
+4 of 10 make it (Wks 16-17), 15-game regular season. The grading doesn't measure standings, but it says where playoff odds come from.
+
+**Odds now** (`node yahoo/playoff-odds.js 6`: Wks 7-15 simulated on the real schedule, 20,000 runs; each team's points per game
+regressed halfway to the league average, weekly spread 22; ties broken on points for, which is Yahoo's default and an assumption):
+
+| Team | Record | PF/game | Proj. wins | Playoff odds |
+|---|---|---|---|---|
+| Knights | 4-2 | 128.0 | 9.6 | 88% |
+| Russini | 5-1 | 117.3 | 9.9 | 86% |
+| Brigid | 5-1 | 116.6 | 9.8 | 85% |
+| Queen | 4-2 | 112.0 | 8.6 | 57% |
+| Maria | 3-3 | 113.6 | 7.6 | 36% |
+| **Us** | **2-4** | **115.5** | **6.8** | **21%** |
+| Rayrays | 3-3 | 106.1 | 7.2 | 20% |
+| Dusty | 2-4 | 101.9 | 5.9 | 5% |
+| Gospel | 0-6 | 111.0 | 4.5 | 1% |
+| Brian | 2-4 | 88.6 | 5.1 | 1% |
+
+1. **Lineup calls won't get us in.** Since ECR-first our against-ECR calls cost about zero, and league-wide hunches net to nothing.
+   From here odds come from roster points per week.
+2. **#19 (Mahomes ↔ Warren) is worth about +10 to +16 points of playoff odds.** Warren averages 15.4 half-PPR (median ~11.4; one
+   33.8 game) against our RB2 options at 6-11 (Gordon 11.4, Kamara 9.0, Corum 8.0, Miller 6.0), so +4 to +6 a week: **21% → 32%
+   at +4, 38% at +6.** That's more than the Wk5 rule of thumb (+5 points of odds per +5 a week), because we're on the bubble with 9
+   games left. Mahomes costs us no points (Allen outscored him 6 of 6, and Allen's bye is Wk7), only injury insurance. Nothing else the
+   grading found comes close: DEF/K streaming and 10-spot WR/TE upgrades barely move weekly points.
+3. **Our record understates us:** 6th in odds but 4th in points per game; 3-3 had we followed ECR (see "Our games, re-scored").
+   Queen (57%) has the luckiest record and should drift down; Gospel is a median team at 0-6, so the Wk15 rematch is harder than it looks.
+4. **Maria (Wk7) is the direct rival:** 5th at 36%, one spot above us. Wk7 is close to a two-game swing.
+5. **Don't count on opponents' mistakes:** most set ECR lineups (Manager habits, `league-decisions.md`).
+6. **Playoff weeks are coin flips at the margin.** In Wks 16-17 follow ECR and the tiebreak rules as usual. Don't pick a playoff DEF by
+   its Wk16-17 schedule: DEF ranks barely predict even one week.
+
+**Takeaway:** get #19 done, and soon (Rule 3; Rayrays is selling QBs too). Re-run `playoff-odds.js` after each week; the Wk5 estimate
+in `league-patterns.md` is superseded.
+
 ## Recurring mistakes (the part we can fix)
 
 1. **The TE blind spot: Likely never got re-ranked.** Targets by week: Likely 8 / 10 / 5 / 12;

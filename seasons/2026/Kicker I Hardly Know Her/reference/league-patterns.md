@@ -20,4 +20,5 @@ Source: the league transactions log (100 entries, Aug 25 to Oct 14, scraped via 
 - DEF/K streaming is the bulk of the league's waiver activity.
 - Players we cut came back to hurt us: Stevenson (dropped Sep 30, now RB11 for our Wk6 opponent), Marks (dropped Oct 11, took over HOU's backfield Oct 12). Don't drop a player with a real role after one bad week.
 - Format: 10 teams, **4 make playoffs** (Wks 16-17), 15-game regular season, rolling waivers, 60 adds, 15 trades, 3 votes veto.
-- Rough Monte Carlo (each team's mean = its PF/game regressed halfway to league avg, sd 22, random remaining pairings): **~10% playoff odds at 1-4**. Finishing 8-7 gets in ~40% of the time, 9-6 ~93%. Each +5 pts/week adds about 5 percentage points.
+- Rough Monte Carlo (each team's mean = its PF/game regressed halfway to league avg, sd 22, random remaining pairings): **~10% playoff odds at 1-4**. Finishing 8-7 gets in ~40% of the time, 9-6 ~93%. Each +5 pts/week adds about 5 percentage points. *Superseded 2026-10-24 by `node yahoo/playoff-odds.js <week>` (real schedule; see
+  `season-lessons.md`, playoffs section): 21% at 2-4 after Wk6, and +4 to +6 pts/week is worth +10 to +16 points of odds.*
