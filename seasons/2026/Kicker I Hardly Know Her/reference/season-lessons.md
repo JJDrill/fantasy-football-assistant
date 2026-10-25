@@ -108,6 +108,26 @@ From `grade-league-decisions.js` (521 pairs league-wide, 52 ours; `league-decisi
 (dropping Stevenson and Marks); the grader only sees start/sit.
 **Takeaway:** keep following ECR outside the coin-flip windows. The weekly grading decides whether the TE window widens; check at about Wk10.
 
+## League-wide grading: what it says about trades (2026-10-24, Wks 1-6)
+
+The grader tests start/sit calls, not trades, so it can't say whether a trade worked (that's the "how it played out" lines in
+`trades.md`, too few so far). But the same data says three things about trades:
+
+1. **Rankings are a fair way to value RBs, QBs and WRs in a trade, not TEs.** Outside the coin-flip windows the higher-ranked player
+   outscored the other 74-76% of the time at RB, QB and FLEX and 68% at WR, but only 50% at TE (n=22, still a watch item). So "my RB
+   ranks higher than yours" is solid ground; paying extra for a higher-ranked TE isn't. It backs keeping Pitts rather than selling on
+   his rank, and not paying a premium for another team's TE (e.g. Russini's benched Kelce, TE6).
+2. **Bench surplus shows who can trade.** Wk6 benches with starter-quality players (QB/TE top 12, RB top 24, WR top 30): Knights (Warren
+   RB11, Allgeier RB22, D. Smith WR23), Gospel (Pierce, Downs, Loveland), Russini (Pollard, Metcalf, Kelce), Rayrays (Caleb Williams QB7,
+   Shough QB10), us (Mahomes QB9); Brigid and Maria almost none. The Knights are the only team benching a starting RB, which makes them
+   the right partner for #19. Rayrays has two spare QBs to sell, so Mahomes's value drops the longer #19 waits (backs Rule 3, move fast
+   on QB trades). Brigid and Maria are buyers, not sellers.
+3. **Managers differ in how closely they follow rankings.** Knights and Brigid never started a lower-ranked player in six weeks; Maria
+   and Dusty did several times and lost ~20-24 points doing it. Thin evidence, but: pitch the Knights with rankings, and look for
+   lopsided value with managers who trust their gut over the rankings.
+
+**Suggestion (this season):** `trade-finder` now runs this bench-surplus check weekly on current rosters (step 3).
+
 ## Recurring mistakes (the part we can fix)
 
 1. **The TE blind spot: Likely never got re-ranked.** Targets by week: Likely 8 / 10 / 5 / 12;

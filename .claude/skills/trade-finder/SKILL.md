@@ -27,9 +27,19 @@ already has in mind, use `trade-analyzer` instead.
 3. **Find candidate surplus/need matches.**
    For each other team, compare their bench depth against the user's roster needs, and
    the user's bench depth against their needs, position by position (`QB, WR, WR, RB,
-   RB, TE, W/R/T, K, DEF`, plus bench). Use your general knowledge of the players
-   involved — there's no live projections/rankings data source in this repo, same
-   constraint `waiver-targets` and `trade-analyzer` already work under.
+   RB, TE, W/R/T, K, DEF`, plus bench).
+   - **Bench-surplus check** (added 2026-10-24): run `node yahoo/scout-league.js <week>` (or reuse
+     this week's output from `team-scout`), which gives every team's bench with FantasyPros ECR. List
+     each team's starter-quality bench players (QB/TE top 12, RB top 24, WR top 30). Teams with
+     several are sellers; teams with none are buyers. When two or more teams have spare players
+     at the same position, the price for that position is falling, so a trade we want there
+     should move fast.
+   - **Value by ECR, except at TE.** League grading (`reference/league-decisions.md`) shows ECR
+     separates RB/QB/WR well but TEs only about as well as a coin flip, so don't pay a premium for a
+     higher-ranked TE.
+   - Note each partner's ECR habit from `league-decisions.md` (how often they start a lower-ranked
+     player): pitch ranking-followers with rankings, and look for value with managers who don't
+     follow them.
 
 4. **Filter for plausibility.**
    Discard anything that's a one-sided win for the user. Keep only trades where the

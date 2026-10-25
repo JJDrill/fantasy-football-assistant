@@ -46,3 +46,20 @@ negative = it paid off.
 4. **Our own calls against ECR were all early.** We went against ECR 10 times, the most in the league, but 9 came in Wks 1-4, before the
    ECR-first rule (2026-10-11). The one since then (Wk6, Miller RB30 over Kamara RB27) was inside the RB window: a coin flip by our rules.
 5. **League-wide, managers went against ECR on 9% of pairs in Wks 1-4 (34/388) and 8% in Wks 5-6 (10/133).**
+
+## Manager habits (Wks 1-6, for trade pitches)
+
+How often each manager started the lower-ranked player. "Points lost" is summed over those calls (positive = it cost them).
+
+| Team | Pairs | Calls against ECR | Outside a window | Points lost |
+|---|---|---|---|---|
+| J's Pancakes (us) | 52 | 10 | 4 | 17.9 |
+| Russini's Source | 50 | 8 | 3 | −0.8 |
+| THE Lil Unk Rayrays | 52 | 6 | 3 | −7.6 |
+| Smokin Base Brian | 49 | 6 | 2 | −7.6 |
+| 4th Qtr Maria | 33 | 5 | 3 | 24.3 |
+| Dusty Bottoms | 77 | 5 | 2 | 19.8 |
+| True & Living 12th Gospel | 48 | 3 | 3 | −19.8 |
+| Queen of the Damned | 63 | 1 | 1 | −15.8 |
+| Knights Who Say Ni | 59 | 0 | 0 | 0 |
+| Man Coverage Brigid | 38 | 0 | 0 | 0 |
