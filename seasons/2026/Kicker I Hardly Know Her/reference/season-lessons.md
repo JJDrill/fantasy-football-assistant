@@ -273,6 +273,38 @@ Starter vs. benched TE on the same team, 33 pairs across 7 teams (`league-decisi
 - **Wk10 window check:** this is the existing TE watch item. If non-elite TE pairs are still near 50% at any gap after 10 weeks,
   propose in Rule 1: "TE outside the top 3: treat every call as a toss-up; decide on targets, then health tier."
 
+## League-wide grading: what it says about FLEX (2026-10-24, Wks 1-6)
+
+FLEX starter vs. eligible bench player, 154 pairs (`league-decisions.md`), positions mapped from Sleeper.
+
+| FLEX ECR gap | Better-ranked player scored more |
+|---|---|
+| 1-10 | 5 of 13 (38%) |
+| 11-25 | 14 of 23 (61%) |
+| 26+ | 90 of 118 (76%) |
+
+| RB vs. WR call, FLEX ECR preferred... | ...and he scored more |
+|---|---|
+| the RB | 26 of 36 (72%) |
+| the WR | 16 of 30 (53%) |
+
+1. **The FLEX window is right at ~10, and 11-25 is only a bit better than a coin flip.** Same pattern as every position.
+2. **FLEX ECR overrates WRs against RBs in this league.** In RB-vs-WR pairs the RB outscored the WR 40 of 66 (61%) regardless of rank;
+   RBs started at FLEX averaged 14.8, WRs 10.5. Likely cause (a guess, not shown by the data): this is half-PPR, and FLEX ECR may lean
+   toward full-PPR value, where WR catches count more.
+3. **Not TDs:** removing TDs changed only 13 of 154 results (8%). RBs win on volume.
+4. **Ours:** a WR at FLEX every week (McMillan Wks 1-4, FLEX 31-42; Burden Wks 5-6, FLEX 45-49), 13.7 a game but ~10 median
+   (McMillan's 38.2 in Wk4 lifts it). That fit our roster, since our RB options were RB23-34. Our two against-ECR FLEX calls (McMillan
+   over Stevenson Wks 1-2) netted about even.
+5. **Not tested:** the later-kickoff tiebreak (the grader has no kickoff times). It's about reacting to late news, not scoring, so it stays.
+
+**Takeaway:** in a close FLEX call (within ~25 spots) between an RB and a WR, lean RB, then later kickoff (suggestion 7 in "This
+season's rules"). If FLEX ECR prefers the RB, trust it. For trades, an RB is worth more than an equally ranked WR here: he fills RB2
+and outscores WRs at FLEX. That makes #19 (Mahomes ↔ Warren) better still.
+
+**Wk10 check:** if WR-favored RB-vs-WR pairs are still near 50% and RB-favored ones near 70%, propose making suggestion 7 a Rule. If
+FLEX pairs at 11-25 are still near 60%, consider widening the FLEX window from ~10 toward ~20.
+
 ## Recurring mistakes (the part we can fix)
 
 1. **The TE blind spot: Likely never got re-ranked.** Targets by week: Likely 8 / 10 / 5 / 12;
@@ -319,6 +351,9 @@ no matchup grades, process vs. outcome, judge on points scored, read the trade m
    whose team plays that week, preferring indoors or good weather. No waiver priority, no backup kicker, no lineup time on K matchups;
    put that roster spot and attention on an RB handcuff instead. **Promotion check ~Wk10:** if the better-ranked kicker still wins
    under ~50% across 10 weeks of league grading, propose it for `methodology/rules.md` as an all-seasons Provisional rule.
+7. **Suggestion: in a close FLEX call, lean RB over WR** (2026-10-24, league grading Wks 1-6). Within ~25 FLEX spots, start the RB,
+   then use the later kickoff (Rule 1) as the next tiebreak. FLEX ECR's RB picks won 72% against WRs, its WR picks only 53%, and RBs
+   at FLEX averaged 14.8 vs. 10.5 (66 RB-vs-WR pairs, only 10 of them close). **Wk10 check** in the FLEX section above.
 
 *Superseded 2026-10-11: "usage → Vegas → health → matchup grade" for every position. That made usage
 primary at RB/WR, which the backtest didn't support.*
