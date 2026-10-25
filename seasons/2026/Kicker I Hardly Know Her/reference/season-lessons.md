@@ -187,6 +187,34 @@ the same week (~60 starters).
    with Rayrays selling two, Mahomes's price should be pitched on his season points, not his rank. Backs Rule 3 (move fast).
 6. **Wk8:** Queen starts Herbert (ranked ~23-25 most weeks) with Purdy on bye. A plus for us.
 
+## League-wide grading: what it says about RBs (2026-10-24, Wks 1-6)
+
+Starter vs. benched RB on the same team, 127 pairs (`league-decisions.md`), by ECR gap:
+
+| Gap | Better-ranked RB scored more | Excl. TDs |
+|---|---|---|
+| 1-3 | 3 of 9 (33%) | 5 of 9 (56%) |
+| 4-8 | 7 of 16 (44%) | 8 of 16 (50%) |
+| 9-15 | 13 of 19 (68%) | 14 of 19 (74%) |
+| 16-30 | 50 of 62 (81%) | 53 of 62 (85%) |
+| 31+ | 20 of 21 (95%) | 20 of 21 (95%) |
+
+1. **Big gaps: RB ECR is the most reliable of any position. Close gaps: a coin flip, wider than our window.** Within 8 spots the
+   better-ranked RB won only 10 of 25, so the RB window (Rule 1, ~3) looks closer to ~8. Same pattern as QB (window looks ~8-15) and
+   FLEX (38% within 10, 61% at 11-25, 76% beyond). Small sample (25 pairs): watch item.
+2. **TDs flip RB results often:** 23 of 127 pairs (18%) changed winner once TDs were removed. A close RB call lost to a TD is chance.
+3. **Our RB2 is the real problem.** League-wide only 7 RB calls went against ECR in six weeks, and 4 were ours (Dowdle over Stevenson
+   Wks 1-2, Marks over Stevenson Wk3, Miller over Kamara Wk6; ~9 points net cost). More telling: in those pairs we were choosing among
+   RBs ranked 23-34 almost every week (RB2 starters ~8.7 a game), while a 10-team RB2 is about RB20. Without Jacobs we've picked between
+   backups, and that's a coin flip whichever way we go.
+
+**Takeaway:** fix RB2 with a better RB, not better start/sit calls. #19 (Mahomes ↔ Warren, ~RB11) is the clearest upgrade on the
+roster: 15-20 spots better than what we've started, the size of gap where RB ranks become reliable. Waivers won't fix it (wire RBs at
+RB37+ beat a starter ~13% of the time). Between two of our RBs within ~8 spots, call it a coin flip and break it on usage/role.
+
+**Wk10 window check:** if close RB pairs (gap ≤8) are still near 50% after 10 weeks of league grading, propose widening the RB window in
+Rule 1 from ~3 to ~8 (and the QB placeholder likewise, from the QB section above). Until then Rule 1 stays at ~3.
+
 ## Recurring mistakes (the part we can fix)
 
 1. **The TE blind spot: Likely never got re-ranked.** Targets by week: Likely 8 / 10 / 5 / 12;

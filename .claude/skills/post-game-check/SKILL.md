@@ -114,7 +114,9 @@ Chains `weekly-recap` and `challenge-tracker`.
      that went against ECR outside a window. The summary also prints a **QB/DEF/K** table (added 2026-10-24:
      starters compared across teams, plus average points by ECR tier). Update that section too, and say
      whether DEF rankings are still near a coin flip (~55%), kickers still look random, and close QBs
-     (gap under ~8) are still a coin flip, which would mean widening the QB window. From Wk10,
+     (gap under ~8) are still a coin flip, which would mean widening the QB window. Same check for RB
+     pairs with a gap of 4-8 (beyond the current ~3 window): from Wk10, if those are still near 50%,
+     propose widening the RB window in "This season's rules" Rule 1 from ~3 to ~8 in Step 9. From Wk10,
      if the better-ranked kicker is still winning under ~50%, propose promoting "kickers are
      interchangeable" (`season-lessons.md` suggestion 6) to `methodology/rules.md` in Step 9.
 
