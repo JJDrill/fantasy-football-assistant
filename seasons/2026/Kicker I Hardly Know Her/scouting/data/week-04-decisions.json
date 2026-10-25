@@ -1,7 +1,36 @@
 {
  "week": 4,
  "ecrLastUpdated": "10/04",
- "gradedAt": "2026-10-25T03:41:41.901Z",
+ "gradedAt": "2026-10-25T03:52:33.077Z",
+ "matchup": {
+  "opponent": "Russini’s Source",
+  "ourScore": 103.22,
+  "theirScore": 104.68,
+  "margin": -1.46,
+  "ourSwaps": [
+   {
+    "slot": "TE",
+    "starter": "Kenyon Sadiq",
+    "bench": "Isaiah Likely",
+    "gain": 10.1
+   }
+  ],
+  "theirSwaps": [
+   {
+    "slot": "WR",
+    "starter": "Devaughn Vele",
+    "bench": "Matthew Golden",
+    "gain": -4.2
+   },
+   {
+    "slot": "TE",
+    "starter": "Travis Kelce",
+    "bench": "Dalton Kincaid",
+    "gain": -1.3
+   }
+  ],
+  "ecrMargin": 14.14
+ },
  "pairs": [
   {
    "week": 4,

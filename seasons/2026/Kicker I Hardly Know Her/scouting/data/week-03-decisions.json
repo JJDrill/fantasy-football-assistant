@@ -1,7 +1,42 @@
 {
  "week": 3,
  "ecrLastUpdated": "9/27",
- "gradedAt": "2026-10-25T03:41:10.234Z",
+ "gradedAt": "2026-10-25T03:51:58.523Z",
+ "matchup": {
+  "opponent": "Smokin Base Brian",
+  "ourScore": 83.66,
+  "theirScore": 90.56,
+  "margin": -6.9,
+  "ourSwaps": [
+   {
+    "slot": "RB",
+    "starter": "Woody Marks",
+    "bench": "Rhamondre Stevenson",
+    "gain": -3.3
+   },
+   {
+    "slot": "TE",
+    "starter": "Kyle Pitts Sr.",
+    "bench": "Isaiah Likely",
+    "gain": 1.3
+   }
+  ],
+  "theirSwaps": [
+   {
+    "slot": "WR",
+    "starter": "Jordan Addison",
+    "bench": "Denzel Boston",
+    "gain": -10.4
+   },
+   {
+    "slot": "W/R/T",
+    "starter": "Rome Odunze",
+    "bench": "Brian Thomas Jr.",
+    "gain": -4.6
+   }
+  ],
+  "ecrMargin": 6.1
+ },
  "pairs": [
   {
    "week": 3,

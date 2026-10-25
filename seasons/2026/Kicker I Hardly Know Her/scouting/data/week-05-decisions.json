@@ -1,7 +1,16 @@
 {
  "week": 5,
  "ecrLastUpdated": "10/11",
- "gradedAt": "2026-10-25T03:42:13.005Z",
+ "gradedAt": "2026-10-25T03:53:09.046Z",
+ "matchup": {
+  "opponent": "Knights Who Say Ni",
+  "ourScore": 132.6,
+  "theirScore": 131.04,
+  "margin": 1.56,
+  "ourSwaps": [],
+  "theirSwaps": [],
+  "ecrMargin": 1.56
+ },
  "pairs": [
   {
    "week": 5,

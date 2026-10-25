@@ -1,7 +1,7 @@
 // yahoo/grade-league-decisions.test.js
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { snapshotFromRosters, decisionPairs, summarize, crossTeamStarters, crossTeamSummary, flexRbVsWr, WINDOWS } = require('./grade-league-decisions');
+const { snapshotFromRosters, decisionPairs, summarize, crossTeamStarters, crossTeamSummary, flexRbVsWr, ecrSwaps, matchupReplay, WINDOWS } = require('./grade-league-decisions');
 
 // Stand-in for scout-league.js's buildEcrIndex(): positional and FLEX ranks by name.
 function fakeIndex(pos, flex) {
@@ -135,4 +135,36 @@ test('flexRbVsWr splits RB-vs-WR FLEX pairs by which one ECR preferred, overall 
     { favored: 'RB', n: 2, favoriteWon: 1, favoriteWonPct: 50, closeN: 1, closeWon: 0 },
     { favored: 'WR', n: 2, favoriteWon: 1, favoriteWonPct: 50, closeN: 1, closeWon: 1 },
   ]);
+});
+
+test('ecrSwaps gives each against-ECR starter his best-ranked favored bench player, using each bench player once', () => {
+  const p = (slot, starter, starterRank, starterPts, bench, benchRank, benchPts) => ({
+    teamId: '2', slot, starter, starterRank, starterPts, bench, benchRank, benchPts, managerFollowedEcr: starterRank < benchRank,
+  });
+  const swaps = ecrSwaps([
+    p('RB', 'Dowdle', 32, 5.4, 'Stevenson', 22, 3.1),
+    p('TE', 'Pitts', 19, 1, 'Gadsden', 16, 0),
+    p('TE', 'Pitts', 19, 1, 'Likely', 11, 2.3), // best-ranked favorite wins over Gadsden
+    p('W/R/T', 'McMillan', 42, 12.6, 'Stevenson', 34, 3.1), // Stevenson already used at RB
+    p('QB', 'Allen', 1, 40, 'Mahomes', 12, 29), // followed ECR: no swap
+    { ...p('RB', 'Other', 30, 1, 'X', 20, 9), teamId: '9' }, // other team
+  ], '2');
+  assert.deepEqual(swaps, [
+    { slot: 'RB', starter: 'Dowdle', bench: 'Stevenson', gain: -2.3 },
+    { slot: 'TE', starter: 'Pitts', bench: 'Likely', gain: 1.3 },
+  ]);
+});
+
+test('matchupReplay re-scores both sides as if each had followed ECR', () => {
+  const pairs = [
+    { teamId: '2', slot: 'TE', starter: 'Sadiq', starterRank: 12, starterPts: 0, bench: 'Likely', benchRank: 10, benchPts: 10.1, managerFollowedEcr: false },
+    { teamId: '9', slot: 'TE', starter: 'Kelce', starterRank: 6, starterPts: 2.5, bench: 'Kincaid', benchRank: 5, benchPts: 1.2, managerFollowedEcr: false },
+  ];
+  const pairing = { teamAId: '9', teamAName: 'Russini', teamAScore: 104.68, teamBId: '2', teamBName: 'Us', teamBScore: 103.22 };
+  assert.deepEqual(matchupReplay(pairs, pairing, '2'), {
+    opponent: 'Russini', ourScore: 103.22, theirScore: 104.68, margin: -1.46,
+    ourSwaps: [{ slot: 'TE', starter: 'Sadiq', bench: 'Likely', gain: 10.1 }],
+    theirSwaps: [{ slot: 'TE', starter: 'Kelce', bench: 'Kincaid', gain: -1.3 }],
+    ecrMargin: 9.94,
+  });
 });

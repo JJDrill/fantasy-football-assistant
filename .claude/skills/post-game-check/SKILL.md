@@ -127,6 +127,12 @@ Chains `weekly-recap` and `challenge-tracker`.
      60%, consider widening the FLEX window toward ~20. From Wk10,
      if the better-ranked kicker is still winning under ~50%, propose promoting "kickers are
      interchangeable" (`season-lessons.md` suggestion 6) to `methodology/rules.md` in Step 9.
+   - **Our game, re-scored** (added 2026-10-24): the grader saves `matchup` in that week's decisions
+     file, and `--summary` prints every week as a table: the margin, each side's swaps to the lineup ECR
+     would have set, and the margin if both had followed ECR. Use it in Step 6 (margin analysis): a loss
+     that flips only because of **our** swaps outside a coin-flip window is a "Wrong call, cost us"; one
+     that flips only on **their** swaps is chance. Add the week's row to the "Our games, re-scored" table
+     in `season-lessons.md`.
 
 9. **Lessons learned → process updates.** This is the main output of the review. For each
    "Wrong call" cell, and for any pattern now showing in the running records

@@ -305,6 +305,36 @@ and outscores WRs at FLEX. That makes #19 (Mahomes ↔ Warren) better still.
 **Wk10 check:** if WR-favored RB-vs-WR pairs are still near 50% and RB-favored ones near 70%, propose making suggestion 7 a Rule. If
 FLEX pairs at 11-25 are still near 60%, consider widening the FLEX window from ~10 toward ~20.
 
+## Our games, re-scored as if both teams had followed ECR (2026-10-24, Wks 1-6)
+
+`grade-league-decisions.js` now re-scores our game each week: every starter who was picked over a higher-ranked bench player is
+swapped for his best-ranked such player (each bench player used once), for both teams. Swap value = bench points − starter points.
+
+| Wk | Opponent | Result | Our swaps | Their swaps | If both followed ECR |
+|---|---|---|---|---|---|
+| 1 | Rayrays | L by 14.7 | Stevenson for Dowdle +8.9 | none | L by 5.8 |
+| 2 | Brigid | L by 2.5 | Stevenson for Dowdle −2.3; Likely for Pitts +3.8 | none | L by 1.0 |
+| 3 | Brian | L by 6.9 | Stevenson for Marks −3.3; Likely for Pitts +1.3 | Boston for Addison −10.4; Thomas Jr. for Odunze −4.6 | **W by 6.1** |
+| 4 | Russini | L by 1.5 | Likely for Sadiq +10.1 | Golden for Vele −4.2; Kincaid for Kelce −1.3 | **W by 14.1** |
+| 5 | Knights | W by 1.6 | none | none | W by 1.6 |
+| 6 | Gospel | W by 15.5 | Kamara for Miller +5.9 | Downs for Bernard −13.5 | W by 34.9 |
+
+1. **Our own against-ECR calls cost one game outright: Wk4 (Sadiq over Likely).** Following ECR on our side alone would make us 3-3,
+   not 2-4. Wk2 is closer than it looks: ECR's whole lineup still loses by 1.0, because Stevenson over Dowdle would have cost 2.3.
+   The Wk2 Pitts-for-Likely swap on its own (+3.8) wins it, which is why the Wk1-4 audit counts it as knowable.
+2. **Wk3 was decided by Brian's calls, not ours.** Addison over Boston (inside the WR window) and Odunze over Thomas Jr. gained Brian
+   15.0. With both teams following ECR we win by 6.1. That's chance, so no rule change.
+3. **Rayrays, Brigid and Knights never went against ECR** in their games against us, so those three came down to rosters and scoring.
+4. **Both wins were safe:** Wk5 had no swaps on either side; Wk6 we won by 15.5 even though Gospel's call gained 13.5.
+
+**Takeaway:** the record overstates our problems. One loss was our own early mistake (Wk4, now fixed by ECR-first), one was nearly a
+coin flip (Wk2), one was an opponent's coin flip landing (Wk3), and only Wk1 was a clear loss with clean lineups. That backs Rule 2:
+we're a playoff-scoring team, don't rebuild.
+
+*Correction (2026-10-24):* the first, hand-made version of this table counted one bench player in two slots and flipped only the
+Pitts call in Wk2. It said following ECR would have made us 4-2 and won Wk2 by ~1.3; the grader's version (above) shows 3-3, with
+Wk2 still a loss by 1.0. It also named Thomas Jr. instead of Boston for Brian's Wk3 call.
+
 ## Recurring mistakes (the part we can fix)
 
 1. **The TE blind spot: Likely never got re-ranked.** Targets by week: Likely 8 / 10 / 5 / 12;

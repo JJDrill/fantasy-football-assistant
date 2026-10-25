@@ -21,6 +21,7 @@ const path = require('node:path');
 const { normalizeName } = require('./fantasypros-ecr');
 
 const DATA_DIR = path.join(__dirname, '..', 'seasons', '2026', 'Kicker I Hardly Know Her', 'scouting', 'data');
+const USER_TEAM_ID = '2'; // J's Pancakes
 
 // ECR gap at or under which a call counts as a coin flip. TE/RB/FLEX are the 2026 windows from
 // season-lessons.md; QB/WR/K/DEF have no rule yet, so these are placeholders for the data to test.
@@ -164,6 +165,55 @@ function printFlexRbVsWr(rows) {
   for (const r of rows) console.log(`| the ${r.favored} | ${r.n} | ${r.favoriteWon} (${r.favoriteWonPct}%) | ${r.closeWon} of ${r.closeN} |`);
 }
 
+// The lineup ECR would have set, one swap per against-ECR starter: each takes his best-ranked
+// favored bench player not already used by an earlier slot (a bench player can only start once).
+// gain = bench points − starter points, so positive means following ECR would have scored more.
+function ecrSwaps(pairs, teamId) {
+  const best = new Map();
+  for (const p of pairs) {
+    if (p.teamId !== teamId || p.managerFollowedEcr) continue;
+    const key = `${p.slot}|${p.starter}`;
+    if (!best.has(key)) best.set(key, []);
+    best.get(key).push(p);
+  }
+  const used = new Set();
+  const swaps = [];
+  for (const options of best.values()) {
+    const pick = options.filter((p) => !used.has(p.bench)).sort((a, b) => a.benchRank - b.benchRank)[0];
+    if (!pick) continue;
+    used.add(pick.bench);
+    swaps.push({ slot: pick.slot, starter: pick.starter, bench: pick.bench, gain: round2(pick.benchPts - pick.starterPts) });
+  }
+  return swaps;
+}
+
+// Our game re-scored as if both teams had followed ECR. pairing is getPairings()'s row for our game.
+function matchupReplay(pairs, pairing, teamId) {
+  const weAreA = pairing.teamAId === teamId;
+  const theirId = weAreA ? pairing.teamBId : pairing.teamAId;
+  const ourScore = weAreA ? pairing.teamAScore : pairing.teamBScore;
+  const theirScore = weAreA ? pairing.teamBScore : pairing.teamAScore;
+  const ourSwaps = ecrSwaps(pairs, teamId);
+  const theirSwaps = ecrSwaps(pairs, theirId);
+  const sum = (swaps) => swaps.reduce((t, s) => t + s.gain, 0);
+  const margin = round2(ourScore - theirScore);
+  return {
+    opponent: weAreA ? pairing.teamBName : pairing.teamAName,
+    ourScore, theirScore, margin, ourSwaps, theirSwaps,
+    ecrMargin: round2(margin + sum(ourSwaps) - sum(theirSwaps)),
+  };
+}
+
+function printMatchups(rows) {
+  console.log('\nOur games, re-scored as if both teams had followed ECR:\n');
+  console.log('| Wk | Opponent | Margin | Our swaps | Their swaps | Margin if both followed ECR |');
+  console.log('|---|---|---|---|---|---|');
+  const fmt = (swaps) => swaps.map((s) => `${s.bench} for ${s.starter} ${s.gain > 0 ? '+' : ''}${s.gain}`).join('; ') || 'none';
+  for (const { week, matchup: m } of rows) {
+    console.log(`| ${week} | ${m.opponent} | ${m.margin} | ${fmt(m.ourSwaps)} | ${fmt(m.theirSwaps)} | ${m.ecrMargin} |`);
+  }
+}
+
 // QB, DEF and K: every team starts one. No one benches a DEF or K, and only some teams bench a QB,
 // so decisionPairs sees little of them. Instead record each team's starter with its ECR, and
 // compare starters across teams (below).
@@ -250,12 +300,14 @@ async function gradeWeek(context, week, outFile) {
   const { buildEcrIndex, fetchAllEcr } = require('./scout-league');
   const { getStandings } = require('./pages/standings-page');
   const { getRoster } = require('./pages/roster-page');
+  const { getPairings } = require('./pages/matchup-page');
   const ecrByPos = await fetchAllEcr(week);
   if (ecrByPos.QB.week !== week) throw new Error(`ECR_WEEK_MISMATCH: FantasyPros returned week ${ecrByPos.QB.week} for week ${week}`);
   const tdsByName = await loadTds(week);
 
   const page = await context.newPage();
   const teams = await getStandings(page);
+  const pairing = (await getPairings(page, week)).find((p) => p.teamAId === USER_TEAM_ID || p.teamBId === USER_TEAM_ID);
   // One tab per team, same as get-all-rosters.js, so navigations don't race.
   const rosters = await Promise.all(teams.map(async (t) => {
     const tp = await context.newPage();
@@ -273,12 +325,13 @@ async function gradeWeek(context, week, outFile) {
   const starters = withRosters.flatMap((t) => crossTeamStarters({
     week, teamId: t.teamId, teamName: t.teamName, finalRoster: t.roster, snapshot,
   }));
+  const matchup = pairing ? matchupReplay(pairs, pairing, USER_TEAM_ID) : null;
 
   const file = outFile ?? decisionsPath(week);
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, JSON.stringify({ week, ecrLastUpdated: ecrByPos.QB.lastUpdated, gradedAt: new Date().toISOString(), pairs, starters }, null, 1));
+  fs.writeFileSync(file, JSON.stringify({ week, ecrLastUpdated: ecrByPos.QB.lastUpdated, gradedAt: new Date().toISOString(), matchup, pairs, starters }, null, 1));
   console.log(`Week ${week} (ECR updated ${ecrByPos.QB.lastUpdated}): ${pairs.length} pairs, ${starters.length} QB/DEF/K starters → ${file}`);
-  return { pairs, starters };
+  return { pairs, starters, matchup };
 }
 
 async function main() {
@@ -290,6 +343,7 @@ async function main() {
     console.log(`Weeks graded: ${files.map((f) => Number(f.slice(5, 7))).join(', ') || 'none'}. Pairs: ${pairs.length}.\n`);
     printSummary(summarize(pairs));
     printFlexRbVsWr(flexRbVsWr(pairs));
+    printMatchups(data.filter((d) => d.matchup));
     printCrossTeamSummary(crossTeamSummary(data.flatMap((d) => d.starters ?? [])));
     return;
   }
@@ -307,11 +361,13 @@ async function main() {
   const context = await launchContext();
   const all = [];
   const starters = [];
+  const matchups = [];
   try {
     for (let w = first; w <= last; w++) {
       const r = await gradeWeek(context, w, outFile);
       all.push(...r.pairs);
       starters.push(...r.starters);
+      if (r.matchup) matchups.push({ week: w, matchup: r.matchup });
     }
   } finally {
     await context.close();
@@ -319,6 +375,7 @@ async function main() {
   console.log('');
   printSummary(summarize(all));
   printFlexRbVsWr(flexRbVsWr(all));
+  printMatchups(matchups);
   printCrossTeamSummary(crossTeamSummary(starters));
 }
 
@@ -329,4 +386,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { snapshotFromRosters, decisionPairs, summarize, crossTeamStarters, crossTeamSummary, flexRbVsWr, WINDOWS, decisionsPath };
+module.exports = { snapshotFromRosters, decisionPairs, summarize, crossTeamStarters, crossTeamSummary, flexRbVsWr, ecrSwaps, matchupReplay, WINDOWS, decisionsPath };

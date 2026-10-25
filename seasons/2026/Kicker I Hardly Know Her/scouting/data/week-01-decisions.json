@@ -1,7 +1,23 @@
 {
  "week": 1,
  "ecrLastUpdated": "9/13",
- "gradedAt": "2026-10-25T03:40:11.313Z",
+ "gradedAt": "2026-10-25T03:50:50.059Z",
+ "matchup": {
+  "opponent": "THE Lil Unk Rayrays",
+  "ourScore": 121.16,
+  "theirScore": 135.86,
+  "margin": -14.7,
+  "ourSwaps": [
+   {
+    "slot": "RB",
+    "starter": "Rico Dowdle",
+    "bench": "Rhamondre Stevenson",
+    "gain": 8.9
+   }
+  ],
+  "theirSwaps": [],
+  "ecrMargin": -5.8
+ },
  "pairs": [
   {
    "week": 1,
@@ -2628,7 +2644,7 @@
    "teamId": "2",
    "team": "J's Pancakes",
    "position": "DEF",
-   "player": "Vikings",
+   "player": "Minnesota",
    "rank": 12,
    "points": 8
   },

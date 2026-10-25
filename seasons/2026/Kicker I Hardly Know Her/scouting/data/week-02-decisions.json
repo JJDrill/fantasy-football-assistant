@@ -1,7 +1,29 @@
 {
  "week": 2,
  "ecrLastUpdated": "9/20",
- "gradedAt": "2026-10-25T03:40:40.272Z",
+ "gradedAt": "2026-10-25T03:51:19.749Z",
+ "matchup": {
+  "opponent": "Man Coverage Brigid",
+  "ourScore": 123.92,
+  "theirScore": 126.46,
+  "margin": -2.54,
+  "ourSwaps": [
+   {
+    "slot": "RB",
+    "starter": "Rico Dowdle",
+    "bench": "Rhamondre Stevenson",
+    "gain": -2.3
+   },
+   {
+    "slot": "TE",
+    "starter": "Kyle Pitts Sr.",
+    "bench": "Isaiah Likely",
+    "gain": 3.8
+   }
+  ],
+  "theirSwaps": [],
+  "ecrMargin": -1.04
+ },
  "pairs": [
   {
    "week": 2,

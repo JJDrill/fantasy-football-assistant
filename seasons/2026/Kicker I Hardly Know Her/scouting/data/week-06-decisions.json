@@ -1,7 +1,30 @@
 {
  "week": 6,
  "ecrLastUpdated": "10/18",
- "gradedAt": "2026-10-25T03:42:44.175Z",
+ "gradedAt": "2026-10-25T03:53:45.026Z",
+ "matchup": {
+  "opponent": "True & Living 12th Gospel",
+  "ourScore": 128.2,
+  "theirScore": 112.74,
+  "margin": 15.46,
+  "ourSwaps": [
+   {
+    "slot": "RB",
+    "starter": "Kendre Miller",
+    "bench": "Alvin Kamara",
+    "gain": 5.9
+   }
+  ],
+  "theirSwaps": [
+   {
+    "slot": "WR",
+    "starter": "Germie Bernard",
+    "bench": "Josh Downs",
+    "gain": -13.5
+   }
+  ],
+  "ecrMargin": 34.86
+ },
  "pairs": [
   {
    "week": 6,
