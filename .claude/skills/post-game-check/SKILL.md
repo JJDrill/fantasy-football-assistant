@@ -133,6 +133,7 @@ Chains `weekly-recap` and `challenge-tracker`.
      that flips only because of **our** swaps outside a coin-flip window is a "Wrong call, cost us"; one
      that flips only on **their** swaps is chance. Add the week's row to the "Our games, re-scored" table
      in `season-lessons.md`.
+   - **Manager habits:** refresh the "Manager habits" table in `league-decisions.md` from `--summary`.
 
 9. **Lessons learned → process updates.** This is the main output of the review. For each
    "Wrong call" cell, and for any pattern now showing in the running records

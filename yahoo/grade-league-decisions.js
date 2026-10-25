@@ -204,6 +204,35 @@ function matchupReplay(pairs, pairing, teamId) {
   };
 }
 
+// Per manager across graded weeks: against-ECR swaps (ecrSwaps, so a bench player counts once a
+// week), how many paid off, and the net effect on their score (positive = gained them points).
+// weeks: [{ week, pairs }]. A team counts a game for each week it has any pairs.
+function managerHabits(weeks) {
+  const rows = new Map();
+  for (const { pairs } of weeks) {
+    for (const teamId of new Set(pairs.map((p) => p.teamId))) {
+      const team = pairs.find((p) => p.teamId === teamId).team;
+      if (!rows.has(teamId)) rows.set(teamId, { team, games: 0, calls: 0, paidOff: 0, cost: 0, net: 0 });
+      const r = rows.get(teamId);
+      r.games++;
+      for (const s of ecrSwaps(pairs, teamId)) {
+        r.calls++;
+        if (s.gain < 0) r.paidOff++;
+        if (s.gain > 0) r.cost++;
+        r.net = round2(r.net - s.gain);
+      }
+    }
+  }
+  return [...rows.values()].sort((a, b) => b.calls - a.calls);
+}
+
+function printManagerHabits(rows) {
+  console.log('\nManager habits (calls against ECR, from ecrSwaps):\n');
+  console.log('| Team | Games | Calls against ECR | Paid off / cost | Net effect on their score |');
+  console.log('|---|---|---|---|---|');
+  for (const r of rows) console.log(`| ${r.team} | ${r.games} | ${r.calls} | ${r.paidOff} / ${r.cost} | ${r.net > 0 ? '+' : ''}${r.net} |`);
+}
+
 function printMatchups(rows) {
   console.log('\nOur games, re-scored as if both teams had followed ECR:\n');
   console.log('| Wk | Opponent | Margin | Our swaps | Their swaps | Margin if both followed ECR |');
@@ -344,6 +373,7 @@ async function main() {
     printSummary(summarize(pairs));
     printFlexRbVsWr(flexRbVsWr(pairs));
     printMatchups(data.filter((d) => d.matchup));
+    printManagerHabits(managerHabits(data));
     printCrossTeamSummary(crossTeamSummary(data.flatMap((d) => d.starters ?? [])));
     return;
   }
@@ -386,4 +416,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { snapshotFromRosters, decisionPairs, summarize, crossTeamStarters, crossTeamSummary, flexRbVsWr, ecrSwaps, matchupReplay, WINDOWS, decisionsPath };
+module.exports = { snapshotFromRosters, decisionPairs, summarize, crossTeamStarters, crossTeamSummary, flexRbVsWr, ecrSwaps, matchupReplay, managerHabits, WINDOWS, decisionsPath };

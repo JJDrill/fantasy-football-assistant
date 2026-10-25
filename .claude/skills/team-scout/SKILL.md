@@ -38,7 +38,10 @@ Runs on the **first pre-game check of each week**. Can also be run on its own fo
 4. **Write `seasons/2026/Kicker I Hardly Know Her/scouting/week-NN.md`:**
    - Header: the line "These are scouting reports on other teams, not our lineup", the data sources, and the **summary table**:
      every matchup with each side's forecast, record and average, plus a one-line note per team (lineup flags; anything that changed,
-     like a new injury, a bye problem or a big trade).
+     like a new injury, a bye problem or a big trade). Each team's note also gives its **ECR habit** from
+     `node yahoo/grade-league-decisions.js --summary` ("Manager habits" table, added 2026-10-24), e.g. "vs. ECR: 3 calls, 1 paid off,
+     −22.8". It shows who might leave points on the bench, and how to pitch a trade (rankings for managers who never deviate).
+     Don't read skill into a handful of calls.
    - A full report per team from Step 2, as `## Other-team analysis: <team> (<why it's here>; <date>)`, with:
      - **Season:** record, scores, average, close games, weeks above the median, and a one-line luck read (record vs. scoring).
      - A **lineup table**: slot, player, ECR, season average, last 2 weeks.

@@ -98,19 +98,29 @@ By ECR gap between the two starters (better-ranked scored more):
 **Watch:** if DEF stays near 55% through ~Wk10, consider holding one solid defense instead of streaming, and test that in the waiver
 log (`waiver-log.md`).
 
-## Manager habits (Wks 1-6, for trade pitches)
+## Manager habits (Wks 1-6, regraded 2026-10-24)
 
-How often each manager started the lower-ranked player. "Points lost" is summed over those calls (positive = it cost them).
+How often each manager started someone over a higher-ranked bench player (`--summary` prints this table each week). Each call
+is the swap ECR would have made, with a bench player counted once a week. Net effect is on that team's score: + means going against
+ECR gained them points.
 
-| Team | Pairs | Calls against ECR | Outside a window | Points lost |
+| Team | Games | Calls against ECR | Paid off / cost | Net effect on their score |
 |---|---|---|---|---|
-| J's Pancakes (us) | 52 | 10 | 4 | 17.9 |
-| Russini's Source | 50 | 8 | 3 | −0.8 |
-| THE Lil Unk Rayrays | 52 | 6 | 3 | −7.6 |
-| Smokin Base Brian | 49 | 6 | 2 | −7.6 |
-| 4th Qtr Maria | 33 | 5 | 3 | 24.3 |
-| Dusty Bottoms | 77 | 5 | 2 | 19.8 |
-| True & Living 12th Gospel | 48 | 3 | 3 | −19.8 |
-| Queen of the Damned | 63 | 1 | 1 | −15.8 |
-| Knights Who Say Ni | 59 | 0 | 0 | 0 |
-| Man Coverage Brigid | 38 | 0 | 0 | 0 |
+| Russini's Source | 6 | 7 | 4 / 2 | +0.4 |
+| J's Pancakes (us) | 6 | 7 | 2 / 5 | −24.4 |
+| THE Lil Unk Rayrays | 6 | 5 | 4 / 1 | +14.7 |
+| Smokin Base Brian | 6 | 5 | 3 / 2 | +8.8 |
+| 4th Qtr Maria | 6 | 3 | 1 / 2 | −22.8 |
+| Dusty Bottoms | 6 | 3 | 0 / 3 | −18.2 |
+| True & Living 12th Gospel | 6 | 2 | 2 / 0 | +14.3 |
+| Queen of the Damned | 6 | 1 | 1 / 0 | +15.8 |
+| Man Coverage Brigid | 6 | 0 | — | 0 |
+| Knights Who Say Ni | 6 | 0 | — | 0 |
+
+**What it says:** 33 calls in 60 team-games, netting about −11 league-wide, so going on a hunch neither helps nor hurts on average.
+No one has shown skill: Rayrays's 4 of 5 would happen ~19% of the time by coin flip, and Queen's +15.8 is one call. Our −24.4 is all
+Wks 1-4 (before ECR-first). For opponents: Maria is the likeliest to leave points on her bench; Queen, Brigid and Knights set ECR
+lineups, so expect no help there. Lineup calls rarely separate teams here; rosters and luck do.
+
+*Replaced 2026-10-24:* the first version of this table summed every pair, so one bench player could count against several starters
+(it gave us 10 calls instead of 7, and its numbers disagreed with this one for every manager).

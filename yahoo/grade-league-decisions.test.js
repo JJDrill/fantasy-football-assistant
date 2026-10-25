@@ -1,7 +1,7 @@
 // yahoo/grade-league-decisions.test.js
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { snapshotFromRosters, decisionPairs, summarize, crossTeamStarters, crossTeamSummary, flexRbVsWr, ecrSwaps, matchupReplay, WINDOWS } = require('./grade-league-decisions');
+const { snapshotFromRosters, decisionPairs, summarize, crossTeamStarters, crossTeamSummary, flexRbVsWr, ecrSwaps, matchupReplay, managerHabits, WINDOWS } = require('./grade-league-decisions');
 
 // Stand-in for scout-league.js's buildEcrIndex(): positional and FLEX ranks by name.
 function fakeIndex(pos, flex) {
@@ -167,4 +167,17 @@ test('matchupReplay re-scores both sides as if each had followed ECR', () => {
     theirSwaps: [{ slot: 'TE', starter: 'Kelce', bench: 'Kincaid', gain: -1.3 }],
     ecrMargin: 9.94,
   });
+});
+
+test('managerHabits counts each team\'s against-ECR swaps per week, how many paid off, and the net effect on their score', () => {
+  const p = (teamId, team, starter, starterPts, bench, benchPts, followed = false) =>
+    ({ teamId, team, slot: 'WR', starter, starterRank: followed ? 1 : 30, starterPts, bench, benchRank: 20, benchPts, managerFollowedEcr: followed });
+  const rows = managerHabits([
+    { week: 1, pairs: [p('9', 'Russini', 'Vele', 14, 'Golden', 10), p('6', 'Brigid', 'Lawrence', 20, 'Murray', 5, true)] },
+    { week: 2, pairs: [p('9', 'Russini', 'Metcalf', 3.8, 'Golden', 17.3)] },
+  ]);
+  assert.deepEqual(rows, [
+    { team: 'Russini', games: 2, calls: 2, paidOff: 1, cost: 1, net: -9.5 },
+    { team: 'Brigid', games: 1, calls: 0, paidOff: 0, cost: 0, net: 0 },
+  ]);
 });
